@@ -249,8 +249,14 @@
  						<div class="form-group">
  							<label for="company" class=" form-control-label">Nome do Cliente</label>
  							<input type="text" id="company" placeholder="Insira o nome do Cliente" class="form-control">
- 						</div>
- 						<div class="form-group">
+                         </div>
+                         <div class="col-8">
+ 								<div class="form-group">
+ 									<label for="postal-code" class=" form-control-label">CNPJ</label>
+ 									<input type="text" id="postal-code" placeholder="Insira o CNPJ do Cliente" class="form-control">
+ 								</div>
+                             </div>
+                        <div class="form-group">
  							<label for="vat" class=" form-control-label">Endereço </label>
  							<input type="text" id="vat" placeholder="Insira o Endereço do Cliente" class="form-control">
  						</div>
@@ -275,12 +281,7 @@
  									<input type="text" id="postal-code" placeholder="Insira o País do Cliente" class="form-control">
  								</div>
                              </div>
-                             <div class="col-8">
- 								<div class="form-group">
- 									<label for="postal-code" class=" form-control-label">País</label>
- 									<input type="text" id="postal-code" placeholder="Insira o País do Cliente" class="form-control">
- 								</div>
-                             </div>
+                             
                              <div class="col-8">
  								<div class="form-group">
  									<label for="postal-code" class=" form-control-label">País</label>

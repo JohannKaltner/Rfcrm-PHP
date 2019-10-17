@@ -267,12 +267,15 @@
 			<div class="header-mobile__bar">
 				<div class="container-fluid">
 					<div class="header-mobile-inner">
-						<a class="logo" href="index.html">
-							<img src="<?php echo base_url(); ?>public/images/icon/logo-white.png" alt="CoolAdmin" />
+						<a href="<?php echo base_url();?>index.php/home">
+							<h1 style="color:#2C0CB8"> RF&A </h1>
+							<!-- <img src="<?php echo base_url(); ?>public/images/icon/logo.png" alt="" /> -->
+						</a>
+						
 						</a>
 						<button class="hamburger hamburger--slider" type="button">
-							<span class="hamburger-box">
-								<span class="hamburger-inner"></span>
+							<span class="hamburger-box ">
+								<span class="hamburger-inner" ></span>
 							</span>
 						</button>
 					</div>
@@ -282,7 +285,7 @@
 				<div class="container-fluid">
 					<ul class="navbar-mobile__list list-unstyled">
 						<li class="has-sub">
-							<a class="js-arrow" href="#">
+							<a class="js-arrow" style="color:black;" href="#">
 								<i class="fas fa-tachometer-alt"></i>Dashboard</a>
 							<ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
 								<li>
@@ -465,24 +468,24 @@
 				<div class="account-wrap">
 					<div class="account-item account-item--style2 clearfix js-item-menu">
 						<div class="image">
-							<img src="<?php echo base_url(); ?>public/images/icon/avatar-01.jpg" alt="John Doe" />
+							<img src="<?php echo base_url(); ?>public/images/icon/Untitled-1.jpg" alt="John Doe" />
 						</div>
 						<div class="content">
-							<a class="js-acc-btn" href="#">john doe</a>
+							<a class="js-acc-btn" href="#">Johann Kaltner</a>
 						</div>
 						<div class="account-dropdown js-dropdown">
 							<div class="info clearfix">
 								<div class="image">
 									<a href="#">
-										<img src="<?php echo base_url(); ?>public/images/icon/avatar-01.jpg"
+										<img src="<?php echo base_url(); ?>public/images/icon/Untitled-1.jpg"
 											alt="John Doe" />
 									</a>
 								</div>
 								<div class="content">
 									<h5 class="name">
-										<a href="#">john doe</a>
+										<a href="#">Johann Kaltner</a>
 									</h5>
-									<span class="email">johndoe@example.com</span>
+									<span class="email">johannkaltnerdev@gmail.com</span>
 								</div>
 							</div>
 							<div class="account-dropdown__body">

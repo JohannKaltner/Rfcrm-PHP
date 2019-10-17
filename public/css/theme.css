@@ -1805,15 +1805,15 @@ section {
 }
 
 .header-mobile-2.header-mobile .hamburger .hamburger-box .hamburger-inner {
-    background: #fff;
+    background: rgb(29, 15, 221);
 }
 
 .header-mobile-2.header-mobile .hamburger .hamburger-box .hamburger-inner::before {
-    background: #fff;
+    background: rgb(29, 15, 221);
 }
 
 .header-mobile-2.header-mobile .hamburger .hamburger-box .hamburger-inner::after {
-    background: #fff;
+    background: rgb(29, 15, 221);
 }
 
 .sub-header-mobile-2 {
@@ -1904,7 +1904,7 @@ section {
     line-height: -moz-calc(29/14);
     line-height: calc(29/14);
     font-size: 14px;
-    color: #808080;
+    color: #ffffff;
 }
 
 .mess__footer a, .email__footer a, .notifi__footer a {
