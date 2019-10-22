@@ -55,14 +55,14 @@
 					<div class="header__navbar">
 						<ul class="list-unstyled">
 							<li class="has-sub">
-								<a href="<?php echo base_url(); ?>index.php/home">
+								<a href="<?php echo base_url(); ?>home">
 									<i class="fas fa-home"></i>Dashboard
 									<span class="bot-line"></span>
 								</a>
 
 							</li>
 							<li>
-								<a href="<?php echo base_url(); ?>index.php/C_cliente">
+								<a href="<?php echo base_url(); ?>C_cliente">
 									<i class="fas fa-users"></i>
 									<span class="bot-line"></span>Clientes</a>
 							</li>
@@ -267,7 +267,7 @@
 			<div class="header-mobile__bar">
 				<div class="container-fluid">
 					<div class="header-mobile-inner">
-						<a href="<?php echo base_url();?>index.php/home">
+						<a href="<?php echo base_url();?> home">
 							<h1 style="color:#2C0CB8"> RF&A </h1>
 							<!-- <img src="<?php echo base_url(); ?>public/images/icon/logo.png" alt="" /> -->
 						</a>

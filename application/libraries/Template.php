@@ -13,7 +13,7 @@ class Template {
 			$CI->load->view('template/footer',$data);
 			// Scripts
 			$CI->load->view('template/scripts',$data);
-			$CI->load->view('template/sidebar',$data);
+		//	$CI->load->view('template/sidebar',$data);
             
             
             
