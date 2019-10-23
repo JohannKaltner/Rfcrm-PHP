@@ -100,12 +100,12 @@
  												<i class="zmdi zmdi-view-list-alt"></i>
 											 </button>
 								 			</a>
- 											<a href="<?php echo site_url('C_Cliente/editar'); ?>/<?php echo $linha->cliente_id; ?>">
+ 											<!-- <a href="<?php echo site_url('C_Cliente/editar'); ?>/<?php echo $linha->cliente_id; ?>">
  												<button class="item" data-toggle="tooltip" data-placement="top"
  													title="Editar">
  													<i class="zmdi zmdi-edit"></i>
  												</button>
- 											</a>
+ 											</a> -->
  											<a
  												href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $linha->cliente_id; ?>">
  												<button class="item" data-toggle="tooltip" data-placement="top"

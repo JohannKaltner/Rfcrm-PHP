@@ -92,7 +92,7 @@
  							<input name="cliente_contatos" type="text" id="cliente_contato_telefone" 
  								placeholder="Insira o numero do contato secundario" class="form-control">
  						</div>
-
+					</form>
 				 </div>
 				 
 				 <a href= "cliente/V_cliente">  

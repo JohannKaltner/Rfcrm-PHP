@@ -37,8 +37,9 @@ class C_Cliente extends CI_Controller {
 		redirect("C_cliente");
 	}
 	
-	 public function exibir(){
-	 	$this->template->show('cliente/V_cliente_show');
+	 public function exibir($cliente_id){
+		$data['linha'] = $this->M_cliente->listarRegistro($cliente_id);
+	 	$this->template->show('cliente/V_cliente_show', $data);
 	 }
-
+ 
 }

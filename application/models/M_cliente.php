@@ -46,6 +46,14 @@ class M_cliente extends CI_Model {
     $query = $this->db->query("SELECT * FROM cliente WHERE `cliente_id` = ".$cliente_id );
     return $query->row();
   }
+
+  // function listarRegistro($cliente_id){
+  //   $query = $this->db->query("SELECT * FROM cliente
+  //                              INNER JOIN chamado
+  //                              ON cliente.chamado_idChamado = chamado.chamado_id
+  //                              WHERE `cliente_id` = ".$cliente_id );
+  //   return $query->row();
+  // }
   
   function atualizarRegistro($cliente_id){
     $data = array(
