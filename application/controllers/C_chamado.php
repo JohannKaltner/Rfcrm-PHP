@@ -11,13 +11,20 @@ class C_Chamado extends CI_Controller {
         $this->load->library('pagination');
     }
 
-	public function index($cliente_id)
-	{
-    }
-    
-    public function criarChamado(){
-		$this->M_chamado->novoChamado();
-		redirect("cliente/V_cliente_show/");
+    public function index(){
+ 
 	}
 
-}
+    public function criarChamado(){
+		$this->M_chamado->novoChamado();
+        redirect("C_cliente");
+    }
+    
+    public function exibicao(){
+
+        $data['result'] = $this->M_chamado->listarChamados();
+        
+        $this->template->show('C_cliente/exibir/', $data);	
+    }
+
+    }

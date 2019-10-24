@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class M_cliente extends CI_Model {
+class M_chamado extends CI_Model {
 
 
    public function __construct(){
@@ -22,12 +22,21 @@ class M_cliente extends CI_Model {
         'chamado_duracao'            => $this->input->post('chamado_duracao'),
         'chamado_assunto'            => $this->input->post('chamado_assunto'),
         'chamado_data'               => $this->input->post('chamado_data'),
+        'chamado_hora'               => $this->input->post('chamado_hora'),
         'chamado_atendente_rf'       => $this->input->post('chamado_atendente_rf'),
-        'chaamdo_atendente_cliente'  => $this->input->post('chaamdo_atendente_cliente'),
-        'chamado_obs'                => $this->input->post('chamado_obs')
+        'chamado_atendente_cliente'  => $this->input->post('chamado_atendente_cliente'),
+        'chamado_obs'                => $this->input->post('chamado_obs'),
+        'chamado_telefone'           => $this->input->post('chamado_telefone'),
+        'chamado_email'              => $this->input->post('chamado_email')
       );
       $this->db->insert('chamado', $data);
     }
     
+    function listarChamados(){
+        $query = $this->db->query('SELECT * FROM chamado');
+        return $query->result();
+      }
   
+
+      
     }
