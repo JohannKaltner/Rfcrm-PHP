@@ -19,7 +19,8 @@ class M_chamado extends CI_Model {
   function novoChamado(){
       $data = array(
         'chamado_atividade'          => $this->input->post('chamado_atividade'),
-        'chamado_duracao'            => $this->input->post('chamado_duracao'),
+        'chamado_duracao_minuto'            => $this->input->post('chamado_duracao_minuto'),
+        'chamado_duracao_hora'            => $this->input->post('chamado_duracao_hora'),
         'chamado_assunto'            => $this->input->post('chamado_assunto'),
         'chamado_data'               => $this->input->post('chamado_data'),
         'chamado_hora'               => $this->input->post('chamado_hora'),

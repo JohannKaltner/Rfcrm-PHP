@@ -176,47 +176,60 @@
  									<div class="tab-pane fade" id="nav-profile" role="tabpanel"
  										aria-labelledby="nav-profile-tab">
 
-
- 										<div class="col-lg-12" style="text-align: right;">
+ 										<div class="col-lg-12" style="text-align: right; padding: 10px 10px 10px 10px">
  											<button type="button" class="btn btn-primary" data-toggle="modal"
  												data-target="#exampleModal">
  												Registrar Chamado
  											</button>
  										</div>
+ 										<div style="align-items: center;">
+ 											<div class="col-md-12">
 
- 
+ 												<?php foreach($chamados as $chamado) { ?>
+ 												<div class="card"
+ 													href="<?php echo base_url();?>C_cliente/exibir/<?php echo $chamado->chamado_id;?>"
+ 													style="border: 1px solid grey; box-shadow: 2px 1px 1px 2px #62A8ED; ">
+ 													<div class="col-md-6">
+ 														<div class="card-body">
+ 															<p> o(a) cliente <b> <?php echo $chamado->cliente_nome; ?> <Br>
+ 																</b> entrou em contato por
+ 																<b>Ligação</b>.<br>
+ 																Dia <b> <?php echo $chamado->chamado_data; ?> </b> as
+ 																<b><?php echo $chamado->chamado_hora; ?></b> com
+ 																duração de
+ 																<b><?php echo $chamado->chamado_duracao_hora; ?> Horas
+ 																	e <?php echo $chamado->chamado_duracao_minuto; ?>
+ 																	Minutos </b>
+ 																minutos.<br>
 
+ 																<b>Atividade:</b> <i>
+ 																	<?php echo $chamado->chamado_atividade; ?>
+ 																	</b><span>
 
-									 <div class="col-md-4"  >
-										 <div class="row">
-											<?php foreach($chamados as $chamado) { ?>
-												<div class="card" href="<?php echo base_url();?>C_cliente/exibir/<?php echo $chamado->chamado_id;?>" 
- 													style="border: 1px solid grey; box-shadow: 2px 1px 1px 2px #62A8ED;">
- 													<div class="card-body">
- 														<p> o(a) cliente <i> <?php echo $chamado->cliente_nome; ?> </i> entrou em contato por
- 															<i>Ligação</i>,
- 															Dia <i> <?php echo $chamado->chamado_data; ?> </i> as <i><?php echo $chamado->chamado_hora; ?></i> com duração de
- 															<i><?php echo $chamado->chamado_duracao; ?> </i>
- 															minutos.
- 															<br>
- 															<b>Atividade:</b> <i> <?php echo $chamado->chamado_atividade; ?> </i>
- 															<br>
- 															<b>Assunto:</b> <i><?php echo $chamado->chamado_assunto; ?></i>
- 															<br>
- 															<b>Quem Entrou em contato:</b> <i><?php echo $chamado->chamado_atendente_cliente; ?> </i>
- 															<br>
- 															<b>Pelo numero:</b> <i><?php echo $chamado->chamado_telefone; ?> </i>
- 															<br>
- 															<b>Quem Atendeu:</b> <i><?php echo $chamado->chamado_atendente_rf; ?> </i>
- 															<br>
- 														</p>
-													 </div>
-											 </div>
-											 </div>
-											 </div>
+ 																		<b>Assunto:</b>
+ 																		<i><?php echo $chamado->chamado_assunto; ?></i>
+ 																	</span> <br>
+ 																	<b>Quem Entrou em contato:</b>
+ 																	<i><?php echo $chamado->chamado_atendente_cliente; ?>
+ 																	</i>
 
-											 <?php } ?>
-											</div>
+ 																	<b>Pelo numero:</b>
+ 																	<i><?php echo $chamado->chamado_telefone; ?> </i>
+ 																	<br>
+ 																	<b>Quem Atendeu:</b>
+ 																	<i><?php echo $chamado->chamado_atendente_rf; ?>
+ 																	</i>
+
+ 															</p>
+ 														</div>
+ 													</div>
+ 												</div>
+
+ 											</div>
+ 											<?php } ?>
+
+ 										</div>
+
  									</div>
 
  									<!-- fim tab 2  -->
@@ -374,13 +387,15 @@
 
 
  			</div>
- 			<!-- fim div tabs -->
  		</div>
+
+ 		<!-- fim div tabs -->
+ 	</div>
  	</div>
  	</div>
  	</div>
  </section>
- 
+
  <!-- Modal -->
  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
  	aria-hidden="true">
@@ -397,79 +412,80 @@
  						<h3 class="text-center title-2">Registrar um novo Chamado</h3>
  					</div>
  					<hr>
- 					<form method='post' action=<?php echo base_url("C_Chamado/criarChamado"); ?> class="form-horizontal">
- 					 
-						 
-						 <div class="row form-group">
+ 					<form method='post' action=<?php echo base_url("C_Chamado/criarChamado"); ?>
+ 						class="form-horizontal">
+
+
+ 						<div class="row form-group">
  							<div class="col col-md-12">
  								<div class="input-group">
  									<div class="input-group-addon">
  										<i class="fa fa-list-alt"></i>
  									</div>
- 									<input type="text" id="chamado_atividade" name="chamado_atividade" placeholder="Atividade"
- 										class="form-control">
-								 </div>
-								 <small>Atividade exercida no Chamado (Duvidas, Informações) </small>
+ 									<input type="text" id="chamado_atividade" name="chamado_atividade"
+ 										placeholder="Atividade" class="form-control">
+ 								</div>
+ 								<small>Atividade exercida no Chamado (Duvidas, Informações) </small>
  							</div>
-						 </div>
-						 
-						 <div class="row form-group">
+ 						</div>
+
+ 						<div class="row form-group">
  							<div class="col col-md-12">
  								<div class="input-group">
  									<div class="input-group-addon">
  										<i class="fa fa-tag"></i>
  									</div>
- 									<input type="text" id="chamado_assunto" name="chamado_assunto" placeholder="Assunto"
- 										class="form-control">
-								 </div>
-								 <small>Qual o motivo do contato? </small>
+ 									<input type="text" id="chamado_assunto" name="chamado_assunto"
+ 										placeholder="Assunto" class="form-control">
+ 								</div>
+ 								<small>Qual o motivo do contato? </small>
  							</div>
-						 </div>
-						 
-						
-							<div class="row form-group">
-								<div class="col col-md-12">
- 
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-arrow-circle-right"></i>
-										</div>
-										<input type="text" id="chamado_atendente_cliente" name="chamado_atendente_cliente" placeholder="Quem entrou em contato?"
-										 class="form-control">
-										</div>
-										<small> Quem falava em nome da empresa?</small>										 
- 							</div>
-						 </div>
-						 
-						 <div class="row form-group">
+ 						</div>
+
+
+ 						<div class="row form-group">
  							<div class="col col-md-12">
- 
+
+ 								<div class="input-group">
+ 									<div class="input-group-addon">
+ 										<i class="fa fa-arrow-circle-right"></i>
+ 									</div>
+ 									<input type="text" id="chamado_atendente_cliente" name="chamado_atendente_cliente"
+ 										placeholder="Quem entrou em contato?" class="form-control">
+ 								</div>
+ 								<small> Quem falava em nome da empresa?</small>
+ 							</div>
+ 						</div>
+
+ 						<div class="row form-group">
+ 							<div class="col col-md-12">
+
  								<div class="input-group">
  									<div class="input-group-addon">
  										<i class="fa  fa-arrow-circle-left"></i>
  									</div>
-									 <input type="text" id="chamado_atendente_rf" name="chamado_atendente_rf" placeholder="Quem atendeu ao chamado?"
-									 class="form-control">
-									</div>
-								 <small> Quem da RF&A atendeu? </small>  
-								</div>
-							</div>
-							
-							<div class="row form-group">
+ 									<input type="text" id="chamado_atendente_rf" name="chamado_atendente_rf"
+ 										placeholder="Quem atendeu ao chamado?" class="form-control">
+ 								</div>
+ 								<small> Quem da RF&A atendeu? </small>
+ 							</div>
+ 						</div>
+
+ 						<div class="row form-group">
  							<div class="col col-md-12">
  								<div class="input-group">
  									<div class="input-group-addon">
  										<i class="fa  fa-microphone"></i>
  									</div>
-									 <input type="text" id="chamado_duracao" name="chamado_duracao" placeholder="Duração do Contato"
-									 class="form-control">
-									</div>
-									<small> Quanto tempo durou o contato? em minutos...</small>										 
+ 									<input type="text" id="chamado_duracao" name="chamado_duracao"
+ 										placeholder="Duração do Contato" class="form-control">
+ 								</div>
+ 								<small> Quanto tempo durou o contato? em minutos...</small>
 
-								</div>
-							</div>
+ 							</div>
+ 						</div>
 
-						 <div class="row form-group">
+ 						<div class="row form-group">
  							<div class="col col-md-6">
  								<div class="input-group">
  									<div class="input-group-addon">
@@ -477,70 +493,70 @@
  									</div>
  									<input type="text" id="chamado_data" name="chamado_data" placeholder="Data"
  										class="form-control">
-								 </div>
-								 <small>Dia em que foi feito o contato</small>										 
+ 								</div>
+ 								<small>Dia em que foi feito o contato</small>
 
-							 </div>
-							 
-							 <div class="col col-md-6">
+ 							</div>
+
+ 							<div class="col col-md-6">
  								<div class="input-group">
  									<div class="input-group-addon">
  										<i class="fa fa-clock-o"></i>
  									</div>
  									<input type="text" id="chamado_hora" name="chamado_hora" placeholder="Hora"
  										class="form-control">
-								 </div>
-								 <small> Hora do contato</small>										 
+ 								</div>
+ 								<small> Hora do contato</small>
 
  							</div>
-						 </div>
+ 						</div>
 
 
-						 <div class="row form-group">
+ 						<div class="row form-group">
  							<div class="col col-md-12">
  								<div class="input-group">
  									<div class="input-group-addon">
  										<i class="fa  fa-arrow-circle-left"></i>
  									</div>
-									 <input type="text" id="chamado_duracao" name="chamado_duracao" placeholder="Email Usado"
-									 class="form-control">
-									</div>
-									<small> Opcional</small>										 
-								</div>
-							</div>
-						 
-					 
-						 <div class="row form-group">
+ 									<input type="text" id="chamado_duracao" name="chamado_duracao"
+ 										placeholder="Email Usado" class="form-control">
+ 								</div>
+ 								<small> Opcional</small>
+ 							</div>
+ 						</div>
+
+
+ 						<div class="row form-group">
  							<div class="col col-md-12">
  								<div class="input-group">
  									<div class="input-group-addon">
  										<i class="fa fa-phone"></i>
  									</div>
- 									<input type="text" id="chamado_telefone" name="chamado_telefone" placeholder="Telefone usado"
- 										class="form-control">
-								 </div>
-								 <small>Opcional</small>										 
+ 									<input type="text" id="chamado_telefone" name="chamado_telefone"
+ 										placeholder="Telefone usado" class="form-control">
+ 								</div>
+ 								<small>Opcional</small>
 
  							</div>
-						 </div>
-						 
-						 <div class="row form-group">
-							 <div class="col col-md-12">
-								 <div class="input-group">
-									 <div class="input-group-addon">
-										 <i class="fa fa-user"></i>
-										</div>
-										<input type="text" id="chamado_obs" name="chamado_obs" placeholder="Oberservações"
-										class="form-control">
-									</div>
-									<small> Maximo de 200 caracteres, Opcional</small>										 
+ 						</div>
+
+ 						<div class="row form-group">
+ 							<div class="col col-md-12">
+ 								<div class="input-group">
+ 									<div class="input-group-addon">
+ 										<i class="fa fa-user"></i>
+ 									</div>
+ 									<input type="text" id="chamado_obs" name="chamado_obs" placeholder="Oberservações"
+ 										class="form-control">
+ 								</div>
+ 								<small> Maximo de 200 caracteres, Opcional</small>
  							</div>
  						</div>
- 						 
-						 <div class="modal-footer">
-							 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							 <button type="submit" value="save" class="btn btn-primary">Save changes</button>
-						 </div>
+
+ 						<div class="modal-footer">
+ 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+ 							<button type="submit" value="save" class="btn btn-primary">Save changes</button>
+ 						</div>
  					</form>
  				</div>
  			</div>
