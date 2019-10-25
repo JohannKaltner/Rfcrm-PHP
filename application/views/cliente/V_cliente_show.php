@@ -184,61 +184,39 @@
  											</button>
  										</div>
 
+ 
 
 
-
- 										<div class="row">
-
- 											<!-- <div class="col-md-4" >
- 										<div class="card" style="border: 1px solid grey; box-shadow: 2px 1px 1px 2px #62A8ED;">
- 											<div class="card-body">
- 												<p> o(a) cliente <i> Giselle </i> entrou em contato por <i>Ligação</i>,
- 													Dia <i>10/08/2019 </i> as <i>15:30</i> com duração de <i>120 </i>
- 													minutos.
- 													<br>
- 													<b>Atividade:</b> <i><?php echo $linha->chamado_atividade;?></i>
- 													<br>
- 													<b>Assunto:</b> <i><?php echo $linha->chamado_assunto;?></i>
- 													<br>
- 													<b>Quem Entrou em contato:</b> <i><?php echo $linha->chamado_atendente_cliente; ?> </i>
- 													<br>
- 													<b>Pelo numero:</b> <i><?php echo $row->chamado_numero; ?> </i>
- 													<br>
- 													<b>Quem Atendeu:</b> <i><?php echo $linha->chamado_atendente_rf; ?> </i>
- 													<br>
-
- 												</p>
- 											</div>
- 										</div>
- 									</div> -->
-
-									 <?php foreach($result as $linha) { ?>
- 											<div class="col-md-4">
- 												<div class="card"
+									 <div class="col-md-4"  >
+										 <div class="row">
+											<?php foreach($chamados as $chamado) { ?>
+												<div class="card" href="<?php echo base_url();?>C_cliente/exibir/<?php echo $chamado->chamado_id;?>" 
  													style="border: 1px solid grey; box-shadow: 2px 1px 1px 2px #62A8ED;">
  													<div class="card-body">
- 														<p> o(a) cliente <i> Giselle </i> entrou em contato por
+ 														<p> o(a) cliente <i> <?php echo $chamado->cliente_nome; ?> </i> entrou em contato por
  															<i>Ligação</i>,
- 															Dia <i>10/08/2019 </i> as <i>15:30</i> com duração de
- 															<i>120 </i>
+ 															Dia <i> <?php echo $chamado->chamado_data; ?> </i> as <i><?php echo $chamado->chamado_hora; ?></i> com duração de
+ 															<i><?php echo $chamado->chamado_duracao; ?> </i>
  															minutos.
  															<br>
- 															<b>Atividade:</b> <i> <?php echo $linha->chamado_atividade; ?> </i>
+ 															<b>Atividade:</b> <i> <?php echo $chamado->chamado_atividade; ?> </i>
  															<br>
- 															<b>Assunto:</b> <i><?php echo $linha->chamado_assunto; ?></i>
+ 															<b>Assunto:</b> <i><?php echo $chamado->chamado_assunto; ?></i>
  															<br>
- 															<b>Quem Entrou em contato:</b> <i><?php echo $linha->chamado_atendete_cliente; ?> </i>
+ 															<b>Quem Entrou em contato:</b> <i><?php echo $chamado->chamado_atendente_cliente; ?> </i>
  															<br>
- 															<b>Pelo numero:</b> <i><?php echo $linha->chamado_telefone; ?> </i>
+ 															<b>Pelo numero:</b> <i><?php echo $chamado->chamado_telefone; ?> </i>
  															<br>
- 															<b>Quem Atendeu:</b> <i><?php echo $linha->chamado_atendente_rf; ?> </i>
+ 															<b>Quem Atendeu:</b> <i><?php echo $chamado->chamado_atendente_rf; ?> </i>
  															<br>
  														</p>
- 													</div>
- 												</div>
+													 </div>
 											 </div>
+											 </div>
+											 </div>
+
+											 <?php } ?>
 											</div>
-											<?php } ?>
  									</div>
 
  									<!-- fim tab 2  -->

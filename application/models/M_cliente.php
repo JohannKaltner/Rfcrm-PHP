@@ -76,8 +76,32 @@ class M_cliente extends CI_Model {
       $this->db->update('cliente', $data);
             
     }
+
+    public function listarChamadosCliente($cliente_id){
+      // chamado.chamado_atividade,
+      // chamado.chamado_assunto,
+      // chamado.chamado_duracao,
+      // chamado.chamado_data,
+      // chamado.chamado_hora,
+      // chamado.chamado_atendente_rf,
+      // chamado.chamado_atendente_cliente,
+      // chamado.chamado_telefone,
+      // chamado.chamado_email,
+      // chamado.chamado_obs,
+      // chamado.chamado_id_cliente
+      // chamado.chamado_id,
+      $this->db->select('*');
+      $this->db->from('chamado');
+      $this->db->join('cliente', 'cliente.chamado_idChamado = chamado.chamado_id_cliente');
+      $this->db->where('cliente.cliente_id', $cliente_id);
+      $this->db->order_by('chamado_data');
+      $query = $this->db->get();
+      return $query->result();
+    }
+
+
     
-      function ApagarRegistro($cliente_id)
+      function apagarRegistro($cliente_id)
       {
           $this->db->where('cliente_id', $cliente_id);
           $this->db->delete('cliente');
