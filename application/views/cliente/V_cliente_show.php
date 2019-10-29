@@ -412,8 +412,7 @@
  						<h3 class="text-center title-2">Registrar um novo Chamado</h3>
  					</div>
  					<hr>
- 					<form method='post' action=<?php echo base_url("C_Chamado/criarChamado"); ?>
- 						class="form-horizontal">
+ 					<form method='post' action="<?php echo base_url('C_Chamado/criarChamado/'.$chamado->chamado_id);?>" class="form-horizontal">
 
 
  						<div class="row form-group">
@@ -472,18 +471,31 @@
  						</div>
 
  						<div class="row form-group">
- 							<div class="col col-md-12">
+ 							<div class="col col-md-6">
  								<div class="input-group">
  									<div class="input-group-addon">
  										<i class="fa  fa-microphone"></i>
  									</div>
- 									<input type="text" id="chamado_duracao" name="chamado_duracao"
- 										placeholder="Duração do Contato" class="form-control">
+ 									<input type="text" id="chamado_duracao" name="chamado_duracao_hora"
+ 										placeholder="Duração  /Horas" class="form-control">
  								</div>
- 								<small> Quanto tempo durou o contato? em minutos...</small>
+ 								<small> Quanto tempo durou o contato? Horas...</small>
 
  							</div>
- 						</div>
+ 						 
+						 
+ 							<div class="col col-md-6">
+ 								<div class="input-group">
+ 									<div class="input-group-addon">
+ 										<i class="fa  fa-microphone"></i>
+ 									</div>
+ 									<input type="text" id="chamado_duracao" name="chamado_duracao_minuto"
+ 										placeholder="Duração /Minutos" class="form-control">
+ 								</div>
+ 								<small>e quantos minutos?  ...</small>
+
+ 							</div>
+ 						</div>									
 
  						<div class="row form-group">
  							<div class="col col-md-6">
@@ -518,7 +530,7 @@
  									<div class="input-group-addon">
  										<i class="fa  fa-arrow-circle-left"></i>
  									</div>
- 									<input type="text" id="chamado_duracao" name="chamado_duracao"
+ 									<input type="text" id="chamado_duracao" name="chamado_email"
  										placeholder="Email Usado" class="form-control">
  								</div>
  								<small> Opcional</small>

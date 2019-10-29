@@ -5,7 +5,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_chamado extends CI_Model {
 
-
    public function __construct(){
      parent::__construct();
      $this->load->database();
@@ -15,12 +14,11 @@ class M_chamado extends CI_Model {
     
    }
 
-
   function novoChamado(){
       $data = array(
         'chamado_atividade'          => $this->input->post('chamado_atividade'),
-        'chamado_duracao_minuto'            => $this->input->post('chamado_duracao_minuto'),
-        'chamado_duracao_hora'            => $this->input->post('chamado_duracao_hora'),
+        'chamado_duracao_minuto'     => $this->input->post('chamado_duracao_minuto'),
+        'chamado_duracao_hora'       => $this->input->post('chamado_duracao_hora'),
         'chamado_assunto'            => $this->input->post('chamado_assunto'),
         'chamado_data'               => $this->input->post('chamado_data'),
         'chamado_hora'               => $this->input->post('chamado_hora'),
@@ -28,16 +26,15 @@ class M_chamado extends CI_Model {
         'chamado_atendente_cliente'  => $this->input->post('chamado_atendente_cliente'),
         'chamado_obs'                => $this->input->post('chamado_obs'),
         'chamado_telefone'           => $this->input->post('chamado_telefone'),
-        'chamado_email'              => $this->input->post('chamado_email')
+        'chamado_email'              => $this->input->post('chamado_email'),
+        // 'chamado_id_cliente'         => $this->$cliente_id,
       );
       $this->db->insert('chamado', $data);
     }
     
-    function listarChamados(){
-        $query = $this->db->query('SELECT * FROM chamado');
+    function listarChamados($cliente_id){
+        $query = $this->db->query('SELECT * FROM chamado WHERE chamado_id_cliente ='.$cliente_id);
         return $query->result();
       }
   
-
-      
     }

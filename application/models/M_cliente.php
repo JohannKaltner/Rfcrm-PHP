@@ -77,7 +77,7 @@ class M_cliente extends CI_Model {
             
     }
 
-    public function listarChamadosCliente($cliente_id){
+    public function listarChamadosCliente(  ){
       // chamado.chamado_atividade,
       // chamado.chamado_assunto,
       // chamado.chamado_duracao,
@@ -92,8 +92,8 @@ class M_cliente extends CI_Model {
       // chamado.chamado_id,
       $this->db->select('*');
       $this->db->from('chamado');
-      $this->db->join('cliente', 'cliente.chamado_idChamado = chamado.chamado_id_cliente');
-      $this->db->where('cliente.cliente_id', $cliente_id);
+      $this->db->join('cliente', 'cliente.cliente_id = chamado.chamado_id_cliente');
+      $this->db->where('cliente.cliente_id = chamado.chamado_id_cliente');
       $this->db->order_by('chamado_data');
       $query = $this->db->get();
       return $query->result();
