@@ -1,4 +1,3 @@
- </section>
  <section class="p-t-20">
  	<div class="page-content--bgf7">
  		<div class="container">
@@ -13,22 +12,36 @@
 
  										<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
  											href="#nav-home" role="tab" aria-controls="nav-home"
- 											aria-selected="true">ÁREA DO
+ 											aria-selected="true" style="color:#2C0CB8;">ÁREA DO
  											CLIENTE</a>
 
  										<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
  											href="#nav-profile" role="tab" aria-controls="nav-profile"
- 											aria-selected="false">CHAMADOS</a>
+ 											aria-selected="false" style="color:#2C0CB8;">CHAMADOS</a>
 
- 										<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+ 										<!-- <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
  											href="#nav-contact" role="tab" aria-controls="nav-contact"
  											aria-selected="false">INFORMAÇÕES
- 											FINANCEIRAS</a>
+ 											FINANCEIRAS</a> -->
 
  										<a class="nav-item nav-link" id="nav-edit-tab" data-toggle="tab"
  											href="#nav-edit" role="tab" aria-controls="nav-edit"
- 											aria-selected="false">EDITAR REGISTRO</a>
- 									</div>
+ 											aria-selected="false" style="color:#2C0CB8;">EDITAR REGISTRO</a>
+									 </div>
+									 
+										<div class="col-lg-12" style="text-align: right; padding: 10px 10px 10px 10px">
+ 											<button type="button" class="btn btn-light" data-toggle="modal"
+ 												data-target="#exampleModal" style="color:#2C0CB8; font-size:18px; border: 1px solid #2C0CB8; border-radius: 10px">
+ 												Registrar Chamado
+ 											</button>
+										 </div>
+										 
+										 <div class="col-lg-12" style="text-align: right; padding: 10px 10px 10px 10px">
+ 											<button type="button" class="btn btn-light" data-toggle="modal"
+ 												data-target="#exampleModal" style="color:#2C0CB8; font-size:18px; border: 1px solid #2C0CB8; border-radius: 10px">
+ 											Editar Cliente
+ 											</button>
+ 										</div>
  								</nav>
 
  								<!-- inicio div tabs -->
@@ -36,13 +49,11 @@
  									<!-- inicio tab 1 -->
  									<div class="tab-pane fade show active" id="nav-home" role="tabpanel"
  										aria-labelledby="nav-home-tab">
-
- 										<div>
-
+ 										<div>  
  											<form method='post'
  												action="<?php echo site_url('C_Cliente/exibir')?>/<?php echo $linha->cliente_id; ?>">
-
  												<div class="form-group">
+												    <i class="fa fa-pencil"> </i> 
  													<label for="nome" class=" form-control-label">Nome do
  														Cliente</label>
  													<input type="text" id="company"
@@ -176,22 +187,18 @@
  									<div class="tab-pane fade" id="nav-profile" role="tabpanel"
  										aria-labelledby="nav-profile-tab">
 
- 										<div class="col-lg-12" style="text-align: right; padding: 10px 10px 10px 10px">
- 											<button type="button" class="btn btn-primary" data-toggle="modal"
- 												data-target="#exampleModal">
- 												Registrar Chamado
- 											</button>
- 										</div>
+ 										
  										<div style="align-items: center;">
  											<div class="col-md-12">
 
  												<?php foreach($chamados as $chamado) { ?>
  												<div class="card"
  													href="<?php echo base_url();?>C_cliente/exibir/<?php echo $chamado->chamado_id;?>"
- 													style="border: 1px solid grey; box-shadow: 2px 1px 1px 2px #62A8ED; ">
+ 													style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;"; ">
  													<div class="col-md-6">
  														<div class="card-body">
- 															<p> o(a) cliente <b> <?php echo $chamado->cliente_nome; ?> <Br>
+ 															<p> o(a) cliente <b> <?php echo $chamado->cliente_nome; ?>
+ 																	<Br>
  																</b> entrou em contato por
  																<b>Ligação</b>.<br>
  																Dia <b> <?php echo $chamado->chamado_data; ?> </b> as
@@ -224,21 +231,20 @@
  														</div>
  													</div>
  												</div>
+												 <?php } ?>
 
  											</div>
- 											<?php } ?>
 
  										</div>
 
  									</div>
-
+												 </div>
  									<!-- fim tab 2  -->
 
 
  									<!-- inicio tab 4 -->
  									<div class="tab-pane fade" id="nav-edit" role="tabpanel"
  										aria-labelledby="nav-edit-tab">
-
  										<div>
  											<form method='post'
  												action="<?php echo site_url('C_cliente/update')?>/<?php echo $linha->cliente_id; ?>">
@@ -371,29 +377,13 @@
  								</div>
 
  							</div>
-
  						</div>
  					</div> <!-- fim tab 4 -->
-
- 					<!-- inicio tab 3 -->
-
- 					<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-
- 					</div>
- 					<!-- fim tab 3 -->
-
  				</div>
-
-
-
  			</div>
  		</div>
+ 	</div>
 
- 		<!-- fim div tabs -->
- 	</div>
- 	</div>
- 	</div>
- 	</div>
  </section>
 
  <!-- Modal -->
@@ -412,7 +402,8 @@
  						<h3 class="text-center title-2">Registrar um novo Chamado</h3>
  					</div>
  					<hr>
- 					<form method='post' action="<?php echo base_url('C_Chamado/criarChamado/'.$chamado->chamado_id);?>" class="form-horizontal">
+ 					<form method='post' action="<?php echo base_url('C_Chamado/criarChamado/'.$chamado->chamado_id);?>"
+ 						class="form-horizontal">
 
 
  						<div class="row form-group">
@@ -482,8 +473,8 @@
  								<small> Quanto tempo durou o contato? Horas...</small>
 
  							</div>
- 						 
-						 
+
+
  							<div class="col col-md-6">
  								<div class="input-group">
  									<div class="input-group-addon">
@@ -492,10 +483,10 @@
  									<input type="text" id="chamado_duracao" name="chamado_duracao_minuto"
  										placeholder="Duração /Minutos" class="form-control">
  								</div>
- 								<small>e quantos minutos?  ...</small>
+ 								<small>e quantos minutos? ...</small>
 
  							</div>
- 						</div>									
+ 						</div>
 
  						<div class="row form-group">
  							<div class="col col-md-6">

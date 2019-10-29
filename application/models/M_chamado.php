@@ -33,8 +33,11 @@ class M_chamado extends CI_Model {
     }
     
     function listarChamados($cliente_id){
-        $query = $this->db->query('SELECT * FROM chamado WHERE chamado_id_cliente ='.$cliente_id);
-        return $query->result();
+        $query = $this->db->query('SELECT * FROM chamado');
+                return $query->result();
+        // WHERE chamado_id_cliente ='.$cliente_id
       }
-  
+
+    
+
     }
