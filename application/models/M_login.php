@@ -9,8 +9,6 @@ class M_Login extends CI_Model {
     $this->load->database();
   }
 
-
-
   public function index()
   {
 
@@ -20,7 +18,7 @@ class M_Login extends CI_Model {
         $this->db->select('*');
         $this->db->from('usuario');
         $this->db->where('usuario_email', $usuario_email);
-        $this->db->where('usuario_senha', md5($usuario_senha));
+        $this->db->where('usuario_senha', $usuario_senha);
         $query = $this->db->get();
         return $query;
 

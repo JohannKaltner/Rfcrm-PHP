@@ -217,7 +217,7 @@
 										alt="John Doe" />
 								</div>
 								<div class="content">
-									<a class="js-acc-btn" href="#">Johann Kaltner</a>
+									<a class="js-acc-btn" href="<?php echo site_url('C_login')?>"> <?php echo $this->session->userdata('usuario_nome');?> </a>
 								</div>
 								<div class="account-dropdown js-dropdown">
 									<div class="info clearfix">
@@ -229,26 +229,26 @@
 										</div>
 										<div class="content">
 											<h5 class="name">
-												<a href="#">Johann Kaltner</a>
+												<a href="#"><?php echo $this->session->userdata('usuario_nome');?> </a>
 											</h5>
-											<span class="email">johannkaltnerdev@gmail.com</span>
+											<span class="email"><?php echo $this->session->userdata('usuario_email');?> </span>
 										</div>
 									</div>
 									<div class="account-dropdown__body">
-										<div class="account-dropdown__item">
+										<!-- <div class="account-dropdown__item">
 											<a href="#">
 												<i class="zmdi zmdi-account"></i>Conta</a>
-										</div>
-										<div class="account-dropdown__item">
+										</div> -->
+										<!-- <div class="account-dropdown__item">
 											<a href="#">
 												<i class="zmdi zmdi-settings"></i>Configurações de Conta</a>
-										</div>
+										</div> -->
 										<div class="account-dropdown__item">
 											<a href="#">
 												<i class="zmdi zmdi-money-box"></i>Historico de Clientes</a>
                                         </div>
                                         <div class="account-dropdown__footer">
-										<a href="#">
+										<a href="<?php echo site_url('C_login/logout');?>">
 											<i class="zmdi zmdi-power"></i>Sair</a>
 									</div>
 									</div>
@@ -503,7 +503,7 @@
 								</div>
 							</div>
 							<div class="account-dropdown__footer">
-								<a href="#">
+							<a href="<?php echo site_url('C_login/logout');?>">
 									<i class="zmdi zmdi-power"></i>Logout</a>
 							</div>
 						</div>

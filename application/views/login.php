@@ -39,32 +39,32 @@
                 <div class="login-img">
                     <img class="img-fluid" src="<?php echo base_url();?>public2/assets/images/login-img.png" />
                 </div>
-                <form class="form-auth-small" action="<?php echo base_url();?>/home">
+                <form class="form-auth-small" action="<?php echo site_url('C_login/auth');?>" method="post" >
                     <div class="mb-3">
-                        <p class="lead" style="color:black">Acesse sua conta!</p>
+                        <h3> Bem-vindo ao novo CRM da RF&A!<h3>
+                        <p class="lead" style="color:black">Acesse sua conta...</p>
                     </div>
                     <div class="form-group">
-                        <label for="signin-email" class="control-label sr-only">Email</label>
-                        <input type="usuario_email" class="form-control round" id="signin-email"  placeholder="Seu email...">
+                        <label for="email" class="control-label sr-only">Email</label>
+                        <input type="email" name="usuario_email" class="form-control round" id="usuario_email"  placeholder="Seu email..."  required autofocus>
                     </div>
                     <div class="form-group">
-                        <label for="signin-password" class="control-label sr-only">Password</label>
-                        <input type="usuario_senha" class="form-control round" id="signin-password"  placeholder="seu codigo de acesso...">
+                        <label for="senha" class="control-label sr-only">Password</label>
+                        <input type="password" name="usuario_senha" class="form-control round" id="usuario_senha"  placeholder="seu codigo de acesso..." required>
                     </div>
-                    <!-- <div class="form-group clearfix">
-                        <label class="fancy-checkbox element-left">
-                            <input type="checkbox">
-                            <span>Lembrar Senha</span>
-                        </label>								
-                    </div> -->
+                    
                     <button  type="submit" class="btn btn-primary btn-round btn-block">LOGIN</button>
                     
-                    <br><br>
+                    
+                    <br>
+                    <?php echo $this->session->flashdata('msg');?>
+                    <br>
                     <div class="mt-4">
                         <span class="helper-text m-b-10"><i class="fa fa-lock"></i> <a href="page-forgot-password.html">Esqueceu a senha?</a></span>
-                        <span style="color:#0069D9">Não tem uma conta?Entre em contato com o comercial instantaneamente..</span>
+                        <span style="color:#0069D9">Caso não tenha uma conta, entre em contato com o desenvolvedor!</span>
                     </div>
                 </form>
+
                 <div class="pattern">
                     <span class="red"></span>
                     <span class="indigo"></span>

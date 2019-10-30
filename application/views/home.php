@@ -40,7 +40,7 @@
 					<h1 class="title-4">Bem-vindo,
 
 						<!-- ADICIONAR O GET_NOME / GET_SETOR-->
-						<span>Johann!</span>
+						<span><?php echo $this->session->userdata('usuario_nome');?>!</span>
 					</h1>
 					<hr class="line-seprate">
 				</div>
