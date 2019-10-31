@@ -46,13 +46,9 @@
  							<button class="au-btn au-btn-icon mb-1 au-btn--green au-btn--small" data-toggle="modal"
  								data-target="#largeModal">
  								<i class="zmdi zmdi-plus"></i> Novo</button>
- 							<div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
- 								<select class="js-select2" name="type">
- 									<option selected="selected">Exportar</option>
- 									<option value="">PDF</option>
- 									<option value="">EXCEL</option>
- 								</select>
- 								<div class="dropDownSelect2"></div>
+							 
+											<a href="<?php echo base_url('C_export/csv')?>"> <button  type="button" class="btn btn-success">
+                                            <i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</button> </a>
  							</div>
  						</div>
 					 </div>
@@ -108,12 +104,16 @@
  											</a> -->
  											<a
  												href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $linha->cliente_id; ?>">
- 												<button class="item" data-toggle="tooltip" data-placement="top"
+												<a> 
+												 <button class="item" data-toggle="tooltip" data-placement="top"
  													title="Deletar">
  													<i class="zmdi zmdi-delete"></i>
  												</button>
- 											</a>
-
+											 </a>
+											 <div style="padding-left: 10px 10px 10px 10px">
+											 <button  type="button" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-file-pdf-o"></i></button>	</div>
+								 </a>
  											<!-- <script type="text/javascript">
  												var url = "<?php echo base_url();?>";
 
@@ -186,11 +186,7 @@
  				</div>
 
  			</div>
- 			<div class="alert alert-primary alert-dismissible fade show" role="alert">
- 				<small> Aperte a tecla F11 para melhor visualização do conteúdo</small>
- 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
- 					<span aria-hidden="true">&times;</span>
- 			</div>
+ 		 
  		</div>
 
  	</div>

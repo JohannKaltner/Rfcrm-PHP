@@ -11,9 +11,9 @@ class C_Cliente extends CI_Controller {
 		$this->load->library('pagination');
     }
 
-	public function index( ){
+	public function index($cliente_id=''){
 		$data['result'] = $this->M_cliente->listarRegistros();
-		$data['chamados'] = $this->M_cliente->listarChamadosCliente( );
+		$data['chamados'] = $this->M_cliente->listarChamadosCliente($cliente_id);
 		$this->template->show('cliente/V_cliente', $data);	
 	}
 	
@@ -44,5 +44,8 @@ class C_Cliente extends CI_Controller {
 
 		 $this->template->show('cliente/V_cliente_show', $data);
 	 }
+
+
+ 
  
 }
