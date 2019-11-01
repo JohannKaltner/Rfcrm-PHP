@@ -1,4 +1,5 @@
  <!-- DATA TABLE-->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
 
  <section class="p-t-20">
@@ -6,54 +7,83 @@
  		<div class="container">
  			<div class="row">
  				<div class="col-md-12">
-				 <div class="au-breadcrumb-left">
-							<span class="au-breadcrumb-span">Você está aqui:</span>
-							<ul class="list-unstyled list-inline au-breadcrumb__list">
-								<li class="list-inline-item active">
-								<a href="<?php echo base_url();?>Home">Home</a>
-								</li>
-								<li class="list-inline-item seprate">
-									<span>/</span>
-								</li>
-								<li class="list-inline-item">Dashboard</li>
-							</ul>
-						</div>
-						<br>
-					 <div>
-					 <h3 class="title-5 m-b-35">CLIENTES</h3>
- 					<div class="table-data__tool">
- 						<div class="table-data__tool-left">
- 							<div class="rs-select2--light rs-select2--md">
- 								<select class="js-select2" name="property">
- 									<option selected="selected">Ordenar por</option>
- 									<option value="">Relevância</option>
- 									<option value="">Recentes</option>
- 								</select>
- 								<div class="dropDownSelect2"></div>
+ 					<div class="au-breadcrumb-left">
+ 						<span class="au-breadcrumb-span">Você está aqui:</span>
+ 						<ul class="list-unstyled list-inline au-breadcrumb__list">
+ 							<li class="list-inline-item active">
+ 								<a href="<?php echo base_url();?>Home">Home</a>
+ 							</li>
+ 							<li class="list-inline-item seprate">
+ 								<span>/</span>
+ 							</li>
+ 							<li class="list-inline-item">Dashboard</li>
+ 						</ul>
+ 					</div>
+ 					<br>
+ 					<div>
+ 						<h3 class="title-5 m-b-35">CLIENTES</h3>
+ 						<div class="table-data__tool">
+ 							<div class="table-data__tool-left">
+ 								<div class="rs-select2--light rs-select2--md">
+ 									<select class="js-select2" name="property">
+ 										<option selected="selected">Ordenar por</option>
+ 										<option value="">Relevância</option>
+ 										<option value="">Recentes</option>
+ 									</select>
+ 									<div class="dropDownSelect2"></div>
+ 								</div>
+ 								<div class="rs-select2--light rs-select2--sm">
+ 									<select class="js-select2" name="time">
+ 										<option selected="selected">Data</option>
+ 										<!-- <option value="">Esse Mês</option> -->
+ 										<option value="">Até 3 Meses</option>
+ 									</select>
+ 									<div class="dropDownSelect2"></div>
+ 								</div>
+ 								<button class="au-btn-filter">
+ 									<i class="zmdi zmdi-filter-list"></i>filters</button>
  							</div>
- 							<div class="rs-select2--light rs-select2--sm">
- 								<select class="js-select2" name="time">
- 									<option selected="selected">Data</option>
- 									<!-- <option value="">Esse Mês</option> -->
- 									<option value="">Até 3 Meses</option>
- 								</select>
- 								<div class="dropDownSelect2"></div>
+ 							<div class="table-data__tool-right">
+ 								<button class="au-btn au-btn-icon mb-1 au-btn--green au-btn--small" data-toggle="modal"
+ 									data-target="#largeModal">
+ 									<i class="zmdi zmdi-plus"></i> Novo</button>
+
+ 								<a href="<?php echo base_url('C_export/csv')?>"> <button type="button"
+ 										class="btn btn-success" data-toggle="tooltip" data-placement="top"
+ 										title="Recarregue a pagina após o download do arquivo.">
+ 										<i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</button> </a>
  							</div>
- 							<button class="au-btn-filter">
- 								<i class="zmdi zmdi-filter-list"></i>filters</button>
  						</div>
- 						<div class="table-data__tool-right">
- 							<button class="au-btn au-btn-icon mb-1 au-btn--green au-btn--small" data-toggle="modal"
- 								data-target="#largeModal">
- 								<i class="zmdi zmdi-plus"></i> Novo</button>
-							 
-											<a href="<?php echo base_url('C_export/csv')?>"> <button  type="button" class="btn btn-success">
-                                            <i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</button> </a>
- 							</div>
- 						</div>
-					 </div>
-</div>
- 					<div class="table-responsive table-responsive-data2">
+ 					</div>
+ 				</div>
+
+
+
+					<script>
+				$(document).ready(function () {
+ 					function load_cliente_data(page) {
+			 		$.ajax({
+			 			url: "<?php echo base_url(); ?>rfcrm/C_cliente/" + page,
+			 			method: "GET",
+			 			dataType: "json",
+			 			success: function (data) {
+			 				$('#cliente_table').html(data.cliente_table);
+			 				$('#pagination_link').html(data.pagination_link);
+			 			}
+			 		});
+			 	}
+ 					load_country_data(1);
+ 					$(document).on("click", ".pagination li a", function(event){
+					event.preventDefault();
+					var page = $(this).data("cliente/V_cliente");
+					load_cliente_data(page);
+					});
+ 				});
+
+					</script>	
+
+ 				<div id="pagination_link" class="table-responsive table-responsive-data2">
+ 					<div id="cliente_table">
  						<table class="table table-data3">
  							<thead>
  								<tr>
@@ -90,12 +120,13 @@
 
  									<td>
  										<div class="table-data-feature">
-											<a href="<?php echo site_url('C_Cliente/exibir'); ?>/<?php echo $linha->cliente_id; ?>">
-											 <button class="item" data-toggle="tooltip" data-placement="top"
- 												title="Visualizar">
- 												<i class="zmdi zmdi-view-list-alt"></i>
-											 </button>
-								 			</a>
+ 											<a
+ 												href="<?php echo site_url('C_Cliente/exibir'); ?>/<?php echo $linha->cliente_id; ?>">
+ 												<button class="item" data-toggle="tooltip" data-placement="top"
+ 													title="Visualizar">
+ 													<i class="zmdi zmdi-view-list-alt"></i>
+ 												</button>
+ 											</a>
  											<!-- <a href="<?php echo site_url('C_Cliente/editar'); ?>/<?php echo $linha->cliente_id; ?>">
  												<button class="item" data-toggle="tooltip" data-placement="top"
  													title="Editar">
@@ -104,16 +135,16 @@
  											</a> -->
  											<a
  												href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $linha->cliente_id; ?>">
-												<a> 
-												 <button class="item" data-toggle="tooltip" data-placement="top"
- 													title="Deletar">
- 													<i class="zmdi zmdi-delete"></i>
- 												</button>
-											 </a>
-											 <div style="padding-left: 10px 10px 10px 10px">
-											 <button  type="button" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-file-pdf-o"></i></button>	</div>
-								 </a>
+ 												<a>
+ 													<button class="item" data-toggle="tooltip" data-placement="top"
+ 														title="Deletar">
+ 														<i class="zmdi zmdi-delete"></i>
+ 													</button>
+ 												</a>
+ 												<div style="padding-left: 10px 10px 10px 10px">
+ 													<button type="button" class="btn btn-danger btn-sm">
+ 														<i class="fa fa-file-pdf-o"></i></button> </div>
+ 											</a>
  											<!-- <script type="text/javascript">
  												var url = "<?php echo base_url();?>";
 
@@ -182,13 +213,9 @@
  							</tbody>
  						</table>
  					</div>
-
  				</div>
-
  			</div>
- 		 
  		</div>
-
  	</div>
  	</div>
  </section>
@@ -277,7 +304,7 @@
 
  						<div class="form-group">
  							<label for="postal-code" class=" form-control-label">Telefone</label>
- 							<input type="text" id="cliente_telefone" name="cliente_telefone" 
+ 							<input type="text" id="cliente_telefone" name="cliente_telefone"
  								placeholder="Insira o Telefone do Cliente" class="form-control">
  						</div>
 
@@ -292,15 +319,15 @@
 
  						<div class="form-group">
  							<label for="postal-code" class=" form-control-label"> Numero</label>
- 							<input name="cliente_contato_telefone" type="text" id="cliente_contato_telefone" 
+ 							<input name="cliente_contato_telefone" type="text" id="cliente_contato_telefone"
  								placeholder="Insira o numero do contato secundario" class="form-control">
  						</div>
 
-				 </div>
-				  
- 				<button  type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-																			 	
-				 <button type="submit" class="btn btn-primary" value="save">Confirmar</button>
+ 				</div>
+
+ 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+
+ 				<button type="submit" class="btn btn-primary" value="save">Confirmar</button>
  				</form>
  			</div>
 
@@ -314,7 +341,7 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 
  <script type="text/javascript">
-  	$("#cliente_contato_telefone").mask("(00) 00000-0000");
+ 	$("#cliente_contato_telefone").mask("(00) 00000-0000");
  	$("#cliente_telefone").mask("(00) 00000-0000");
  	$("#cliente_cep").mask("00000-000");
  	$("#cliente_cnpj_cpf").mask("000.000.000-00");

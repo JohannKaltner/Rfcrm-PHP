@@ -5,18 +5,14 @@ class C_Export extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
-          
     }
 
 	public function index(){
-        
-
-    
     }
     
     public function csv($value=''){
 
-         $filename = "CSV_CLIENTES_".date("d/m/y").'.csv';
+        $filename = "CSV_CLIENTES_".date("d/m/y").'.csv';
         
         header('Content-type:text/csv');
         header('Content-Disposition: attachment;filename='.$filename);
@@ -36,7 +32,7 @@ class C_Export extends CI_Controller {
             'cliente_estado',
             'cliente_pais',
             'cliente_cep',
-            'cliente_cnpf_cpf',
+            'cliente_cnpj_cpf',
             'cliente_inscricao_estadual',
             'cliente_categoria',
             'cliente_email',
@@ -44,8 +40,7 @@ class C_Export extends CI_Controller {
             'cliente_regiao',
             'cliente_obs',
             'cliente_contato_nome',
-            'cliente_contato_telefone',
-            
+            'cliente_contato_telefone',       
          ));
 
         
@@ -59,11 +54,10 @@ class C_Export extends CI_Controller {
         // echo "</pre>";
         
         foreach ($data['cliente'] as $key => $row){
-            fputcsv($handle, $row);
+          fputcsv($handle, $row);
         }
-
-        fclose($handle);
-        
+            fclose($handle);
+       
       exit;
     }
 }

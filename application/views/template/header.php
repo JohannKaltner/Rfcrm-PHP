@@ -66,6 +66,12 @@
 									<i class="fas fa-users"></i>
 									<span class="bot-line"></span>Clientes</a>
 							</li>
+
+							<li>
+								<a href="<?php echo base_url(); ?>C_email">
+									<i class="fas fa-envelope "></i>
+									<span class="bot-line"></span>Email</a>
+							</li>
 							<!-- <li>
                                 <a href="table.html">
                                     <i class="fas fa-trophy"></i>

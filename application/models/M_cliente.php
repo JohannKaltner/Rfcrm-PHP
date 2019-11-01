@@ -10,7 +10,7 @@ class M_cliente extends CI_Model {
   {
     parent::__construct();
     $this->load->database();
-  }
+   }
 
   public function index()
   {
@@ -90,12 +90,58 @@ class M_cliente extends CI_Model {
       return $query->result();
     }
 
+    
+    
+    function apagarRegistro($cliente_id){
+      $this->db->where('cliente_id', $cliente_id);
+      $this->db->delete('cliente');
+    }
 
-    
-      function apagarRegistro($cliente_id)
-      {
-          $this->db->where('cliente_id', $cliente_id);
-          $this->db->delete('cliente');
-      }
-    
-  }
+
+    function count_all()
+    {
+     $query = $this->db->get("cliente");
+     return $query->num_rows();
+    }
+   
+    function fetch_details($limit, $start)
+    {
+     $output = '';
+     $this->db->select("*");
+     $this->db->from("cliente");
+     $this->db->order_by("cliente_nome", "ASC");
+     $this->db->limit($limit, $start);
+     $query = $this->db->get();
+     $output .= '
+     <table class="table table-bordered">
+      <tr>
+      <th>Nome</th>
+      <th>CNPJ/CPF</th>
+      <th>TELEFONE</th>
+      <th>CIDADE</th>
+      <th>ENDEREÇO</th>
+      <th>Bairro</th>
+      <th>Cep</th>
+      <th>Funções</th>
+      </tr>
+     ';
+     foreach($query->result() as $row)
+     {
+      $output .= '
+      <tr>
+      <th>'.$row->cliente_nome.'</th>
+      <th>'.$row->cliente_cnpj_cpf.'</th>
+      <th>'.$row->cliente_telefone.'</th>
+      <th>'.$row->cliente_endereco.'</th>
+      <th>'.$row->cliente_bairro.'</th>
+      <th>'.$row->cliente_cep.'</th>
+      
+      </tr>
+      ';
+     }
+     $output .= '</table>';
+     return $output;
+    }
+
+
+}
