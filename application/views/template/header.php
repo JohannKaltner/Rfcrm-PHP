@@ -67,11 +67,11 @@
 									<span class="bot-line"></span>Clientes</a>
 							</li>
 
-							<li>
+							<!-- <li>
 								<a href="<?php echo base_url(); ?>C_email">
 									<i class="fas fa-envelope "></i>
 									<span class="bot-line"></span>Email</a>
-							</li>
+							</li> -->
 							<!-- <li>
                                 <a href="table.html">
                                     <i class="fas fa-trophy"></i>
@@ -137,13 +137,12 @@
 					</div>
 					<div class="header__tool">
 
-						<!-- <div class="header-button-item has-noti js-item-menu"> -->
 						<div class="header-button-item js-item-menu">
-
+							  <div class="header-button-item has-noti js-item-menu">  
 							<i class="zmdi zmdi-notifications"></i>
 							<div class="notifi-dropdown notifi-dropdown--no-bor js-dropdown">
 								<div class="notifi__title">
-									<p>0 novas notificações</p>
+									<p>1 novas notificações</p>
 								</div>
 								<div class="notifi__item">
 									<div class="bg-c1 img-cir img-40">
@@ -183,7 +182,7 @@
 						</div>
 
 						<div class="header-button-item js-item-menu">
-							<i class="zmdi zmdi-settings"></i>
+							<!-- <i class="zmdi zmdi-settings"></i>
 							<div class="setting-dropdown js-dropdown">
 								<div class="account-dropdown__body">
 									<div class="account-dropdown__item">
@@ -194,9 +193,19 @@
 										<a href="#">
 											<i class="zmdi zmdi-settings"></i>Configurações</a>
 									</div>
+								</div><div class="setting-dropdown js-dropdown">
+								<div class="account-dropdown__body">
+									<div class="account-dropdown__item">
+										<a href="#">
+											<i class="zmdi zmdi-account"></i>Conta</a>
+									</div>
+									<div class="account-dropdown__item">
+										<a href="#">
+											<i class="zmdi zmdi-settings"></i>Configurações</a>
+									</div>
 								</div>
-
-								<!-- <div class="account-dropdown__body">
+							 
+								<div class="account-dropdown__body">
 									<div class="account-dropdown__item">
 										<a href="#">
 											<i class="zmdi zmdi-globe"></i>Language</a>
@@ -214,7 +223,7 @@
 											<i class="zmdi zmdi-notifications"></i>Notifications</a>
 									</div>
 								</div> -->
-							</div>
+							</div> 
 						</div>
 						<div class="account-wrap">
 							<div class="account-item account-item--style2 clearfix js-item-menu">

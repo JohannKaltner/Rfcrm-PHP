@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
-
 class M_cliente extends CI_Model {
 
 
@@ -39,11 +37,17 @@ class M_cliente extends CI_Model {
 
 	   function listarRegistros(){
     $query = $this->db->query('SELECT * FROM cliente');
+    if($query->num_rows() < 1){
+      return FALSE;
+    }
     return $query->result();
   }
 
   function listarRegistro($cliente_id){
     $query = $this->db->query("SELECT * FROM cliente WHERE `cliente_id` = ".$cliente_id );
+    if($query->num_rows() < 1){
+      return FALSE;
+    }
     return $query->row();
   }
 
@@ -142,6 +146,5 @@ class M_cliente extends CI_Model {
      $output .= '</table>';
      return $output;
     }
-
 
 }

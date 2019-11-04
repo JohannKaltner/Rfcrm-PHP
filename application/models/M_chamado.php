@@ -14,7 +14,8 @@ class M_chamado extends CI_Model {
     
    }
 
-  function novoChamado($cliente_id){
+  function novoChamado($cliente_id = NULL){
+    
       $data = array(
         'chamado_atividade'          => $this->input->post('chamado_atividade'),
         'chamado_duracao_minuto'     => $this->input->post('chamado_duracao_minuto'),
@@ -27,14 +28,18 @@ class M_chamado extends CI_Model {
         'chamado_obs'                => $this->input->post('chamado_obs'),
         'chamado_telefone'           => $this->input->post('chamado_telefone'),
         'chamado_email'              => $this->input->post('chamado_email'),
-         'chamado_id_cliente'         => $cliente_id
+        'chamado_id_cliente'         => $this->uri->segment('3')[0]
       );
+      
       $this->db->insert('chamado', $data);
     }
     
     function listarChamados($cliente_id){
         $query = $this->db->query('SELECT * FROM chamado');
-                return $query->result();
+      if($query->num_rows() < 1){
+        return FALSE;
+      }
+        return $query->result();
         // WHERE chamado_id_cliente ='.$cliente_id
       }
 

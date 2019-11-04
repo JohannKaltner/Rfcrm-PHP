@@ -133,14 +133,14 @@
  													<i class="zmdi zmdi-edit"></i>
  												</button>
  											</a> -->
- 											<a
- 												href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $linha->cliente_id; ?>">
- 												<a>
+ 											
+ 												<a href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $linha->cliente_id; ?>">
  													<button class="item" data-toggle="tooltip" data-placement="top"
  														title="Deletar">
  														<i class="zmdi zmdi-delete"></i>
  													</button>
- 												</a>
+												 </a>
+											<a>	 
  												<div style="padding-left: 10px 10px 10px 10px">
  													<button type="button" class="btn btn-danger btn-sm">
  														<i class="fa fa-file-pdf-o"></i></button> </div>

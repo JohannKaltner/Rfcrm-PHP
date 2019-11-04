@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
- 
 
 class C_Cliente extends CI_Controller {
 
@@ -85,8 +84,5 @@ class C_Cliente extends CI_Controller {
 	  );
 	  echo json_encode($output);
 	 }
-	
-	
- 
- 
+	 
 }

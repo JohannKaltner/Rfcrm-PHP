@@ -41,7 +41,7 @@
                 </div>
                 <form class="form-auth-small" action="<?php echo site_url('C_login/auth');?>" method="post" >
                     <div class="mb-3">
-                        <h3> Bem-vindo ao novo CRM da RF&A!<h3>
+                        <h3> Bem-vindo ao CRM da RF&A!<h3>
                         <p class="lead" style="color:black">Acesse sua conta...</p>
                     </div>
                     <div class="form-group">

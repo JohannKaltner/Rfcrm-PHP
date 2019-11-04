@@ -159,7 +159,8 @@
  										<div style="align-items: center;">
  											<div class="col-md-12">
  												<?php foreach($chamados as $chamado) { ?>
- 												<div class="card"
+												 <div class="card"
+												 <?php    ?>
  													href="<?php echo base_url();?>C_cliente/exibir/<?php echo $chamado->chamado_id;?>"
  													style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;"
  													;>
