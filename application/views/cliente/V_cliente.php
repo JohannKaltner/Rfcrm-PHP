@@ -59,28 +59,28 @@
 
 
 
-					<script>
-				$(document).ready(function () {
- 					function load_cliente_data(page) {
-			 		$.ajax({
-			 			url: "<?php echo base_url(); ?>rfcrm/C_cliente/" + page,
-			 			method: "GET",
-			 			dataType: "json",
-			 			success: function (data) {
-			 				$('#cliente_table').html(data.cliente_table);
-			 				$('#pagination_link').html(data.pagination_link);
-			 			}
-			 		});
-			 	}
- 					load_country_data(1);
- 					$(document).on("click", ".pagination li a", function(event){
-					event.preventDefault();
-					var page = $(this).data("cliente/V_cliente");
-					load_cliente_data(page);
-					});
- 				});
+ 				<script>
+ 					$(document).ready(function () {
+ 						function load_cliente_data(page) {
+ 							$.ajax({
+ 								url: "<?php echo base_url(); ?>rfcrm/C_cliente/" + page,
+ 								method: "GET",
+ 								dataType: "json",
+ 								success: function (data) {
+ 									$('#cliente_table').html(data.cliente_table);
+ 									$('#pagination_link').html(data.pagination_link);
+ 								}
+ 							});
+ 						}
+ 						load_country_data(1);
+ 						$(document).on("click", ".pagination li a", function (event) {
+ 							event.preventDefault();
+ 							var page = $(this).data("cliente/V_cliente");
+ 							load_cliente_data(page);
+ 						});
+ 					});
 
-					</script>	
+ 				</script>
 
  				<div id="pagination_link" class="table-responsive table-responsive-data2">
  					<div id="cliente_table">
@@ -100,7 +100,7 @@
  								</tr>
  							</thead>
  							<tbody>
-							<?php if( !empty($result) ) { 
+ 								<?php if( !empty($result) ) { 
 								 foreach($result as $linha) { 
 								 
 									 ?>
@@ -136,14 +136,15 @@
  													<i class="zmdi zmdi-edit"></i>
  												</button>
  											</a> -->
- 											
- 												<a href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $linha->cliente_id; ?>">
- 													<button class="item" data-toggle="tooltip" data-placement="top"
- 														title="Deletar">
- 														<i class="zmdi zmdi-delete"></i>
- 													</button>
-												 </a>
-											<a>	 
+
+ 											<a
+ 												href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $linha->cliente_id; ?>">
+ 												<button class="item" data-toggle="tooltip" data-placement="top"
+ 													title="Deletar">
+ 													<i class="zmdi zmdi-delete"></i>
+ 												</button>
+ 											</a>
+ 											<a>
  												<div style="padding-left: 10px 10px 10px 10px">
  													<button type="button" class="btn btn-danger btn-sm">
  														<i class="fa fa-file-pdf-o"></i></button> </div>
@@ -239,10 +240,11 @@
  				<div>
  					<form method='post' action=<?php echo base_url("C_Cliente/criar"); ?>>
 
-					 <div class="form-group">
- 							<label for="nome" class=" form-control-label">Codigo do Cliente <small>(APENAS CRM ANTIGO)</small></label>
- 							<input type="text" id="company" name="cod_cliente" placeholder="Insira o Codigo do Cliente "
- 								class="form-control">
+ 						<div class="form-group">
+ 							<label for="nome" class=" form-control-label">Codigo do Cliente <small>(APENAS CRM
+ 									ANTIGO)</small></label>
+ 							<input type="text" id="company" name="cod_cliente"
+ 								placeholder="Insira o Codigo do Cliente " class="form-control">
  						</div>
 
  						<div class="form-group">
@@ -250,6 +252,34 @@
  							<input type="text" id="company" name="cliente_nome" placeholder="Insira o nome do Cliente"
  								class="form-control">
  						</div>
+
+ 						<!-- <div class="row form-group">
+ 							<div class="col col-md-3">
+ 								<label class=" form-control-label">Radios</label>
+ 							</div>
+ 							<div class="col col-md-9">
+ 								<div class="form-check">
+ 									<div class="radio">
+ 										<label for="radio1" class="form-check-label ">
+ 											<input type="radio" id="radio1" name="radios" value="option1"
+ 												class="form-check-input">Option 1
+ 										</label>
+ 									</div>
+ 									<div class="radio">
+ 										<label for="radio2" class="form-check-label ">
+ 											<input type="radio" id="radio2" name="radios" value="option2"
+ 												class="form-check-input">Option 2
+ 										</label>
+ 									</div>
+ 									<div class="radio">
+ 										<label for="radio3" class="form-check-label ">
+ 											<input type="radio" id="radio3" name="radios" value="option3"
+ 												class="form-check-input">Option 3
+ 										</label>
+ 									</div>
+ 								</div>
+ 							</div>
+ 						</div> -->
 
  						<div class="form-group">
  							<label for="cpf/cnpj" class=" form-control-label">CNPJ/CPF</label>
