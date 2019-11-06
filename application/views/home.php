@@ -55,11 +55,14 @@
 			<div class="row">
 				<div class="col-md-6 col-lg-3">
 					<div class="statistic__item statistic__item--green">
-						<div class="count">
-                             <!-- <?php echo $numeroClientes; ?>  -->
-							
-						</div>
-						</h2>
+						<h2 class="number"><?php
+						$this->db->select('*');
+						$query = $this->db->get('cliente');
+						$num = $query->num_rows();
+						?>
+					 
+						<?php echo $num ?> </h2>
+						
 						<span class="desc">Clientes Cadastrados</span>
 						<div class="icon">
 							<i class="zmdi zmdi-account-o"></i>
@@ -68,7 +71,13 @@
 				</div>
 				<div class="col-md-6 col-lg-3">
 					<div class="statistic__item statistic__item--orange">
-						<h2 class="number">0</h2>
+					<h2 class="number"><?php
+						$this->db->select('*');
+						$query = $this->db->get('chamado');
+						$num = $query->num_rows();
+						?>
+					 
+						<?php echo $num ?> </h2>
 						<span class="desc">Chamados Realizados</span>
 						<div class="icon">
 							<i class="zmdi zmdi-shopping-cart"></i>
@@ -77,7 +86,14 @@
 				</div>
 				<div class="col-md-6 col-lg-3">
 					<div class="statistic__item statistic__item--blue">
-						<h2 class="number">0</h2>
+						<h2 class="number">	<h2 class="number"><?php
+						$this->db->select('*');
+						$query = $this->db->get('cliente');
+						$this->db->where("DATEDIFF(NOW(), date_and_time) BETWEEN 30 AND 60");
+						$num = $query->num_rows();
+						?>
+					 
+						<?php echo $num ?> </h2></h2>
 						<span class="desc">Cadastrados esse Mês</span>
 						<div class="icon">
 							<i class="zmdi zmdi-calendar-note"></i>
