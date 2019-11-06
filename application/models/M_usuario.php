@@ -19,7 +19,15 @@ class M_usuario extends CI_Model {
     // 
   }
 
-  // ------------------------------------------------------------------------
+ public function consultar_permissao($usuario_id){
+   $this->db->select('*');
+   $this->db->from('usuario');
+   $query = $this->db->get();
+   if($query->num_rows() < 1){
+     return FALSE;
+   }
+   return $query->result();
+ }
 
 }
 

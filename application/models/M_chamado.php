@@ -11,10 +11,10 @@ class M_chamado extends CI_Model {
    }
 
    public function index(){
-    
+   // $data['url_id'] = $this->uri->segment(3);
    }
 
-  function novoChamado($cliente_id = NULL){
+  function novoChamado($data = ''){
     
       $data = array(
         'chamado_atividade'          => $this->input->post('chamado_atividade'),
@@ -28,7 +28,8 @@ class M_chamado extends CI_Model {
         'chamado_obs'                => $this->input->post('chamado_obs'),
         'chamado_telefone'           => $this->input->post('chamado_telefone'),
         'chamado_email'              => $this->input->post('chamado_email'),
-        'chamado_id_cliente'         => $this->uri->segment('3')[0]
+        'chamado_id_cliente'         => $this->input->post('chamado_id_cliente')
+        // 'chamado_id_cliente'         => $this->uri->segment(3)
       );
       
       $this->db->insert('chamado', $data);

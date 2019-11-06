@@ -100,7 +100,10 @@
  								</tr>
  							</thead>
  							<tbody>
- 								<?php foreach($result as $linha) { ?>
+							<?php if( !empty($result) ) { 
+								 foreach($result as $linha) { 
+								 
+									 ?>
  								<tr class="tr-shadow">
  									<td> <i class='fas fa-user'> </td>
 
@@ -168,7 +171,7 @@
  										</div>
  									</td>
  								</tr>
- 								<?php } ?>
+ 								<?php } }?>
  								<!-- <tr class="tr-shadow">
 									 <td> <i class='fas fa-circle'> </td>
 
@@ -235,6 +238,12 @@
  			<div class="modal-body">
  				<div>
  					<form method='post' action=<?php echo base_url("C_Cliente/criar"); ?>>
+
+					 <div class="form-group">
+ 							<label for="nome" class=" form-control-label">Codigo do Cliente <small>(APENAS CRM ANTIGO)</small></label>
+ 							<input type="text" id="company" name="cod_cliente" placeholder="Insira o Codigo do Cliente "
+ 								class="form-control">
+ 						</div>
 
  						<div class="form-group">
  							<label for="nome" class=" form-control-label">Nome do Cliente</label>

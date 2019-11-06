@@ -1,4 +1,4 @@
- <section class="p-t-20">
+<section class="p-t-20">
  	<div class="page-content--bgf7">
  		<div class="container">
  			<div class="row ">
@@ -19,13 +19,21 @@
  										<button type="button" class="btn btn-light" data-toggle="modal"
  											data-target="#exampleModal" style="color:#2C0CB8; font-size:18px;">
  											Registrar Chamado
- 										</button>
+										 </button>
+										 
+							
+									
  										<button type="button" class="btn btn-light" data-toggle="modal"
  											data-target="#editModal" style="color:#2C0CB8; font-size:18px; ">
  											Editar Cliente
+										 </button>
+										 
+										 <button id="correct" type="button" class="btn btn-light" data-toggle="modal"
+ 											data-target="#correcaoModal" style="color:red; font-size:18px; ">
+ 											Registrar Correção
  										</button>
  									</div>
-
+						
 
  								</nav>
 
@@ -39,7 +47,23 @@
  										<div>
  											<form method='post'
  												action="<?php echo site_url('C_Cliente/exibir')?>/<?php echo $linha->cliente_id; ?>">
- 												<div class="form-group">
+												 <div class="form-group">
+ 													<label for="cliente_id" class=" form-control-label">NUMERO DO ID</label>
+ 													<input type="text" id="cliente_id"
+ 														value="<?php echo $linha->cliente_id; ?>"
+ 														name="cliente_id" placeholder="Id"
+ 														class="form-control" disabled="">
+												 </div>
+
+												 <div class="form-group">
+ 													<label for="cliente_id" class=" form-control-label">Codigo do Cliente</label>
+ 													<input type="text" id="cliente_id"
+ 														value="<?php echo $linha->cod_cliente; ?>"
+ 														name="cod_cliente" placeholder="cod_cliente"
+ 														class="form-control" disabled="">
+												 </div>
+												  
+												 <div class="form-group">
  													<label for="nome" class=" form-control-label">Nome do
  														Cliente</label>
  													<input type="text" id="company"
@@ -158,7 +182,9 @@
  										aria-labelledby="nav-profile-tab">
  										<div style="align-items: center;">
  											<div class="col-md-12">
- 												<?php foreach($chamados as $chamado) { ?>
+												 <?php
+												 if( !empty($chamados) ) {
+													 foreach($chamados as $chamado) { ?>
 												 <div class="card"
 												 <?php    ?>
  													href="<?php echo base_url();?>C_cliente/exibir/<?php echo $chamado->chamado_id;?>"
@@ -166,9 +192,11 @@
  													;>
  													<div class=" col-md-6">
  														<div class="card-body">
+															 <h4>ID: <?php echo $chamado->chamado_id; ?> </h4> <Br>
  															<p> o(a) cliente <b> <?php echo $chamado->cliente_nome; ?>
- 																	<Br>
- 																</b> entrou em contato por
+																	 <Br>
+																	 
+ 																</b> de Codigo <b> <?php echo $chamado->cod_cliente; ?> </b> <br>entrou em contato por
  																<b>Ligação</b>.<br>
  																Dia <b> <?php echo $chamado->chamado_data; ?> </b> as
  																<b><?php echo $chamado->chamado_hora; ?></b> com
@@ -196,7 +224,7 @@
  														</div>
  													</div>
  												</div>
- 												<?php } ?>
+ 												<?php }} ?>
  											</div>
  										</div>
  									</div>
@@ -232,8 +260,22 @@
  						<h3 class="text-center title-2">Registrar um novo Chamado</h3>
  					</div>
  					<hr>
- 					<form method='post' action="<?php echo base_url('C_Chamado/criarChamado/'.$chamado->chamado_id);?>"
+					 <!-- <form method='post' action="<?php echo base_url('C_Chamado/criarChamado/'.$chamado->chamado_id);?>" -->
+					 <form method='post' action="<?php echo base_url('C_Chamado/criarChamado/');?>"
  						class="form-horizontal">
+
+						 <div class="row form-group">
+ 							<div class="col col-md-12">
+ 								<div class="input-group">
+ 									<div class="input-group-addon">
+ 										<i class="fa fa-address-card "></i>
+ 									</div>
+ 									<input type="text" id="chamado_assunto" name="chamado_id_cliente"
+ 										placeholder="Id do Cliente" class="form-control">
+ 								</div>
+ 								<small>Qual o ID do cliente? </small>
+ 							</div>
+ 						</div>
 
 
  						<div class="row form-group">
@@ -349,7 +391,7 @@
  							<div class="col col-md-12">
  								<div class="input-group">
  									<div class="input-group-addon">
- 										<i class="fa  fa-arrow-circle-left"></i>
+ 										<i class="fa  fa-envelope-o"></i>
  									</div>
  									<input type="text" id="chamado_duracao" name="chamado_email"
  										placeholder="Email Usado" class="form-control">
@@ -403,12 +445,18 @@
  		<div class="modal-content">
  			<div class="card-body">
  				<div class="card-title">
- 					<h3 class="text-center title-2">Registrar um novo Chamado</h3>
+ 					<h3 class="text-center title-2">Editar Cliente</h3>
  				</div>
  				<hr>
  				<form method='post'
  					action="<?php echo site_url('C_cliente/update')?>/<?php echo $linha->cliente_id; ?>">
- 					<div class="form-group">
+					 <div class="form-group">
+ 						<label for="cpf/cnpj" class=" form-control-label">Codigo do Cliente</label>
+ 						<input type="text" id="cod_cliente" value="<?php echo $linha->cod_cliente; ?>"
+ 							name="cod_cliente" placeholder="Insira o Codigo do Cliente" class="form-control">
+ 					</div>										
+					 
+					 <div class="form-group">
  						<label for="nome" class=" form-control-label">Nome do
  							Cliente</label>
  						<input type="text" id="company" value="<?php echo $linha->cliente_nome; ?>" name="cliente_nome"
@@ -506,6 +554,28 @@
  	</div>
  </div>
 
+ <div class="modal fade" id="correcaoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ 
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>

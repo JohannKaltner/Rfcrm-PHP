@@ -6,7 +6,9 @@ class C_Cliente extends CI_Controller {
 
 	public function __construct(){
         parent::__construct();
-        $this->load->model('M_cliente');
+		$this->load->model('M_cliente');
+		$this->load->model('M_usuario');
+
         $this->load->helper('url_helper');
         $this->load->library('session');
 		$this->load->library('pagination');
@@ -40,10 +42,10 @@ class C_Cliente extends CI_Controller {
 		redirect("C_cliente");
 	}
 	
-	 public function exibir($cliente_id){
+	 public function exibir($cliente_id = NULL, $usuario_id = NULL){
 		$data['linha'] = $this->M_cliente->listarRegistro($cliente_id);
 		$data['chamados'] = $this->M_cliente->listarChamadosCliente($cliente_id);
-
+		$data['permissao'] = $this->M_usuario->consultar_permissao($usuario_id);
 		 $this->template->show('cliente/V_cliente_show', $data);
 	 }
 
@@ -84,5 +86,5 @@ class C_Cliente extends CI_Controller {
 	  );
 	  echo json_encode($output);
 	 }
-	 
+
 }

@@ -17,6 +17,7 @@ class M_cliente extends CI_Model {
 
      function criarDados(){
     $data = array(
+      'cod_cliente'               => $this->input->post('cod_cliente'),
       'cliente_nome'               => $this->input->post('cliente_nome'),
       'cliente_endereco'           => $this->input->post('cliente_endereco'),
       'cliente_bairro'             => $this->input->post('cliente_bairro'),
@@ -61,6 +62,7 @@ class M_cliente extends CI_Model {
   
   function atualizarRegistro($cliente_id){
     $data = array(
+        'cod_cliente'               => $this->input->post('cod_cliente'),
         'cliente_nome'               => $this->input->post('cliente_nome'),
         'cliente_endereco'           => $this->input->post('cliente_endereco'),
         'cliente_bairro'             => $this->input->post('cliente_bairro'),

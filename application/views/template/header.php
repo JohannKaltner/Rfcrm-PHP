@@ -258,9 +258,9 @@
 											<a href="#">
 												<i class="zmdi zmdi-settings"></i>Configurações de Conta</a>
 										</div> -->
-										<div class="account-dropdown__item">
+										<div class="account-dropdown__item" data-toggle="tooltip" data-placement="left" title="Acesse apenas na presença de um Tecnico, por favor!">
 											<a href="#">
-												<i class="zmdi zmdi-money-box"></i>Historico de Clientes</a>
+												<i class="zmdi zmdi-money-box"></i>Historico</a>
                                         </div>
                                         <div class="account-dropdown__footer">
 										<a href="<?php echo site_url('C_login/logout');?>">
