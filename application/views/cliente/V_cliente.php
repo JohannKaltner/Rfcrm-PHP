@@ -24,38 +24,45 @@
  						<h3 class="title-5 m-b-35">CLIENTES</h3>
  						<div class="table-data__tool">
  							<div class="table-data__tool-left">
- 								<div class="rs-select2--light rs-select2--md">
+ 								<!-- <div class="rs-select2--light rs-select2--md">
  									<select class="js-select2" name="property">
  										<option selected="selected">Ordenar por</option>
  										<option value="">Relevância</option>
  										<option value="">Recentes</option>
  									</select>
  									<div class="dropDownSelect2"></div>
- 								</div>
- 								<div class="rs-select2--light rs-select2--sm">
+ 								</div> -->
+ 								<!-- <div class="rs-select2--light rs-select2--sm">
  									<select class="js-select2" name="time">
  										<option selected="selected">Data</option>
- 										<!-- <option value="">Esse Mês</option> -->
+ 								 <option value="">Esse Mês</option> 
  										<option value="">Até 3 Meses</option>
  									</select>
  									<div class="dropDownSelect2"></div>
- 								</div>
- 								<button class="au-btn-filter">
- 									<i class="zmdi zmdi-filter-list"></i>filters</button>
- 							</div>
- 							<div class="table-data__tool-right">
- 								<button class="au-btn au-btn-icon mb-1 au-btn--green au-btn--small" data-toggle="modal"
- 									data-target="#largeModal">
- 									<i class="zmdi zmdi-plus"></i> Novo</button>
-
- 								<a href="<?php echo base_url('C_export/csv')?>"> <button type="button"
- 										class="btn btn-success" data-toggle="tooltip" data-placement="top"
- 										title="Recarregue a pagina após o download do arquivo.">
- 										<i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</button> </a>
- 							</div>
- 						</div>
- 					</div>
- 				</div>
+ 								</div> -->
+ 								<!-- <button class="au-btn-filter">
+									 <i class="zmdi zmdi-filter-list"></i>filters</button> -->
+									 <form class="au-form-icon--sm" action="" method="post">
+							<input class="au-input--w300 au-input--style2" type="text"
+								placeholder="procure por Clientes &amp; Chamados...">
+							<button class="au-btn--submit2" type="submit">
+								<i class="zmdi zmdi-search"></i>
+							</button>
+						</form>
+									</div>
+									<div class="table-data__tool-right">
+										<button class="au-btn au-btn-icon mb-1 au-btn--green au-btn--small" data-toggle="modal"
+										data-target="#largeModal">
+										<i class="zmdi zmdi-plus"></i> Novo</button>
+										
+										<a href="<?php echo base_url('C_export/csv')?>"> <button type="button"
+										class="btn btn-success" data-toggle="tooltip" data-placement="top"
+										title="Recarregue a pagina após o download do arquivo.">
+										<i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</button> </a>
+									</div>
+								</div>
+							</div>
+						</div>
 
 
 
@@ -83,10 +90,17 @@
  				</script>
 
  				<div id="pagination_link" class="table-responsive table-responsive-data2">
+					 <!-- ======================================= --> 
+					 
+				 	 <!-- PARA ESTUDAR A PAGINAÇÃO EM CODEIGNITER -->
+					 <!-- https://github.com/universidadecodeigniter/paginacao-de-resultados-com-codeigniter-e-bootstrap/tree/master/application -->
+
+					 <!-- ======================================= -->
  					<div id="cliente_table">
  						<table class="table table-data3">
  							<thead>
  								<tr>
+								 	<th>ID</th>
 									<th>Codigo</th>
  									<th>Nome</th>
  									<th>CNPJ/CPF</th>
@@ -105,7 +119,10 @@
 									 ?>
  								<tr class="tr-shadow">
 
+									 <td> <?php echo $linha->cliente_id; ?> </td>
+									 
  									<td> <?php echo $linha->cod_cliente; ?> </td>
+
 
  									<td> <?php echo $linha->cliente_nome; ?> </td>
 
@@ -238,7 +255,12 @@
  			</div>
  			<div class="modal-body">
  				<div>
- 					<form method='post' action=<?php echo base_url("C_Cliente/criar"); ?>>
+					 <form method='post' action=<?php echo base_url("C_Cliente/criar"); ?>>
+					<script type="text/javascript">
+						function evento(obj) {
+							obj.value = obj.value.toUpperCase();
+						}
+					</script>
 
  						<div class="form-group">
  							<label for="nome" class=" form-control-label">Codigo do Cliente <small>(APENAS CRM
@@ -250,76 +272,76 @@
  						<div class="form-group">
  							<label for="nome" class=" form-control-label">Nome do Cliente</label>
  							<input type="text" id="company" name="cliente_nome" placeholder="Insira o nome do Cliente"
- 								class="form-control">
+ 								class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="cpf/cnpj" class=" form-control-label">CNPJ/CPF</label>
- 							<input type="text" id="cpfOuCnpj" value="11111111111" name="cliente_cnpj_cpf"
- 								placeholder="Insira o CNPJ do Cliente" class="form-control">
+ 							<input type="text" id="cpfOuCnpj" name="cliente_cnpj_cpf"
+ 								placeholder="Insira o CNPJ do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="endereco" class=" form-control-label">Endereço </label>
  							<input type="text" id="vat" name="cliente_endereco"
- 								placeholder="Insira o Endereço do Cliente" class="form-control">
+ 								placeholder="Insira o Endereço do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="bairro" class=" form-control-label">Bairro</label>
  							<input type="text" id="street" name="cliente_bairro"
- 								placeholder="Insira o Bairro do Cliente" class="form-control">
+ 								placeholder="Insira o Bairro do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="cep" class=" form-control-label">Cep</label>
  							<input type="text" id="cliente_cep" name="cliente_cep"
- 								placeholder="Insira o Cep do Cliente" class="form-control">
+ 								placeholder="Insira o Cep do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="cidade" class=" form-control-label">Cidade</label>
  							<input type="text" id="city" name="cliente_cidade" placeholder="Insira a Cidade do Cliente"
- 								class="form-control">
+ 								class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="estado" class=" form-control-label">Estado</label>
  							<input type="text" id="cliente_estado" name="cliente_estado"
- 								placeholder="Insira o Estado do Cliente" class="form-control">
+ 								placeholder="Insira o Estado do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="postal-code" class=" form-control-label">País</label>
  							<input type="text" id="postal-code" name="cliente_pais"
- 								placeholder="Insira o País do Cliente" class="form-control">
+ 								placeholder="Insira o País do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="postal-code" class=" form-control-label">Insc. Estadual</label>
  							<input type="text" id="cliente_inscricao_estadual" name="cliente_inscricao_estadual"
- 								placeholder="Insira a Insc. Estadual do Cliente" class="form-control">
+ 								placeholder="Insira a Insc. Estadual do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="postal-code" class=" form-control-label">Categoria</label>
  							<input type="text" id="postal-code" name="cliente_categoria"
- 								placeholder="Defina uma Categoria para o Cliente" class="form-control">
+ 								placeholder="Defina uma Categoria para o Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="vat" class=" form-control-label">E-Mail </label>
  							<input type="email" id="cliente_email" name="cliente_email"
- 								placeholder="Insira o Endereço de E-Mail do Cliente" class="form-control">
+ 								placeholder="Insira o Endereço de E-Mail do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="postal-code" class=" form-control-label">Telefone</label>
  							<input type="text" id="cliente_telefone" name="cliente_telefone"
- 								placeholder="Insira o Telefone do Cliente" class="form-control">
+ 								placeholder="Insira o Telefone do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
- 						<h4>Outros Contatos </h4>
+ 						<!-- <h4>Outros Contatos </h4>
 
  						<div class="form-group">
  							<label for="postal-code" class=" form-control-label">Nome</label>
@@ -332,7 +354,7 @@
  							<label for="postal-code" class=" form-control-label"> Numero</label>
  							<input name="cliente_contato_telefone" type="text" id="cliente_contato_telefone"
  								placeholder="Insira o numero do contato secundario" class="form-control">
- 						</div>
+ 						</div> -->
 
  				</div>
 

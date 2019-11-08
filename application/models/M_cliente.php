@@ -37,7 +37,7 @@ class M_cliente extends CI_Model {
   }
 
 	   function listarRegistros(){
-    $query = $this->db->query('SELECT * FROM cliente ORDER BY cod_cliente ASC');
+    $query = $this->db->query('SELECT * FROM cliente ORDER BY cliente_id ASC');
 
     if($query->num_rows() < 1){
       return FALSE;
