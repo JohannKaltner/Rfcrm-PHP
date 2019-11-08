@@ -36,6 +36,27 @@ class M_cliente extends CI_Model {
     $this->db->insert('cliente', $data);
   }
 
+  function insereContato(){
+    $data = array(
+      'cod_cliente'               => $this->input->post('cod_cliente'),
+      'cliente_nome'               => $this->input->post('cliente_nome'),
+      'cliente_endereco'           => $this->input->post('cliente_endereco'),
+      'cliente_bairro'             => $this->input->post('cliente_bairro'),
+      'cliente_cidade'             => $this->input->post('cliente_cidade'),
+      'cliente_estado'             => $this->input->post('cliente_estado'),
+      'cliente_pais'               => $this->input->post('cliente_pais'),
+      'cliente_cep'                => $this->input->post('cliente_cep'),
+      'cliente_cnpj_cpf'           => $this->input->post('cliente_cnpj_cpf'),
+      'cliente_inscricao_estadual' => $this->input->post('cliente_inscricao_estadual'),
+      'cliente_categoria'          => $this->input->post('cliente_categoria'),
+      'cliente_telefone'           => $this->input->post('cliente_telefone'),
+      'cliente_contato_nome'       => $this->input->post('cliente_contato_nome'),
+      'cliente_contato_telefone'   => $this->input->post('cliente_contato_telefone'),
+      'cliente_email'              => $this->input->post('cliente_email')
+    );
+    $this->db->insert('cliente', $data);
+  }
+
 	   function listarRegistros(){
     $query = $this->db->query('SELECT * FROM cliente ORDER BY cliente_id ASC');
 
