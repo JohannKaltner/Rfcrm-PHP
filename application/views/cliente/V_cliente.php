@@ -87,8 +87,7 @@
  						<table class="table table-data3">
  							<thead>
  								<tr>
- 									<th>.</th>
-
+									<th>Codigo</th>
  									<th>Nome</th>
  									<th>CNPJ/CPF</th>
  									<th>TELEFONE</th>
@@ -105,7 +104,8 @@
 								 
 									 ?>
  								<tr class="tr-shadow">
- 									<td> <i class='fas fa-user'> </td>
+
+ 									<td> <?php echo $linha->cod_cliente; ?> </td>
 
  									<td> <?php echo $linha->cliente_nome; ?> </td>
 
@@ -253,37 +253,9 @@
  								class="form-control">
  						</div>
 
- 						<!-- <div class="row form-group">
- 							<div class="col col-md-3">
- 								<label class=" form-control-label">Radios</label>
- 							</div>
- 							<div class="col col-md-9">
- 								<div class="form-check">
- 									<div class="radio">
- 										<label for="radio1" class="form-check-label ">
- 											<input type="radio" id="radio1" name="radios" value="option1"
- 												class="form-check-input">Option 1
- 										</label>
- 									</div>
- 									<div class="radio">
- 										<label for="radio2" class="form-check-label ">
- 											<input type="radio" id="radio2" name="radios" value="option2"
- 												class="form-check-input">Option 2
- 										</label>
- 									</div>
- 									<div class="radio">
- 										<label for="radio3" class="form-check-label ">
- 											<input type="radio" id="radio3" name="radios" value="option3"
- 												class="form-check-input">Option 3
- 										</label>
- 									</div>
- 								</div>
- 							</div>
- 						</div> -->
-
  						<div class="form-group">
  							<label for="cpf/cnpj" class=" form-control-label">CNPJ/CPF</label>
- 							<input type="text" id="cliente_cnpj_cpf" name="cliente_cnpj_cpf"
+ 							<input type="text" id="cpfOuCnpj" value="11111111111" name="cliente_cnpj_cpf"
  								placeholder="Insira o CNPJ do Cliente" class="form-control">
  						</div>
 
@@ -377,13 +349,19 @@
  <!-- end modal large -->
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 
  <script type="text/javascript">
  	$("#cliente_contato_telefone").mask("(00) 00000-0000");
  	$("#cliente_telefone").mask("(00) 00000-0000");
  	$("#cliente_cep").mask("00000-000");
- 	$("#cliente_cnpj_cpf").mask("000.000.000-00");
  	$("#cliente_inscricao_estadual").mask("000.000.000.000");
-
+	 var options = {
+    onKeyPress: function (cpf, ev, el, op) {
+        var masks = ['000.000.000-000', '00.000.000/0000-00'];
+        $('#cpfOuCnpj').mask((cpf.length > 14) ? masks[1] : masks[0], op);
+    }
+}
+$('#cpfOuCnpj').length > 11 ? $('#cpfOuCnpj').mask('00.000.000/0000-00', options) : $('#cpfOuCnpj').mask('000.000.000-00#', options);												 
+   
  </script>

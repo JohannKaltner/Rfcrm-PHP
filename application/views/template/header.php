@@ -228,7 +228,7 @@
 						<div class="account-wrap">
 							<div class="account-item account-item--style2 clearfix js-item-menu">
 								<div class="image">
-									<img src="<?php echo base_url(); ?>public/images/icon/Untitled-1.jpg"
+									<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome');?>.jpg"
 										alt="John Doe" />
 								</div>
 								<div class="content">
@@ -238,9 +238,12 @@
 									<div class="info clearfix">
 										<div class="image">
 											<a href="#">
-												<img src="<?php echo base_url(); ?>public/images/icon/Untitled-1.jpg"
+												<!-- imagem de perfil, alterar agora-->
+												<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome');?>.jpg"
 													alt="John Doe" />
 											</a>
+
+											<!-- checkpoint -->
 										</div>
 										<div class="content">
 											<h5 class="name">
@@ -463,7 +466,7 @@
 				<div class="account-wrap">
 					<div class="account-item account-item--style2 clearfix js-item-menu">
 						<div class="image">
-							<img src="<?php echo base_url(); ?>public/images/icon/Untitled-1.jpg" alt="John Doe" />
+							<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome');?>.jpg" alt="John Doe" />
 						</div>
 						<div class="content">
 							<a class="js-acc-btn" href="#">Johann Kaltner</a>
@@ -472,7 +475,7 @@
 							<div class="info clearfix">
 								<div class="image">
 									<a href="#">
-										<img src="<?php echo base_url(); ?>public/images/icon/Untitled-1.jpg"
+										<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome');?>.jpg"
 											alt="John Doe" />
 									</a>
 								</div>

@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+$title = "Home";
+
 class Home extends CI_Controller {
 
 	function __construct(){
