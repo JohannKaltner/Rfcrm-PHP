@@ -49,6 +49,10 @@ class C_Cliente extends CI_Controller {
 		 $this->template->show('cliente/V_cliente_show', $data);
 	 }
 
+	 public function criarContato($cliente_id = NULL){
+		$this->M_cliente->criarContato();
+		redirect("C_cliente/exibir/$cliente_id");
+	}
 	  
 
 }

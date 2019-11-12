@@ -36,27 +36,33 @@ class M_cliente extends CI_Model {
     $this->db->insert('cliente', $data);
   }
 
-  // function insereContato(){
-  //   $data = array(
-  //     'contato_'               => $this->input->post('cliente_nome'),
-  //     'cliente_endereco'           => $this->input->post('cliente_endereco'),
-  //     'cliente_bairro'             => $this->input->post('cliente_bairro'),
-  //     'cliente_cidade'             => $this->input->post('cliente_cidade'),
-  //     'cliente_estado'             => $this->input->post('cliente_estado'),
-  //     'cliente_pais'               => $this->input->post('cliente_pais'),
-  //     'cliente_cep'                => $this->input->post('cliente_cep'),
-  //     'cliente_cnpj_cpf'           => $this->input->post('cliente_cnpj_cpf'),
-  //     'cliente_inscricao_estadual' => $this->input->post('cliente_inscricao_estadual'),
-  //     'cliente_categoria'          => $this->input->post('cliente_categoria'),
-  //     'cliente_telefone'           => $this->input->post('cliente_telefone'),
-  //     'cliente_contato_nome'       => $this->input->post('cliente_contato_nome'),
-  //     'cliente_contato_telefone'   => $this->input->post('cliente_contato_telefone'),
-  //     'cliente_email'              => $this->input->post('cliente_email')
-  //   );
-  //   $this->db->insert('cliente', $data);
-  // }
+   function criarContato(){
+     $data = array(
+       'cliente_contato_id'           => $this->input->post('cliente_contato_id'),
+       'contato_secundario_nome'      => $this->input->post('contato_secundario_nome'),
+       'contato_secundario_email'     => $this->input->post('contato_secundario_email'),
+       'contato_secundario_telefone'  => $this->input->post('contato_secundario_telefone')
+     
+     );
+     $this->db->insert('contato_secundario', $data);
+   }
 
-	   function listarRegistros(){
+   public function listarContatosCliente($cliente_id){
+    $this->db->select('*');
+    $this->db->from('contato_secundario');
+    $this->db->join('cliente', 'cliente.cliente_id = contato_secundario.cliente_contato_id');
+    $this->db->where('contato_secundario.cliente_contato_id ='.$cliente_id );
+    $this->db->order_by('contato_secundario_nome');
+    $query = $this->db->get();
+    if($query->num_rows() < 1){
+      return FALSE;
+    }
+    return $query->result();
+  }
+
+     
+   
+   function listarRegistros(){
     $query = $this->db->query('SELECT * FROM cliente ORDER BY cliente_id ASC');
 
     if($query->num_rows() < 1){
