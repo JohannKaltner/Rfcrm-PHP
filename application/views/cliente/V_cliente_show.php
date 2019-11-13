@@ -158,14 +158,18 @@
 
 		</div>
 	</div>
+			</div>
 		<!-- FIM TAB CONTATOS -->
 	<!-- inicio tab 2 -->
 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 	<div style="align-items: center;">
 		<div class="col-md-12">
-		<?php
+			
+			<?php
 		if (!empty($chamados)) {
-		foreach ($chamados as $chamado) { ?>
+			foreach ($chamados as $chamado) { ?>
+			<div class="row">
+					<div class="col-md-6">
 		<div class="card" <?php    ?> href="<?php echo base_url(); ?>C_cliente/exibir/<?php echo $chamado->chamado_id; ?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;" ;>
 			<div class=" col-md-6">
 				<div class="card-body">
@@ -195,6 +199,9 @@
 									<i><?php echo $chamado->chamado_atendente_rf; ?></i>
 									<p>
 				</div>
+				</div>
+				</div>
+
 			</div>
 		</div>
 				<?php }
