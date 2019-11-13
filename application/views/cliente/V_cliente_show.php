@@ -6,13 +6,13 @@
 				<div>
 					<div class="container">
 						<div class="default-tab">
-						<nav>
+							<nav>
 							<div class="nav nav-tabs" id="nav-tab" role="tablist">
 								<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
 								 role="tab" aria-controls="nav-home" aria-selected="true" style="color:#2C0CB8;">ÁREA DO
 									CLIENTE</a>
 	
-									<a class="nav-item nav-link active" id="nav-contato-tab" data-toggle="tab" href="#nav-contato"
+									<a class="nav-item nav-link" id="nav-contato-tab" data-toggle="tab" href="#nav-contato"
 									 role="tab" aria-controls="nav-contato" aria-selected="true" style="color:#2C0CB8;">CONTATOS</a>
 	
 								<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
@@ -33,8 +33,8 @@
 								<button type="button" class="btn btn-light" data-toggle="modal" data-target="#editModal" style="color:#2C0CB8; font-size:18px; ">
 								EDITAR CLIENTE
 								</button>
-							</nav>
-						</div>
+							</div>
+						</nav>
 
 	<!-- inicio div tabs -->
 			<div class="tab-content pl-3 pt-2" id="nav-tabContent">
@@ -122,52 +122,33 @@
 							<small style="color:red"> Opcional</small>
 							<input name="cliente_contatos" type="text" id="postal-code" value="<?php echo $linha->cliente_contato_nome; ?>" placeholder="Insira o nome do contato secundario" class="form-control" disabled="">
 						</div>
-						
-						<div class="form-group">
-							<label for="postal-code" class=" form-control-label">
-								Numero</label>
-							<input name="cliente_contatos" type="text" id="cliente_contato_telefone" placeholder="Insira o numero do contato secundario" class="form-control" disabled="">
-						</div>						
+											
 					</form>
 					</div>
 				</div>
 	<!-- fim tab 1 -->
 
 	<!-- TAB CONTATOS -->
-	<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+
+
+	<div class="tab-pane fade" id="nav-contato" role="tabpanel" aria-labelledby="nav-contato-tab">
 		<div style="align-items: center;">
-		<div class="col-md-12">
+			<div class='row'>
+		<div class="col-md-4">
 		<?php
 		if (!empty($contatos)) {
 		foreach ($contatos as $contato) { ?>
-		<div class="card" <?php    ?> href="<?php echo base_url(); ?>C_cliente/exibir/<?php echo $chamado->chamado_id; ?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;" ;>
-			<div class=" col-md-6">
+		<div class="card" <?php    ?> href="<?php echo base_url(); ?>C_cliente/exibir/<?php echo $contato->contato_secundario_id; ?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;" ;>
+			<div class="col-md-6">
 				<div class="card-body">
-								<h4>ID: <?php echo $chamado->chamado_id; ?> </h4> <Br>
-							<p> o(a) cliente <b> <?php echo $chamado->cliente_nome; ?>
-								<Br>		
-								</b> de Codigo <b> <?php echo $chamado->cod_cliente; ?> </b> <br>entrou em contato por
-								<b>Ligação</b>.<br>
-								Dia <b> <?php echo $chamado->chamado_data; ?> </b> as
-								<b><?php echo $chamado->chamado_hora; ?></b> com
-								duração de
-								<b><?php echo $chamado->chamado_duracao_hora; ?> Horas
-								e <?php echo $chamado->chamado_duracao_minuto; ?>
-								Minutos </b>
-								<b>Atividade:</b> <i>
-								<?php echo $chamado->chamado_atividade; ?>
-									</b><span>
-									<b>Assunto:</b>
-									<i><?php echo $chamado->chamado_assunto; ?></i>
-									</span> <br>
-									<b>Quem Entrou em contato:</b>
-									<i><?php echo $chamado->chamado_atendente_cliente; ?></i>
-									<b>Pelo numero:</b>
-									<i><?php echo $chamado->chamado_telefone; ?> </i>
-									<Br>
-									<b>Quem Atendeu:</b>
-									<i><?php echo $chamado->chamado_atendente_rf; ?></i>
-									<p>
+				<h5>ID: <?php echo $contato->contato_secundario_id; ?>	</h5>
+				<p>
+					Nome: <?php echo $contato->contato_secundario_nome; ?>	
+					<br>
+					E-mail: <?php echo $contato->contato_secundario_email; ?> 
+					<br>
+					Telefone: <?php echo $contato->contato_secundario_telefone; ?> 
 				</div>
 			</div>
 		</div>

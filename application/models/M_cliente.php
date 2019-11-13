@@ -52,7 +52,7 @@ class M_cliente extends CI_Model {
     $this->db->from('contato_secundario');
     $this->db->join('cliente', 'cliente.cliente_id = contato_secundario.cliente_contato_id');
     $this->db->where('contato_secundario.cliente_contato_id ='.$cliente_id );
-    $this->db->order_by('contato_secundario_nome');
+    $this->db->order_by('contato_secundario_id');
     $query = $this->db->get();
     if($query->num_rows() < 1){
       return FALSE;
@@ -71,14 +71,20 @@ class M_cliente extends CI_Model {
     return $query->result();
   }
 
-  function listarRegistro($cliente_id){
-    $query = $this->db->query("SELECT * FROM cliente WHERE `cliente_id` = ".$cliente_id );
+  function listarRegistro($cliente_id =''){
+    // $this->db->select('*');
+    // $this->db->from('cliente');
+    // $this->db->where('cliente_id'.$cliente_id );
+    // $query = $this->db->get();
+
+     $query = $this->db->query("SELECT * FROM cliente WHERE cliente_id =  '.$cliente_id.'" );
     if($query->num_rows() < 1){
       return FALSE;
     }
     return $query->row();
   }
 
+  
   // function listarRegistro($cliente_id){
   //   $query = $this->db->query("SELECT * FROM cliente
   //                              INNER JOIN chamado
@@ -86,6 +92,7 @@ class M_cliente extends CI_Model {
   //                              WHERE `cliente_id` = ".$cliente_id );
   //   return $query->row();
   // }
+
   
   function atualizarRegistro($cliente_id){
     $data = array(

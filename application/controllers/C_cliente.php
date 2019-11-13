@@ -45,6 +45,7 @@ class C_Cliente extends CI_Controller {
 	 public function exibir($cliente_id = NULL, $usuario_id = NULL){
 		$data['linha'] = $this->M_cliente->listarRegistro($cliente_id);
 		$data['chamados'] = $this->M_cliente->listarChamadosCliente($cliente_id);
+		$data['contatos'] = $this->M_cliente->listarContatosCliente($cliente_id);
 		$data['permissao'] = $this->M_usuario->consultar_permissao($usuario_id);
 		 $this->template->show('cliente/V_cliente_show', $data);
 	 }
