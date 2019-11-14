@@ -1,0 +1,44 @@
+ <div class="col-md-12">
+                                    <?php
+                                       if (!empty($correcoes)) {
+                                           foreach ($correcoes as $correcao) { ?>
+                                    <div class="row">
+                                       <div class="col-md-12">
+										  <div class="card" href="<?php echo base_url(); ?>C_cliente/exibir/<?php echo $correcao->correcao_id; ?>"
+										   style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;" ;>
+                                             <!-- <div class=" col-md-6"> -->
+                                                <div class="card-body">
+                                                   <h4>Corrigindo o correcao de ID: <?php echo $correcao->correcao_id_chamado; ?> </h4>
+                                                   <Br>
+                                                   <p> o(a) cliente <b> <?php echo $correcao->cliente_nome; ?>
+                                                      <Br>        
+                                                      </b> de Codigo <b> <?php echo $correcao->cod_cliente; ?> </b> <br>entrou em contato por
+                                                      <b>Ligação</b>.<br>
+                                                      Dia <b> <?php echo $correcao->correcao_data; ?> </b> as
+                                                      <b><?php echo $correcao->correcao_hora; ?></b> com
+                                                      duração de
+                                                      <b><?php echo $correcao->correcao_duracao_hora; ?> Horas
+                                                      e <?php echo $correcao->correcao_duracao_minuto; ?>
+                                                      Minutos </b>
+                                                      <b>Atividade:</b> <i>
+                                                      <?php echo $correcao->correcao_atividade; ?>
+                                                      </b><span>
+                                                      <b>Assunto:</b>
+                                                      <i><?php echo $correcao->correcao_assunto; ?></i>
+                                                      </span> <br>
+                                                      <b>Quem Entrou em contato:</b>
+                                                      <i><?php echo $correcao->correcao_atendente_cliente; ?></i>
+                                                      <b>Pelo numero:</b>
+                                                      <i><?php echo $correcao->correcao_telefone; ?> </i>
+                                                      <Br>
+                                                      <b>Quem Atendeu:</b>
+                                                      <i><?php echo $correcao->correcao_atendente_rf; ?></i>
+                                                   <p>
+                                                </div>
+                                             <!-- </div> -->
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <?php }
+                                       } ?>
+								 </div>

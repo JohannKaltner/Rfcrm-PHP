@@ -16,8 +16,8 @@ class C_Cliente extends CI_Controller {
     }
 
 	public function index($cliente_id=''){
-		$data['result'] = $this->M_cliente->listarRegistros();
-		$data['chamados'] = $this->M_cliente->listarChamadosCliente($cliente_id);
+		$data['result'] 	 = $this->M_cliente->listarRegistros();
+		$data['chamados']	 = $this->M_cliente->listarChamadosCliente($cliente_id);
 		$this->template->show('cliente/V_cliente', $data);	
 	}
 	
@@ -43,23 +43,28 @@ class C_Cliente extends CI_Controller {
 	}
 	
 	 public function exibir($cliente_id = NULL, $usuario_id = NULL){
-		$data['linha'] = $this->M_cliente->listarRegistro($cliente_id);
-		$data['chamados'] = $this->M_cliente->listarChamadosCliente($cliente_id);
-		$data['contatos'] = $this->M_cliente->listarContatosCliente($cliente_id);
-		$data['correcoes'] = $this->M_cliente->listarCorrecaoCliente($cliente_id);
-		$data['permissao'] = $this->M_usuario->consultar_permissao($usuario_id);
-		 $this->template->show('cliente/V_cliente_show', $data);
+		$data['linha'] 			= $this->M_cliente->listarRegistro($cliente_id);
+		$data['chamados']   	= $this->M_cliente->listarChamadosCliente($cliente_id);
+		$data['contatos']   	= $this->M_cliente->listarContatosCliente($cliente_id);
+		$data['correcoes']  	= $this->M_cliente->listarCorrecaoCliente($cliente_id);
+		$data['permissao']  	= $this->M_usuario->consultar_permissao($usuario_id);
+		$this->template->show('cliente/V_cliente_show', $data);
 	 }
 
 	 public function criarContato($cliente_id = NULL){
 		$this->M_cliente->criarContato();
-		redirect("C_cliente/exibir/$cliente_id");
+		redirect('C_cliente/exibir/',$cliente_id);
 	}
 
 	public function criarCorrecao($cliente_id = NULL){
 		$this->M_cliente->criarCorrecao();
-		redirect("C_cliente/exibir/'.$cliente_id.'");
+		redirect('C_cliente/exibir/',$cliente_id);
 	}
-	  
+	
+	public function deletaContato($contato_secundario_id = NULL, $cliente_id = NULL){
+		$this->M_cliente->apagarContatoCliente()($contato_secundario_id);
+		// echo  "<script>alert('Cliente deletado com Sucesso!!');</script>";
+		redirect('C_cliente/exibir/',$cliente_id);
+	}
 
 }

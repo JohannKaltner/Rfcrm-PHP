@@ -11,7 +11,7 @@
  						<span class="au-breadcrumb-span">Você está aqui:</span>
  						<ul class="list-unstyled list-inline au-breadcrumb__list">
  							<li class="list-inline-item active">
- 								<a href="<?php echo base_url();?>Home">Home</a>
+ 								<a href="<?php echo base_url(); ?>Home">Home</a>
  							</li>
  							<li class="list-inline-item seprate">
  								<span>/</span>
@@ -42,132 +42,123 @@
  								</div> -->
  								<!-- <button class="au-btn-filter">
 									 <i class="zmdi zmdi-filter-list"></i>filters</button> -->
-									 <form class="au-form-icon--sm" action="" method="post">
-							<input class="au-input--w300 au-input--style2" type="text"
-								placeholder="procure por Clientes &amp; Chamados...">
-							<button class="au-btn--submit2" type="submit">
-								<i class="zmdi zmdi-search"></i>
-							</button>
-						</form>
-									</div>
-									<div class="table-data__tool-right">
-										<button class="au-btn au-btn-icon mb-1 au-btn--green au-btn--small" data-toggle="modal"
-										data-target="#largeModal">
-										<i class="zmdi zmdi-plus"></i> Novo</button>
-										
-										<a href="<?php echo base_url('C_export/csv')?>"> <button type="button"
-										class="btn btn-success" data-toggle="tooltip" data-placement="top"
-										title="Recarregue a pagina após o download do arquivo.">
-										<i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</button> </a>
-									</div>
-								</div>
-							</div>
-						</div>
+ 								<form class="au-form-icon--sm" action="" method="post">
+ 									<input class="au-input--w300 au-input--style2" type="text" placeholder="procure por Clientes &amp; Chamados...">
+ 									<button class="au-btn--submit2" type="submit">
+ 										<i class="zmdi zmdi-search"></i>
+ 									</button>
+ 								</form>
+ 							</div>
+ 							<div class="table-data__tool-right">
+ 								<button class="au-btn au-btn-icon mb-1 au-btn--green au-btn--small" data-toggle="modal" data-target="#largeModal">
+ 									<i class="zmdi zmdi-plus"></i> Novo</button>
+
+ 								<a href="<?php echo base_url('C_export/csv') ?>"> <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Recarregue a pagina após o download do arquivo.">
+ 										<i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</button> </a>
+ 							</div>
+ 						</div>
+ 					</div>
+ 				</div>
 
 
 
  				<script>
- 					$(document).ready(function () {
+ 					$(document).ready(function() {
  						function load_cliente_data(page) {
  							$.ajax({
  								url: "<?php echo base_url(); ?>rfcrm/C_cliente/" + page,
  								method: "GET",
  								dataType: "json",
- 								success: function (data) {
+ 								success: function(data) {
  									$('#cliente_table').html(data.cliente_table);
  									$('#pagination_link').html(data.pagination_link);
  								}
  							});
  						}
  						load_country_data(1);
- 						$(document).on("click", ".pagination li a", function (event) {
+ 						$(document).on("click", ".pagination li a", function(event) {
  							event.preventDefault();
  							var page = $(this).data("cliente/V_cliente");
  							load_cliente_data(page);
  						});
  					});
-
  				</script>
 
  				<div id="pagination_link" class="table-responsive table-responsive-data2">
-					 <!-- ======================================= --> 
-					 
-				 	 <!-- PARA ESTUDAR A PAGINAÇÃO EM CODEIGNITER -->
-					 <!-- https://github.com/universidadecodeigniter/paginacao-de-resultados-com-codeigniter-e-bootstrap/tree/master/application -->
+ 					<!-- ======================================= -->
 
-					 <!-- ======================================= -->
+ 					<!-- PARA ESTUDAR A PAGINAÇÃO EM CODEIGNITER -->
+ 					<!-- https://github.com/universidadecodeigniter/paginacao-de-resultados-com-codeigniter-e-bootstrap/tree/master/application -->
+
+ 					<!-- ======================================= -->
  					<div id="cliente_table">
  						<table class="table table-data3">
  							<thead>
  								<tr>
-								 	<th>ID</th>
-									<th>Codigo</th>
+ 									<th>ID</th>
+ 									<th>Codigo</th>
  									<th>Nome</th>
  									<th>CNPJ/CPF</th>
  									<th>TELEFONE</th>
  									<th>CIDADE</th>
  									<th>ENDEREÇO</th>
- 									<th>Bairro</th>
- 									<th>Cep</th>
- 									<th>Funções</th>
+ 									<th>BAIRRO</th>
+ 									<th>CEP</th>
+ 									<th>FUNÇÕES</th>
  								</tr>
  							</thead>
  							<tbody>
- 								<?php if( !empty($result) ) { 
-								 foreach($result as $linha) { 
-								 
-									 ?>
- 								<tr class="tr-shadow">
+ 								<?php if (!empty($result)) {
+										foreach ($result as $linha) {
 
-									 <td> <?php echo $linha->cliente_id; ?> </td>
-									 
- 									<td> <?php echo $linha->cod_cliente; ?> </td>
+											?>
+ 										<tr class="tr-shadow">
+
+ 											<td> <?php echo $linha->cliente_id; ?> </td>
+
+ 											<td> <?php echo $linha->cod_cliente; ?> </td>
 
 
- 									<td> <?php echo $linha->cliente_nome; ?> </td>
+ 											<td> <?php echo $linha->cliente_nome; ?> </td>
 
- 									<td><?php echo $linha->cliente_cnpj_cpf; ?></td>
+ 											<td><?php echo $linha->cliente_cnpj_cpf; ?></td>
 
- 									<td> <?php echo $linha->cliente_telefone; ?> </td>
+ 											<td> <?php echo $linha->cliente_telefone; ?> </td>
 
- 									<td><?php echo $linha->cliente_cidade ?></td>
+ 											<td><?php echo $linha->cliente_cidade ?></td>
 
- 									<td><?php echo $linha->cliente_endereco; ?></td>
+ 											<td><?php echo $linha->cliente_endereco; ?></td>
 
- 									<td><?php echo $linha->cliente_bairro; ?> </td>
+ 											<td><?php echo $linha->cliente_bairro; ?> </td>
 
- 									<td><?php echo $linha->cliente_cep; ?></td>
+ 											<td><?php echo $linha->cliente_cep; ?></td>
 
- 									<td>
- 										<div class="table-data-feature">
- 											<a
- 												href="<?php echo site_url('C_Cliente/exibir'); ?>/<?php echo $linha->cliente_id; ?>">
- 												<button class="item" data-toggle="tooltip" data-placement="top"
- 													title="Visualizar">
- 													<i class="zmdi zmdi-view-list-alt"></i>
- 												</button>
- 											</a>
- 											<!-- <a href="<?php echo site_url('C_Cliente/editar'); ?>/<?php echo $linha->cliente_id; ?>">
+ 											<td>
+ 												<div class="table-data-feature">
+ 													<a href="<?php echo site_url('C_Cliente/exibir'); ?>/<?php echo $linha->cliente_id; ?>">
+ 														<button class="item" data-toggle="tooltip" data-placement="top" title="Visualizar">
+ 															<i class="zmdi zmdi-view-list-alt"></i>
+ 														</button>
+ 													</a>
+ 													<!-- <a href="<?php echo site_url('C_Cliente/editar'); ?>/<?php echo $linha->cliente_id; ?>">
  												<button class="item" data-toggle="tooltip" data-placement="top"
  													title="Editar">
  													<i class="zmdi zmdi-edit"></i>
  												</button>
  											</a> -->
 
- 											<a
- 												href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $linha->cliente_id; ?>">
- 												<button class="item" data-toggle="tooltip" data-placement="top"
- 													title="Deletar">
- 													<i class="zmdi zmdi-delete"></i>
- 												</button>
- 											</a>
- 											<a>
- 												<div style="padding-left: 10px 10px 10px 10px">
- 													<button type="button" class="btn btn-danger btn-sm">
- 														<i class="fa fa-file-pdf-o"></i></button> </div>
- 											</a>
- 											<!-- <script type="text/javascript">
- 												var url = "<?php echo base_url();?>";
+ 													<a href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $linha->cliente_id; ?>">
+ 														<button class="item" data-toggle="tooltip" data-placement="top" title="Deletar">
+ 															<i class="zmdi zmdi-delete"></i>
+ 														</button>
+ 													</a>
+ 													<a>
+ 														<div style="padding-left: 10px 10px 10px 10px">
+ 															<button type="button" class="btn btn-danger btn-sm">
+ 																<i class="fa fa-file-pdf-o"></i></button> </div>
+ 													</a>
+ 													<!-- <script type="text/javascript">
+ 												var url = "<?php echo base_url(); ?>";
 
  												function delete(id) {
  													var r = confirm("Do you want to delete this?")
@@ -182,14 +173,15 @@
 
 
 
- 											<!-- <button class="item" data-toggle="tooltip" data-placement="top"
+ 													<!-- <button class="item" data-toggle="tooltip" data-placement="top"
  												title="More">
  												<i class="zmdi zmdi-more"></i>
  											</button> -->
- 										</div>
- 									</td>
- 								</tr>
- 								<?php } }?>
+ 												</div>
+ 											</td>
+ 										</tr>
+ 								<?php }
+									} ?>
  								<!-- <tr class="tr-shadow">
 									 <td> <i class='fas fa-circle'> </td>
 
@@ -243,8 +235,7 @@
 
 
  <!-- modal large -->
- <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel"
- 	aria-hidden="true">
+ <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
  	<div class="modal-dialog modal-lg" role="document">
  		<div class="modal-content">
  			<div class="modal-header">
@@ -255,90 +246,94 @@
  			</div>
  			<div class="modal-body">
  				<div>
-					 <form method='post' action=<?php echo base_url("C_Cliente/criar"); ?>>
-					<script type="text/javascript">
-						function evento(obj) {
-							obj.value = obj.value.toUpperCase();
-						}
-					</script>
+ 					<form method='post' action=<?php echo base_url("C_Cliente/criar"); ?>>
+ 						<script type="text/javascript">
+ 							function evento(obj) {
+ 								obj.value = obj.value.toUpperCase();
+ 							}
+ 						</script>
 
  						<div class="form-group">
  							<label for="nome" class=" form-control-label">Codigo do Cliente <small>(APENAS CRM
  									ANTIGO)</small></label>
- 							<input type="text" id="company" name="cod_cliente"
- 								placeholder="Insira o Codigo do Cliente " class="form-control">
+ 							<input type="text" id="company" name="cod_cliente" placeholder="Insira o Codigo do Cliente " class="form-control">
  						</div>
 
  						<div class="form-group">
  							<label for="nome" class=" form-control-label">Nome do Cliente</label>
- 							<input type="text" id="company" name="cliente_nome" placeholder="Insira o nome do Cliente"
- 								class="form-control" onblur="evento(this);">
+ 							<input type="text" id="company" name="cliente_nome" placeholder="Insira o nome do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="cpf/cnpj" class=" form-control-label">CNPJ/CPF</label>
- 							<input type="text" id="cpfOuCnpj" name="cliente_cnpj_cpf"
- 								placeholder="Insira o CNPJ do Cliente" class="form-control" onblur="evento(this);">
+ 							<input type="text" id="cpfOuCnpj" name="cliente_cnpj_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="endereco" class=" form-control-label">Endereço </label>
- 							<input type="text" id="vat" name="cliente_endereco"
- 								placeholder="Insira o Endereço do Cliente" class="form-control" onblur="evento(this);">
+ 							<input type="text" id="vat" name="cliente_endereco" placeholder="Insira o Endereço do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="bairro" class=" form-control-label">Bairro</label>
- 							<input type="text" id="street" name="cliente_bairro"
- 								placeholder="Insira o Bairro do Cliente" class="form-control" onblur="evento(this);">
+ 							<input type="text" id="street" name="cliente_bairro" placeholder="Insira o Bairro do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="cep" class=" form-control-label">Cep</label>
- 							<input type="text" id="cliente_cep" name="cliente_cep"
- 								placeholder="Insira o Cep do Cliente" class="form-control" onblur="evento(this);">
+ 							<input type="text" id="cliente_cep" name="cliente_cep" placeholder="Insira o Cep do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="cidade" class=" form-control-label">Cidade</label>
- 							<input type="text" id="city" name="cliente_cidade" placeholder="Insira a Cidade do Cliente"
- 								class="form-control" onblur="evento(this);">
+ 							<input type="text" id="city" name="cliente_cidade" placeholder="Insira a Cidade do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="estado" class=" form-control-label">Estado</label>
- 							<input type="text" id="cliente_estado" name="cliente_estado"
- 								placeholder="Insira o Estado do Cliente" class="form-control" onblur="evento(this);">
+ 							<input type="text" id="cliente_estado" name="cliente_estado" placeholder="Insira o Estado do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="postal-code" class=" form-control-label">País</label>
- 							<input type="text" id="postal-code" name="cliente_pais"
- 								placeholder="Insira o País do Cliente" class="form-control" onblur="evento(this);">
+ 							<input type="text" id="postal-code" name="cliente_pais" placeholder="Insira o País do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="postal-code" class=" form-control-label">Insc. Estadual</label>
- 							<input type="text" id="cliente_inscricao_estadual" name="cliente_inscricao_estadual"
- 								placeholder="Insira a Insc. Estadual do Cliente" class="form-control" onblur="evento(this);">
+ 							<input type="text" id="cliente_inscricao_estadual" name="cliente_inscricao_estadual" placeholder="Insira a Insc. Estadual do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
- 						<div class="form-group">
- 							<label for="postal-code" class=" form-control-label">Categoria</label>
- 							<input type="text" id="postal-code" name="cliente_categoria"
- 								placeholder="Defina uma Categoria para o Cliente" class="form-control" onblur="evento(this);">
- 						</div>
+ 						<div class="row form-group">
+ 						 
+ 							<div class="col-12 col-md-9">
+							 <label for="postal-code" class=" form-control-label">Categoria</label>
 
+ 								<select name="cliente_categoria" id="cliente_categoria" class="form-control">
+ 									<option value="Não Selecionado...">Selecione uma Categoria..</option>
+ 									<option value="ASSINANTES SITE">ASSINANTES SITE</option>
+ 									<option value="TELEMARKETING/ESCOLAS">TELEMARKETING/ESCOLAS</option>
+ 									<option value="ASS.EMPRES./JURÍDICO">ASS.EMPRES./JURÍDICO</option>
+									<option value="ASS. EDUC/JURÍDICO">ASS. EDUC/JURÍDICO</option>
+									<option value="ASS.EDUC./JURÍDICO/CONTÁBIL">ASS.EDUC./JURÍDICO/CONTÁBIL</option>
+									<option value="ASS. EDUC./CONTÁBIL">ASS. EDUC./CONTÁBIL</option>
+									<option value="CONS.JURÍDICO/COBRANÇA">CONS.JURÍDICO/COBRANÇA</option>
+									<option value="FORNECEDORES/ESCOLAS">FORNECEDORES/ESCOLAS</option>
+									<option value="CLIENTES INATIVOS">CLIENTES INATIVOS</option>
+									<option value="TELEMARKETING/FILANTRÓPICAS">TELEMARKETING/FILANTRÓPICAS </option>
+									<option value="ASS-JURÍDICA/COBRANÇA">ASS-JURÍDICA/COBRANÇA</option>
+									<option value="IRREGULARES">IRREGULARES</option>
+								</select>
+ 							</div>
+ 						</div>
  						<div class="form-group">
  							<label for="vat" class=" form-control-label">E-Mail </label>
- 							<input type="email" id="cliente_email" name="cliente_email"
- 								placeholder="Insira o Endereço de E-Mail do Cliente" class="form-control" onblur="evento(this);">
+ 							<input type="email" id="cliente_email" name="cliente_email" placeholder="Insira o Endereço de E-Mail do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
  							<label for="postal-code" class=" form-control-label">Telefone</label>
- 							<input type="text" id="cliente_telefone" name="cliente_telefone"
- 								placeholder="Insira o Telefone do Cliente" class="form-control" onblur="evento(this);">
+ 							<input type="text" id="cliente_telefone" name="cliente_telefone" placeholder="Insira o Telefone do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<!-- <h4>Outros Contatos </h4>
@@ -371,19 +366,18 @@
  <!-- end modal large -->
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 
  <script type="text/javascript">
  	$("#cliente_contato_telefone").mask("(00) 00000-0000");
  	$("#cliente_telefone").mask("(00) 00000-0000");
  	$("#cliente_cep").mask("00000-000");
  	$("#cliente_inscricao_estadual").mask("000.000.000.000");
-	 var options = {
-    onKeyPress: function (cpf, ev, el, op) {
-        var masks = ['000.000.000-000', '00.000.000/0000-00'];
-        $('#cpfOuCnpj').mask((cpf.length > 14) ? masks[1] : masks[0], op);
-    }
-}
-$('#cpfOuCnpj').length > 11 ? $('#cpfOuCnpj').mask('00.000.000/0000-00', options) : $('#cpfOuCnpj').mask('000.000.000-00#', options);												 
-   
+ 	var options = {
+ 		onKeyPress: function(cpf, ev, el, op) {
+ 			var masks = ['000.000.000-000', '00.000.000/0000-00'];
+ 			$('#cpfOuCnpj').mask((cpf.length > 14) ? masks[1] : masks[0], op);
+ 		}
+ 	}
+ 	$('#cpfOuCnpj').length > 11 ? $('#cpfOuCnpj').mask('00.000.000/0000-00', options) : $('#cpfOuCnpj').mask('000.000.000-00#', options);
  </script>

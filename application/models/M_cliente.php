@@ -1,19 +1,18 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_cliente extends CI_Model {
+class M_cliente extends CI_Model
+{
 
 
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->database();
-	 }
+	}
 
 	public function index()
-	{
-		
-	}
+	{ }
 
 	////////////////////////////////////////// <LISTAGEM> /////////////////////////////////////////////
 
@@ -56,7 +55,7 @@ class M_cliente extends CI_Model {
 		$this->db->from('chamado');
 		$this->db->join('cliente', 'cliente.cliente_id = chamado.chamado_id_cliente');
 		$this->db->where('chamado.chamado_id_cliente =' . $cliente_id);
-		$this->db->order_by('chamado_data');
+		$this->db->order_by('chamado_data', 'DESC');
 		$query = $this->db->get();
 		if ($query->num_rows() < 1) {
 			return FALSE;
@@ -78,12 +77,24 @@ class M_cliente extends CI_Model {
 		return $query->result();
 	}
 
-	///////////////////////////////////////////////// </LISTAGEM> //////////////////////////////////////////////////////
+	public function listarCategoriasCliente()
+	{
+		$this->db->select('id_categoria,categoria_nome');
+		$results = $this->db->get('cliente_categoria')->result();
+		$list = array();
+		foreach ($results as $result) 
+		{
+			$list[$result->id_categoria] = $result->categoria_nome;                
+		}
+		return $list;
+		  
+	}
 
 
+	///////////////////////////////////////////////// </LISTAGEM> ////////////////////////////////////
 
 
-	//////////////////////////////////////////////// <CRIAÇÃO> //////////////////////////////////////////////////////
+	//////////////////////////////////////////////// <CRIAÇÃO> /////////////////////////////////////// 
 
 	function criarDados()
 	{
@@ -113,8 +124,8 @@ class M_cliente extends CI_Model {
 			'cliente_contato_id'           => $this->input->post('cliente_contato_id'),
 			'contato_secundario_nome'      => $this->input->post('contato_secundario_nome'),
 			'contato_secundario_email'     => $this->input->post('contato_secundario_email'),
-			'contato_secundario_telefone'  => $this->input->post('contato_secundario_telefone')
-
+			'contato_secundario_telefone'  => $this->input->post('contato_secundario_telefone'),
+			'contato_secundario_funcao'  => $this->input->post('contato_secundario_funcao')
 		);
 		$this->db->insert('contato_secundario', $data);
 	}
@@ -122,21 +133,27 @@ class M_cliente extends CI_Model {
 	function criarCorrecao()
 	{
 		$data = array(
-			'correcao_id_cliente'          => $this->input->post('correcao_id_cliente'),
-			'correcao_nome_cliente'        => $this->input->post('correcao_nome_cliente'),
-			'correcao_data'                => $this->input->post('correcao_data'),
-			'correcao_operador'            => $this->input->post('correcao_operador'),
-			'correcao_descricao'           => $this->input->post('correcao_descricao'),
-			'correcao_comentarios'         => $this->input->post('correcao_comentarios')
+			'correcao_id_chamado'         => $this->input->post('correcao_id_chamado'),
+			'correcao_id_cliente'         => $this->input->post('correcao_id_cliente'),
+			'correcao_atividade'          => $this->input->post('correcao_atividade'),
+			'correcao_duracao_minuto'     => $this->input->post('correcao_duracao_minuto'),
+			'correcao_duracao_hora'       => $this->input->post('correcao_duracao_hora'),
+			'correcao_assunto'            => $this->input->post('correcao_assunto'),
+			'correcao_data'               => $this->input->post('correcao_data'),
+			'correcao_hora'               => $this->input->post('correcao_hora'),
+			'correcao_atendente_rf'       => $this->input->post('correcao_atendente_rf'),
+			'correcao_atendente_cliente'  => $this->input->post('correcao_atendente_cliente'),
+			'correcao_obs'                => $this->input->post('correcao_obs'),
+			'correcao_telefone'           => $this->input->post('correcao_telefone'),
+			'correcao_email'              => $this->input->post('chamado_email')
 
 		);
-		$this->db->insert('correcao_chamado', $data);
+		$this->db->insert('correcao', $data);
 	}
 
 	///////////////////////////////////////////////// </CRIAÇÃO> /////////////////////////////////////////////
 
-	///////////////////////////////////////////////// <ATUALIZAÇÃO> /////////////////////////////////////////////
-
+	///////////////////////////////////////////////// <ATUALIZAÇÃO> ////////////////////////////////////////// 
 
 	function atualizarRegistro($cliente_id)
 	{
@@ -166,7 +183,7 @@ class M_cliente extends CI_Model {
 
 
 
-	///////////////////////////////////////////////// <EXCLUSÃO> /////////////////////////////////////////////
+	///////////////////////////////////////////////// <EXCLUSÃO> /////////////////////////////////////////////////
 
 
 	function apagarRegistro($cliente_id)
@@ -175,11 +192,17 @@ class M_cliente extends CI_Model {
 		$this->db->delete('cliente');
 	}
 
+	function apagarContatoCliente($contato_secundario_id)
+	{
+		$this->db->where('contato_secundario_id', $contato_secundario_id);
+		$this->db->delete('contato_secundario');
+	}
 
-	///////////////////////////////////////////////// </EXCLUSÃO> /////////////////////////////////////////////
+
+	///////////////////////////////////////////////// </EXCLUSÃO> /////////////////////////////////////////////////
 
 
-	///////////////////////////////////////////////// FUNÇÕES PARA TRATAMENTO DE CONTEUDO /////////////////////////////////////////////
+	///////////////////////////////////////////////// FUNÇÕES PARA TRATAMENTO DE CONTEUDO ///////////////////////// 
 
 
 	function count_all()
@@ -226,7 +249,7 @@ class M_cliente extends CI_Model {
 		return $output;
 	}
 
-///////////////////////////////////////////////// FUNÇÕES PARA TRATAMENTO DE CONTEUDO /////////////////////////////////////////////    
+	///////////////////////////////////////////////// FUNÇÕES PARA TRATAMENTO DE CONTEUDO /////////////////////////////////////////////    
 
 
 
