@@ -50,5 +50,11 @@ class C_Login extends CI_Controller {
       $this->session->sess_destroy();
       redirect('C_login');
   }
+
+  public function criarUsuario(){
+    $this->M_usuario->criarUsuario();
+    redirect("C_login");
+}
+  
  
 }
