@@ -3,7 +3,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_cliente extends CI_Model
 {
-
+	private $_limit;
+    private $_pageNumber;
+    private $_offset;
 
 	public function __construct()
 	{
@@ -14,17 +16,55 @@ class M_cliente extends CI_Model
 	public function index()
 	{ }
 
-	////////////////////////////////////////// <LISTAGEM> /////////////////////////////////////////////
+//
+// ─── FOR PAGINATION ─────────────────────────────────────────────────────────────────
+//
 
-	function listarRegistros()
-	{
-		$query = $this->db->query('SELECT * FROM cliente ORDER BY cliente_id ASC');
-
-		if ($query->num_rows() < 1) {
-			return FALSE;
-		}
-		return $query->result();
+	public function getAllClienteCount() {
+	$this->db->from('cliente');
+	return $this->db->count_all_results();
 	}
+
+	public function setLimit($limit) {
+		$this->_limit = $limit;
+	}
+
+	public function setPageNumber($pageNumber) {
+		$this->_pageNumber = $pageNumber;
+	}
+
+	public function setOffset($offset) {
+		$this->_offset = $offset;
+	}
+
+	//
+	// ─── LISTAGEM ───────────────────────────────────────────────────────────────────
+	//
+
+
+	 function listarRegistros()
+	 {
+		  $this->db->select(array('c.cliente_id','c.cod_cliente','c.cliente_nome','c.cliente_cnpj_cpf','c.cliente_telefone','c.cliente_cidade','c.cliente_endereco','c.cliente_bairro','c.cliente_cep'));
+		  $this->db->from('cliente as c');
+		  $this->db->limit($this->_pageNumber, $this->_offset);
+		  $query =$this->db->get();
+	 	if ($query->num_rows() < 1) {
+	 		return FALSE;
+	 	}
+	 	return $query->result_array();
+	 }
+
+// ID 	Codigo 	Nome 	CNPJ/CPF 	TELEFONE 	CIDADE 	ENDEREÇO 	BAIRRO 	CEP 	FUNÇÕES
+
+//  function listarRegistros()
+//  {
+//  	$query = $this->db->query('SELECT * FROM cliente ORDER BY cliente_id ASC');
+ 
+//  	if ($query->num_rows() < 1) {
+//  		return FALSE;
+//  	}
+//  	return $query->result();
+//  }
 
 	function listarRegistro($cliente_id = '')
 	{
@@ -69,7 +109,7 @@ class M_cliente extends CI_Model
 		$this->db->from('correcao');
 		$this->db->join('cliente', 'cliente_id = correcao_id_cliente');
 		$this->db->where('correcao_id_cliente =' . $cliente_id);
-		$this->db->order_by('correcao_id');
+		$this->db->order_by('correcao_id', 'DESC');
 		$query = $this->db->get();
 		if ($query->num_rows() < 1) {
 			return FALSE;
@@ -77,25 +117,27 @@ class M_cliente extends CI_Model
 		return $query->result();
 	}
 
-	public function listarCategoriasCliente()
-	{
-		$this->db->select('id_categoria,categoria_nome');
-		$results = $this->db->get('cliente_categoria')->result();
-		$list = array();
-		foreach ($results as $result) 
-		{
-			$list[$result->id_categoria] = $result->categoria_nome;                
-		}
-		return $list;
+	// public function listarCategoriasCliente()
+	// {
+	// 	$this->db->select('id_categoria,categoria_nome');
+	// 	$results = $this->db->get('cliente_categoria')->result();
+	// 	$list = array();
+	// 	foreach ($results as $result) 
+	// 	{
+	// 		$list[$result->id_categoria] = $result->categoria_nome;                
+	// 	}
+	// 	return $list;
 		  
-	}
+	// }
 
 
-	///////////////////////////////////////////////// </LISTAGEM> ////////////////////////////////////
+ 
 
+//
+// ─── CRIACAO ────────────────────────────────────────────────────────────────────
+//
 
-	//////////////////////////////////////////////// <CRIAÇÃO> /////////////////////////////////////// 
-
+	
 	function criarDados()
 	{
 		$data = array(
@@ -125,7 +167,7 @@ class M_cliente extends CI_Model
 			'contato_secundario_nome'      => $this->input->post('contato_secundario_nome'),
 			'contato_secundario_email'     => $this->input->post('contato_secundario_email'),
 			'contato_secundario_telefone'  => $this->input->post('contato_secundario_telefone'),
-			'contato_secundario_funcao'  => $this->input->post('contato_secundario_funcao')
+			'contato_secundario_funcao'    => $this->input->post('contato_secundario_funcao')
 		);
 		$this->db->insert('contato_secundario', $data);
 	}
@@ -151,10 +193,12 @@ class M_cliente extends CI_Model
 		$this->db->insert('correcao', $data);
 	}
 
-	///////////////////////////////////////////////// </CRIAÇÃO> /////////////////////////////////////////////
+ 
+//
+// ─── ATUALIZACOES ───────────────────────────────────────────────────────────────
+//
 
-	///////////////////////////////////////////////// <ATUALIZAÇÃO> ////////////////////////////////////////// 
-
+	
 	function atualizarRegistro($cliente_id)
 	{
 		$data = array(
@@ -178,13 +222,15 @@ class M_cliente extends CI_Model
 		$this->db->update('cliente', $data);
 	}
 
-	///////////////////////////////////////////////// </ATUALIZAÇÃO> /////////////////////////////////////////////
 
 
 
 
-	///////////////////////////////////////////////// <EXCLUSÃO> /////////////////////////////////////////////////
+//
+// ─── EXCLUSAO ───────────────────────────────────────────────────────────────────
+//
 
+	
 
 	function apagarRegistro($cliente_id)
 	{
@@ -199,11 +245,11 @@ class M_cliente extends CI_Model
 	}
 
 
-	///////////////////////////////////////////////// </EXCLUSÃO> /////////////////////////////////////////////////
+//
+// ─── FUNCOES PARA TRATAMENTO DE CONTEUDO ────────────────────────────────────────
+//
 
-
-	///////////////////////////////////////////////// FUNÇÕES PARA TRATAMENTO DE CONTEUDO ///////////////////////// 
-
+	
 
 	function count_all()
 	{
@@ -249,8 +295,7 @@ class M_cliente extends CI_Model
 		return $output;
 	}
 
-	///////////////////////////////////////////////// FUNÇÕES PARA TRATAMENTO DE CONTEUDO /////////////////////////////////////////////    
-
+ 
 
 
 

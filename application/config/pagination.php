@@ -1,62 +1,35 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
-// First Links
-$config['first_link'] = 'First';
-$config['first_tag_open'] = '<li>';
+$config['per_page'] = 2;
+$config['num_links'] = 2;
+ 
+$config['use_page_numbers'] = TRUE;
+$config['page_query_string'] = FALSE;
+ 
+$config['query_string_segment'] = '';
+ 
+$config['full_tag_open'] = '<ul class="pagination pagination-sm justify-content-end">';
+$config['full_tag_close'] = '</ul>';
+$config['attributes'] = ['class' => 'page-link'];
+ 
+$config['first_link'] = '&laquo;';
+$config['first_tag_open'] = '<li class="page-item">';
 $config['first_tag_close'] = '</li>';
-
-// Last Links
-$config['last_link'] = 'Last';
-$config['last_tag_open'] = '<li>';
+ 
+$config['last_link'] = ' &raquo;';
+$config['last_tag_open'] = '<li class="page-item">';
 $config['last_tag_close'] = '</li>';
-
-// Next Link
-$config['next_link'] = '»';
-$config['next_tag_open'] = '<li>';
+ 
+$config['next_link'] = ' &rarr;';
+$config['next_tag_open'] = '<li class="page-item">';
 $config['next_tag_close'] = '</li>';
-
-// Previous Link
-$config['prev_link'] = '«';
-$config['prev_tag_open'] = '<li>';
+ 
+$config['prev_link'] = '&larr;';
+$config['prev_tag_open'] = '<li class="page-item">';
 $config['prev_tag_close'] = '</li>';
-
-// Current Link
-$config['cur_tag_open'] = '<li class="active">';
-$config['cur_tag_close'] = '</li>';
-
-// Digit Link
-$config['num_tag_open'] = '<li>';
+ 
+$config['cur_tag_open'] = '<li class="page-item active"><a href="#" class="page-link">';
+$config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
+$config['num_tag_open'] = '<li class="page-item">';
 $config['num_tag_close'] = '</li>';
-
-/*
-IMAGEM $config['full_tag_open'] = '<p>';
-$config['full_tag_close'] = '</p>';
-
-// First Links
-$config['first_link'] = 'First';
-$config['first_tag_open'] = '<div>';
-$config['first_tag_close'] = '</div>';
-
-IMAGEM // Last Links
-$config['last_link'] = 'Last';
-$config['last_tag_open'] = '<div>';
-$config['last_tag_close'] = '</div>';
-
-// Next Link
-$config['next_link'] = '»';
-$config['next_tag_open'] = '<div>';
-$config['next_tag_close'] = '</div>';
-
-// Previous Link
-$config['prev_link'] = '«';
-$config['prev_tag_open'] = '<div>';
-$config['prev_tag_close'] = '</div>';
-
-// Current Link
-$config['cur_tag_open'] = '<b>';
-$config['cur_tag_close'] = '</b>';
-
-// Digit Link
-$config['num_tag_open'] = '<div>';
-$config['num_tag_close'] = '</div>';
-*/
+ 
+$config['anchor_class'] = 'follow_link';

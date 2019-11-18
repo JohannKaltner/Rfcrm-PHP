@@ -1,0 +1,38 @@
+<<?php if (!empty($result)) {
+										foreach ($result as $linha) {
+											?>
+ 										<tr class="tr-shadow">
+
+ 											<td> <?php echo $linha->cliente_id; ?> </td>
+ 											<td> <?php echo $linha->cod_cliente; ?> </td>
+ 											<td> <?php echo $linha->cliente_nome; ?> </td>
+ 											<td><?php echo $linha->cliente_cnpj_cpf; ?></td>
+ 											<td> <?php echo $linha->cliente_telefone; ?> </td>
+ 											<td><?php echo $linha->cliente_cidade ?></td>
+ 											<td><?php echo $linha->cliente_endereco; ?></td>
+ 											<td><?php echo $linha->cliente_bairro; ?> </td>
+ 											<td><?php echo $linha->cliente_cep; ?></td>
+ 											<td>
+ 												<div class="table-data-feature">
+ 													<a href="<?php echo site_url('C_Cliente/exibir'); ?>/<?php echo $linha->cliente_id; ?>">
+ 														<button class="item" data-toggle="tooltip" data-placement="top" title="Visualizar">
+ 															<i class="zmdi zmdi-view-list-alt"></i>
+ 														</button>
+ 													</a>
+ 													
+ 													<a href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $linha->cliente_id; ?>">
+ 														<button class="item" data-toggle="tooltip" data-placement="top" title="Deletar">
+ 															<i class="zmdi zmdi-delete"></i>
+ 														</button>
+ 													</a>
+ 													<!-- <a>
+ 														<div style="padding-left: 10px 10px 10px 10px">
+ 															<button type="button" class="btn btn-danger btn-sm">
+ 																<i class="fa fa-file-pdf-o"></i></button> </div>
+ 													</a> -->
+
+ 												</div>
+ 											</td>
+ 										</tr>
+ 								<?php }
+									} ?> -->

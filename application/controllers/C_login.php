@@ -36,7 +36,7 @@ class C_Login extends CI_Controller {
             $admin == '1';
             redirect('home');
         }else{
-            redirect('Home');
+            redirect('home');
         }
 
     }else{
@@ -52,8 +52,8 @@ class C_Login extends CI_Controller {
   }
 
   public function criarUsuario(){
-    $this->M_usuario->criarUsuario();
-    redirect("C_login");
+    $this->M_login->criarUsuario();
+    redirect('C_login');
 }
   
  

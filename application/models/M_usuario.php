@@ -20,17 +20,6 @@ class M_usuario extends CI_Model
     // 
   }
 
-  public function criarUsuario()
-  {
-    $data = array(
-      'usuario_nome'   => $this->input->post('usuario_nome'),
-      'usuario_email'  => $this->input->post('usuario_email'),
-      'usuario_senha'  => $this->input->post('usuario_senha'),
-      'usuario_setor'  => $this->input->post('usuario_setor'),
-    );
-    $this->db->insert('usuario', $data);
-  }
-
 
   public function consultar_permissao($usuario_id)
   {

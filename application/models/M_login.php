@@ -23,5 +23,18 @@ class M_Login extends CI_Model {
         return $query;
 
   }
+
+  
+  public function criarUsuario()
+  {
+    $data = array(
+      'usuario_nome'   => $this->input->post('usuario_nome'),
+      'usuario_email'  => $this->input->post('usuario_email'),
+      'usuario_senha'  => $this->input->post('usuario_senha'),
+      'usuario_setor'  => $this->input->post('usuario_setor')
+    );
+    $this->db->insert('usuario', $data);
+  }
+
  
 }

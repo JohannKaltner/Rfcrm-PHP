@@ -93,7 +93,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action=" action="<?php echo site_url('C_login/criarUsuario') ?>">
+                    <form method="post" action="<?php echo site_url('C_login/criarUsuario')?>">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">@</span>
@@ -104,7 +104,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">@</span>
                             </div>
-                            <input type="email" class="form-control" placeholder="E-mail" name="usuario_email" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="email" class="form-control" value="seu_email@rfcrm.com" placeholder="E-mail" name="usuario_email" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -118,12 +118,13 @@
                             </div>
                             <input type="text" class="form-control" placeholder="SETOR" name="usuario_setor" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
-                    </form>
+                    
                 </div>
                 <div class="modal-footer">
-                                            <button type="button"  class="btn btn-round btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" value="save" type="submit" class="btn btn-round btn-primary">Save changes</button>
+                                            <button type="button"  class="btn btn-round btn-default" data-dismiss="modal">Cancelar</button>
+                                            <button  type="submit" value="save" class="btn btn-round btn-primary">Concluir Cadastro</button>
                                         </div>
+                                        </form>
             </div>
         </div>
     </div>

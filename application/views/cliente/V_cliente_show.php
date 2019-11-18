@@ -1,5 +1,5 @@
 <?php
-                            date_default_timezone_set('America/Sao_Paulo');?>
+date_default_timezone_set('America/Sao_Paulo'); ?>
 <section class="p-t-20">
    <div class="page-content--bgf7">
       <div class="container">
@@ -10,27 +10,87 @@
                      <div class="default-tab">
                         <nav>
                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="color:#2C0CB8;">ÁREA DO
-                                 CLIENTE</a>
-                              <a class="nav-item nav-link" id="nav-contato-tab" data-toggle="tab" href="#nav-contato" role="tab" aria-controls="nav-contato" aria-selected="true" style="color:#2C0CB8;">CONTATOS</a>
-                              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" style="color:#2C0CB8;">CHAMADOS</a>
-                              <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal" style="color:#2C0CB8; font-size:18px;">
-                                 REGISTRAR CHAMADO
+                              <!-- AREAS -->
+                              <a class="nav-item nav-link active"    
+                              id="nav-home-tab"
+                              data-toggle="tab"
+                              href="#nav-home"
+                              role="tab"
+                              aria-controls="nav-home"
+                              aria-selected="true"
+                              style="color:#2C0CB8;">ÁREA DO CLIENTE</a>
+
+                              <a
+                              class="nav-item nav-link"
+                              id="nav-contato-tab"
+                              data-toggle="tab"
+                              href="#nav-contato"
+                              role="tab"
+                              aria-controls="nav-contato"
+                              aria-selected="false"
+                              style="color:#2C0CB8;"
+                              >CONTATOS</a>
+
+                              <a
+                              class="nav-item nav-link"
+                              id="nav-profile-tab"
+                              data-toggle="tab"
+                              href="#nav-profile"
+                              role="tab"
+                              aria-controls="nav-profile"
+                              aria-selected="false"
+                              style="color:#2C0CB8;"
+                              >CHAMADOS</a>
+
+                              <a
+                              class="nav-item nav-link"
+                              id="nav-correcao-tab"
+                              data-toggle="tab"
+                              href="#nav-correcao"
+                              role="tab"
+                              aria-controls="nav-correcao"
+                              aria-selected="false"
+                              style="color:#2C0CB8;"
+                              >CORREÇÕES</a>
+                              <!-- FIM AREAS  -->
+
+                              <!-- MODAIS -->
+                              <button
+                              type="button"
+                              class="btn btn-light"
+                              data-toggle="modal"
+                              data-target="#exampleModal"
+                              style="color:#2C0CB8;
+                              font-size:18px;"
+                              >REGISTRAR CHAMADO
                               </button>
-                              <button type="button" class="btn btn-light" data-toggle="modal" data-target="#contatoModal" style="color:#2C0CB8; font-size:18px;">
-                                 REGISTRAR CONTATO
+
+                              <button
+                              type="button"
+                              class="btn btn-light"
+                              data-toggle="modal"
+                              data-target="#contatoModal"
+                              style="color:#2C0CB8; font-size:18px;"
+                              >REGISTRAR CONTATO
                               </button>
-                              <!-- <button id="correct" type="button" class="btn btn-light" data-toggle="modal" data-target="#correcaoModal" style="color:red; font-size:18px; ">
-                              REGISTRAR CORREÇÃO
-                              </button> -->
-                              <button type="button" class="btn btn-light" data-toggle="modal" data-target="#editModal" style="color:#2C0CB8; font-size:18px; ">
-                                 EDITAR CLIENTE
+
+                              <button
+                              type="button"
+                              class="btn btn-light"
+                              data-toggle="modal"
+                              data-target="#editModal"
+                              style="color:#2C0CB8; font-size:18px; "
+                              >EDITAR CLIENTE
                               </button>
+                              <!-- <button id="correct" type="button" class="btn btn-light" data-toggle="modal" data-target="#correcaoModal" style="color:red; font-size:18px; ">REGISTRAR CORREÇÃO</button> -->
+
+                              <!-- FIM MODAIS  -->
+
                            </div>
                         </nav>
-                        <!-- inicio div tabs -->
                         <div class="tab-content pl-3 pt-2" id="nav-tabContent">
-                           <!-- inicio tab 1 -->
+
+                           <!-- NAV HOME   -->
                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                               <div>
                                  <form method='post' action="<?php echo site_url('C_Cliente/exibir') ?>/<?php echo $linha->cliente_id; ?>">
@@ -95,8 +155,9 @@
                                  </form>
                               </div>
                            </div>
-                           <!-- fim tab 1 -->
-                           <!-- TAB CONTATOS -->
+                           <!-- FIM NAV HOME -->
+
+                           <!-- NAV CONTATO -->
                            <div class="tab-pane fade" id="nav-contato" role="tabpanel" aria-labelledby="nav-contato-tab">
                               <div style="align-items: center;">
                                  <div class='row'>
@@ -120,29 +181,15 @@
                                                 </li>
                                              </ul>
                                              <br>
-                                             <!-- <div class="card" <?php    ?> href="<?php echo base_url(); ?>C_cliente/exibir/<?php echo $contato->contato_secundario_id; ?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;" ;>
-                                          <div class="col-md-6">
-                                             <div class="card-body">
-                                                <h5>ID: <?php echo $contato->contato_secundario_id; ?>  </h5>
-                                                <p>
-                                                   Nome: <?php echo $contato->contato_secundario_nome; ?>  
-                                                   <br>
-                                                   E-mail: <?php echo $contato->contato_secundario_email; ?> 
-                                                   <br>
-                                                   Telefone: <?php echo $contato->contato_secundario_telefone; ?> 
-
-
-                                             </div>
-                                          </div>
-                                       </div> -->
                                        <?php }
                                        } ?>
                                     </div>
                                  </div>
                               </div>
                            </div>
-                           <!-- FIM TAB CONTATOS -->
-                           <!-- inicio tab 2 -->
+                           <!-- FIM NAV CONTATO -->
+
+                           <!-- NAV CHAMADOS -->
                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                               <div style="align-items: center;">
                                  <div class="col-md-12">
@@ -151,7 +198,7 @@
                                        foreach ($chamados as $chamado) { ?>
                                           <div class="row">
                                              <div class="col-md-12">
-                                                <div class="card" <?php    ?> href="<?php echo base_url(); ?>C_cliente/exibir/<?php echo $chamado->chamado_id; ?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;" ;>
+                                                <div class="card" <?php    ?> href="<?php echo base_url();?>C_cliente/exibir/<?php echo $chamado->chamado_id;?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;" ;>
                                                    <!-- <div class=" col-md-6"> -->
                                                    <div class="card-body">
                                                       <h4>ID: <?php echo $chamado->chamado_id; ?>
@@ -193,68 +240,71 @@
                                     } ?>
                                  </div>
 
-                                  <div class="col-md-12">
+                              </div>
+                           </div>
+                           <!-- FIM NAV CHAMADOS  -->
+
+                           <!-- NAV CORRECAO -->
+                           <div class="tab-pane fade" id="nav-correcao" role="tabpanel" aria-labelledby="nav-correcao-tab">
+                              <div style="align-items: center;">
+                                 <div class="col-md-12">
                                     <?php
                                     if (!empty($correcoes)) {
                                        foreach ($correcoes as $correcao) { ?>
-                                    <div class="row">
-                                       <div class="col-md-12">
-										  <div class="card" href="<?php echo base_url(); ?>C_cliente/exibir/<?php echo $correcao->correcao_id; ?>"
-										   style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;" ;>
-                                                 <div class="card-body">
-												      <h4>Corrigindo o Chamado de ID: <?php echo $correcao->correcao_id_chamado; ?> </h4>
-                                                   <Br>
-                                                   <p> o(a) cliente <b> <?php echo $correcao->cliente_nome; ?>
-                                                      <Br>        
-                                                      </b> de Codigo <b> <?php echo $correcao->cod_cliente; ?> </b> <br>entrou em contato por
-                                                      <b>Ligação</b>.<br>
-                                                      Dia <b> <?php echo $correcao->correcao_data; ?> </b> as
-                                                      <b><?php echo $correcao->correcao_hora; ?></b> com
-                                                      duração de
-                                                      <b><?php echo $correcao->correcao_duracao_hora; ?> Horas
-                                                      e <?php echo $correcao->correcao_duracao_minuto; ?>
-                                                      Minutos </b>
-                                                      <b>Atividade:</b> <i>
-                                                      <?php echo $correcao->correcao_atividade; ?>
-                                                      </b><span>
-                                                      <b>Assunto:</b>
-                                                      <i><?php echo $correcao->correcao_assunto; ?></i>
-                                                      </span> <br>
-                                                      <b>Quem Entrou em contato:</b>
-                                                      <i><?php echo $correcao->correcao_atendente_cliente; ?></i>
-                                                      <b>Pelo numero:</b>
-                                                      <i><?php echo $correcao->correcao_telefone; ?> </i>
+                                          <div class="row">
+                                             <div class="col-md-12">
+                                                <div class="card" href="<?php echo base_url();?>C_cliente/exibir/<?php echo $correcao->correcao_id;?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #E73439;">
+                                                   <div class="card-body">
+                                                      <h4>Corrigindo o Chamado de ID: <?php echo $correcao->correcao_id_chamado; ?> </h4>
                                                       <Br>
-                                                      <b>Quem Atendeu:</b>
-                                                      <i><?php echo $correcao->correcao_atendente_rf; ?></i>
-                                                   <p>
+                                                      <p> o(a) cliente <b> <?php echo $correcao->cliente_nome; ?>
+                                                            <Br>
+                                                         </b> de Codigo <b> <?php echo $correcao->cod_cliente; ?> </b> <br>entrou em contato por
+                                                         <b>Ligação</b>.<br>
+                                                         Dia <b> <?php echo $correcao->correcao_data; ?> </b> as
+                                                         <b><?php echo $correcao->correcao_hora; ?></b> com
+                                                         duração de
+                                                         <b><?php echo $correcao->correcao_duracao_hora; ?> Horas
+                                                            e <?php echo $correcao->correcao_duracao_minuto; ?>
+                                                            Minutos </b>
+                                                         <b>Atividade:</b> <i>
+                                                            <?php echo $correcao->correcao_atividade; ?>
+                                                            </b><span>
+                                                               <b>Assunto:</b>
+                                                               <i><?php echo $correcao->correcao_assunto; ?></i>
+                                                            </span> <br>
+                                                            <b>Quem Entrou em contato:</b>
+                                                            <i><?php echo $correcao->correcao_atendente_cliente; ?></i>
+                                                            <b>Pelo numero:</b>
+                                                            <i><?php echo $correcao->correcao_telefone; ?> </i>
+                                                            <Br>
+                                                            <b>Quem Atendeu:</b>
+                                                            <i><?php echo $correcao->correcao_atendente_rf; ?></i>
+                                                            <p>
+                                                   </div>
+
                                                 </div>
-                                             
+                                             </div>
+                                          </div>
+                                    <?php }
+                                    } ?>
+                                 </div>
                               </div>
                            </div>
+                           <!--  FIM NAV CORRECAO  -->
+
                         </div>
-                  <?php }
-                  } ?>
-                     </div>  
-
-
-
-
+                     </div>
                   </div>
                </div>
-               <!-- fim tab 2  -->
-               <!-- inicio tab 3 -->
+
             </div>
          </div>
       </div>
    </div>
-   <!-- fim tab 4 -->
-   </div>
-   </div>
-   </div>
-   </div>
 </section>
 <!-- Modal -->
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -319,7 +369,7 @@
                            <div class="input-group-addon">
                               <i class="fa  fa-arrow-circle-left"></i>
                            </div>
-                           <input type="text" id="chamado_atendente_rf" value="<?php echo $this->session->userdata('usuario_nome');?>" name="chamado_atendente_rf" placeholder="Quem atendeu ao chamado?" class="form-control">
+                           <input type="text" id="chamado_atendente_rf" value="<?php echo $this->session->userdata('usuario_nome'); ?>" name="chamado_atendente_rf" placeholder="Quem atendeu ao chamado?" class="form-control">
                         </div>
                         <small> Quem da RF&A atendeu? </small>
                      </div>
@@ -350,7 +400,7 @@
                            <div class="input-group-addon">
                               <i class="fa fa-calendar"></i>
                            </div>
-                           <input type="text" id="chamado_data" value="<?php echo date('d/m/Y');?>" name="chamado_data" placeholder="Data" class="form-control">
+                           <input type="text" id="chamado_data" value="<?php echo date('d/m/Y'); ?>" name="chamado_data" placeholder="Data" class="form-control">
                         </div>
                         <small>Dia em que foi feito o contato</small>
                      </div>
@@ -359,8 +409,7 @@
                            <div class="input-group-addon">
                               <i class="fa fa-clock-o"></i>
                            </div>
-                           <input type="text" id="chamado_hora" value="<?php echo date('H:i:s');?>"
-                            name="chamado_hora" placeholder="Hora" class="form-control">
+                           <input type="text" id="chamado_hora" value="<?php echo date('H:i:s'); ?>" name="chamado_hora" placeholder="Hora" class="form-control">
                         </div>
                         <small> Hora do contato</small>
                      </div>
@@ -658,7 +707,7 @@
                      <div class="input-group-addon">
                         <i class="fa fa-id-card"></i>
                      </div>
-                     <input   value="<?php echo $linha->cliente_id; ?>" type="text" id="username" name="cliente_contato_id" placeholder="Id do Cliente" class="form-control">
+                     <input value="<?php echo $linha->cliente_id; ?>" type="text" id="username" name="cliente_contato_id" placeholder="Id do Cliente" class="form-control">
                   </div>
                </div>
                <div class="form-group">
@@ -702,6 +751,7 @@
       </div>
    </div>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 <script type="text/javascript">

@@ -108,125 +108,56 @@
  								</tr>
  							</thead>
  							<tbody>
- 								<?php if (!empty($result)) {
-										foreach ($result as $linha) {
-
-											?>
- 										<tr class="tr-shadow">
-
- 											<td> <?php echo $linha->cliente_id; ?> </td>
-
- 											<td> <?php echo $linha->cod_cliente; ?> </td>
-
-
- 											<td> <?php echo $linha->cliente_nome; ?> </td>
-
- 											<td><?php echo $linha->cliente_cnpj_cpf; ?></td>
-
- 											<td> <?php echo $linha->cliente_telefone; ?> </td>
-
- 											<td><?php echo $linha->cliente_cidade ?></td>
-
- 											<td><?php echo $linha->cliente_endereco; ?></td>
-
- 											<td><?php echo $linha->cliente_bairro; ?> </td>
-
- 											<td><?php echo $linha->cliente_cep; ?></td>
-
- 											<td>
- 												<div class="table-data-feature">
- 													<a href="<?php echo site_url('C_Cliente/exibir'); ?>/<?php echo $linha->cliente_id; ?>">
- 														<button class="item" data-toggle="tooltip" data-placement="top" title="Visualizar">
- 															<i class="zmdi zmdi-view-list-alt"></i>
- 														</button>
- 													</a>
- 													<!-- <a href="<?php echo site_url('C_Cliente/editar'); ?>/<?php echo $linha->cliente_id; ?>">
- 												<button class="item" data-toggle="tooltip" data-placement="top"
- 													title="Editar">
- 													<i class="zmdi zmdi-edit"></i>
- 												</button>
- 											</a> -->
-
- 													<a href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $linha->cliente_id; ?>">
- 														<button class="item" data-toggle="tooltip" data-placement="top" title="Deletar">
- 															<i class="zmdi zmdi-delete"></i>
- 														</button>
- 													</a>
- 													<a>
- 														<div style="padding-left: 10px 10px 10px 10px">
- 															<button type="button" class="btn btn-danger btn-sm">
- 																<i class="fa fa-file-pdf-o"></i></button> </div>
- 													</a>
- 													<!-- <script type="text/javascript">
- 												var url = "<?php echo base_url(); ?>";
-
- 												function delete(id) {
- 													var r = confirm("Do you want to delete this?")
- 													if (r == true)
- 														window.location = url + "user/deleteuser/" + id;
- 													else
- 														return false;
- 												}
-
- 											</script> -->
-
-
-
-
- 													<!-- <button class="item" data-toggle="tooltip" data-placement="top"
- 												title="More">
- 												<i class="zmdi zmdi-more"></i>
- 											</button> -->
- 												</div>
- 											</td>
- 										</tr>
- 								<?php }
-									} ?>
- 								<!-- <tr class="tr-shadow">
-									 <td> <i class='fas fa-circle'> </td>
-
-									<td>
-									<span class="block-email">lori@example.com</span>
-
- 									</td>
- 									<td>Lori Lynch</td>
- 									<td>
- 										<span class="block-email">lori@example.com</span>
- 									</td>
- 									<td class="desc">Samsung S8 Black</td>
- 									<td>2018-09-27 02:12</td>
- 									<td>
- 										<span class="status--process">Processed</span>
- 									</td>
- 									<td>$679.00</td>
- 									<td>
- 										<div class="table-data-feature">
- 											<button class="item" data-toggle="tooltip" data-placement="top"
- 												title="Send">
- 												<i class="zmdi zmdi-mail-send"></i>
- 											</button>
- 											<button class="item" data-toggle="tooltip" data-placement="top"
- 												title="Edit">
- 												<i class="zmdi zmdi-edit"></i>
- 											</button>
- 											<button class="item" data-toggle="tooltip" data-placement="top"
- 												title="Delete">
- 												<i class="zmdi zmdi-delete"></i>
- 											</button>
- 										 <button class="item" data-toggle="tooltip" data-placement="top"
- 												title="More">
- 												<i class="zmdi zmdi-more"></i>
- 											</button> 
-											 </div>
-											</td>
-										</tr>
-										
-									</tr>
-								-->
+							 <?php if (isset($clienteInfo) && !empty($clienteInfo)) { ?>
+                  <?php foreach ($clienteInfo as $key => $element) { ?>
+						<tr>                    
+							<td><?php echo $element['cliente_id']; ?></td>   
+							<td><?php echo $element['cod_cliente']; ?></td>   
+							<td><?php echo $element['cliente_nome']; ?></td>   
+							<td><?php echo $element['cliente_cnpj_cpf']; ?></td> 
+                    	  	<td><?php echo $element['cliente_telefone']; ?></td>                       
+                    	  	<td><?php echo $element['cliente_cidade']; ?></td>
+                    	  	<td><?php echo $element['cliente_endereco']; ?></td>
+                    	  	<td><?php echo $element['cliente_bairro']; ?></td>
+							  <td><?php echo $element['cliente_cep']; ?></td>
+							  <td>
+ 								<div class="table-data-feature">
+ 									<a href="<?php echo site_url('C_Cliente/exibir'); ?>/<?php echo $element['cliente_id']; ?>">
+ 										<button class="item" data-toggle="tooltip" data-placement="top" title="Visualizar">
+ 											<i class="zmdi zmdi-view-list-alt"></i>
+ 										</button>
+ 									</a>
+ 									
+ 									<a href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $element['cliente_id']; ?>">
+ 										<button class="item" data-toggle="tooltip" data-placement="top" title="Deletar">
+ 											<i class="zmdi zmdi-delete"></i>
+ 										</button>
+ 									</a>
+ 									  <a>
+ 										<div style="padding-left: 10px 10px 10px 10px">
+ 											<button type="button" class="btn btn-danger btn-sm">
+ 												<i class="fa fa-file-pdf-o"></i></button> </div>
+ 									</a>  
+ 								</div>
+ 							</td>
+						</tr>
+						<?php } ?>
+                 <?php } else { ?>
+                  <tr>
+                    <td colspan="4">O Banco de Clientes está Vazio.</td>  
+                  </tr>
+                 <?php } ?>
+									<!-- insira aqui o BACKUP DA TABLE   -->
+									<!-- até aqui -->
+					
  							</tbody>
  						</table>
  					</div>
- 				</div>
+				 </div>
+				 <div class="row">
+          <div class="col-lg-12 text-right">
+            <?php if (isset($clienteInfo) && is_array($clienteInfo)) echo $page_links; ?>
+          </div>
  			</div>
  		</div>
  	</div>
