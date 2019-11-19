@@ -60,12 +60,12 @@ class C_Cliente extends CI_Controller {
 		redirect("C_cliente");
 	}
 
-	public function editar($cliente_id){
+	public function editar($cliente_id =''){
 		$data['row'] = $this->M_cliente->listarRegistro($cliente_id);
 		$this->template->show('cliente/V_cliente_edit', $data);
 	}
 
-	public function update($cliente_id){
+	public function update($cliente_id =''){
 		$this->M_cliente->atualizarRegistro($cliente_id);
 		redirect("C_cliente");
 	}
@@ -87,18 +87,23 @@ class C_Cliente extends CI_Controller {
 
 	 public function criarContato($cliente_id = NULL){
 		$this->M_cliente->criarContato();
-		redirect('C_cliente/exibir/',$cliente_id);
+		redirect('C_cliente/');
 	}
 
 	public function criarCorrecao($cliente_id = NULL){
 		$this->M_cliente->criarCorrecao();
-		redirect('C_cliente/exibir/',$cliente_id);
+		redirect('C_cliente/');
 	}
 	
 	public function deletaContato($contato_secundario_id = NULL, $cliente_id = NULL){
-		$this->M_cliente->apagarContatoCliente()($contato_secundario_id);
+		$this->M_cliente->apagarContatoCliente($contato_secundario_id);
 		// echo  "<script>alert('Cliente deletado com Sucesso!!');</script>";
-		redirect('C_cliente/exibir/',$cliente_id);
+		redirect('C_cliente/');
 	}
 
+	public function editaContato($contato_secundario_id= NULL,$cliente_id = NULL){
+		$this->M_cliente->atualizarContatoCliente($contato_secundario_id);
+		redirect('C_cliente/');
+
+	}
 }

@@ -11,76 +11,24 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                         <nav>
                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
                               <!-- AREAS -->
-                              <a class="nav-item nav-link active"    
-                              id="nav-home-tab"
-                              data-toggle="tab"
-                              href="#nav-home"
-                              role="tab"
-                              aria-controls="nav-home"
-                              aria-selected="true"
-                              style="color:#2C0CB8;">ÁREA DO CLIENTE</a>
+                              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="color:#2C0CB8;">ÁREA DO CLIENTE</a>
 
-                              <a
-                              class="nav-item nav-link"
-                              id="nav-contato-tab"
-                              data-toggle="tab"
-                              href="#nav-contato"
-                              role="tab"
-                              aria-controls="nav-contato"
-                              aria-selected="false"
-                              style="color:#2C0CB8;"
-                              >CONTATOS</a>
+                              <a class="nav-item nav-link" id="nav-contato-tab" data-toggle="tab" href="#nav-contato" role="tab" aria-controls="nav-contato" aria-selected="false" style="color:#2C0CB8;">CONTATOS</a>
 
-                              <a
-                              class="nav-item nav-link"
-                              id="nav-profile-tab"
-                              data-toggle="tab"
-                              href="#nav-profile"
-                              role="tab"
-                              aria-controls="nav-profile"
-                              aria-selected="false"
-                              style="color:#2C0CB8;"
-                              >CHAMADOS</a>
+                              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" style="color:#2C0CB8;">CHAMADOS</a>
 
-                              <a
-                              class="nav-item nav-link"
-                              id="nav-correcao-tab"
-                              data-toggle="tab"
-                              href="#nav-correcao"
-                              role="tab"
-                              aria-controls="nav-correcao"
-                              aria-selected="false"
-                              style="color:#2C0CB8;"
-                              >CORREÇÕES</a>
+                              <a class="nav-item nav-link" id="nav-correcao-tab" data-toggle="tab" href="#nav-correcao" role="tab" aria-controls="nav-correcao" aria-selected="false" style="color:#2C0CB8;">CORREÇÕES</a>
                               <!-- FIM AREAS  -->
 
                               <!-- MODAIS -->
-                              <button
-                              type="button"
-                              class="btn btn-light"
-                              data-toggle="modal"
-                              data-target="#exampleModal"
-                              style="color:#2C0CB8;
-                              font-size:18px;"
-                              >REGISTRAR CHAMADO
+                              <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal" style="color:#2C0CB8;
+                              font-size:18px;">REGISTRAR CHAMADO
                               </button>
 
-                              <button
-                              type="button"
-                              class="btn btn-light"
-                              data-toggle="modal"
-                              data-target="#contatoModal"
-                              style="color:#2C0CB8; font-size:18px;"
-                              >REGISTRAR CONTATO
+                              <button type="button" class="btn btn-light" data-toggle="modal" data-target="#contatoModal" style="color:#2C0CB8; font-size:18px;">REGISTRAR CONTATO
                               </button>
 
-                              <button
-                              type="button"
-                              class="btn btn-light"
-                              data-toggle="modal"
-                              data-target="#editModal"
-                              style="color:#2C0CB8; font-size:18px; "
-                              >EDITAR CLIENTE
+                              <button type="button" class="btn btn-light" data-toggle="modal" data-target="#editModal" style="color:#2C0CB8; font-size:18px; ">EDITAR CLIENTE
                               </button>
                               <!-- <button id="correct" type="button" class="btn btn-light" data-toggle="modal" data-target="#correcaoModal" style="color:red; font-size:18px; ">REGISTRAR CORREÇÃO</button> -->
 
@@ -166,8 +114,10 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                                        if (!empty($contatos)) {
                                           foreach ($contatos as $contato) { ?>
                                              <ul class="list-group">
+                                                contatoEditModal
                                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                   ID: <?php echo $contato->contato_secundario_id; ?>
+                                                   ID: <?php echo $contato->contato_secundario_id; ?> <button href="<?php echo site_url('C_Cliente/deletaContato'); ?>/<?php echo $contato->contato_secundario_id; ?>"><i class="zmdi zmdi-delete"></i> </button>
+                                                   <button data-toggle="modal" data-target="#contatoEditModal" type="button"><i class="zmdi zmdi-edit"></i> </button>
                                                 </li>
                                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                                    Nome: <?php echo $contato->contato_secundario_nome; ?>
@@ -198,7 +148,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                                        foreach ($chamados as $chamado) { ?>
                                           <div class="row">
                                              <div class="col-md-12">
-                                                <div class="card" <?php    ?> href="<?php echo base_url();?>C_cliente/exibir/<?php echo $chamado->chamado_id;?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;" ;>
+                                                <div class="card" <?php    ?> href="<?php echo base_url(); ?>C_cliente/exibir/<?php echo $chamado->chamado_id; ?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;" ;>
                                                    <!-- <div class=" col-md-6"> -->
                                                    <div class="card-body">
                                                       <h4>ID: <?php echo $chamado->chamado_id; ?>
@@ -239,68 +189,70 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                                     <?php }
                                     } ?>
                                  </div>
-
                               </div>
                            </div>
-                           <!-- FIM NAV CHAMADOS  -->
+                        </div>
+                        <!-- FIM NAV CHAMADOS  -->
 
-                           <!-- NAV CORRECAO -->
-                           <div class="tab-pane fade" id="nav-correcao" role="tabpanel" aria-labelledby="nav-correcao-tab">
-                              <div style="align-items: center;">
-                                 <div class="col-md-12">
-                                    <?php
-                                    if (!empty($correcoes)) {
-                                       foreach ($correcoes as $correcao) { ?>
-                                          <div class="row">
-                                             <div class="col-md-12">
-                                                <div class="card" href="<?php echo base_url();?>C_cliente/exibir/<?php echo $correcao->correcao_id;?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #E73439;">
-                                                   <div class="card-body">
-                                                      <h4>Corrigindo o Chamado de ID: <?php echo $correcao->correcao_id_chamado; ?> </h4>
-                                                      <Br>
-                                                      <p> o(a) cliente <b> <?php echo $correcao->cliente_nome; ?>
-                                                            <Br>
-                                                         </b> de Codigo <b> <?php echo $correcao->cod_cliente; ?> </b> <br>entrou em contato por
-                                                         <b>Ligação</b>.<br>
-                                                         Dia <b> <?php echo $correcao->correcao_data; ?> </b> as
-                                                         <b><?php echo $correcao->correcao_hora; ?></b> com
-                                                         duração de
-                                                         <b><?php echo $correcao->correcao_duracao_hora; ?> Horas
-                                                            e <?php echo $correcao->correcao_duracao_minuto; ?>
-                                                            Minutos </b>
-                                                         <b>Atividade:</b> <i>
-                                                            <?php echo $correcao->correcao_atividade; ?>
-                                                            </b><span>
-                                                               <b>Assunto:</b>
-                                                               <i><?php echo $correcao->correcao_assunto; ?></i>
-                                                            </span> <br>
-                                                            <b>Quem Entrou em contato:</b>
-                                                            <i><?php echo $correcao->correcao_atendente_cliente; ?></i>
-                                                            <b>Pelo numero:</b>
-                                                            <i><?php echo $correcao->correcao_telefone; ?> </i>
-                                                            <Br>
-                                                            <b>Quem Atendeu:</b>
-                                                            <i><?php echo $correcao->correcao_atendente_rf; ?></i>
-                                                            <p>
-                                                   </div>
-
+                        <!-- NAV CORRECAO -->
+                        <div class="tab-pane fade" id="nav-correcao" role="tabpanel" aria-labelledby="nav-correcao-tab">
+                           <div style="align-items: center;">
+                              <div class="col-md-12">
+                                 <?php
+                                 if (!empty($correcoes)) {
+                                    foreach ($correcoes as $correcao) { ?>
+                                       <div class="row">
+                                          <div class="col-md-12">
+                                             <div class="card" href="<?php echo base_url(); ?>C_cliente/exibir/<?php echo $correcao->correcao_id; ?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #E73439;">
+                                                <div class="card-body">
+                                                   <h4>Corrigindo o Chamado de ID: <?php echo $correcao->correcao_id_chamado; ?> </h4>
+                                                   <Br>
+                                                   <p> o(a) cliente <b> <?php echo $correcao->cliente_nome; ?>
+                                                         <Br>
+                                                      </b> de Codigo <b> <?php echo $correcao->cod_cliente; ?> </b> <br>entrou em contato por
+                                                      <b>Ligação</b>.<br>
+                                                      Dia <b> <?php echo $correcao->correcao_data; ?> </b> as
+                                                      <b><?php echo $correcao->correcao_hora; ?></b> com
+                                                      duração de
+                                                      <b><?php echo $correcao->correcao_duracao_hora; ?> Horas
+                                                         e <?php echo $correcao->correcao_duracao_minuto; ?>
+                                                         Minutos </b>
+                                                      <b>Atividade:</b> <i>
+                                                         <?php echo $correcao->correcao_atividade; ?>
+                                                         </b><span>
+                                                            <b>Assunto:</b>
+                                                            <i><?php echo $correcao->correcao_assunto; ?></i>
+                                                         </span> <br>
+                                                         <b>Quem Entrou em contato:</b>
+                                                         <i><?php echo $correcao->correcao_atendente_cliente; ?></i>
+                                                         <b>Pelo numero:</b>
+                                                         <i><?php echo $correcao->correcao_telefone; ?> </i>
+                                                         <Br>
+                                                         <b>Quem Atendeu:</b>
+                                                         <i><?php echo $correcao->correcao_atendente_rf; ?></i>
+                                                         <p>
                                                 </div>
+
                                              </div>
                                           </div>
-                                    <?php }
-                                    } ?>
-                                 </div>
+                                       </div>
+                                 <?php }
+                                 } ?>
                               </div>
                            </div>
-                           <!--  FIM NAV CORRECAO  -->
-
                         </div>
+
                      </div>
+                     <!--  FIM NAV CORRECAO  -->
+
                   </div>
                </div>
-
             </div>
          </div>
+
       </div>
+   </div>
+   </div>
    </div>
 </section>
 <!-- Modal -->
@@ -457,6 +409,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
       </div>
    </div>
 </div>
+
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -531,6 +484,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
       </div>
    </div>
 </div>
+
 <div class="modal fade" id="correcaoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -546,7 +500,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                   <div class="col col-md-12">
                      <div class="input-group">
                         <div class="input-group-addon">
-                           <i class="fa fa-address-card "></i>
+                           <i class="zmdi zmdi-account-box-mail"></i>
                         </div>
                         <input value="<?php echo $linha->cliente_id; ?>" type="text" id="correcao_id_cliente" name="correcao_id_cliente" placeholder="Id do Cliente" class="form-control">
                      </div>
@@ -603,7 +557,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                         <div class="input-group-addon">
                            <i class="fa  fa-arrow-circle-left"></i>
                         </div>
-                        <input type="text" id="chamado_atendente_rf" name="correcao_atendente_rf" placeholder="Quem atendeu ao chamado?" class="form-control">
+                        <input type="text" id="chamado_atendente_rf" value="<?php echo $this->session->userdata('usuario_nome'); ?>" name="correcao_atendente_rf" placeholder="Quem atendeu ao chamado?" class="form-control">
                      </div>
                      <small> Quem da RF&A atendeu? </small>
                   </div>
@@ -634,7 +588,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                         <div class="input-group-addon">
                            <i class="fa fa-calendar"></i>
                         </div>
-                        <input type="text" id="chamado_data" name="correcao_data" placeholder="Data" class="form-control">
+                        <input type="text" id="chamado_data" name="correcao_data" value="<?php echo date('d/m/Y'); ?>" placeholder="Data" class="form-control">
                      </div>
                      <small>Dia em que foi feito o contato</small>
                   </div>
@@ -643,7 +597,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                         <div class="input-group-addon">
                            <i class="fa fa-clock-o"></i>
                         </div>
-                        <input type="text" id="chamado_hora" name="correcao_hora" placeholder="Hora" class="form-control">
+                        <input type="text" id="chamado_hora" name="correcao_hora" value="<?php echo date('H:i:s'); ?>" placeholder="Hora" class="form-control">
                      </div>
                      <small> Hora do contato</small>
                   </div>
@@ -652,7 +606,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                   <div class="col col-md-12">
                      <div class="input-group">
                         <div class="input-group-addon">
-                           <i class="fa  fa-envelope-o"></i>
+                           <i class="fa fa-envelope"></i>
                         </div>
                         <input type="text" id="chamado_duracao" name="correcao_email" placeholder="Email Usado" class="form-control">
                      </div>
@@ -691,6 +645,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
       </div>
    </div>
 </div>
+
 <div class="modal fade" id="contatoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -745,6 +700,67 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                <div class="form-actions modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                   <button type="submit" value="save" class="btn btn-primary">Registrar</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="modal fade" id="contatoEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar Contato</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <form method='post' action="<?php echo site_url('C_Cliente/editaContato'); ?>/<?php echo $contato->contato_secundario_id; ?>" class="horizontal-form">
+               <div class="form-group">
+                  <div class="input-group">
+                     <div class="input-group-addon">
+                        <i class="fa fa-id-card"></i>
+                     </div>
+                     <input value="<?php echo $linha->cliente_id; ?>" type="text" id="username" name="cliente_contato_id" placeholder="Id do Cliente" class="form-control">
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="input-group">
+                     <div class="input-group-addon">
+                        <i class="fa fa-user"></i>
+                     </div>
+                     <input type="text" id="username" name="contato_secundario_nome" value="<?php echo $contato->contato_secundario_nome; ?>" placeholder="Nome" class="form-control">
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="input-group">
+                     <div class="input-group-addon">
+                        <i class="fa fa-envelope"></i>
+                     </div>
+                     <input type="email" id="email" name="contato_secundario_email" value="<?php echo $contato->contato_secundario_email; ?>" placeholder="E-mail" class="form-control">
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="input-group">
+                     <div class="input-group-addon">
+                        <i class="fa fa-phone"></i>
+                     </div>
+                     <input type="text" id="contato_secundario_telefone" name="contato_secundario_telefone" value="<?php echo $contato->contato_secundario_telefone; ?>" placeholder="Telefone" class="form-control">
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="input-group">
+                     <div class="input-group-addon">
+                        <i class="fa fa-envelope"></i>
+                     </div>
+                     <input type="text" id="funcao" name="contato_secundario_funcao" value="<?php echo $contato->contato_secundario_funcao; ?>" placeholder="Função" class="form-control">
+                  </div>
+               </div>
+               <div class="form-actions modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" value="save" class="btn btn-primary">Concluir</button>
                </div>
             </form>
          </div>

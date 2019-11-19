@@ -4,8 +4,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class M_cliente extends CI_Model
 {
 	private $_limit;
-    private $_pageNumber;
-    private $_offset;
+	private $_pageNumber;
+	private $_offset;
 
 	public function __construct()
 	{
@@ -16,24 +16,28 @@ class M_cliente extends CI_Model
 	public function index()
 	{ }
 
-//
-// ─── FOR PAGINATION ─────────────────────────────────────────────────────────────────
-//
+	//
+	// ─── FOR PAGINATION ─────────────────────────────────────────────────────────────────
+	//
 
-	public function getAllClienteCount() {
-	$this->db->from('cliente');
-	return $this->db->count_all_results();
+	public function getAllClienteCount()
+	{
+		$this->db->from('cliente');
+		return $this->db->count_all_results();
 	}
 
-	public function setLimit($limit) {
+	public function setLimit($limit)
+	{
 		$this->_limit = $limit;
 	}
 
-	public function setPageNumber($pageNumber) {
+	public function setPageNumber($pageNumber)
+	{
 		$this->_pageNumber = $pageNumber;
 	}
 
-	public function setOffset($offset) {
+	public function setOffset($offset)
+	{
 		$this->_offset = $offset;
 	}
 
@@ -42,29 +46,29 @@ class M_cliente extends CI_Model
 	//
 
 
-	 function listarRegistros()
-	 {
-		  $this->db->select(array('c.cliente_id','c.cod_cliente','c.cliente_nome','c.cliente_cnpj_cpf','c.cliente_telefone','c.cliente_cidade','c.cliente_endereco','c.cliente_bairro','c.cliente_cep'));
-		  $this->db->from('cliente as c');
-		  $this->db->limit($this->_pageNumber, $this->_offset);
-		  $query =$this->db->get();
-	 	if ($query->num_rows() < 1) {
-	 		return FALSE;
-	 	}
-	 	return $query->result_array();
-	 }
+	function listarRegistros($query = '')
+	{
+		$this->db->select(array('c.cliente_id', 'c.cod_cliente', 'c.cliente_nome', 'c.cliente_cnpj_cpf', 'c.cliente_telefone', 'c.cliente_cidade', 'c.cliente_endereco', 'c.cliente_bairro', 'c.cliente_cep'));
+		$this->db->from('cliente as c');
+		$this->db->limit($this->_pageNumber, $this->_offset);
+		$query = $this->db->get();
+		if ($query->num_rows() < 1) {
+			return FALSE;
+		}
+		return $query->result_array();
+	}
 
-// ID 	Codigo 	Nome 	CNPJ/CPF 	TELEFONE 	CIDADE 	ENDEREÇO 	BAIRRO 	CEP 	FUNÇÕES
+	// ID 	Codigo 	Nome 	CNPJ/CPF 	TELEFONE 	CIDADE 	ENDEREÇO 	BAIRRO 	CEP 	FUNÇÕES
 
-//  function listarRegistros()
-//  {
-//  	$query = $this->db->query('SELECT * FROM cliente ORDER BY cliente_id ASC');
- 
-//  	if ($query->num_rows() < 1) {
-//  		return FALSE;
-//  	}
-//  	return $query->result();
-//  }
+	//  function listarRegistros()
+	//  {
+	//  	$query = $this->db->query('SELECT * FROM cliente ORDER BY cliente_id ASC');
+
+	//  	if ($query->num_rows() < 1) {
+	//  		return FALSE;
+	//  	}
+	//  	return $query->result();
+	//  }
 
 	function listarRegistro($cliente_id = '')
 	{
@@ -127,17 +131,17 @@ class M_cliente extends CI_Model
 	// 		$list[$result->id_categoria] = $result->categoria_nome;                
 	// 	}
 	// 	return $list;
-		  
+
 	// }
 
 
- 
 
-//
-// ─── CRIACAO ────────────────────────────────────────────────────────────────────
-//
 
-	
+	//
+	// ─── CRIACAO ────────────────────────────────────────────────────────────────────
+	//
+
+
 	function criarDados()
 	{
 		$data = array(
@@ -193,12 +197,12 @@ class M_cliente extends CI_Model
 		$this->db->insert('correcao', $data);
 	}
 
- 
-//
-// ─── ATUALIZACOES ───────────────────────────────────────────────────────────────
-//
 
-	
+	//
+	// ─── ATUALIZACOES ───────────────────────────────────────────────────────────────
+	//
+
+
 	function atualizarRegistro($cliente_id)
 	{
 		$data = array(
@@ -222,15 +226,29 @@ class M_cliente extends CI_Model
 		$this->db->update('cliente', $data);
 	}
 
+	function atualizarContatoCliente($contato_secundario_id = NULL, $cliente_id = NULL)
+	{
+
+		$data = array(
+			'cliente_contato_id'           => $this->input->post('cliente_contato_id'),
+			'contato_secundario_nome'      => $this->input->post('contato_secundario_nome'),
+			'contato_secundario_email'     => $this->input->post('contato_secundario_email'),
+			'contato_secundario_telefone'  => $this->input->post('contato_secundario_telefone'),
+			'contato_secundario_funcao'    => $this->input->post('contato_secundario_funcao')
+		);
+		$this->db->where('contato_secundario_id', $contato_secundario_id);
+		$this->db->update('contato_secundario', $data);
+	}
 
 
 
 
-//
-// ─── EXCLUSAO ───────────────────────────────────────────────────────────────────
-//
 
-	
+	//
+	// ─── EXCLUSAO ───────────────────────────────────────────────────────────────────
+	//
+
+
 
 	function apagarRegistro($cliente_id)
 	{
@@ -245,16 +263,21 @@ class M_cliente extends CI_Model
 	}
 
 
-//
-// ─── FUNCOES PARA TRATAMENTO DE CONTEUDO ────────────────────────────────────────
-//
+	//
+	// ─── FUNCOES PARA TRATAMENTO DE CONTEUDO ────────────────────────────────────────
+	//
 
-	
 
-	function count_all()
+
+	function count_all($search = '')
 	{
 		$query = $this->db->get("cliente");
 		return $query->num_rows();
+		if ($search != '') {
+			$this->db->like('cliente_nome', $search);
+			$this->db->or_like('cod_cliente', $search);
+			$this->db->or_like('cliente_cpnj_cpf', $search);
+		}
 	}
 
 	function fetch_details($limit, $start)
@@ -294,9 +317,4 @@ class M_cliente extends CI_Model
 		$output .= '</table>';
 		return $output;
 	}
-
- 
-
-
-
 }

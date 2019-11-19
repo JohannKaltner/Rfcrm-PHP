@@ -43,7 +43,7 @@
  								<!-- <button class="au-btn-filter">
 									 <i class="zmdi zmdi-filter-list"></i>filters</button> -->
  								<form class="au-form-icon--sm" action="" method="post">
- 									<input class="au-input--w300 au-input--style2" type="text" placeholder="procure por Clientes &amp; Chamados...">
+ 									<input class="au-input--w300 au-input--style2" type="text" placeholder="procure por Nome ou Codigo...">
  									<button class="au-btn--submit2" type="submit">
  										<i class="zmdi zmdi-search"></i>
  									</button>
@@ -62,27 +62,7 @@
 
 
 
- 				<script>
- 					$(document).ready(function() {
- 						function load_cliente_data(page) {
- 							$.ajax({
- 								url: "<?php echo base_url(); ?>rfcrm/C_cliente/" + page,
- 								method: "GET",
- 								dataType: "json",
- 								success: function(data) {
- 									$('#cliente_table').html(data.cliente_table);
- 									$('#pagination_link').html(data.pagination_link);
- 								}
- 							});
- 						}
- 						load_country_data(1);
- 						$(document).on("click", ".pagination li a", function(event) {
- 							event.preventDefault();
- 							var page = $(this).data("cliente/V_cliente");
- 							load_cliente_data(page);
- 						});
- 					});
- 				</script>
+ 				 
 
  				<div id="pagination_link" class="table-responsive table-responsive-data2">
  					<!-- ======================================= -->
@@ -92,7 +72,7 @@
 
  					<!-- ======================================= -->
  					<div id="cliente_table">
- 						<table class="table table-data3">
+ 						<table class="table table-data2">
  							<thead>
  								<tr>
  									<th>ID</th>
