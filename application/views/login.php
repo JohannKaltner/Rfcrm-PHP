@@ -96,27 +96,35 @@
                     <form method="post" action="<?php echo site_url('C_login/criarUsuario')?>">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
+                                <span class="input-group-text"><i class="fa fa-user-circle" aria-hidden="true"></i>
+</span>
                             </div>
                             <input type="text" class="form-control" placeholder="Nome" name="usuario_nome" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
+                                <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                             </div>
                             <input type="email" class="form-control" value="seu_email@rfcrm.com" placeholder="E-mail" name="usuario_email" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
+                                <span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>
                             </div>
                             <input type="password" class="form-control" placeholder="Senha" aria-label="Username" name="usuario_senha" aria-describedby="basic-addon1">           
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
+                                <span class="input-group-text"><i class="fa fa-gavel" aria-hidden="true"></i></span>
                             </div>
                             <input type="text" class="form-control" placeholder="SETOR" name="usuario_setor" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-gear" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" value="2" class="form-control" placeholder="NIVEL" name="usuario_nivel" aria-label="Username" aria-describedby="basic-addon1">
+                            <small style="color:red"> *padrão, não alterar* </small>
                         </div>
                     
                 </div>

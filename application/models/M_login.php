@@ -31,10 +31,20 @@ class M_Login extends CI_Model {
       'usuario_nome'   => $this->input->post('usuario_nome'),
       'usuario_email'  => $this->input->post('usuario_email'),
       'usuario_senha'  => $this->input->post('usuario_senha'),
-      'usuario_setor'  => $this->input->post('usuario_setor')
+      'usuario_setor'  => $this->input->post('usuario_setor'),
+      'usuario_nivel'  => $this->input->post('usuario_nivel')
     );
     $this->db->insert('usuario', $data);
   }
 
- 
+  //   public function verificaAdmin(){
+  //   $this->db->select('usuario_nivel');
+  //   $this->db->from('usuario');
+  //   $query = $this->db->get();
+  //   return $query;
+
+      
+  // }
+
+
 }

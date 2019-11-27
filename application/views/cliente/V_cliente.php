@@ -24,120 +24,111 @@
  						<h3 class="title-5 m-b-35">CLIENTES</h3>
  						<div class="table-data__tool">
  							<div class="table-data__tool-left">
- 								<!-- <div class="rs-select2--light rs-select2--md">
- 									<select class="js-select2" name="property">
- 										<option selected="selected">Ordenar por</option>
- 										<option value="">Relevância</option>
- 										<option value="">Recentes</option>
- 									</select>
- 									<div class="dropDownSelect2"></div>
- 								</div> -->
- 								<!-- <div class="rs-select2--light rs-select2--sm">
- 									<select class="js-select2" name="time">
- 										<option selected="selected">Data</option>
- 								 <option value="">Esse Mês</option> 
- 										<option value="">Até 3 Meses</option>
- 									</select>
- 									<div class="dropDownSelect2"></div>
- 								</div> -->
- 								<!-- <button class="au-btn-filter">
-									 <i class="zmdi zmdi-filter-list"></i>filters</button> -->
- 								<form class="au-form-icon--sm" action="" method="post">
- 									<input class="au-input--w300 au-input--style2" type="text" placeholder="procure por Nome ou Codigo...">
- 									<button class="au-btn--submit2" type="submit">
- 										<i class="zmdi zmdi-search"></i>
- 									</button>
- 								</form>
+
  							</div>
+ 							<form class="au-form-icon--sm" action=" " method="post">
+ 								<input class="au-input--w300 au-input--style2" type="text" placeholder="procure por Nome ou Codigo...">
+ 								<button class="au-btn--submit2" data-toggle="modal" data-target="#searchModal">
+ 									<i class="zmdi zmdi-search"></i>
+ 								</button>
+ 							</form>
+ 						</div>
+ 						<!-- <?php // if($this->session->userdata('usuario_nivel'== '1')) { ?> -->
  							<div class="table-data__tool-right">
  								<button class="au-btn au-btn-icon mb-1 au-btn--green au-btn--small" data-toggle="modal" data-target="#largeModal">
  									<i class="zmdi zmdi-plus"></i> Novo</button>
 
- 								<a href="<?php echo base_url('C_export/csv') ?>"> <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Recarregue a pagina após o download do arquivo.">
- 										<i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</button> </a>
+ 								<button href="<?php echo base_url('C_export/csv'); ?>" type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Recarregue a pagina após o download do arquivo.">
+ 									<i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</button>
  							</div>
- 						</div>
+
+ 						<!-- <?php //} else { ?> -->
+ 							 
+ 						<!-- <?php // } ?> -->
+
  					</div>
  				</div>
+ 			</div>
 
 
 
- 				 
 
- 				<div id="pagination_link" class="table-responsive table-responsive-data2">
- 					<!-- ======================================= -->
 
- 					<!-- PARA ESTUDAR A PAGINAÇÃO EM CODEIGNITER -->
- 					<!-- https://github.com/universidadecodeigniter/paginacao-de-resultados-com-codeigniter-e-bootstrap/tree/master/application -->
+ 			<div id="pagination_link" class="table-responsive table-responsive-data2">
 
- 					<!-- ======================================= -->
- 					<div id="cliente_table">
- 						<table class="table table-data2">
- 							<thead>
+ 				<div id="cliente_table">
+ 					<table class="table table-data2">
+ 						<thead>
+ 							<tr>
+ 								<th>Nº de Identificação</th>
+ 								<th>Codigo</th>
+ 								<th>Nome</th>
+ 								<th>CNPJ/CPF</th>
+ 								<th>TELEFONE</th>
+ 								<th>CIDADE</th>
+ 								<th>ENDEREÇO</th>
+ 								<th>BAIRRO</th>
+ 								<th>CEP</th>
+ 								<th>FUNÇÕES</th>
+ 							</tr>
+ 						</thead>
+ 						<tbody>
+ 							<?php if (isset($clienteInfo) && !empty($clienteInfo)) { ?>
+ 								<?php foreach ($clienteInfo as $key => $element) { ?>
+ 									<tr>
+
+ 										<td><?php echo $element['cliente_id']; ?></td>
+ 										<td><?php echo $element['cod_cliente']; ?></td>
+ 										<td><?php echo $element['cliente_nome']; ?></td>
+ 										<td><?php echo $element['cliente_cnpj_cpf']; ?></td>
+ 										<td><?php echo $element['cliente_telefone']; ?></td>
+ 										<td><?php echo $element['cliente_cidade']; ?></td>
+ 										<td><?php echo $element['cliente_endereco']; ?></td>
+ 										<td><?php echo $element['cliente_bairro']; ?></td>
+ 										<td><?php echo $element['cliente_cep']; ?></td>
+ 										<td>
+ 											<div class="table-data-feature">
+ 												<a href="<?php echo site_url('C_Cliente/exibir'); ?>/<?php echo $element['cliente_id']; ?>">
+ 													<button class="item" data-toggle="tooltip" data-placement="top" title="Acessar Cliente">
+ 														<i class="zmdi zmdi-view-list-alt"></i>
+ 													</button>
+ 												</a>
+
+ 												<a href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $element['cliente_id']; ?>">
+ 													<button class="item" data-toggle="tooltip" data-placement="top" title="Deletar">
+ 														<i class="zmdi zmdi-delete"></i>
+ 													</button>
+ 												</a>
+
+ 												<!-- <button class="item" data-toggle="modal" data-target="#viewModal">
+ 														<i class="fas fa-search"  data-toggle="tooltip" data-placement="top" title="Visualizar"></i>
+ 													</button> -->
+
+ 												<a>
+ 													<div style="padding-left: 10px 10px 10px 10px">
+ 														<button type="button" class="item" data-toggle="tooltip" data-placement="top" title="Exportar em PDF">
+ 															<i class="fas fa-file-pdf"></i></button> </div>
+ 												</a>
+ 											</div>
+ 										</td>
+ 									</tr>
+ 								<?php } ?>
+ 							<?php } else { ?>
  								<tr>
- 									<th>ID</th>
- 									<th>Codigo</th>
- 									<th>Nome</th>
- 									<th>CNPJ/CPF</th>
- 									<th>TELEFONE</th>
- 									<th>CIDADE</th>
- 									<th>ENDEREÇO</th>
- 									<th>BAIRRO</th>
- 									<th>CEP</th>
- 									<th>FUNÇÕES</th>
+ 									<td colspan="4">O Banco de Clientes está Vazio.</td>
  								</tr>
- 							</thead>
- 							<tbody>
-							 <?php if (isset($clienteInfo) && !empty($clienteInfo)) { ?>
-                  <?php foreach ($clienteInfo as $key => $element) { ?>
-						<tr>                    
-							<td><?php echo $element['cliente_id']; ?></td>   
-							<td><?php echo $element['cod_cliente']; ?></td>   
-							<td><?php echo $element['cliente_nome']; ?></td>   
-							<td><?php echo $element['cliente_cnpj_cpf']; ?></td> 
-                    	  	<td><?php echo $element['cliente_telefone']; ?></td>                       
-                    	  	<td><?php echo $element['cliente_cidade']; ?></td>
-                    	  	<td><?php echo $element['cliente_endereco']; ?></td>
-                    	  	<td><?php echo $element['cliente_bairro']; ?></td>
-							  <td><?php echo $element['cliente_cep']; ?></td>
-							  <td>
- 								<div class="table-data-feature">
- 									<a href="<?php echo site_url('C_Cliente/exibir'); ?>/<?php echo $element['cliente_id']; ?>">
- 										<button class="item" data-toggle="tooltip" data-placement="top" title="Visualizar">
- 											<i class="zmdi zmdi-view-list-alt"></i>
- 										</button>
- 									</a>
- 									
- 									<a href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $element['cliente_id']; ?>">
- 										<button class="item" data-toggle="tooltip" data-placement="top" title="Deletar">
- 											<i class="zmdi zmdi-delete"></i>
- 										</button>
- 									</a>
- 									  <a>
- 										<div style="padding-left: 10px 10px 10px 10px">
- 											<button type="button" class="btn btn-danger btn-sm">
- 												<i class="fa fa-file-pdf-o"></i></button> </div>
- 									</a>  
- 								</div>
- 							</td>
-						</tr>
-						<?php } ?>
-                 <?php } else { ?>
-                  <tr>
-                    <td colspan="4">O Banco de Clientes está Vazio.</td>  
-                  </tr>
-                 <?php } ?>
-									<!-- insira aqui o BACKUP DA TABLE   -->
-									<!-- até aqui -->
-					
- 							</tbody>
- 						</table>
- 					</div>
-				 </div>
-				 <div class="row">
-          <div class="col-lg-12 text-right">
-            <?php if (isset($clienteInfo) && is_array($clienteInfo)) echo $page_links; ?>
-          </div>
+ 							<?php } ?>
+ 							<!-- insira aqui o BACKUP DA TABLE   -->
+ 							<!-- até aqui -->
+
+ 						</tbody>
+ 					</table>
+ 				</div>
+ 			</div>
+ 			<div class="row">
+ 				<div class="col-lg-12 text-right">
+ 					<?php if (isset($clienteInfo) && is_array($clienteInfo)) echo $page_links; ?>
+ 				</div>
  			</div>
  		</div>
  	</div>
@@ -216,25 +207,25 @@
  						</div>
 
  						<div class="row form-group">
- 						 
+
  							<div class="col-12 col-md-9">
-							 <label for="postal-code" class=" form-control-label">Categoria</label>
+ 								<label for="postal-code" class=" form-control-label">Categoria</label>
 
  								<select name="cliente_categoria" id="cliente_categoria" class="form-control">
  									<option value="Não Selecionado...">Selecione uma Categoria..</option>
  									<option value="ASSINANTES SITE">ASSINANTES SITE</option>
  									<option value="TELEMARKETING/ESCOLAS">TELEMARKETING/ESCOLAS</option>
  									<option value="ASS.EMPRES./JURÍDICO">ASS.EMPRES./JURÍDICO</option>
-									<option value="ASS. EDUC/JURÍDICO">ASS. EDUC/JURÍDICO</option>
-									<option value="ASS.EDUC./JURÍDICO/CONTÁBIL">ASS.EDUC./JURÍDICO/CONTÁBIL</option>
-									<option value="ASS. EDUC./CONTÁBIL">ASS. EDUC./CONTÁBIL</option>
-									<option value="CONS.JURÍDICO/COBRANÇA">CONS.JURÍDICO/COBRANÇA</option>
-									<option value="FORNECEDORES/ESCOLAS">FORNECEDORES/ESCOLAS</option>
-									<option value="CLIENTES INATIVOS">CLIENTES INATIVOS</option>
-									<option value="TELEMARKETING/FILANTRÓPICAS">TELEMARKETING/FILANTRÓPICAS </option>
-									<option value="ASS-JURÍDICA/COBRANÇA">ASS-JURÍDICA/COBRANÇA</option>
-									<option value="IRREGULARES">IRREGULARES</option>
-								</select>
+ 									<option value="ASS. EDUC/JURÍDICO">ASS. EDUC/JURÍDICO</option>
+ 									<option value="ASS.EDUC./JURÍDICO/CONTÁBIL">ASS.EDUC./JURÍDICO/CONTÁBIL</option>
+ 									<option value="ASS. EDUC./CONTÁBIL">ASS. EDUC./CONTÁBIL</option>
+ 									<option value="CONS.JURÍDICO/COBRANÇA">CONS.JURÍDICO/COBRANÇA</option>
+ 									<option value="FORNECEDORES/ESCOLAS">FORNECEDORES/ESCOLAS</option>
+ 									<option value="CLIENTES INATIVOS">CLIENTES INATIVOS</option>
+ 									<option value="TELEMARKETING/FILANTRÓPICAS">TELEMARKETING/FILANTRÓPICAS </option>
+ 									<option value="ASS-JURÍDICA/COBRANÇA">ASS-JURÍDICA/COBRANÇA</option>
+ 									<option value="IRREGULARES">IRREGULARES</option>
+ 								</select>
  							</div>
  						</div>
  						<div class="form-group">
@@ -247,20 +238,7 @@
  							<input type="text" id="cliente_telefone" name="cliente_telefone" placeholder="Insira o Telefone do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
- 						<!-- <h4>Outros Contatos </h4>
 
- 						<div class="form-group">
- 							<label for="postal-code" class=" form-control-label">Nome</label>
- 							<small style="color:red"> Opcional</small>
- 							<input name="cliente_contatos" type="text" id="cliente_contato_nome"
- 								placeholder="Insira o nome do contato secundario" class="form-control">
- 						</div>
-
- 						<div class="form-group">
- 							<label for="postal-code" class=" form-control-label"> Numero</label>
- 							<input name="cliente_contato_telefone" type="text" id="cliente_contato_telefone"
- 								placeholder="Insira o numero do contato secundario" class="form-control">
- 						</div> -->
 
  				</div>
 
@@ -273,6 +251,66 @@
  		</div>
  	</div>
  </div>
+ </div>
+
+ <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ 	<div class="modal-dialog" role="document">
+ 		<div class="modal-content">
+ 			<div class="modal-header">
+ 				<h5 class="modal-title" id="exampleModalLabel">Resultado da Pesquisa</h5>
+ 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+ 					<span aria-hidden="true">&times;</span>
+ 				</button>
+ 			</div>
+ 			<div class="modal-body">
+
+ 			</div>
+ 			<div class="modal-footer">
+ 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+ 				<button type="button" class="btn btn-primary">Save changes</button>
+ 			</div>
+ 		</div>
+ 	</div>
+ </div>
+
+ <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ 	<div class="modal-dialog" role="document">
+ 		<div class="modal-content">
+ 			<div class="modal-header">
+ 				<h5 class="modal-title" id="exampleModalLabel">Informações do Cliente</h5>
+ 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+ 					<span aria-hidden="true">&times;</span>
+ 				</button>
+ 			</div>
+ 			<div class="modal-body">
+ 				<div class="input-group">
+ 					<div class="input-group-prepend">
+ 						<span class="input-group-text">Nome</span>
+ 					</div>
+ 					<input type="text" value=" <?php echo $element['cliente_nome']; ?>" aria-label="First name" class="form-control" disabled>
+ 				</div>
+ 				<br>
+ 				<div class="input-group">
+ 					<div class="input-group-prepend">
+ 						<span class="input-group-text">Número</span>
+ 					</div>
+ 					<input type="text" value="<?php echo $element['cliente_telefone']; ?>" aria-label="First name" class="form-control" disabled>
+ 				</div>
+ 				<Br>
+ 				<div class="input-group">
+ 					<div class="input-group-prepend">
+ 						<span class="input-group-text">Bairro</span>
+ 					</div>
+ 					<input type="text" value="<?php echo $element['cliente_cidade']; ?>" aria-label="First name" class="form-control" disabled>
+ 				</div>
+
+ 			</div>
+ 			<div class="modal-footer">
+ 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+ 				<button type="button" class="btn btn-primary">Save changes</button>
+ 			</div>
+ 		</div>
+ 	</div>
  </div>
  <!-- end modal large -->
 

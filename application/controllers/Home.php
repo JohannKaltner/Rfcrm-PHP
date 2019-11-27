@@ -16,10 +16,11 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		//acesso admin
-		if($this->session->userdata('usuario_nivel')==='1'){
+		if($this->session->userdata('usuario_nivel')==='1' OR $this->session->userdata('usuario_nivel')==='2'){
 			$this->template->show('home');
 		}else{
-			echo "Access Denied";
+			redirect('/404');
+			//echo "Você ainda não foi aprovado pelo administrador ";
 		}
 
 

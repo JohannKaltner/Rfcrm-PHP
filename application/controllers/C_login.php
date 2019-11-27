@@ -13,6 +13,11 @@ class C_Login extends CI_Controller {
     $this->load->view('login');
   }
  
+
+  //
+  // ─── FUNÇÃO PARA AUTENTICACÃO ───────────────────────────────────────────────────
+  //
+    
   function auth(){
     $usuario_email    = $this->input->post('usuario_email',TRUE);
     $usuario_senha    = $this->input->post('usuario_senha',TRUE);
@@ -23,20 +28,25 @@ class C_Login extends CI_Controller {
         $usuario_nome  = $data['usuario_nome'];
         $usuario_email = $data['usuario_email'];
         $usuario_nivel = $data['usuario_nivel'];
+        $usuario_setor = $data['usuario_setor'];
+
         $sesdata = array(
             'usuario_nome'      => $usuario_nome,
             'usuario_email'     => $usuario_email,
             'usuario_nivel'     => $usuario_nivel,
+            'usuario_setor'     => $usuario_setor,
             'logged_in' => TRUE
         );
 
         $this->session->set_userdata($sesdata);
         // access login for admin
         if($usuario_nivel === '1'){
-            $admin == '1';
+           // $admin == TRUE;
             redirect('home');
-        }else{
+        }elseif($usuario_nivel === '2'){
             redirect('home');
+        }else {
+          redirect('/404.php');
         }
 
     }else{
@@ -55,6 +65,18 @@ class C_Login extends CI_Controller {
     $this->M_login->criarUsuario();
     redirect('C_login');
 }
-  
  
-}
+
+//
+// ─── AREA DE ADM ────────────────────────────────────────────────────────────────
+//  
+  // public function verificaAdmin($admin = '', $usuario_nivel =''){
+  //   $this->M_usuario->verificaAdmin();
+  //   if($usuario_nivel === '1'){
+  //     $admin == TRUE;
+  //   }else{
+  //       $admin==FALSE;
+  //    }
+  // }
+
+  }

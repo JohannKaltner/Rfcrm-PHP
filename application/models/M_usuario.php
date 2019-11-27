@@ -31,6 +31,17 @@ class M_usuario extends CI_Model
     }
     return $query->result();
   }
+
+  public function verificaAdmin(){
+    $this->db->select('usuario_nivel');
+    $this->db->from('usuario');
+    $query = $this->db->get();
+    if ($query->num_rows() < 1) {
+      return FALSE;
+    }
+    return $query->result();
+  }
+
 }
 
 /* End of file M_usuario_model.php */
