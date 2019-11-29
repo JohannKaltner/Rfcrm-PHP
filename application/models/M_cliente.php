@@ -48,7 +48,7 @@ class M_cliente extends CI_Model
 
 	function listarRegistros($query = '')
 	{
-		$this->db->select(array('c.cliente_id', 'c.cod_cliente', 'c.cliente_nome', 'c.cliente_cnpj_cpf', 'c.cliente_telefone', 'c.cliente_cidade', 'c.cliente_endereco', 'c.cliente_bairro', 'c.cliente_cep'));
+		$this->db->select(array('c.cliente_id', 'c.cod_cliente', 'c.cliente_nome', 'c.cliente_cnpj', 'c.cliente_cpf', 'c.cliente_telefone', 'c.cliente_cidade', 'c.cliente_endereco', 'c.cliente_bairro', 'c.cliente_cep'));
 		$this->db->from('cliente as c');
 		$this->db->limit($this->_pageNumber, $this->_offset);
 		$query = $this->db->get();
@@ -88,6 +88,18 @@ class M_cliente extends CI_Model
 		$query = $this->db->get();
 		if ($query->num_rows() < 1) {
 			return FALSE;
+		}
+		return $query->result();
+	}
+
+	public function get_nome($cliente_id){
+		$this->db->select('cliente_nome');
+		$this->db->from('cliente');
+		$this->db->where('cliente_id = ' .$cliente_id);
+		$query = $this->db->get();
+
+		if ($query->num_rows() < 1) {
+			return 'Cliente';
 		}
 		return $query->result();
 	}
@@ -155,7 +167,8 @@ class M_cliente extends CI_Model
 			'cliente_estado'               => $this->input->post('cliente_estado'),
 			'cliente_pais'                 => $this->input->post('cliente_pais'),
 			'cliente_cep'                  => $this->input->post('cliente_cep'),
-			'cliente_cnpj_cpf'             => $this->input->post('cliente_cnpj_cpf'),
+			'cliente_cnpj'                 => $this->input->post('cliente_cnpj'),
+			'cliente_cpf'             	   => $this->input->post('cliente_cpf'),
 			'cliente_inscricao_estadual'   => $this->input->post('cliente_inscricao_estadual'),
 			'cliente_categoria'            => $this->input->post('cliente_categoria'),
 			'cliente_telefone'             => $this->input->post('cliente_telefone'),
@@ -163,6 +176,7 @@ class M_cliente extends CI_Model
 			'cliente_contato_telefone'     => $this->input->post('cliente_contato_telefone'),
 			'cliente_email'                => $this->input->post('cliente_email')
 		);
+		
 		$this->db->insert('cliente', $data);
 	}
 
@@ -175,6 +189,7 @@ class M_cliente extends CI_Model
 			'contato_secundario_telefone'  => $this->input->post('contato_secundario_telefone'),
 			'contato_secundario_funcao'    => $this->input->post('contato_secundario_funcao')
 		);
+	
 		$this->db->insert('contato_secundario', $data);
 	}
 
@@ -196,6 +211,7 @@ class M_cliente extends CI_Model
 			'correcao_email'              => $this->input->post('chamado_email')
 
 		);
+		
 		$this->db->insert('correcao', $data);
 	}
 
@@ -216,7 +232,8 @@ class M_cliente extends CI_Model
 			'cliente_estado'                 => $this->input->post('cliente_estado'),
 			'cliente_pais'                   => $this->input->post('cliente_pais'),
 			'cliente_cep'                    => $this->input->post('cliente_cep'),
-			'cliente_cnpj_cpf'               => $this->input->post('cliente_cnpj_cpf'),
+			'cliente_cnpj'                 	 => $this->input->post('cliente_cnpj'),
+			'cliente_cpf'             	   	 => $this->input->post('cliente_cpf'),
 			'cliente_inscricao_estadual'     => $this->input->post('cliente_inscricao_estadual'),
 			'cliente_categoria'              => $this->input->post('cliente_categoria'),
 			'cliente_telefone'               => $this->input->post('cliente_telefone'),
@@ -224,6 +241,7 @@ class M_cliente extends CI_Model
 			'cliente_contato_telefone'       => $this->input->post('cliente_contato_telefone'),
 			'cliente_email'                  => $this->input->post('cliente_email')
 		);
+		
 		$this->db->where('cliente_id', $cliente_id);
 		$this->db->update('cliente', $data);
 	}
@@ -279,7 +297,8 @@ class M_cliente extends CI_Model
 		if ($search != '') {
 			$this->db->like('cliente_nome', $search);
 			$this->db->or_like('cod_cliente', $search);
-			$this->db->or_like('cliente_cpnj_cpf', $search);
+			$this->db->or_like('cliente_cpf', $search);
+			$this->db->or_like('cliente_cpnj', $search);
 		}
 	}
 
@@ -295,7 +314,8 @@ class M_cliente extends CI_Model
 		 <table class="table table-bordered">
 			<tr>
 			<th>Nome</th>
-			<th>CNPJ/CPF</th>
+			<th>CNPJ</th>
+			<th>CPF</th>
 			<th>TELEFONE</th>
 			<th>CIDADE</th>
 			<th>ENDEREÇO</th>
@@ -308,7 +328,8 @@ class M_cliente extends CI_Model
 			$output .= '
 			<tr>
 			<th>' . $row->cliente_nome . '</th>
-			<th>' . $row->cliente_cnpj_cpf . '</th>
+			<th>' . $row->cliente_cnpj . '</th>
+			<th>' . $row->cliente_cpf . '</th>
 			<th>' . $row->cliente_telefone . '</th>
 			<th>' . $row->cliente_endereco . '</th>
 			<th>' . $row->cliente_bairro . '</th>

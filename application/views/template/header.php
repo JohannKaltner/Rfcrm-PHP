@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+
+	<!--
+	// ─── FAVICONS ───────────────────────────────────────────────────────────────────
+-->
+	
+		
+<!-- /favicons-->
+
 	<!-- Required meta tags-->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,8 +18,8 @@
 	<meta name="keywords" content="au theme template">
 
 	<!-- Title Page-->
-	<title>RF&A CRM</title>
-
+	<title> <?php echo $page_title ?></title>
+	<link rel="icon" href="<?=base_url()?>/public/images/favicons/apple-touch-icon-60x60.png" type="image/gif">
 	<!-- Fontfaces CSS-->
 	<link href="<?php echo base_url(); ?>public/css/font-face.css" rel="stylesheet" media="all">
 	<link href="<?php echo base_url(); ?>public/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -36,7 +44,7 @@
 </head>
 
 <body class="animsition">
-<?php date_default_timezone_set('America/Sao_Paulo'); ?>
+	<?php date_default_timezone_set('America/Sao_Paulo'); ?>
 	<div class="page-wrapper">
 		<!-- HEADER DESKTOP-->
 		<header class="header-desktop3 d-none d-lg-block">
@@ -62,15 +70,26 @@
 									<i class="fas fa-users"></i>
 									<span class="bot-line"></span>Clientes</a>
 							</li>
+<!-- 
+							<li>
+								<a href="<?php echo base_url(); ?>C_email">
+									<i class="fas fa-envelope"></i>
+									<span class="bot-line"></span>E-Mail</a>
+							</li> -->
 
+							<li>
+								<a href="<?php echo base_url(); ?>C_chat">
+									<i class="fas fa-comments"></i>
+									<span class="bot-line"></span>Chat</a>
+							</li>
 							<!-- <li>
 								<a href="<?php echo base_url(); ?>C_email">
 									<i class="fas fa-envelope "></i>
 									<span class="bot-line"></span>Email</a>
 							</li> -->
-							
+
 						</ul>
- 						</ul>
+						</ul>
 					</div>
 					<div class="header__tool">
 
@@ -117,7 +136,7 @@
 												<i class="zmdi zmdi-settings"></i>Configurações</a>
 										</div>
 									</div> -->
-									<!--
+								<!--
 									<div class="account-dropdown__body">
 										<div class="account-dropdown__item">
 											<a href="#">

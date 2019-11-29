@@ -56,8 +56,12 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                                        <input type="text" id="company" value="<?php echo $linha->cliente_nome; ?>" name="cliente_nome" placeholder="Insira o nome do Cliente" disabled="" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                       <label for="cpf/cnpj" class=" form-control-label">CNPJ/CPF</label>
-                                       <input type="text" id="cliente_cnpj_cpf" value="<?php echo $linha->cliente_cnpj_cpf; ?>" name="cliente_cnpj_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control" disabled="">
+                                       <label for="cpf/cnpj" class=" form-control-label">CPF</label>
+                                       <input type="text" id="cliente_cpf" value="<?php echo $linha->cliente_cpf; ?>" name="cliente_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control" disabled="">
+                                    </div>
+                                    <div class="form-group">
+                                       <label for="cpf/cnpj" class=" form-control-label">CNPJ</label>
+                                       <input type="text" id="cliente_cnpj" value="<?php echo $linha->cliente_cnpj; ?>" name="cliente_cnpj" placeholder="Insira o CNPJ do Cliente" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="endereco" class=" form-control-label">Endereço </label>
@@ -432,8 +436,12 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                   <input type="text" id="company" value="<?php echo $linha->cliente_nome; ?>" name="cliente_nome" placeholder="Insira o nome do Cliente" class="form-control">
                </div>
                <div class="form-group">
-                  <label for="cpf/cnpj" class=" form-control-label">CNPJ/CPF</label>
-                  <input type="text" id="cliente_cnpj_cpf" value="<?php echo $linha->cliente_cnpj_cpf; ?>" name="cliente_cnpj_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control">
+                  <label for="cpf/cnpj" class=" form-control-label">CPF</label>
+                  <input type="text" id="cliente_cpf" value="<?php echo $linha->cliente_cpf; ?>" name="cliente_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control">
+               </div>
+               <div class="form-group">
+                  <label for="cpf/cnpj" class=" form-control-label">CNPJ</label>
+                  <input type="text" id="cliente_cnpj" value="<?php echo $linha->cliente_cnpj; ?>" name="cliente_cnpj" placeholder="Insira o CNPJ do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="endereco" class=" form-control-label">Endereço

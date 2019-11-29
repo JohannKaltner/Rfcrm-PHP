@@ -3,6 +3,11 @@
  		<div class="row">
  			<div class="col-md-12">
  				<div class="copyright">
+					 <p>
+						  <!-- BEGIN: Powered by Supercounters.com -->
+
+<!-- END: Powered by Supercounters.com -->
+</p>
  					<p>Copyright © 2019 Ricardo Furtado & Associados. All rights reserved. <br> <small>Template:
  							<a href="https://github.com/JohannKaltner">
  								Johann Kaltner</small>

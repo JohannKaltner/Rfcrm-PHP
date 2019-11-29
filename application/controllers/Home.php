@@ -8,6 +8,7 @@ class Home extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+
 		if($this->session->userdata('logged_in') !== TRUE){
 		  redirect('C_login');
 		}
@@ -17,7 +18,8 @@ class Home extends CI_Controller {
 	{
 		//acesso admin
 		if($this->session->userdata('usuario_nivel')==='1' OR $this->session->userdata('usuario_nivel')==='2'){
-			$this->template->show('home');
+			$data['page_title'] = "RFCRM - Dashboard";
+			$this->template->show('home',$data);
 		}else{
 			redirect('/404');
 			//echo "Você ainda não foi aprovado pelo administrador ";

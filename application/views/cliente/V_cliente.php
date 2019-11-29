@@ -63,7 +63,8 @@
  								<th>Nº de Identificação</th>
  								<th>Codigo</th>
  								<th>Nome</th>
- 								<th>CNPJ/CPF</th>
+ 								<th>CPF</th>
+ 								<th>CNPJ</th>
  								<th>TELEFONE</th>
  								<th>CIDADE</th>
  								<th>ENDEREÇO</th>
@@ -80,7 +81,8 @@
  										<td><?php echo $element['cliente_id']; ?></td>
  										<td><?php echo $element['cod_cliente']; ?></td>
  										<td><?php echo $element['cliente_nome']; ?></td>
- 										<td><?php echo $element['cliente_cnpj_cpf']; ?></td>
+ 										<td><?php echo $element['cliente_cpf']; ?></td>
+ 										<td><?php echo $element['cliente_cnpj']; ?></td>
  										<td><?php echo $element['cliente_telefone']; ?></td>
  										<td><?php echo $element['cliente_cidade']; ?></td>
  										<td><?php echo $element['cliente_endereco']; ?></td>
@@ -167,9 +169,14 @@
  						</div>
 
  						<div class="form-group">
- 							<label for="cpf/cnpj" class=" form-control-label">CNPJ/CPF</label>
- 							<input type="text" id="cpfOuCnpj" name="cliente_cnpj_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control" onblur="evento(this);">
+ 							<label for="cpf/cnpj" class=" form-control-label">CNPJ</label>
+ 							<input type="text" id="cnpj" name="cliente_cnpj" maxlength="18" placeholder="Insira o CNPJ do Cliente (se tiver)" class="form-control" onblur="evento(this);">
+						 </div>
+						 <div class="form-group">
+ 							<label for="cpf" class=" form-control-label">CPF</label>
+ 							<input type="text" id="cpf" name="cliente_cpf" maxlength="14" placeholder="Insira o CPF do Cliente (se tiver)" class="form-control" onblur="evento(this);">
  						</div>
+
 
  						<div class="form-group">
  							<label for="endereco" class=" form-control-label">Endereço </label>
@@ -322,11 +329,21 @@
  	$("#cliente_telefone").mask("(00) 00000-0000");
  	$("#cliente_cep").mask("00000-000");
  	$("#cliente_inscricao_estadual").mask("000.000.000.000");
- 	var options = {
- 		onKeyPress: function(cpf, ev, el, op) {
- 			var masks = ['000.000.000-000', '00.000.000/0000-00'];
- 			$('#cpfOuCnpj').mask((cpf.length > 14) ? masks[1] : masks[0], op);
+	 
+	 
+	 var options = {
+ 		onKeyPress: function(cnpj, ev, el, op) {
+ 			var masks = ['000.000.000-000'];
+ 			$('#cnpj').mask((cnpj.length > 18) ? masks[1] : masks[0], op);
  		}
  	}
- 	$('#cpfOuCnpj').length > 11 ? $('#cpfOuCnpj').mask('00.000.000/0000-00', options) : $('#cpfOuCnpj').mask('000.000.000-00#', options);
+ 	$('#cnpj').length > 11 ? $('#cnpj').mask('00.000.000/0000-00', options) : $('#cnpj').mask("00.000.000/0000-00#", options);
+
+	 var options = {
+ 		onKeyPress: function(cpf, ev, el, op) {
+ 			var masks = ['000.000.000-00'];
+ 			$('#cpf').mask((cpf.length > 14) ? masks[1] : masks[0], op);
+ 		}
+ 	}
+ 	$('#cpf').length > 11 ? $('#cpf').mask('000.000.000-00', options) : $('#cpf').mask("000.000.000-00#", options);
  </script>

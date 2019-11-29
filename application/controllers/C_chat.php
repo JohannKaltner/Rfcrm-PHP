@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class C_Email extends CI_Controller {
+class C_Chat extends CI_Controller {
 
 	public function __construct()
 	{
@@ -11,10 +11,12 @@ class C_Email extends CI_Controller {
 		$this->load->library('session');
 		$this->load->library('pagination');
 		$this->load->library('email');
+		
 	}
 	public function index()
 	{
-		//$this->load->view('email');	
-		$this->template->show('email');	
+		//$this->load->view('chat');	
+		$data['page_title'] = "RFCRM - Chat";
+		$this->template->show('chat', $data);	
 	}
 }

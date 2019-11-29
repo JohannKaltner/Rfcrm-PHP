@@ -14,12 +14,14 @@ class C_Cliente extends CI_Controller
 		$this->load->helper('url_helper');
 		$this->load->library('session');
 		$this->load->library('pagination');
+		$data['page_title'] = "Clientes";
 	}
 
 	public function index($cliente_id = '')
 	{
 		$data['result'] 	 = $this->M_cliente->listarRegistros();
 		$data['chamados']	 = $this->M_cliente->listarChamadosCliente($cliente_id);
+		
 
 
 		//
@@ -60,7 +62,7 @@ class C_Cliente extends CI_Controller
 			// ─────────────────────────────────────────────────────────── FIM PAGINATION ─────
 			//
 
-
+				$data['page_title'] = " RFCRM - Clientes";
 			$this->template->show('cliente/V_cliente', $data);
 		}
 	}
@@ -97,6 +99,8 @@ class C_Cliente extends CI_Controller
 		$data['contatos']=  $this->M_cliente->listarContatosCliente($cliente_id);
 		$data['correcoes']=  $this->M_cliente->listarCorrecaoCliente($cliente_id);
 		$data['permissao']=  $this->M_usuario->consultar_permissao($usuario_id);
+		$data['page_title'] = "Informações do Cliente";
+
 		$this->template->show('cliente/V_cliente_show', $data);
 	}
 
