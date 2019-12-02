@@ -28,7 +28,8 @@ class M_chamado extends CI_Model {
         'chamado_obs'                => $this->input->post('chamado_obs'),
         'chamado_telefone'           => $this->input->post('chamado_telefone'),
         'chamado_email'              => $this->input->post('chamado_email'),
-        'chamado_id_cliente'         => $this->input->post('chamado_id_cliente')
+        'chamado_id_cliente'         => $this->input->post('chamado_id_cliente'),
+        'chamado_id_usuario'         => $this->input->post('chamado_id_usuario')
         // 'chamado_id_cliente'         => $this->uri->segment(3)
       );
       

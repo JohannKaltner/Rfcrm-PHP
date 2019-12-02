@@ -42,6 +42,19 @@ class M_usuario extends CI_Model
     return $query->result();
   }
 
+  function userChamados() 
+{
+    // $this->db->select("usuario.usuario_id, usuario.usuario_nome");
+    // $this->db->from('usuario');
+    // $this->db->where("usuario.usuario_id", $this->session->userdata('usuario_id'));
+    // $this->db->join('chamado','usuario.usuario_id = chamado.chamado_id_usuario');
+    // $this->db->order_by('usuario_nome desc');
+    // $query = $this->db->get('usuario');
+    // $num = $query->num_rows();
+    //return $query->result();
+}
+
+
 }
 
 /* End of file M_usuario_model.php */

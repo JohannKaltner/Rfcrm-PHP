@@ -160,6 +160,7 @@ class M_cliente extends CI_Model
 	{
 		$data = array(
 			'cod_cliente'                  => $this->input->post('cod_cliente'),
+			'cliente_id_usuario'           => $this->input->post('cliente_id_usuario'),
 			'cliente_nome'                 => $this->input->post('cliente_nome'),
 			'cliente_endereco'             => $this->input->post('cliente_endereco'),
 			'cliente_bairro'               => $this->input->post('cliente_bairro'),
@@ -184,6 +185,7 @@ class M_cliente extends CI_Model
 	{
 		$data = array(
 			'cliente_contato_id'           => $this->input->post('cliente_contato_id'),
+			'contato_id_usuario'           => $this->input->post('contato_id_usuario'),
 			'contato_secundario_nome'      => $this->input->post('contato_secundario_nome'),
 			'contato_secundario_email'     => $this->input->post('contato_secundario_email'),
 			'contato_secundario_telefone'  => $this->input->post('contato_secundario_telefone'),
@@ -198,6 +200,7 @@ class M_cliente extends CI_Model
 		$data = array(
 			'correcao_id_chamado'         => $this->input->post('correcao_id_chamado'),
 			'correcao_id_cliente'         => $this->input->post('correcao_id_cliente'),
+			'correcao_id_usuario'         => $this->input->post('correcao_id_usuario'),
 			'correcao_atividade'          => $this->input->post('correcao_atividade'),
 			'correcao_duracao_minuto'     => $this->input->post('correcao_duracao_minuto'),
 			'correcao_duracao_hora'       => $this->input->post('correcao_duracao_hora'),

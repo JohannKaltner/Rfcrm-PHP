@@ -289,6 +289,17 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                         <small>Qual o ID do cliente? </small>
                      </div>
                   </div>
+                  <div class="row form-group" style="display:none">
+                     <div class="col col-md-12">
+                        <div class="input-group">
+                           <div class="input-group-addon">
+                              <i class="fa fa-address-card "></i>
+                           </div>
+                           <input type="text" id="chamado_assunto" value="<?php echo $this->session->userdata('usuario_id'); ?>" name="chamado_id_cliente" placeholder="Id do Cliente" class="form-control">
+                        </div>
+                        <small>Qual o ID do usuario? </small>
+                     </div>
+                  </div>
                   <div class="row form-group">
                      <div class="col col-md-12">
                         <div class="input-group">
@@ -529,6 +540,17 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                      <small>Qual o ID do chamado a ser corrigido? </small>
                   </div>
                </div>
+               <div class="row form-group" style="display:none">
+                  <div class="col col-md-12">
+                     <div class="input-group">
+                        <div class="input-group-addon">
+                           <i class="fa fa-address-card "></i>
+                        </div>
+                        <input value="<?php echo $this->session->userdata('usuario_id'); ?>" type="text" id="correcao_id_usuario" name="correcao_id_usuario" placeholder="Id do Cliente" class="form-control">
+                     </div>
+                     <small>Qual o ID do usuario que corrigiu? </small>
+                  </div>
+               </div>
                <div class="row form-group">
                   <div class="col col-md-12">
                      <div class="input-group">
@@ -674,6 +696,14 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                         <i class="fa fa-id-card"></i>
                      </div>
                      <input value="<?php echo $linha->cliente_id; ?>" type="text" id="username" name="cliente_contato_id" placeholder="Id do Cliente" class="form-control">
+                  </div>
+               </div>
+               <div class="form-group" style="display:none">
+                  <div class="input-group">
+                     <div class="input-group-addon">
+                        <i class="fa fa-id-card"></i>
+                     </div>
+                     <input value="<?php echo $this->session->userdata('usuario_id'); ?>" type="text" id="username" name="contato_id_usuario" placeholder="Id do usuario" class="form-control">
                   </div>
                </div>
                <div class="form-group">

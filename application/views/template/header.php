@@ -6,9 +6,9 @@
 	<!--
 	// ─── FAVICONS ───────────────────────────────────────────────────────────────────
 -->
-	
-		
-<!-- /favicons-->
+
+
+	<!-- /favicons-->
 
 	<!-- Required meta tags-->
 	<meta charset="UTF-8">
@@ -19,7 +19,7 @@
 
 	<!-- Title Page-->
 	<title> <?php echo $page_title ?></title>
-	<link rel="icon" href="<?=base_url()?>/public/images/favicons/apple-touch-icon-60x60.png" type="image/gif">
+	<link rel="icon" href="<?= base_url() ?>/public/images/favicons/apple-touch-icon-60x60.png" type="image/gif">
 	<!-- Fontfaces CSS-->
 	<link href="<?php echo base_url(); ?>public/css/font-face.css" rel="stylesheet" media="all">
 	<link href="<?php echo base_url(); ?>public/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -70,7 +70,7 @@
 									<i class="fas fa-users"></i>
 									<span class="bot-line"></span>Clientes</a>
 							</li>
-<!-- 
+							<!-- 
 							<li>
 								<a href="<?php echo base_url(); ?>C_email">
 									<i class="fas fa-envelope"></i>
@@ -115,16 +115,13 @@
 						<div class="header-button-item js-item-menu">
 							<i class="zmdi zmdi-settings"></i>
 							<div class="setting-dropdown js-dropdown">
-								<div class="account-dropdown__body">
-									<div class="account-dropdown__item">
-										<a href="<?php echo base_url(); ?>C_perfil/">
-											<i class="zmdi zmdi-account"></i>Conta</a>
-									</div>
+								<!-- <div class="account-dropdown__body">
+									
 									<div class="account-dropdown__item">
 										<a href="#">
 											<i class="zmdi zmdi-settings"></i>Configurações</a>
 									</div>
-								</div>
+								</div> -->
 								<!-- <div class="setting-dropdown js-dropdown">
 									<div class="account-dropdown__body">
 										<div class="account-dropdown__item">
@@ -161,7 +158,10 @@
 						<div class="account-wrap">
 							<div class="account-item account-item--style2 clearfix js-item-menu">
 								<div class="image">
-									<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome'); ?>.jpg" alt="John Doe" />
+									<div>
+										<a>
+											<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome'); ?>.jpg" alt="John Doe" />
+									</div></a>
 								</div>
 								<div class="content">
 									<a class="js-acc-btn" href="<?php echo site_url('C_login') ?>"> <?php echo $this->session->userdata('usuario_nome'); ?> </a>
@@ -169,16 +169,16 @@
 								<div class="account-dropdown js-dropdown">
 									<div class="info clearfix">
 										<div class="image">
-											<a href="#">
+											<a>
 												<!-- imagem de perfil, alterar agora-->
 												<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome'); ?>.jpg" alt="John Doe" />
 											</a>
 
-											<!-- checkpoint -->
+																						<!-- checkpoint -->
 										</div>
 										<div class="content">
 											<h5 class="name">
-												<a href="#"><?php echo $this->session->userdata('usuario_nome'); ?> </a>
+												<a href=""><?php echo $this->session->userdata('usuario_nome'); ?> </a>
 											</h5>
 											<span class="email"><?php echo $this->session->userdata('usuario_email'); ?> </span>
 										</div>
@@ -192,6 +192,10 @@
 											<a href="#">
 												<i class="zmdi zmdi-settings"></i>Configurações de Conta</a>
 										</div> -->
+										<div class="account-dropdown__item">
+										<a href="<?php echo base_url(); ?>C_perfil/">
+											<i class="zmdi zmdi-account"></i>Conta</a>
+									</div>
 										<div class="account-dropdown__item" data-toggle="tooltip" data-placement="left" title="Acesse apenas na presença de um Tecnico, por favor!">
 											<a href="#">
 												<i class="zmdi zmdi-money-box"></i>Historico</a>

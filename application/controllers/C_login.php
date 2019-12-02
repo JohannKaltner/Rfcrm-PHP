@@ -24,18 +24,22 @@ class C_Login extends CI_Controller {
     $validate         = $this->M_login->verificaUsuario($usuario_email, $usuario_senha);
    
      if($validate->num_rows() > 0){
-        $data  = $validate->row_array();
-        $usuario_nome  = $data['usuario_nome'];
-        $usuario_email = $data['usuario_email'];
-        $usuario_nivel = $data['usuario_nivel'];
-        $usuario_setor = $data['usuario_setor'];
+        $data                = $validate->row_array();
+        $usuario_id          = $data['usuario_id'];
+        $usuario_nome        = $data['usuario_nome'];
+        $usuario_email       = $data['usuario_email'];
+        $usuario_nivel       = $data['usuario_nivel'];
+        $usuario_setor       = $data['usuario_setor'];
+        $usuario_data_inicio = $data['usuario_data_inicio'];
 
         $sesdata = array(
-            'usuario_nome'      => $usuario_nome,
-            'usuario_email'     => $usuario_email,
-            'usuario_nivel'     => $usuario_nivel,
-            'usuario_setor'     => $usuario_setor,
-            'logged_in' => TRUE
+            'usuario_id'          => $usuario_id,
+            'usuario_nome'        => $usuario_nome,
+            'usuario_email'       => $usuario_email,
+            'usuario_nivel'       => $usuario_nivel,
+            'usuario_setor'       => $usuario_setor,
+            'usuario_data_inicio' => $usuario_data_inicio,
+            'logged_in'           => TRUE
         );
 
         $this->session->set_userdata($sesdata);

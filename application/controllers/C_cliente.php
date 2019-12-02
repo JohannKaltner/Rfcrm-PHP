@@ -10,6 +10,7 @@ class C_Cliente extends CI_Controller
 		parent::__construct();
 		$this->load->model('M_cliente');
 		$this->load->model('M_usuario');
+		$this->load->model('M_login');
 
 		$this->load->helper('url_helper');
 		$this->load->library('session');
@@ -17,9 +18,10 @@ class C_Cliente extends CI_Controller
 		$data['page_title'] = "Clientes";
 	}
 
-	public function index($cliente_id = '')
+	public function index($cliente_id = '', $usuario_id ='')
 	{
 		$data['result'] 	 = $this->M_cliente->listarRegistros();
+		$data['user'] 	     = $this->M_login->consultarUsuario($usuario_id);
 		$data['chamados']	 = $this->M_cliente->listarChamadosCliente($cliente_id);
 		
 

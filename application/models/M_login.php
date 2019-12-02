@@ -14,6 +14,15 @@ class M_Login extends CI_Model {
 
   }
 
+  public function consultarUsuario(){
+    $this->db->select('*');
+    $this->db->from('usuario');
+    $query = $this->db->get();
+    return $query;
+
+}
+
+
   public function verificaUsuario($usuario_email, $usuario_senha){
         $this->db->select('*');
         $this->db->from('usuario');
