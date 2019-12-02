@@ -1569,6 +1569,8 @@ section {
 
 .menu-sidebar {
     width: 300px;
+    float: left;
+    display: flex;
     position: fixed;
     left: 0;
     top: 0;
@@ -4342,7 +4344,7 @@ section {
 
 .table-data {
     height: 472px;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 .table-data thead tr td {

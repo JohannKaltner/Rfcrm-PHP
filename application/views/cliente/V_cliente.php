@@ -53,7 +53,7 @@
 
 
 
-
+<!-- inicio table -->
  			<div id="pagination_link" class="table-responsive table-responsive-data2">
 
  				<div id="cliente_table">
@@ -126,12 +126,15 @@
  						</tbody>
  					</table>
  				</div>
- 			</div>
+			 </div>
+
  			<div class="row">
  				<div class="col-lg-12 text-right">
  					<?php if (isset($clienteInfo) && is_array($clienteInfo)) echo $page_links; ?>
  				</div>
- 			</div>
+			 </div>
+			 <!-- FIM TABLE  -->
+			 
  		</div>
  	</div>
  	</div>

@@ -6,10 +6,10 @@
                     <button href="" data-target="#profile" data-toggle="tab" class="nav-link active">Perfil</a>
                 </li>
                 <li class="nav-item">
-                    <button href="" data-target="#messages" data-toggle="tab" class="nav-link">chamados do usuario</a>
+                    <button href="" data-target="#messages" data-toggle="tab" class="nav-link">Chamados Registrados</a>
                 </li>
                 <li class="nav-item">
-                    <button href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
+                    <button href="" data-target="#edit" data-toggle="tab" class="nav-link">Editar</a>
                 </li>
             </ul>
             <div class="tab-content py-4">
@@ -18,23 +18,26 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h6>ID</h6><span>
-                            <?php echo $this->session->userdata('usuario_id'); ?> 
+                                <?php echo $this->session->userdata('usuario_id'); ?>
                             </span>
                             <h6>Nome</h6>
                             <p>
-                            <?php echo $this->session->userdata('usuario_nome'); ?> 
+                                <?php echo $this->session->userdata('usuario_nome'); ?>
                             </p>
                             <h6>Setor</h6>
                             <p>
-                            <?php echo $this->session->userdata('usuario_setor'); ?> 
+                                <?php echo $this->session->userdata('usuario_setor'); ?>
                             </p>
-                            <h6>Hobbies</h6>
+                            <!-- <h6>Hobbies</h6>
                             <p>
                                 Indie music, skiing and hiking. I love the great outdoors.
-                            </p>
+                            </p> -->
                         </div>
-                        <div class="col-md-6">
-                            <!-- <h6>Recent badges</h6>
+                        <div class="col-md-6" style="border:1px solid grey; border-radius:5px">
+                                <!-- <i class="fas fa-archive"></i> -->
+                                <span>
+                                        <h5 class="mb-3">Baixa de Atividades</h5></span>
+                                <!-- <h6>Recent badges</h6>
                             <a href="#" class="badge badge-dark badge-pill">html5</a>
                             <a href="#" class="badge badge-dark badge-pill">react</a>
                             <a href="#" class="badge badge-dark badge-pill">codeply</a>
@@ -44,48 +47,48 @@
                             <a href="#" class="badge badge-dark badge-pill">bootstrap</a>
                             <a href="#" class="badge badge-dark badge-pill">responsive-design</a>
                             <hr> -->
-                            <span class="badge badge-primary"><i class="fa fa-user"></i><?php 
-                             $this->db->select("cliente.cliente_id_usuario");
-                             $this->db->from('cliente');
-                             $this->db->join('usuario','cliente.cliente_id_usuario = usuario.usuario_id');
-                             $this->db->where("cliente.cliente_id_usuario = usuario.usuario_id");
-                             $this->db->order_by('usuario_nome desc');
-                             $query = $this->db->get();
-                             $num = $query->num_rows();
-                            ?>
-                            <?php echo $num ?> Clientes Inseridos</span>
-                            <span class="badge badge-primary"><i class="fa fa-user"></i><?php 
-                             $this->db->select("chamado.chamado_id_usuario");
-                             $this->db->from('chamado');
-                             $this->db->join('usuario','chamado.chamado_id_usuario = usuario.usuario_id');
-                             $this->db->where("chamado.chamado_id_usuario = usuario_id");
-                             $this->db->order_by('usuario_nome desc');
-                             $query = $this->db->get();
-                             $num = $query->num_rows();
-                            ?>
-                            <?php echo $num ?> Chamado Aberto</span>
-                            <span class="badge badge-danger"><i class="fa fa-eye"></i> <?php 
-                            $this->db->select("correcao.correcao_usuario_id");
-                             $this->db->from('correcao');
-                             $this->db->join('usuario','correcao.correcao_usuario_id = usuario.usuario_id');
-                             $this->db->where("correcao.correcao_usuario_id = usuario.usuario_id");
-                             $this->db->order_by('usuario_nome desc');
-                             $query = $this->db->get();
-                             $num = $query->num_rows();
-                            ?>
-                            <?php echo $num ?> Correções Registradas</span>
-                            <span class="badge badge-success"><i class="fa fa-cog"></i><?php
-                             $this->db->select("contato_secundario.contato_id_usuario");
-                             $this->db->from('contato_secundario');
-                             $this->db->where("contato_secundario.contato_id_usuario  = usuario.usuario_id");
-                             $this->db->join('usuario','contato_secundario.contato_id_usuario = usuario.usuario_id');
-                             $this->db->order_by('usuario_nome desc');
-                             $query = $this->db->get();
-                             $num = $query->num_rows();
-                            ?>
-                            <?php echo $num ?> Contatos Cadastrados</span>
+                                <span class="badge badge-primary"><i class="fa fa-user"></i><?php
+                                                                                            $this->db->select("cliente.cliente_id_usuario");
+                                                                                            $this->db->from('cliente');
+                                                                                            $this->db->join('usuario', 'cliente.cliente_id_usuario = usuario.usuario_id');
+                                                                                            $this->db->where("cliente.cliente_id_usuario = usuario.usuario_id");
+                                                                                            $this->db->order_by('usuario_nome desc');
+                                                                                            $query = $this->db->get();
+                                                                                            $num = $query->num_rows();
+                                                                                            ?>
+                                    <?php echo $num ?> Clientes Inseridos</span>
+                                <span class="badge badge-primary"><i class="fa fa-user"></i><?php
+                                                                                            $this->db->select("chamado.chamado_id_usuario");
+                                                                                            $this->db->from('chamado');
+                                                                                            $this->db->join('usuario', 'chamado.chamado_id_usuario = usuario.usuario_id');
+                                                                                            $this->db->where("chamado.chamado_id_usuario = usuario_id");
+                                                                                            $this->db->order_by('usuario_nome desc');
+                                                                                            $query = $this->db->get();
+                                                                                            $num = $query->num_rows();
+                                                                                            ?>
+                                    <?php echo $num ?> Chamado Aberto</span>
+                                <span class="badge badge-danger"><i class="fa fa-eye"></i> <?php
+                                                                                            $this->db->select("correcao.correcao_usuario_id");
+                                                                                            $this->db->from('correcao');
+                                                                                            $this->db->join('usuario', 'correcao.correcao_usuario_id = usuario.usuario_id');
+                                                                                            $this->db->where("correcao.correcao_usuario_id = usuario.usuario_id");
+                                                                                            $this->db->order_by('usuario_nome desc');
+                                                                                            $query = $this->db->get();
+                                                                                            $num = $query->num_rows();
+                                                                                            ?>
+                                    <?php echo $num ?> Correções Registradas</span>
+                                <span class="badge badge-success"><i class="fa fa-cog"></i><?php
+                                                                                            $this->db->select("contato_secundario.contato_id_usuario");
+                                                                                            $this->db->from('contato_secundario');
+                                                                                            $this->db->where("contato_secundario.contato_id_usuario  = usuario.usuario_id");
+                                                                                            $this->db->join('usuario', 'contato_secundario.contato_id_usuario = usuario.usuario_id');
+                                                                                            $this->db->order_by('usuario_nome desc');
+                                                                                            $query = $this->db->get();
+                                                                                            $num = $query->num_rows();
+                                                                                            ?>
+                                    <?php echo $num ?> Contatos Cadastrados</span>
                         </div>
-                        <div class="col-md-12">
+                        <!-- <div class="col-md-12">
                             <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
                             <table class="table table-sm table-hover table-striped">
                                 <tbody>                                    
@@ -116,92 +119,73 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
+                        </div> -->
                     </div>
                     <!--/row-->
                 </div>
                 <div class="tab-pane" id="messages">
-                    <div class="alert alert-info alert-dismissable">
+                    <!-- <div class="alert alert-info alert-dismissable">
                         <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Use this to show important messages to the user.
-                    </div>
+                    </div> -->
                     <table class="table table-hover table-striped">
-                        <tbody>                                    
+                        <tbody>
                             <tr>
                                 <td>
-                                   <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
+                                    <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                   <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
+                                    <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                   <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus. 
+                                    <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                   <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus. 
+                                    <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus.
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                   <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros. 
+                                    <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros.
                                 </td>
                             </tr>
-                        </tbody> 
+                        </tbody>
                     </table>
                 </div>
                 <div class="tab-pane" id="edit">
-                    <form role="form">
+                    <!-- <form method='post' action="<?php echo site_url('C_login/editaUsuario')?>/<?php echo $result['usuario_id']; ?>" > -->
+                    <form >
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                            <label class="col-lg-3 col-form-label form-control-label">Nome</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Jane">
+                                <input class="form-control" type="text" value="<?php echo $this->session->userdata('usuario_nome'); ?>">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                            <label class="col-lg-3 col-form-label form-control-label">E-mail</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Bishop">
+                                <input class="form-control" type="email" value="<?php echo $this->session->userdata('usuario_email'); ?>">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                            <label class="col-lg-3 col-form-label form-control-label">Setor</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="email" value="email@gmail.com">
+                                <input class="form-control" type="text" value="<?php echo $this->session->userdata('usuario_setor'); ?>">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Company</label>
+                            <label class="col-lg-3 col-form-label form-control-label">Data de Inicio</label>
                             <div class="col-lg-9">
                                 <input class="form-control" type="text" value="">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Website</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="url" value="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Address</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" value="" placeholder="Street">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"></label>
-                            <div class="col-lg-6">
-                                <input class="form-control" type="text" value="" placeholder="City">
-                            </div>
-                            <div class="col-lg-3">
-                                <input class="form-control" type="text" value="" placeholder="State">
-                            </div>
-                        </div>
-                        <div class="form-group row">
+                        
+                        <!-- <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
                             <div class="col-lg-9">
                                 <select id="user_time_zone" class="form-control" size="0">
@@ -215,30 +199,25 @@
                                     <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                        </div> -->
+                      <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Senha</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="janeuser">
+                                <input class="form-control" type="senha" value="<?php echo $this->session->userdata('usuario_senha'); ?>">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Password</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="senha" value="11111122333">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" value="11111122333">
+                            <label class="col-lg-3 col-form-label form-control-label">Confirmação de Senha</label>
+                            <div class="col-lg-9">  
+                                <input class="form-control" type="password" >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
-                                <input type="reset" class="btn btn-secondary" value="Cancel">
-                                <input type="button" class="btn btn-primary" value="Save Changes">
+                                <input type="reset" class="btn btn-danger" value="Limpar">
+                                <!-- <button href="" type="button" class="btn btn-danger" data-target="#profile" data-toggle="tab" > Cancelar </button> -->
+                                <button type="button" class="btn btn-primary" value="Save Changes"> Salvar Informações </button>
                             </div>
                         </div>
                     </form>
@@ -249,10 +228,10 @@
             <img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome'); ?>.jpg" class="mx-auto img-fluid img-circle d-block" alt="avatar">
             <!-- <img class="editable img-responsive" alt=" Avatar" id="avatar2" > -->
 
-            <h6 class="mt-2">Upload a different photo</h6>
+            <h6 class="mt-2">Faça upload de uma foto</h6>
             <label class="custom-file">
                 <input type="file" id="file" class="custom-file-input">
-                <span class="custom-file-control">Choose file</span>
+                <span class="custom-file-control">Inserir Foto</span>
             </label>
         </div>
     </div>

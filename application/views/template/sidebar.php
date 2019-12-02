@@ -1,4 +1,4 @@
-<aside class="menu-sidebar d-none d-lg-block">
+<aside class="menu-sidebar  d-lg-block">
           
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">

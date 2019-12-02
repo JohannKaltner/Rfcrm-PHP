@@ -25,4 +25,9 @@ class C_Perfil extends CI_Controller {
 
 	}
 
+	public function editaUsuario($usuario_id = NULL)
+	{
+		$this->M_login->atualizarRegistro($usuario_id);
+		redirect("C_perfil");
+	}
 }

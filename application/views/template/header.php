@@ -112,16 +112,16 @@
 							</div>
 						</div>
 
+						<?php if($this->session->userdata('usuario_nivel') == '1'){ ?>
 						<div class="header-button-item js-item-menu">
 							<i class="zmdi zmdi-settings"></i>
 							<div class="setting-dropdown js-dropdown">
-								<!-- <div class="account-dropdown__body">
-									
+								 <div class="account-dropdown__body">
 									<div class="account-dropdown__item">
-										<a href="#">
-											<i class="zmdi zmdi-settings"></i>Configurações</a>
+										<a href="<?php echo base_url();?>C_Admin">
+											<i class="zmdi zmdi-settings"></i>Administração</a>
 									</div>
-								</div> -->
+								</div> 
 								<!-- <div class="setting-dropdown js-dropdown">
 									<div class="account-dropdown__body">
 										<div class="account-dropdown__item">
@@ -155,6 +155,8 @@
 								</div> -->
 							</div>
 						</div>
+<?php } ?>
+
 						<div class="account-wrap">
 							<div class="account-item account-item--style2 clearfix js-item-menu">
 								<div class="image">
@@ -186,7 +188,7 @@
 									<div class="account-dropdown__body">
 										<!-- <div class="account-dropdown__item">
 											<a href="#">
-												<i class="zmdi zmdi-account"></i>Conta</a>
+												<i class="zmdi zmdi-account"></i>Administração</a>
 										</div> -->
 										<!-- <div class="account-dropdown__item">
 											<a href="#">
@@ -196,10 +198,7 @@
 										<a href="<?php echo base_url(); ?>C_perfil/">
 											<i class="zmdi zmdi-account"></i>Conta</a>
 									</div>
-										<div class="account-dropdown__item" data-toggle="tooltip" data-placement="left" title="Acesse apenas na presença de um Tecnico, por favor!">
-											<a href="#">
-												<i class="zmdi zmdi-money-box"></i>Historico</a>
-										</div>
+										 
 										<div class="account-dropdown__footer">
 											<a href="<?php echo site_url('C_login/logout'); ?>">
 												<i class="zmdi zmdi-power"></i>Sair</a>

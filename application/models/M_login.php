@@ -41,10 +41,26 @@ class M_Login extends CI_Model {
       'usuario_email'  => $this->input->post('usuario_email'),
       'usuario_senha'  => $this->input->post('usuario_senha'),
       'usuario_setor'  => $this->input->post('usuario_setor'),
-      'usuario_nivel'  => $this->input->post('usuario_nivel')
+      'usuario_nivel'  => $this->input->post('usuario_nivel'),
+      'usuario_data_inicio'  => $this->input->post('usuario_data_inicio'),
+
     );
     $this->db->insert('usuario', $data);
   }
+
+  public function editaUsuario($usuario_id)
+  {
+    $data = array(
+      'usuario_nome'   => $this->input->post('usuario_nome'),
+      'usuario_email'  => $this->input->post('usuario_email'),
+      'usuario_senha'  => $this->input->post('usuario_senha'),
+      'usuario_setor'  => $this->input->post('usuario_setor'),
+      'usuario_nivel'  => $this->input->post('usuario_nivel'),
+      'usuario_data_inicio'  => $this->input->post('usuario_data_inicio'),
+      
+    );
+    $this->db->where('usuario_id', $usuario_id);
+		$this->db->update('usuario', $data);  }
 
   //   public function verificaAdmin(){
   //   $this->db->select('usuario_nivel');
