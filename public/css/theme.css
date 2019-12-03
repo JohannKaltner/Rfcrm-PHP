@@ -4230,15 +4230,16 @@ section {
 }
 
 .table-earning thead th {
-    background: #333;
+    
     font-size: 16px;
-    color: #fff;
+    color: grey;
     vertical-align: middle;
     font-weight: 400;
     text-transform: capitalize;
     line-height: 1;
-    padding: 22px 40px;
+    padding: 22px 50px;
     white-space: nowrap;
+    border-bottom:1px solid grey
 }
 
 .table-earning thead th.text-right {

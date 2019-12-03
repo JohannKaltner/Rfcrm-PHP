@@ -173,8 +173,6 @@ class M_cliente extends CI_Model
 			'cliente_inscricao_estadual'   => $this->input->post('cliente_inscricao_estadual'),
 			'cliente_categoria'            => $this->input->post('cliente_categoria'),
 			'cliente_telefone'             => $this->input->post('cliente_telefone'),
-			'cliente_contato_nome'         => $this->input->post('cliente_contato_nome'),
-			'cliente_contato_telefone'     => $this->input->post('cliente_contato_telefone'),
 			'cliente_email'                => $this->input->post('cliente_email')
 		);
 		

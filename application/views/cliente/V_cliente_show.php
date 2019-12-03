@@ -41,7 +41,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                            <!-- NAV HOME   -->
                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                               <div>
-                                 <form method='post' action="<?php echo site_url('C_Cliente/exibir')?>/<?php echo $linha->cliente_id; ?>">
+                                 <form method='post' action="<?php echo site_url('C_Cliente/exibir') ?>/<?php echo $linha->cliente_id; ?>">
                                     <div class="form-group">
                                        <label for="cliente_id" class=" form-control-label">NUMERO DO ID</label>
                                        <input type="text" id="cliente_id" value="<?php echo $linha->cliente_id; ?>" name="cliente_id" placeholder="Id" class="form-control" disabled="">
@@ -113,33 +113,49 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                            <div class="tab-pane fade" id="nav-contato" role="tabpanel" aria-labelledby="nav-contato-tab">
                               <div style="align-items: center;">
                                  <div class='row'>
-                                    <div class="col-md-4">
-                                       <?php
-                                       if (isset($contatos) && !empty($contatos)) {
-                                          foreach ($contatos as $contato) { ?>
-                                             <ul class="list-group">
-                                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                   ID: <?php echo $contato->contato_secundario_id; ?>
-                                                   <div>
-                                                      <button style="padding:0px 10px 0 0" data-toggle="modal" data-target="#contatoEditModal" type="button"><i class="zmdi zmdi-edit"></i> </button>
-                                                    <a href="<?php echo base_url('C_Cliente/deletaContato')?>/<?php echo $contato->contato_secundario_id; ?>">  <button ><i class="zmdi zmdi-delete"></i> </button></a>
-                                                   </div>
-                                                   
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                   Nome: <?php echo $contato->contato_secundario_nome; ?>
-                                                   <span class="badge badge-primary badge-pill"><?php echo $contato->contato_secundario_funcao; ?></span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                   Telefone: <?php echo $contato->contato_secundario_telefone; ?>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                   Telefone: <?php echo $contato->contato_secundario_email; ?>
-                                                </li>
-                                             </ul>
-                                             <br>
-                                       <?php }
-                                       } ?>
+                                    <div class="col-md-12">
+
+                                       <!-- TOP CAMPAIGN-->
+                                       <div class="table-responsive table--no-card m-b-30">
+                                          <table class="table table-borderless table-striped table-earning">
+                                             <thead>
+                                                <tr>
+                                                   <th>ID</th>
+                                                   <th>Nome</th>
+                                                   <th>Telefone</th>
+                                                   <th>E-Mail</th>
+                                                   <th>Função</th>
+                                                   <th>Ferramentas</th>
+
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#contatoModal" style="  font-size:18px;">Novo Contato
+                                                </button>
+                                                <hr>
+                                                <?php
+                                                if (isset($contatos) && !empty($contatos)) {
+                                                   foreach ($contatos as $contato) { ?>
+                                                      <tr>
+                                                         <td><?php echo $contato->contato_secundario_id; ?></td>
+                                                         <td><?php echo $contato->contato_secundario_nome; ?></td>
+                                                         <td><?php echo $contato->contato_secundario_telefone; ?></td>
+                                                         <td><?php echo $contato->contato_secundario_email; ?></td>
+                                                         <td><?php echo $contato->contato_secundario_funcao; ?></td>
+                                                         <td>
+                                                            <div>
+                                                               <button style="padding:0px 10px 0 0" data-toggle="modal" data-target="#contatoEditModal" type="button"><i class="zmdi zmdi-edit"></i> </button>
+                                                               <a href="<?php echo base_url('C_Cliente/deletaContato') ?>/<?php echo $contato->contato_secundario_id; ?>"> <button><i class="zmdi zmdi-delete"></i> </button></a>
+                                                            </div>
+                                                         </td>
+                                                      </tr>
+                                                <?php }
+                                                } ?>
+
+                                             </tbody>
+                                          </table>
+                                       </div>
+
                                     </div>
                                  </div>
                               </div>
@@ -155,7 +171,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                                        foreach ($chamados as $chamado) { ?>
                                           <div class="row">
                                              <div class="col-md-12">
-                                                <div class="card" <?php    ?> href="<?php echo base_url(); ?>C_cliente/exibir/<?php echo $chamado->chamado_id; ?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;" ;>
+                                                <div class="card" href="<?php echo base_url(); ?>C_cliente/exibir/<?php echo $chamado->chamado_id; ?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;" ;>
                                                    <!-- <div class=" col-md-6"> -->
                                                    <div class="card-body">
                                                       <h4>ID: <?php echo $chamado->chamado_id; ?>
@@ -751,7 +767,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
 <div class="modal fade" id="contatoEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
-        
+
          <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Editar Contato</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -761,8 +777,8 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
          <div class="modal-body">
 
             <form method='post' action="<?php echo site_url('C_Cliente/editaContato'); ?>/<?php echo $contato->contato_secundario_id; ?>" class="horizontal-form">
-              
-            <div class="form-group">
+
+               <div class="form-group" style="display:none;">
                   <div class="input-group">
                      <div class="input-group-addon">
                         <i class="fa fa-id-card"></i>
@@ -803,7 +819,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                      <div class="input-group-addon">
                         <i class="fa fa-envelope"></i>
                      </div>
-                     <input type="text" id="contato_secundario_funcao" name="contato_secundario_funcao" value="<?php echo $contatos->contato_secundario_funcao; ?>" placeholder="Função" class="form-control">
+                     <input type="text" id="contato_secundario_funcao" name="contato_secundario_funcao" value="<?php echo $contato->contato_secundario_funcao; ?>" placeholder="Função" class="form-control">
                   </div>
                </div>
 

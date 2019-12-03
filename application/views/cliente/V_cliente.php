@@ -33,18 +33,21 @@
  								</button>
  							</form>
  						</div>
- 						<!-- <?php // if($this->session->userdata('usuario_nivel'== '1')) { ?> -->
- 							<div class="table-data__tool-right">
- 								<button class="au-btn au-btn-icon mb-1 au-btn--green au-btn--small" data-toggle="modal" data-target="#largeModal">
- 									<i class="zmdi zmdi-plus"></i> Novo</button>
+ 						<!-- <?php // if($this->session->userdata('usuario_nivel'== '1')) { 
+								?> -->
+ 						<div class="table-data__tool-right">
+ 							<button class="au-btn au-btn-icon mb-1 au-btn--green au-btn--small" data-toggle="modal" data-target="#largeModal">
+ 								<i class="zmdi zmdi-plus"></i> Novo</button>
 
- 								<button href="<?php echo base_url('C_export/csv'); ?>" type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Recarregue a pagina após o download do arquivo.">
- 									<i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</button>
- 							</div>
+ 							<button href="<?php echo base_url('C_export/csv'); ?>" type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Recarregue a pagina após o download do arquivo.">
+ 								<i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</button>
+ 						</div>
 
- 						<!-- <?php //} else { ?> -->
- 							 
- 						<!-- <?php // } ?> -->
+ 						<!-- <?php //} else { 
+								?> -->
+
+ 						<!-- <?php // } 
+								?> -->
 
  					</div>
  				</div>
@@ -53,7 +56,7 @@
 
 
 
-<!-- inicio table -->
+ 			<!-- inicio table -->
  			<div id="pagination_link" class="table-responsive table-responsive-data2">
 
  				<div id="cliente_table">
@@ -63,8 +66,8 @@
  								<th>Nº de Identificação</th>
  								<th>Codigo</th>
  								<th>Nome</th>
- 								<th>CPF</th>
- 								<th>CNPJ</th>
+ 								<!-- <th>CPF</th> -->
+ 								<!-- <th>CNPJ</th> -->
  								<th>TELEFONE</th>
  								<th>CIDADE</th>
  								<th>ENDEREÇO</th>
@@ -81,8 +84,8 @@
  										<td><?php echo $element['cliente_id']; ?></td>
  										<td><?php echo $element['cod_cliente']; ?></td>
  										<td><?php echo $element['cliente_nome']; ?></td>
- 										<td><?php echo $element['cliente_cpf']; ?></td>
- 										<td><?php echo $element['cliente_cnpj']; ?></td>
+ 										<!-- <td><?php echo $element['cliente_cpf']; ?></td>
+ 										<td><?php echo $element['cliente_cnpj']; ?></td> -->
  										<td><?php echo $element['cliente_telefone']; ?></td>
  										<td><?php echo $element['cliente_cidade']; ?></td>
  										<td><?php echo $element['cliente_endereco']; ?></td>
@@ -90,13 +93,13 @@
  										<td><?php echo $element['cliente_cep']; ?></td>
  										<td>
  											<div class="table-data-feature">
- 												<a href="<?php echo site_url('C_Cliente/exibir'); ?>/<?php echo $element['cliente_id']; ?>">
+ 												<a  href="<?php echo site_url('C_Cliente/exibir'); ?>/<?php echo $element['cliente_id']; ?>">
  													<button class="item" data-toggle="tooltip" data-placement="top" title="Acessar Cliente">
  														<i class="zmdi zmdi-view-list-alt"></i>
  													</button>
  												</a>
 
- 												<a href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $element['cliente_id']; ?>">
+ 												<a  href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $element['cliente_id']; ?>">
  													<button class="item" data-toggle="tooltip" data-placement="top" title="Deletar">
  														<i class="zmdi zmdi-delete"></i>
  													</button>
@@ -126,15 +129,15 @@
  						</tbody>
  					</table>
  				</div>
-			 </div>
+ 			</div>
 
  			<div class="row">
  				<div class="col-lg-12 text-right">
  					<?php if (isset($clienteInfo) && is_array($clienteInfo)) echo $page_links; ?>
  				</div>
-			 </div>
-			 <!-- FIM TABLE  -->
-			 
+ 			</div>
+ 			<!-- FIM TABLE  -->
+
  		</div>
  	</div>
  	</div>
@@ -165,7 +168,7 @@
  									ANTIGO)</small></label>
  							<input type="text" id="company" name="cod_cliente" placeholder="Insira o Codigo do Cliente " class="form-control">
  						</div>
-						<div class="form-group" style="display:none">
+ 						<div class="form-group" style="display:none">
  							<label for="nome" class=" form-control-label">ID do Usuario</label>
  							<input type="text" id="company" value="<?php echo $this->session->userdata('usuario_id'); ?>" name="cliente_id_usuario" placeholder="Insira o nome do Cliente" class="form-control" onblur="evento(this);">
  						</div>
@@ -177,8 +180,8 @@
  						<div class="form-group">
  							<label for="cpf/cnpj" class=" form-control-label">CNPJ</label>
  							<input type="text" id="cnpj" name="cliente_cnpj" maxlength="18" placeholder="Insira o CNPJ do Cliente (se tiver)" class="form-control" onblur="evento(this);">
-						 </div>
-						 <div class="form-group">
+ 						</div>
+ 						<div class="form-group">
  							<label for="cpf" class=" form-control-label">CPF</label>
  							<input type="text" id="cpf" name="cliente_cpf" maxlength="14" placeholder="Insira o CPF do Cliente (se tiver)" class="form-control" onblur="evento(this);">
  						</div>
@@ -335,9 +338,9 @@
  	$("#cliente_telefone").mask("(00) 00000-0000");
  	$("#cliente_cep").mask("00000-000");
  	$("#cliente_inscricao_estadual").mask("000.000.000.000");
-	 
-	 
-	 var options = {
+
+
+ 	var options = {
  		onKeyPress: function(cnpj, ev, el, op) {
  			var masks = ['000.000.000-000'];
  			$('#cnpj').mask((cnpj.length > 18) ? masks[1] : masks[0], op);
@@ -345,7 +348,7 @@
  	}
  	$('#cnpj').length > 11 ? $('#cnpj').mask('00.000.000/0000-00', options) : $('#cnpj').mask("00.000.000/0000-00#", options);
 
-	 var options = {
+ 	var options = {
  		onKeyPress: function(cpf, ev, el, op) {
  			var masks = ['000.000.000-00'];
  			$('#cpf').mask((cpf.length > 14) ? masks[1] : masks[0], op);

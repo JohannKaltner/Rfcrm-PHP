@@ -45,9 +45,9 @@ class C_Login extends CI_Controller {
         $this->session->set_userdata($sesdata);
         // access login for admin
         if($usuario_nivel === '1'){
-           // $admin == TRUE;
-            redirect('home');
-        }elseif($usuario_nivel === '2'){
+            // $admin == TRUE;
+            redirect('C_admin');
+        }elseif($usuario_nivel === '0'){
             redirect('home');
         }else {
           redirect('/404.php');

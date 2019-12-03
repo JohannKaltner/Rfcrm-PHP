@@ -2,8 +2,11 @@
  
 class Template {
  
-		function show($view, $data=array()){
- 
+	
+	 
+
+	function show($view, $data=array()){
+		
 			$CI = & get_instance();
 			// Load header
 			$CI->load->view('template/header',$data);
@@ -13,7 +16,7 @@ class Template {
 			$CI->load->view('template/footer',$data);
 			// Scripts
 			$CI->load->view('template/scripts',$data);
-			
+		
 			//$CI->load->view('template/sidebar',$data);
             
         }

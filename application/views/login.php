@@ -119,11 +119,11 @@
                             </div>
                             <input type="text" class="form-control" placeholder="SETOR" name="usuario_setor" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-3" style="display:none;">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-gear" aria-hidden="true"></i></span>
                             </div>
-                            <input type="text" value="2" class="form-control" placeholder="NIVEL" name="usuario_nivel" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="text" value="" class="form-control" placeholder="NIVEL" name="usuario_nivel" aria-label="Username" aria-describedby="basic-addon1">
                             <small style="color:red"> *padrão, não alterar* </small>
                         </div>
                     

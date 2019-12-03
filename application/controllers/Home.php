@@ -16,20 +16,23 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		//acesso admin
-		if($this->session->userdata('usuario_nivel')==='1' OR $this->session->userdata('usuario_nivel')==='2'){
-			$data['page_title'] = "RFCRM - Dashboard";
-			$this->template->show('home',$data);
-		}else{
-			redirect('/404');
-			//echo "Você ainda não foi aprovado pelo administrador ";
+		// //acesso admin
+		// if($this->session->userdata('usuario_nivel')==='1'){
+		 	$data['page_title'] = "RFCRM - Dashboard";
+		 	$this->template->show('home',$data);
+		// }elseif($this->session->userdata('usuario_nivel')==='2'){
+		// 	$this->template->show('home',$data);
+		// 	//echo "Você ainda não foi aprovado pelo administrador ";
+		// }else{
+		// 	redirect('/404');
+		// 	//echo "Você ainda não foi aprovado pelo administrador ";
 		}
 
 
 		// $this->template->show('home');
 		// $data['numeroClientes']= $this->M_Home->contarLinhas("cliente");
 		// $this->load->model('M_home', $data);
-	}
+	//}
 	
 }
 

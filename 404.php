@@ -80,8 +80,7 @@
   
   <div>
     <div class="dialog">
-      <h1>Oops!</h1>
-      <p>Perdão mas sua conta ainda não foi Autorizada pela Administração, por favor aguarde...</p>
+     
     <a type="button" href="http://192.168.0.66/RFCRM" class="btn btn-primary">Voltar.</a>  
     </div>
   </div> 

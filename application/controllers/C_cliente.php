@@ -112,8 +112,7 @@ class C_Cliente extends CI_Controller
 		redirect('C_cliente/');
 	}
 
-	public function criarCorrecao($cliente_id = NULL)
-	{
+	public function criarCorrecao($cliente_id = NULL){
 		$this->M_cliente->criarCorrecao();
 		redirect('C_cliente/');
 	}

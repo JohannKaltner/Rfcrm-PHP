@@ -68,7 +68,13 @@
 							<li>
 								<a href="<?php echo base_url(); ?>C_cliente">
 									<i class="fas fa-users"></i>
-									<span class="bot-line"></span>Clientes</a>
+									<span class="bot-line"></span>Clientes<span class="badge badge-primary" style="margin: 0 0 0 3px;"><?php
+																																		$this->db->select('*');
+																																		$query = $this->db->get('cliente');
+																																		$num = $query->num_rows();
+																																		?>
+
+										<?php echo $num ?></span></a>
 							</li>
 							<!-- 
 							<li>
@@ -97,32 +103,65 @@
 							<div class="header-button-item has-noti js-item-menu">
 								<i class="zmdi zmdi-notifications"></i>
 								<div class="notifi-dropdown notifi-dropdown--no-bor js-dropdown">
+									<?php
+									$this->db->select('alerta_mensagem, alerta_usuario, alerta_titulo, alerta_data');;
+									$this->db->from('alerta');
+									$this->db->order_by('alerta_id', 'desc');
+									$this->db->limit('3');
+									$query = $this->db->get();
+									$alert = $query->result();
+									?>
+
+<!-- <p><?php print_r($alert); ?> </p> -->
+									<div class="notifi__item">
+										<div class="bg-c1 img-cir img-40">
+											<i class="zmdi zmdi-email-open"></i>
+										</div>
+										<div class="content">
+											<p> <b><?php echo $alert[0]->alerta_titulo; ?> </b></p>
+											<p><?php echo $alert[0]->alerta_mensagem; ?></p>
+											<span class="date"><?php $alert[0]->alerta_data; ?></span>
+											<hr>
+										</div>
+									</div>
 
 									<div class="notifi__item">
 										<div class="bg-c1 img-cir img-40">
 											<i class="zmdi zmdi-email-open"></i>
 										</div>
 										<div class="content">
-											<p>Bem-vindo(a) ao novo CRM da Ricardo Furtado & Associados!</p>
-											<span class="date"><?php echo date('H:i:s / d-m-Y '); ?></span>
+											<p> <b><?php echo $alert[1]->alerta_titulo; ?> </b></p>
+											<p><?php echo $alert[1]->alerta_mensagem; ?></p>
+											<span class="date"><?php $alert[1]->alerta_data; ?></span>
+											<hr>
 										</div>
 									</div>
 
+									<div class="notifi__item">
+										<div class="bg-c1 img-cir img-40">
+											<i class="zmdi zmdi-email-open"></i>
+										</div>
+										<div class="content">
+											<p> <b><?php echo $alert[2]->alerta_titulo; ?> </b></p>
+											<p><?php echo $alert[2]->alerta_mensagem; ?></p>
+											<span class="date"><?php $alert[2]->alerta_data; ?></span> -->
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 
-						<?php if($this->session->userdata('usuario_nivel') == '1'){ ?>
-						<div class="header-button-item js-item-menu">
-							<i class="zmdi zmdi-settings"></i>
-							<div class="setting-dropdown js-dropdown">
-								 <div class="account-dropdown__body">
-									<div class="account-dropdown__item">
-										<a href="<?php echo base_url();?>C_Admin">
-											<i class="zmdi zmdi-settings"></i>Administração</a>
+						<?php if ($this->session->userdata('usuario_nivel') == '1') { ?>
+							<div class="header-button-item js-item-menu">
+								<i class="zmdi zmdi-settings"></i>
+								<div class="setting-dropdown js-dropdown">
+									<div class="account-dropdown__body">
+										<div class="account-dropdown__item">
+											<a href="<?php echo base_url(); ?>C_Admin">
+												<i class="zmdi zmdi-settings"></i>Administração</a>
+										</div>
 									</div>
-								</div> 
-								<!-- <div class="setting-dropdown js-dropdown">
+									<!-- <div class="setting-dropdown js-dropdown">
 									<div class="account-dropdown__body">
 										<div class="account-dropdown__item">
 											<a href="#">
@@ -133,7 +172,7 @@
 												<i class="zmdi zmdi-settings"></i>Configurações</a>
 										</div>
 									</div> -->
-								<!--
+									<!--
 									<div class="account-dropdown__body">
 										<div class="account-dropdown__item">
 											<a href="#">
@@ -153,9 +192,9 @@
 										</div>
 								</div> 
 								</div> -->
+								</div>
 							</div>
-						</div>
-<?php } ?>
+						<?php } ?>
 
 						<div class="account-wrap">
 							<div class="account-item account-item--style2 clearfix js-item-menu">
@@ -176,7 +215,7 @@
 												<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome'); ?>.jpg" alt="John Doe" />
 											</a>
 
-																						<!-- checkpoint -->
+											<!-- checkpoint -->
 										</div>
 										<div class="content">
 											<h5 class="name">
@@ -195,10 +234,10 @@
 												<i class="zmdi zmdi-settings"></i>Configurações de Conta</a>
 										</div> -->
 										<div class="account-dropdown__item">
-										<a href="<?php echo base_url(); ?>C_perfil/">
-											<i class="zmdi zmdi-account"></i>Conta</a>
-									</div>
-										 
+											<a href="<?php echo base_url(); ?>C_perfil/">
+												<i class="zmdi zmdi-account"></i>Conta</a>
+										</div>
+
 										<div class="account-dropdown__footer">
 											<a href="<?php echo site_url('C_login/logout'); ?>">
 												<i class="zmdi zmdi-power"></i>Sair</a>
@@ -237,97 +276,28 @@
 				<div class="container-fluid">
 					<ul class="navbar-mobile__list list-unstyled">
 						<li class="has-sub">
+							<a href="<?php echo base_url(); ?>home"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+
+						</li>
+						<!-- <li class="has-sub">
 							<a class="js-arrow" style="color:black;" href="#">
 								<i class="fas fa-tachometer-alt"></i>Dashboard</a>
 							<ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
 								<li>
-									<a href="<?php echo base_url(); ?>/home">Dashboard</a>
+									<a href="<?php echo base_url(); ?>home">Dashboard</a>
 								</li>
-								<!-- <li>
-									<a href="index2.html">Dashboard 2</a>
-								</li>
-								<li>
-									<a href="index3.html">Dashboard 3</a>
-								</li>
-								<li>
-									<a href="index4.html">Dashboard 4</a>
-								</li> -->
-							</ul>
-						</li>
-						<!-- <li>
-							<a href="chart.html">
-								<i class="fas fa-chart-bar"></i>Charts</a>
-						</li>
-						<li>
-							<a href="table.html">
-								<i class="fas fa-table"></i>Tables</a>
-						</li>
-						<li>
-							<a href="form.html">
-								<i class="far fa-check-square"></i>Forms</a>
-						</li>
-						<li>
-							<a href="calendar.html">
-								<i class="fas fa-calendar-alt"></i>Calendar</a>
-						</li>
-						<li>
-							<a href="map.html">
-								<i class="fas fa-map-marker-alt"></i>Maps</a>
-						</li>
+
+							</ul> -->
 						<li class="has-sub">
-							<a class="js-arrow" href="#">
-								<i class="fas fa-copy"></i>Pages</a>
-							<ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-								<li>
-									<a href="login.html">Login</a>
-								</li>
-								<li>
-									<a href="register.html">Register</a>
-								</li>
-								<li>
-									<a href="forget-pass.html">Forget Password</a>
-								</li>
-							</ul>
-						</li> -->
-						<!-- <li class="has-sub">
-							<a class="js-arrow" href="#">
-								<i class="fas fa-desktop"></i>UI Elements</a>
-							<ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-								<li>
-									<a href="button.html">Button</a>
-								</li>
-								<li>
-									<a href="badge.html">Badges</a>
-								</li>
-								<li>
-									<a href="tab.html">Tabs</a>
-								</li>
-								<li>
-									<a href="card.html">Cards</a>
-								</li>
-								<li>
-									<a href="alert.html">Alerts</a>
-								</li>
-								<li>
-									<a href="progress-bar.html">Progress Bars</a>
-								</li>
-								<li>
-									<a href="modal.html">Modals</a>
-								</li>
-								<li>
-									<a href="switch.html">Switchs</a>
-								</li>
-								<li>
-									<a href="grid.html">Grids</a>
-								</li>
-								<li>
-									<a href="fontawesome.html">Fontawesome Icon</a>
-								</li>
-								<li>
-									<a href="typo.html">Typography</a>
-								</li> -->
-					</ul>
-					</li>
+							<a href="<?php echo base_url(); ?>C_cliente"><i class="fas fa-user"></i>
+								Clientes </a>
+						</li>
+
+						<li>
+							<a href="<?php echo base_url(); ?>C_Chat"><i class="fas fa-comment"></i>
+								Chat</a>
+						</li>
+
 					</ul>
 				</div>
 			</nav>
@@ -337,32 +307,42 @@
 				<div class="header-button-item has-noti js-item-menu">
 					<i class="zmdi zmdi-notifications"></i>
 					<div class="notifi-dropdown notifi-dropdown--no-bor js-dropdown">
-
-						<div class="notifi__item">
+						<?php
+						//  if (!empty($alerta)) {
+						//     foreach ($alerta as $alert) { 
+						?>
+						<div class="notifi__item" href="<?php echo base_url(); ?>C_admin/exibirAlerta/<?php echo $alerta->alerta_id; ?>">
 							<div class="bg-c1 img-cir img-40">
 								<i class="zmdi zmdi-email-open"></i>
 							</div>
 							<div class="content">
-								<p>Bem vindo ao novo CRM da RF&A!!</p>
-								<span class="date"><?php
-													date_default_timezone_set('America/Sao_Paulo');
-													echo date('H:i:s / d-m-Y '); ?></span>
+
+
+								<div>
+									<p>Bem vindo ao novo CRM da RF&A!!</p>
+									<span class="date"><?php
+														date_default_timezone_set('America/Sao_Paulo');
+														echo date('H:i:s / d-m-Y '); ?></span>
+								</div>
 							</div>
+
 						</div>
-
+						<!-- <? //php }
+								// } 
+								?> -->
 					</div>
-				</div>
-				<div class="header-button-item js-item-menu">
-					<i class="zmdi zmdi-settings"></i>
-					<div class="setting-dropdown js-dropdown">
+					<?php if ($this->session->userdata('usuario_nivel') === '1') { ?>
+						<div class="header-button-item js-item-menu">
+							<i class="zmdi zmdi-settings"></i>
+							<div class="setting-dropdown js-dropdown">
 
-						<div class="account-dropdown__body">
-							<div class="account-dropdown__item">
-								<a href="#">
-									<i class="zmdi zmdi-account"></i>Conta</a>
-							</div>
+								<div class="account-dropdown__body">
+									<div class="account-dropdown__item">
+										<a href="<?php echo base_url(); ?>C_admin">
+											<i class="zmdi zmdi-account"></i>Administração</a>
+									</div>
 
-							<div class="account-dropdown__item">
+									<!-- <div class="account-dropdown__item">
 								<a href="#">
 									<i class="zmdi zmdi-settings"></i>Configurações</a>
 							</div>
@@ -395,50 +375,47 @@
 							</div>
 
 						</div>
-					</div>
-				</div>
-				<div class="account-wrap">
-					<div class="account-item account-item--style2 clearfix js-item-menu">
-						<div class="image">
-							<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome'); ?>.jpg" alt="John Doe" />
-						</div>
-						<div class="content">
-							<a class="js-acc-btn" href="#">Johann Kaltner</a>
-						</div>
-						<div class="account-dropdown js-dropdown">
-							<div class="info clearfix">
-								<div class="image">
-									<a href="#">
-										<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome'); ?>.jpg" alt="John Doe" />
-									</a>
-								</div>
-								<div class="content">
-									<h5 class="name">
-										<a href="#"><?php echo $this->session->userdata('usuario_nome'); ?></a>
-									</h5>
-									<span class="email"><?php echo $this->session->userdata('usuario_email'); ?> </span>
+					</div> -->
 								</div>
 							</div>
-							<div class="account-dropdown__body">
-								<div class="account-dropdown__item">
-									<a href="#">
-										<i class="zmdi zmdi-account"></i>Account</a>
-								</div>
-								<div class="account-dropdown__item">
-									<a href="#">
-										<i class="zmdi zmdi-settings"></i>Setting</a>
-								</div>
-								<div class="account-dropdown__item">
-									<a href="#">
-										<i class="zmdi zmdi-money-box"></i>Billing</a>
-								</div>
+						</div>
+					<?php } ?>
+					<div class="account-wrap">
+						<div class="account-item account-item--style2 clearfix js-item-menu">
+							<div class="image">
+								<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome'); ?>.jpg" alt="John Doe" />
 							</div>
-							<div class="account-dropdown__footer">
-								<a href="<?php echo site_url('C_login/logout'); ?>">
-									<i class="zmdi zmdi-power"></i>Logout</a>
+							<div class="content">
+								<a class="js-acc-btn" href="#">Johann Kaltner</a>
+							</div>
+							<div class="account-dropdown js-dropdown">
+								<div class="info clearfix">
+									<div class="image">
+										<a href="#">
+											<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome'); ?>.jpg" alt="John Doe" />
+										</a>
+									</div>
+									<div class="content">
+										<h5 class="name">
+											<a href="#"><?php echo $this->session->userdata('usuario_nome'); ?></a>
+										</h5>
+										<span class="email"><?php echo $this->session->userdata('usuario_email'); ?> </span>
+									</div>
+								</div>
+								<div class="account-dropdown__body">
+									<div class="account-dropdown__item">
+										<a href="<?php echo base_url(); ?>C_perfil">
+											<i class="zmdi zmdi-account"></i>Conta</a>
+									</div>
+
+
+								</div>
+								<div class="account-dropdown__footer">
+									<a href="<?php echo site_url('C_login/logout'); ?>">
+										<i class="zmdi zmdi-power"></i>Sair</a>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
