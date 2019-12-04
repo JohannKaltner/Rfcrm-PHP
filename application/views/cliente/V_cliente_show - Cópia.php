@@ -42,15 +42,15 @@
 							
 				<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 					<div>
-					<form method='post' action="<?php echo site_url('C_Cliente/exibir') ?>/<?php echo $linha->cliente_id; ?>">
+					<form method='post' action="<?php echo site_url('C_Cliente/exibir') ?>/<?php echo $linha['cliente_id']; ?>">
 						<div class="form-group">
 							<label for="cliente_id" class=" form-control-label">NUMERO DO ID</label>
-							<input type="text" id="cliente_id" value="<?php echo $linha->cliente_id; ?>" name="cliente_id" placeholder="Id" class="form-control" disabled="">
+							<input type="text" id="cliente_id" value="<?php echo $linha['cliente_id']; ?>" name="cliente_id" placeholder="Id" class="form-control" disabled="">
 						</div>
 
 						<div class="form-group">
 							<label for="cliente_id" class=" form-control-label">Codigo do Cliente</label>
-							<input type="text" id="cliente_id" value="<?php echo $linha->cod_cliente; ?>" name="cod_cliente" placeholder="cod_cliente" class="form-control" disabled="">
+							<input type="text" id="cliente_id" value="<?php echo $linha['cod_cliente']; ?>" name="cod_cliente" placeholder="cod_cliente" class="form-control" disabled="">
 						</div>
 
 						<div class="form-group">
@@ -411,13 +411,13 @@
 				<form method='post' action="<?php echo base_url('C_Cliente/update/'); ?>" class="form-horizontal">
 					<div class="form-group">
 						<label for="cpf/cnpj" class=" form-control-label">Codigo do Cliente</label>
-						<input type="text" id="cod_cliente" value="<?php echo $linha->cod_cliente; ?>" name="cod_cliente" placeholder="Insira o Codigo do Cliente" class="form-control">
+						<input type="text" id="cod_cliente" value="<?php echo $linha['cod_cliente']; ?>" name="cod_cliente" placeholder="Insira o Codigo do Cliente" class="form-control">
 					</div>
 
 					<div class="form-group">
 						<label for="nome" class=" form-control-label">Nome do
 							Cliente</label>
-						<input type="text" id="company" value="<?php echo $linha->cliente_nome; ?>" name="cliente_nome" placeholder="Insira o nome do Cliente" class="form-control">
+						<input type="text" id="company" value="<?php echo $linha['cliente_nome'] ; ?>" name="cliente_nome" placeholder="Insira o nome do Cliente" class="form-control">
 					</div>
 					<div class="form-group">
 						<label for="cpf/cnpj" class=" form-control-label">CNPJ/CPF</label>

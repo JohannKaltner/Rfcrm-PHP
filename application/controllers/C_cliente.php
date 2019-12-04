@@ -18,20 +18,20 @@ class C_Cliente extends CI_Controller
 		$data['page_title'] = "Clientes";
 	}
 
-	public function index($cliente_id = '', $usuario_id ='')
+	public function index($cliente_id = '', $usuario_id = '')
 	{
 		$data['result'] 	 = $this->M_cliente->listarRegistros();
 		$data['user'] 	     = $this->M_login->consultarUsuario($usuario_id);
 		$data['chamados']	 = $this->M_cliente->listarChamadosCliente($cliente_id);
-		
 
+		
 
 		//
 		// ─── BUSCA ──────────────────────────────────────────────────────────────────────
 		//
-	//	$data['busca'] = $this->M_cliente->listarBusca();
-		 
- 	
+		//	$data['busca'] = $this->M_cliente->listarBusca();
+
+
 
 		//
 		// ─── PAGINATION ──────────────────────────────────────────────────
@@ -64,7 +64,7 @@ class C_Cliente extends CI_Controller
 			// ─────────────────────────────────────────────────────────── FIM PAGINATION ─────
 			//
 
-				$data['page_title'] = " RFCRM - Clientes";
+			$data['page_title'] = " RFCRM - Clientes";
 			$this->template->show('cliente/V_cliente', $data);
 		}
 	}
@@ -96,23 +96,35 @@ class C_Cliente extends CI_Controller
 
 	public function exibir($cliente_id = NULL, $usuario_id = NULL)
 	{
-		$data['linha']=  $this->M_cliente->listarRegistro($cliente_id);
-		$data['chamados']=  $this->M_cliente->listarChamadosCliente($cliente_id);
-		$data['contatos']=  $this->M_cliente->listarContatosCliente($cliente_id);
-		$data['correcoes']=  $this->M_cliente->listarCorrecaoCliente($cliente_id);
-		$data['permissao']=  $this->M_usuario->consultar_permissao($usuario_id);
+		$data['linha'] =  $this->M_cliente->listarRegistro($cliente_id);
+		$data['chamados'] =  $this->M_cliente->listarChamadosCliente($cliente_id);
+		$data['contatos'] =  $this->M_cliente->listarContatosCliente($cliente_id);
+		$data['correcoes'] =  $this->M_cliente->listarCorrecaoCliente($cliente_id);
+		$data['permissao'] =  $this->M_usuario->consultar_permissao($usuario_id);
+		$contato_list = $this->M_cliente->retorna_contatos($cliente_id);
+		$option = null;
+		foreach($contato_list -> result() as $contato_list) {
+		$option .= "<option value='$contato_list->contato_secundario_nome'>$contato_list->contato_secundario_nome</option>"; 
+		}
+		$data['options_contatos'] = $option;
 		$data['page_title'] = "Informações do Cliente";
-
+		$cliente_id = $this->uri->segment('3');
+		$this->session->flashdata($cliente_id);
 		$this->template->show('cliente/V_cliente_show', $data);
 	}
 
-	public function criarContato($cliente_id = NULL)
+	public function criarContato($cliente_id ='')
 	{
-		$this->M_cliente->criarContato();
-		redirect('C_cliente/');
+		$this->M_cliente->criarContato($cliente_id);
+		// redirect("C_cliente/", $cliente_id);
+		redirect('C_Cliente/exibir/'.$cliente_id, 'refresh');
+  		//redirect('C_Cliente/exibir/');
+		 
+		 
 	}
 
-	public function criarCorrecao($cliente_id = NULL){
+	public function criarCorrecao($cliente_id = NULL)
+	{
 		$this->M_cliente->criarCorrecao();
 		redirect('C_cliente/');
 	}
@@ -130,11 +142,7 @@ class C_Cliente extends CI_Controller
 		redirect('C_cliente/');
 	}
 
-	function block_buttom($usuario_nivel = NULL){
-		
-		
-
-	}
+	
 
 	// function busca()
 	// {

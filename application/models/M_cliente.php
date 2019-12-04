@@ -70,12 +70,19 @@ class M_cliente extends CI_Model
 	//  	return $query->result();
 	//  }
 
-	function listarRegistro($cliente_id = '')
+	function listarRegistro($cliente_id = NULL)
 	{
-		$query = $this->db->query("SELECT * FROM cliente WHERE cliente_id =  '.$cliente_id.'");
-		if ($query->num_rows() > 0) {
-			return $query->row(); // will return single item;    
-		}
+		$this->db->select('*');
+		$this->db->from('cliente');
+		$this->db->where('cliente.cliente_id', $cliente_id);
+		$query = $this->db->get();
+		return $query->result();
+
+
+		// $query = $this->db->query("SELECT * FROM cliente WHERE cliente_id =  '.$cliente_id.'");
+		// if ($query->num_rows() > 0) {
+		// 	return $query->row(); // will return single item;    
+		// }
 	}
 
 	public function listarContatosCliente($cliente_id)
@@ -84,7 +91,7 @@ class M_cliente extends CI_Model
 		$this->db->from('contato_secundario');
 		$this->db->join('cliente', 'cliente.cliente_id = contato_secundario.cliente_contato_id');
 		$this->db->where('contato_secundario.cliente_contato_id =' . $cliente_id);
-		$this->db->order_by('contato_secundario_id','DESC');
+		$this->db->order_by('contato_secundario_id', 'DESC');
 		$query = $this->db->get();
 		if ($query->num_rows() < 1) {
 			return FALSE;
@@ -92,10 +99,11 @@ class M_cliente extends CI_Model
 		return $query->result();
 	}
 
-	public function get_nome($cliente_id){
+	public function get_nome($cliente_id)
+	{
 		$this->db->select('cliente_nome');
 		$this->db->from('cliente');
-		$this->db->where('cliente_id = ' .$cliente_id);
+		$this->db->where('cliente_id = ' . $cliente_id);
 		$query = $this->db->get();
 
 		if ($query->num_rows() < 1) {
@@ -133,21 +141,30 @@ class M_cliente extends CI_Model
 	}
 
 	public function listarBusca($match = NULL)
-    {
+	{
 		$match = $this->input->post('busca');
-        $this->db->select('*');
-        $this->db->from('cliente');
-        $this->db->like('cliente_nome',$match);
-        $this->db->or_like('cod_cliente',$match);
-        $this->db->or_like('cliente_email',$match);
-        $this->db->or_like('cliente_endereco',$match);
-        $query = $this->db->get();
+		$this->db->select('*');
+		$this->db->from('cliente');
+		$this->db->like('cliente_nome', $match);
+		$this->db->or_like('cod_cliente', $match);
+		$this->db->or_like('cliente_email', $match);
+		$this->db->or_like('cliente_endereco', $match);
+		$query = $this->db->get();
 		if ($query->num_rows() < 1) {
 			return FALSE;
 		}
 		return $query->result();
-    }
+	}
 
+	public function retorna_contatos($cliente_id= NULL)
+	{
+		$this->db->select('*');
+		$this->db->from('contato_secundario');
+		$this->db->where('cliente_contato_id', $cliente_id);
+		$this->db->order_by("contato_secundario_nome", "asc");
+		$consulta = $this->db->get();
+		return $consulta;
+	}
 
 
 
@@ -175,7 +192,7 @@ class M_cliente extends CI_Model
 			'cliente_telefone'             => $this->input->post('cliente_telefone'),
 			'cliente_email'                => $this->input->post('cliente_email')
 		);
-		
+
 		$this->db->insert('cliente', $data);
 	}
 
@@ -189,7 +206,7 @@ class M_cliente extends CI_Model
 			'contato_secundario_telefone'  => $this->input->post('contato_secundario_telefone'),
 			'contato_secundario_funcao'    => $this->input->post('contato_secundario_funcao')
 		);
-	
+
 		$this->db->insert('contato_secundario', $data);
 	}
 
@@ -212,7 +229,7 @@ class M_cliente extends CI_Model
 			'correcao_email'              => $this->input->post('chamado_email')
 
 		);
-		
+
 		$this->db->insert('correcao', $data);
 	}
 
@@ -242,7 +259,7 @@ class M_cliente extends CI_Model
 			'cliente_contato_telefone'       => $this->input->post('cliente_contato_telefone'),
 			'cliente_email'                  => $this->input->post('cliente_email')
 		);
-		
+
 		$this->db->where('cliente_id', $cliente_id);
 		$this->db->update('cliente', $data);
 	}

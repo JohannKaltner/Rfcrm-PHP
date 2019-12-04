@@ -1,3 +1,4 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <?php
 date_default_timezone_set('America/Sao_Paulo'); ?>
 <section class="p-t-20">
@@ -41,68 +42,68 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                            <!-- NAV HOME   -->
                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                               <div>
-                                 <form method='post' action="<?php echo site_url('C_Cliente/exibir') ?>/<?php echo $linha->cliente_id; ?>">
+                                 <form method='post' action="<?php echo site_url('C_Cliente/exibir') ?>/<?php echo $linha['0']->cliente_id; ?>">
                                     <div class="form-group">
                                        <label for="cliente_id" class=" form-control-label">NUMERO DO ID</label>
-                                       <input type="text" id="cliente_id" value="<?php echo $linha->cliente_id; ?>" name="cliente_id" placeholder="Id" class="form-control" disabled="">
+                                       <input type="text" id="cliente_id" value="<?php echo $linha['0']->cliente_id; ?>" name="cliente_id" placeholder="Id" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="cliente_id" class=" form-control-label">Codigo do Cliente</label>
-                                       <input type="text" id="cliente_id" value="<?php echo $linha->cod_cliente; ?>" name="cod_cliente" placeholder="cod_cliente" class="form-control" disabled="">
+                                       <input type="text" id="cliente_id" value="<?php echo $linha['0']->cod_cliente; ?>" name="cod_cliente" placeholder="cod_cliente" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="nome" class=" form-control-label">Nome do
                                           Cliente</label>
-                                       <input type="text" id="company" value="<?php echo $linha->cliente_nome; ?>" name="cliente_nome" placeholder="Insira o nome do Cliente" disabled="" class="form-control">
+                                       <input type="text" id="company" value="<?php echo $linha['0']->cliente_nome; ?>" name="cliente_nome" placeholder="Insira o nome do Cliente" disabled="" class="form-control">
                                     </div>
                                     <div class="form-group">
                                        <label for="cpf/cnpj" class=" form-control-label">CPF</label>
-                                       <input type="text" id="cliente_cpf" value="<?php echo $linha->cliente_cpf; ?>" name="cliente_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control" disabled="">
+                                       <input type="text" id="cliente_cpf" value="<?php echo $linha['0']->cliente_cpf; ?>" name="cliente_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="cpf/cnpj" class=" form-control-label">CNPJ</label>
-                                       <input type="text" id="cliente_cnpj" value="<?php echo $linha->cliente_cnpj; ?>" name="cliente_cnpj" placeholder="Insira o CNPJ do Cliente" class="form-control" disabled="">
+                                       <input type="text" id="cliente_cnpj" value="<?php echo $linha['0']->cliente_cnpj; ?>" name="cliente_cnpj" placeholder="Insira o CNPJ do Cliente" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="endereco" class=" form-control-label">Endereço </label>
-                                       <input type="text" id="vat" name="cliente_endereco" value="<?php echo $linha->cliente_endereco; ?>" placeholder="Insira o Endereço do Cliente" class="form-control" disabled="">
+                                       <input type="text" id="vat" name="cliente_endereco" value="<?php echo $linha['0']->cliente_endereco; ?>" placeholder="Insira o Endereço do Cliente" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="bairro" class=" form-control-label">Bairro</label>
-                                       <input type="text" id="street" name="cliente_bairro" value="<?php echo $linha->cliente_bairro; ?>" placeholder="Insira o Bairro do Cliente" class="form-control" disabled="">
+                                       <input type="text" id="street" name="cliente_bairro" value="<?php echo $linha['0']->cliente_bairro; ?>" placeholder="Insira o Bairro do Cliente" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="cep" class=" form-control-label">Cep</label>
-                                       <input type="text" id="cliente_cep" name="cliente_cep" value="<?php echo $linha->cliente_cep; ?>" placeholder="Insira o Cep do Cliente" class="form-control" disabled="">
+                                       <input type="text" id="cliente_cep" name="cliente_cep" value="<?php echo $linha['0']->cliente_cep; ?>" placeholder="Insira o Cep do Cliente" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="cidade" class=" form-control-label">Cidade</label>
-                                       <input type="text" id="city" name="cliente_cidade" value="<?php echo $linha->cliente_cidade; ?>" placeholder="Insira a Cidade do Cliente" class="form-control" disabled="">
+                                       <input type="text" id="city" name="cliente_cidade" value="<?php echo $linha['0']->cliente_cidade; ?>" placeholder="Insira a Cidade do Cliente" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="estado" class=" form-control-label">Estado</label>
-                                       <input type="text" id="cliente_estado" name="cliente_estado" value="<?php echo $linha->cliente_estado; ?>" placeholder="Insira o Estado do Cliente" class="form-control" disabled="">
+                                       <input type="text" id="cliente_estado" name="cliente_estado" value="<?php echo $linha['0']->cliente_estado; ?>" placeholder="Insira o Estado do Cliente" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="postal-code" class=" form-control-label">País</label>
-                                       <input type="text" id="postal-code" name="cliente_pais" value="<?php echo $linha->cliente_pais; ?>" placeholder="Insira o País do Cliente" class="form-control" disabled="">
+                                       <input type="text" id="postal-code" name="cliente_pais" value="<?php echo $linha['0']->cliente_pais; ?>" placeholder="Insira o País do Cliente" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="postal-code" class=" form-control-label">Insc.
                                           Estadual</label>
-                                       <input type="text" id="cliente_inscricao_estadual" name="cliente_inscricao_estadual" value="<?php echo $linha->cliente_inscricao_estadual; ?>" placeholder="Insira a Insc. Estadual do Cliente" class="form-control" disabled="">
+                                       <input type="text" id="cliente_inscricao_estadual" name="cliente_inscricao_estadual" value="<?php echo $linha['0']->cliente_inscricao_estadual; ?>" placeholder="Insira a Insc. Estadual do Cliente" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="postal-code" class=" form-control-label">Categoria</label>
-                                       <input type="text" id="postal-code" name="cliente_categoria" value="<?php echo $linha->cliente_categoria; ?>" placeholder="Defina uma Categoria para o Cliente" class="form-control" disabled="">
+                                       <input type="text" id="postal-code" name="cliente_categoria" value="<?php echo $linha['0']->cliente_categoria; ?>" placeholder="Defina uma Categoria para o Cliente" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="vat" class=" form-control-label">E-Mail </label>
-                                       <input type="text" id="cliente_email" name="cliente_email" value="<?php echo $linha->cliente_email; ?>" placeholder="Insira o Endereço de E-Mail do Cliente" class="form-control" disabled="">
+                                       <input type="text" id="cliente_email" name="cliente_email" value="<?php echo $linha['0']->cliente_email; ?>" placeholder="Insira o Endereço de E-Mail do Cliente" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="postal-code" class=" form-control-label">Telefone</label>
-                                       <input type="text" id="cliente_telefone" name="cliente_telefone" value="<?php echo $linha->cliente_telefone; ?>" placeholder="Insira o Telefone do Cliente" class="form-control" disabled="">
+                                       <input type="text" id="cliente_telefone" name="cliente_telefone" value="<?php $linha['0']->cliente_telefone; ?>" placeholder="Insira o Telefone do Cliente" class="form-control" disabled="">
                                     </div>
                                  </form>
                               </div>
@@ -228,32 +229,34 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                                           <div class="col-md-12">
                                              <div class="card" href="<?php echo base_url(); ?>C_cliente/exibir/<?php echo $correcao->correcao_id; ?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #E73439;">
                                                 <div class="card-body">
-                                                   <h4>Corrigindo o Chamado de ID: <?php echo $correcao->correcao_id_chamado; ?> </h4>
-                                                   <Br>
-                                                   <p> o(a) cliente <b> <?php echo $correcao->cliente_nome; ?>
-                                                         <Br>
-                                                      </b> de Codigo <b> <?php echo $correcao->cod_cliente; ?> </b> <br>entrou em contato por
-                                                      <b>Ligação</b>.<br>
-                                                      Dia <b> <?php echo $correcao->correcao_data; ?> </b> as
-                                                      <b><?php echo $correcao->correcao_hora; ?></b> com
-                                                      duração de
-                                                      <b><?php echo $correcao->correcao_duracao_hora; ?> Horas
-                                                         e <?php echo $correcao->correcao_duracao_minuto; ?>
-                                                         Minutos </b>
-                                                      <b>Atividade:</b> <i>
-                                                         <?php echo $correcao->correcao_atividade; ?>
-                                                         </b><span>
-                                                            <b>Assunto:</b>
-                                                            <i><?php echo $correcao->correcao_assunto; ?></i>
-                                                         </span> <br>
-                                                         <b>Quem Entrou em contato:</b>
-                                                         <i><?php echo $correcao->correcao_atendente_cliente; ?></i>
-                                                         <b>Pelo numero:</b>
-                                                         <i><?php echo $correcao->correcao_telefone; ?> </i>
-                                                         <Br>
-                                                         <b>Quem Atendeu:</b>
-                                                         <i><?php echo $correcao->correcao_atendente_rf; ?></i>
-                                                         <p>
+                                                   <div>
+                                                      <h4>Corrigindo o Chamado de ID: <?php echo $correcao->correcao_id_chamado; ?> </h4>
+                                                      <Br>
+                                                      <p> o(a) cliente <b> <?php echo $correcao->cliente_nome; ?>
+                                                            <Br>
+                                                         </b> de Codigo <b> <?php echo $correcao->cod_cliente; ?> </b> <br>entrou em contato por
+                                                         <b>Ligação</b>.<br>
+                                                         Dia <b> <?php echo $correcao->correcao_data; ?> </b> as
+                                                         <b><?php echo $correcao->correcao_hora; ?></b> com
+                                                         duração de
+                                                         <b><?php echo $correcao->correcao_duracao_hora; ?> Horas
+                                                            e <?php echo $correcao->correcao_duracao_minuto; ?>
+                                                            Minutos </b>
+                                                         <b>Atividade:</b> <i>
+                                                            <?php echo $correcao->correcao_atividade; ?>
+                                                            </b><span>
+                                                               <b>Assunto:</b>
+                                                               <i><?php echo $correcao->correcao_assunto; ?></i>
+                                                            </span> <br>
+                                                            <b>Quem Entrou em contato:</b>
+                                                            <i><?php echo $correcao->correcao_atendente_cliente; ?></i>
+                                                            <b>Pelo numero:</b>
+                                                            <i><?php echo $correcao->correcao_telefone; ?> </i>
+                                                            <Br>
+                                                            <b>Quem Atendeu:</b>
+                                                            <i><?php echo $correcao->correcao_atendente_rf; ?></i>
+                                                            <p>
+                                                   </div>
                                                 </div>
 
                                              </div>
@@ -265,9 +268,10 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                            </div>
                         </div>
 
-                     </div>
-                     <!--  FIM NAV CORRECAO  -->
 
+                        <!--  FIM NAV CORRECAO  -->
+
+                     </div>
                   </div>
                </div>
             </div>
@@ -294,13 +298,13 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                <hr>
                <!-- <form method='post' action="<?php echo base_url('C_Chamado/criarChamado/' . $chamado->chamado_id); ?>" -->
                <form method='post' action="<?php echo base_url('C_Chamado/criarChamado/'); ?>" class="form-horizontal">
-                  <div class="row form-group">
+                  <div class="row form-group" style="display:none;">
                      <div class="col col-md-12">
                         <div class="input-group">
                            <div class="input-group-addon">
                               <i class="fa fa-address-card "></i>
                            </div>
-                           <input type="text" id="chamado_assunto" value="<?php echo $linha->cliente_id; ?>" name="chamado_id_cliente" placeholder="Id do Cliente" class="form-control">
+                           <input type="text" id="chamado_id_cliente" value="<?php echo $linha['0']->cliente_id; ?>" name="chamado_id_cliente" placeholder="Id do Cliente" class="form-control">
                         </div>
                         <small>Qual o ID do cliente? </small>
                      </div>
@@ -311,7 +315,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                            <div class="input-group-addon">
                               <i class="fa fa-address-card "></i>
                            </div>
-                           <input type="text" id="chamado_assunto" value="<?php echo $this->session->userdata('usuario_id'); ?>" name="chamado_id_cliente" placeholder="Id do Cliente" class="form-control">
+                           <input type="text" id="chamado_id_usuario" value="<?php echo $this->session->userdata('usuario_id'); ?>" name="chamado_id_usuario" placeholder="Id do Cliente" class="form-control">
                         </div>
                         <small>Qual o ID do usuario? </small>
                      </div>
@@ -344,7 +348,21 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                            <div class="input-group-addon">
                               <i class="fa fa-arrow-circle-right"></i>
                            </div>
-                           <input type="text" id="chamado_atendente_cliente" name="chamado_atendente_cliente" placeholder="Quem entrou em contato?" class="form-control">
+                           <!-- <input type="text" id="chamado_atendente_cliente" name="chamado_atendente_cliente" placeholder="Quem entrou em contato?" class="form-control"> -->
+                           <!-- <script>
+                              function busca_contato(contato_secundario_id) {
+                                 <?php echo "Selecionado contato de ID:" ?>alert(contato_secundario_id);
+                              }
+                           </script> -->
+                           <!-- <select name="contato_list" id="contato_list" onchange='busca_contato($(this).val())'> -->
+                           <select name="chamado_atendente_cliente" id="contato_list">
+                              <option value="">Selecione um Contato</option>
+                              <?php echo $options_contatos; ?>
+                              <!-- <option value="1">Option #1</option>
+                                                        <option value="2">Option #2</option>
+                                                        <option value="3">Option #3</option> -->
+                           </select>
+
                         </div>
                         <small> Quem falava em nome da empresa?</small>
                      </div>
@@ -455,63 +473,63 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
             <form method='post' action="<?php echo base_url('C_Cliente/update/'); ?>" class="form-horizontal">
                <div class="form-group">
                   <label for="cpf/cnpj" class=" form-control-label">Codigo do Cliente</label>
-                  <input type="text" id="cod_cliente" value="<?php echo $linha->cod_cliente; ?>" name="cod_cliente" placeholder="Insira o Codigo do Cliente" class="form-control">
+                  <input type="text" id="cod_cliente" value="<?php echo $linha['0']->cod_cliente; ?>" name="cod_cliente" placeholder="Insira o Codigo do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="nome" class=" form-control-label">Nome do
                      Cliente</label>
-                  <input type="text" id="company" value="<?php echo $linha->cliente_nome; ?>" name="cliente_nome" placeholder="Insira o nome do Cliente" class="form-control">
+                  <input type="text" id="company" value="<?php echo $linha['0']->cliente_nome; ?>" name="cliente_nome" placeholder="Insira o nome do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="cpf/cnpj" class=" form-control-label">CPF</label>
-                  <input type="text" id="cliente_cpf" value="<?php echo $linha->cliente_cpf; ?>" name="cliente_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control">
+                  <input type="text" id="cliente_cpf" value="<?php echo $linha['0']->cliente_cpf; ?>" name="cliente_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="cpf/cnpj" class=" form-control-label">CNPJ</label>
-                  <input type="text" id="cliente_cnpj" value="<?php echo $linha->cliente_cnpj; ?>" name="cliente_cnpj" placeholder="Insira o CNPJ do Cliente" class="form-control">
+                  <input type="text" id="cliente_cnpj" value="<?php echo $linha['0']->cliente_cnpj; ?>" name="cliente_cnpj" placeholder="Insira o CNPJ do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="endereco" class=" form-control-label">Endereço
                   </label>
-                  <input type="text" id="vat" name="cliente_endereco" value="<?php echo $linha->cliente_endereco; ?>" placeholder="Insira o Endereço do Cliente" class="form-control">
+                  <input type="text" id="vat" name="cliente_endereco" value="<?php echo $linha['0']->cliente_endereco; ?>" placeholder="Insira o Endereço do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="bairro" class=" form-control-label">Bairro</label>
-                  <input type="text" id="street" name="cliente_bairro" value="<?php echo $linha->cliente_bairro; ?>" placeholder="Insira o Bairro do Cliente" class="form-control">
+                  <input type="text" id="street" name="cliente_bairro" value="<?php echo $linha['0']->cliente_bairro; ?>" placeholder="Insira o Bairro do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="cep" class=" form-control-label">Cep</label>
-                  <input type="text" id="cliente_cep" name="cliente_cep" value="<?php echo $linha->cliente_cep; ?>" placeholder="Insira o Cep do Cliente" class="form-control">
+                  <input type="text" id="cliente_cep" name="cliente_cep" value="<?php echo $linha['0']->cliente_cep; ?>" placeholder="Insira o Cep do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="cidade" class=" form-control-label">Cidade</label>
-                  <input type="text" id="city" name="cliente_cidade" value="<?php echo $linha->cliente_cidade; ?>" placeholder="Insira a Cidade do Cliente" class="form-control">
+                  <input type="text" id="city" name="cliente_cidade" value="<?php echo $linha['0']->cliente_cidade; ?>" placeholder="Insira a Cidade do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="estado" class=" form-control-label">Estado</label>
-                  <input type="text" id="cliente_estado" name="cliente_estado" value="<?php echo $linha->cliente_estado; ?>" placeholder="Insira o Estado do Cliente" class="form-control">
+                  <input type="text" id="cliente_estado" name="cliente_estado" value="<?php $linha['0']->cliente_estado; ?>" placeholder="Insira o Estado do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="postal-code" class=" form-control-label">País</label>
-                  <input type="text" id="postal-code" name="cliente_pais" value="<?php echo $linha->cliente_pais; ?>" placeholder="Insira o País do Cliente" class="form-control">
+                  <input type="text" id="postal-code" name="cliente_pais" value="<?php echo $linha['0']->cliente_pais; ?>" placeholder="Insira o País do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="postal-code" class=" form-control-label">Insc.
                      Estadual</label>
-                  <input type="text" id="cliente_inscricao_estadual" name="cliente_inscricao_estadual" value="<?php echo $linha->cliente_inscricao_estadual; ?>" placeholder="Insira a Insc. Estadual do Cliente" class="form-control">
+                  <input type="text" id="cliente_inscricao_estadual" name="cliente_inscricao_estadual" value="<?php echo $linha['0']->cliente_inscricao_estadual; ?>" placeholder="Insira a Insc. Estadual do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="postal-code" class=" form-control-label">Categoria</label>
-                  <input type="text" id="postal-code" name="cliente_categoria" value="<?php echo $linha->cliente_categoria; ?>" placeholder="Defina uma Categoria para o Cliente" class="form-control">
+                  <input type="text" id="postal-code" name="cliente_categoria" value="<?php echo $linha['0']->cliente_categoria; ?>" placeholder="Defina uma Categoria para o Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="vat" class=" form-control-label">E-Mail
                   </label>
-                  <input type="text" id="cliente_email" name="cliente_email" value="<?php echo $linha->cliente_email; ?>" placeholder="Insira o Endereço de E-Mail do Cliente" class="form-control">
+                  <input type="text" id="cliente_email" name="cliente_email" value="<?php echo $linha['0']->cliente_email; ?>" placeholder="Insira o Endereço de E-Mail do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="postal-code" class=" form-control-label">Telefone</label>
-                  <input type="text" id="cliente_telefone" name="cliente_telefone" value="<?php echo $linha->cliente_telefone; ?>" placeholder="Insira o Telefone do Cliente" class="form-control">
+                  <input type="text" id="cliente_telefone" name="cliente_telefone" value="<?php $linha['0']->cliente_telefone; ?>" placeholder="Insira o Telefone do Cliente" class="form-control">
                </div>
                <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -540,7 +558,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                         <div class="input-group-addon">
                            <i class="zmdi zmdi-account-box-mail"></i>
                         </div>
-                        <input value="<?php echo $linha->cliente_id; ?>" type="text" id="correcao_id_cliente" name="correcao_id_cliente" placeholder="Id do Cliente" class="form-control">
+                        <input value="<?php echo $linha['0']->cliente_id; ?>" type="text" id="correcao_id_cliente" name="correcao_id_cliente" placeholder="Id do Cliente" class="form-control">
                      </div>
                      <small>Qual o ID do cliente? </small>
                   </div>
@@ -711,7 +729,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                      <div class="input-group-addon">
                         <i class="fa fa-id-card"></i>
                      </div>
-                     <input value="<?php echo $linha->cliente_id; ?>" type="text" id="username" name="cliente_contato_id" placeholder="Id do Cliente" class="form-control">
+                     <input value="<?php echo $linha['0']->cliente_id; ?>" type="text" id="cliente_contato_id" name="cliente_contato_id" placeholder="Id do Cliente" class="form-control">
                   </div>
                </div>
                <div class="form-group" style="display:none">
@@ -775,64 +793,66 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
             </button>
          </div>
          <div class="modal-body">
+            <?php if (isset($contatos) && !empty($contatos)) { ?>
+               <form method='post' action="<?php echo site_url('C_Cliente/editaContato'); ?>/<?php echo $contatos['0']->contato_secundario_id; ?>" class="horizontal-form">
 
-            <form method='post' action="<?php echo site_url('C_Cliente/editaContato'); ?>/<?php echo $contato->contato_secundario_id; ?>" class="horizontal-form">
-
-               <div class="form-group" style="display:none;">
-                  <div class="input-group">
-                     <div class="input-group-addon">
-                        <i class="fa fa-id-card"></i>
+                  <div class="form-group" style="display:none;">
+                     <div class="input-group">
+                        <div class="input-group-addon">
+                           <i class="fa fa-id-card"></i>
+                        </div>
+                        <input " type=" text" class="form-control" id="cliente_contato_id" name="cliente_contato_id" value="<?php echo $linha['0']->cliente_id; ?>" placeholder="Id do Cliente">
                      </div>
-                     <input value="<?php echo $linha->cliente_id; ?>" type="text" id="cliente_contato_id" name="cliente_contato_id" placeholder="Id do Cliente" class="form-control">
                   </div>
-               </div>
 
-               <div class="form-group">
-                  <div class="input-group">
-                     <div class="input-group-addon">
-                        <i class="fa fa-user"></i>
+                  <div class="form-group">
+                     <div class="input-group">
+                        <div class="input-group-addon">
+                           <i class="fa fa-user"></i>
+                        </div>
+                        <input type="text" id="contato_secundario_nome" name="contato_secundario_nome" value="<?php echo $contato->contato_secundario_nome; ?>" placeholder="Nome" class="form-control">
                      </div>
-                     <input type="text" id="contato_secundario_nome" name="contato_secundario_nome" value="<?php echo $contato->contato_secundario_nome; ?>" placeholder="Nome" class="form-control">
                   </div>
-               </div>
 
-               <div class="form-group">
-                  <div class="input-group">
-                     <div class="input-group-addon">
-                        <i class="fa fa-envelope"></i>
+                  <div class="form-group">
+                     <div class="input-group">
+                        <div class="input-group-addon">
+                           <i class="fa fa-envelope"></i>
+                        </div>
+                        <input type="email" id="contato_secundario_email" name="contato_secundario_email" value="<?php echo $contato->contato_secundario_email; ?>" placeholder="E-mail" class="form-control">
                      </div>
-                     <input type="email" id="contato_secundario_email" name="contato_secundario_email" value="<?php echo $contato->contato_secundario_email; ?>" placeholder="E-mail" class="form-control">
                   </div>
-               </div>
 
-               <div class="form-group">
-                  <div class="input-group">
-                     <div class="input-group-addon">
-                        <i class="fa fa-phone"></i>
+                  <div class="form-group">
+                     <div class="input-group">
+                        <div class="input-group-addon">
+                           <i class="fa fa-phone"></i>
+                        </div>
+                        <input type="text" id="contato_secundario_telefone" name="contato_secundario_telefone" value="<?php echo $contato->contato_secundario_telefone; ?>" placeholder="Telefone" class="form-control">
                      </div>
-                     <input type="text" id="contato_secundario_telefone" name="contato_secundario_telefone" value="<?php echo $contato->contato_secundario_telefone; ?>" placeholder="Telefone" class="form-control">
                   </div>
-               </div>
 
-               <div class="form-group">
-                  <div class="input-group">
-                     <div class="input-group-addon">
-                        <i class="fa fa-envelope"></i>
+                  <div class="form-group">
+                     <div class="input-group">
+                        <div class="input-group-addon">
+                           <i class="fa fa-envelope"></i>
+                        </div>
+                        <input type="text" id="contato_secundario_funcao" name="contato_secundario_funcao" value="<?php echo $contato->contato_secundario_email; ?>" placeholder="Função" class="form-control">
                      </div>
-                     <input type="text" id="contato_secundario_funcao" name="contato_secundario_funcao" value="<?php echo $contato->contato_secundario_funcao; ?>" placeholder="Função" class="form-control">
                   </div>
-               </div>
 
-               <div class="form-actions modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  <button type="submit" value="save" class="btn btn-primary">Concluir</button>
-               </div>
+                  <div class="form-actions modal-footer">
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                     <button type="submit" value="save" class="btn btn-primary">Concluir</button>
+                  </div>
 
-            </form>
+               </form>
+            <?php } ?>
          </div>
       </div>
    </div>
 </div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>

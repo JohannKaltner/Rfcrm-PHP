@@ -16,7 +16,9 @@
  							<li class="list-inline-item seprate">
  								<span>/</span>
  							</li>
- 							<li class="list-inline-item">Dashboard</li>
+ 							<li class="list-inline-item active">
+ 								<a href="<?php echo base_url(); ?>C_Cliente">Clientes </a>
+ 							</li>
  						</ul>
  					</div>
  					<br>
@@ -93,13 +95,13 @@
  										<td><?php echo $element['cliente_cep']; ?></td>
  										<td>
  											<div class="table-data-feature">
- 												<a  href="<?php echo site_url('C_Cliente/exibir'); ?>/<?php echo $element['cliente_id']; ?>">
+ 												<a href="<?php echo site_url('C_Cliente/exibir'); ?>/<?php echo $element['cliente_id']; ?>">
  													<button class="item" data-toggle="tooltip" data-placement="top" title="Acessar Cliente">
  														<i class="zmdi zmdi-view-list-alt"></i>
  													</button>
  												</a>
 
- 												<a  href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $element['cliente_id']; ?>">
+ 												<a href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $element['cliente_id']; ?>">
  													<button class="item" data-toggle="tooltip" data-placement="top" title="Deletar">
  														<i class="zmdi zmdi-delete"></i>
  													</button>
