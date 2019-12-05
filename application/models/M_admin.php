@@ -69,15 +69,12 @@ class M_Admin extends CI_Model
     }
 
     function listarRegistro($usuario_id = NULL)
-	{   
+	{
         $this->db->select('*');
         $this->db->from('usuario');
-        $this->db->where('usuario_id', $usuario_id);
+        $this->db->where('usuario.usuario_id', $usuario_id);
         $query = $this->db->get();
-		// $query = $this->db->query("SELECT * FROM usuario WHERE usuario_id", $usuario_id);
-		if ($query->num_rows() > 0) {
-			return $query; // will return single item;    
-		}
+        return $query->result();
     }
     
     //   function contarLinhas($cliente){

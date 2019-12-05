@@ -41,8 +41,12 @@
  							<button class="au-btn au-btn-icon mb-1 au-btn--green au-btn--small" data-toggle="modal" data-target="#largeModal">
  								<i class="zmdi zmdi-plus"></i> Novo</button>
 
+
+								 <?php if ($this->session->userdata('usuario_nivel') == '1') { ?>
+
  							<button href="<?php echo base_url('C_export/csv'); ?>" type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Recarregue a pagina após o download do arquivo.">
- 								<i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</button>
+								 <i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</button>
+								 <?php } ?>
  						</div>
 
  						<!-- <?php //} else { 
@@ -111,11 +115,16 @@
  														<i class="fas fa-search"  data-toggle="tooltip" data-placement="top" title="Visualizar"></i>
  													</button> -->
 
- 												<a>
- 													<div style="padding-left: 10px 10px 10px 10px">
- 														<button type="button" class="item" data-toggle="tooltip" data-placement="top" title="Exportar em PDF">
- 															<i class="fas fa-file-pdf"></i></button> </div>
- 												</a>
+
+
+ 												<?php if ($this->session->userdata('usuario_nivel') == '3') { ?>
+ 													<a>
+ 														<div style="padding-left: 10px 10px 10px 10px">
+ 															<button type="button" class="item" data-toggle="tooltip" data-placement="top" title="Exportar em PDF">
+ 																<i class="fas fa-file-pdf"></i></button> </div>
+ 													</a>
+
+ 												<?php } ?>
  											</div>
  										</td>
  									</tr>

@@ -118,7 +118,7 @@ class M_cliente extends CI_Model
 		$this->db->from('chamado');
 		$this->db->join('cliente', 'cliente.cliente_id = chamado.chamado_id_cliente');
 		$this->db->where('chamado.chamado_id_cliente =' . $cliente_id);
-		$this->db->order_by('chamado_data', 'DESC');
+		$this->db->order_by('chamado_id', 'DESC');
 		$query = $this->db->get();
 		if ($query->num_rows() < 1) {
 			return FALSE;
@@ -215,7 +215,7 @@ class M_cliente extends CI_Model
 		$data = array(
 			'correcao_id_chamado'         => $this->input->post('correcao_id_chamado'),
 			'correcao_id_cliente'         => $this->input->post('correcao_id_cliente'),
-			'correcao_id_usuario'         => $this->input->post('correcao_id_usuario'),
+			'correcao_usuario_id '        => $this->input->post('correcao_usuario_id '),
 			'correcao_atividade'          => $this->input->post('correcao_atividade'),
 			'correcao_duracao_minuto'     => $this->input->post('correcao_duracao_minuto'),
 			'correcao_duracao_hora'       => $this->input->post('correcao_duracao_hora'),
@@ -242,24 +242,22 @@ class M_cliente extends CI_Model
 	function atualizarRegistro($cliente_id)
 	{
 		$data = array(
-			'cod_cliente'                    => $this->input->post('cod_cliente'),
-			'cliente_nome'                   => $this->input->post('cliente_nome'),
-			'cliente_endereco'               => $this->input->post('cliente_endereco'),
-			'cliente_bairro'                 => $this->input->post('cliente_bairro'),
-			'cliente_cidade'                 => $this->input->post('cliente_cidade'),
-			'cliente_estado'                 => $this->input->post('cliente_estado'),
-			'cliente_pais'                   => $this->input->post('cliente_pais'),
-			'cliente_cep'                    => $this->input->post('cliente_cep'),
-			'cliente_cnpj'                 	 => $this->input->post('cliente_cnpj'),
-			'cliente_cpf'             	   	 => $this->input->post('cliente_cpf'),
-			'cliente_inscricao_estadual'     => $this->input->post('cliente_inscricao_estadual'),
-			'cliente_categoria'              => $this->input->post('cliente_categoria'),
-			'cliente_telefone'               => $this->input->post('cliente_telefone'),
-			'cliente_contato_nome'           => $this->input->post('cliente_contato_nome'),
-			'cliente_contato_telefone'       => $this->input->post('cliente_contato_telefone'),
-			'cliente_email'                  => $this->input->post('cliente_email')
+			'cod_cliente'                  => $this->input->post('cod_cliente'),
+			'cliente_id_usuario'           => $this->input->post('cliente_id_usuario'),
+			'cliente_nome'                 => $this->input->post('cliente_nome'),
+			'cliente_endereco'             => $this->input->post('cliente_endereco'),
+			'cliente_bairro'               => $this->input->post('cliente_bairro'),
+			'cliente_cidade'               => $this->input->post('cliente_cidade'),
+			'cliente_estado'               => $this->input->post('cliente_estado'),
+			'cliente_pais'                 => $this->input->post('cliente_pais'),
+			'cliente_cep'                  => $this->input->post('cliente_cep'),
+			'cliente_cnpj'                 => $this->input->post('cliente_cnpj'),
+			'cliente_cpf'             	   => $this->input->post('cliente_cpf'),
+			'cliente_inscricao_estadual'   => $this->input->post('cliente_inscricao_estadual'),
+			'cliente_categoria'            => $this->input->post('cliente_categoria'),
+			'cliente_telefone'             => $this->input->post('cliente_telefone'),
+			'cliente_email'                => $this->input->post('cliente_email')
 		);
-
 		$this->db->where('cliente_id', $cliente_id);
 		$this->db->update('cliente', $data);
 	}

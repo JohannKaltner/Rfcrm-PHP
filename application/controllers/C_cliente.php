@@ -101,6 +101,7 @@ class C_Cliente extends CI_Controller
 		$data['contatos'] =  $this->M_cliente->listarContatosCliente($cliente_id);
 		$data['correcoes'] =  $this->M_cliente->listarCorrecaoCliente($cliente_id);
 		$data['permissao'] =  $this->M_usuario->consultar_permissao($usuario_id);
+		
 		$contato_list = $this->M_cliente->retorna_contatos($cliente_id);
 		$option = null;
 		foreach($contato_list -> result() as $contato_list) {
@@ -117,7 +118,7 @@ class C_Cliente extends CI_Controller
 	{
 		$this->M_cliente->criarContato($cliente_id);
 		// redirect("C_cliente/", $cliente_id);
-		redirect('C_Cliente/exibir/'.$cliente_id, 'refresh');
+		redirect('C_Cliente/');
   		//redirect('C_Cliente/exibir/');
 		 
 		 

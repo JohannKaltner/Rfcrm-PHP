@@ -51,6 +51,14 @@
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
         <div id="pagination_link" class="table-responsive table-responsive-data2">
 
+
+
+
+          <hr>
+
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registroModal" style="font-size:15px;">Registrar Usuario
+          </button><br>
+          <hr>
           <div id="cliente_table">
             <table class="table table-top-campaign">
               <thead>
@@ -82,10 +90,11 @@
                         <!-- <button data-toggle="modal" id="usuarioView" data-codigo="<?php echo $usuarios['usuario_id']; ?>" data-target="#usuariosViewModal" class="item" data-toggle="tooltip" data-placement="top" title="Acessar Usuario">
                           <i class="zmdi zmdi-view-list-alt"></i>
                         </button> </a> -->
-                        <a href="<?php echo site_url('C_admin/exibir'); ?>/<?php echo $linha->usuario_id; ?>">
-                        <button class="item visualizar" >
-                          <i class="zmdi zmdi-view-list-alt"></i>
-                        </button> </a>
+
+                        <a href="<?php echo site_url('C_admin/exibir'); ?>/<?php echo $element['usuario_id']; ?>">
+                          <button class="item visualizar">
+                            <i class="zmdi zmdi-view-list-alt"></i>
+                          </button> </a>
 
 
                         <a onclick="return confirm('Tem certeza que deseja deletar este registro?')" href="<?php echo site_url('C_Admin/deletaUsuario'); ?>/<?php echo $element['usuario_id']; ?>">
@@ -278,64 +287,63 @@
 // ─── MODAL PARA ADMINISTRACAO DE USUARIOS ───────────────────────────────────── // -->
 
 <!-- Modal -->
-<div class="modal fade" id="usuariosViewModal" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+<div class="modal fade" id="registroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Analise do Usuario <?php echo $element['usuario_nome']; ?></h5>
+        <h5 class="modal-title" id="exampleModalLabel">Cadastro de Usuario</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <section class="card">
-          <form method='post'>
-            <div class="card-header user-header alt bg-dark">
-              <div class="media">
-                <a href="#">
-                  <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/icon/avatar-01.jpg">
-                </a>
-                <div class="media-body">
-                  <h2 class="text-light display-6"><?php echo $element['usuario_nome']; ?></h2>
-                  <p>Project Manager</p>
-                </div>
-              </div>
+        <form method="post" action="<?php echo site_url('C_login/criarUsuario') ?>">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-user-circle" aria-hidden="true"></i>
+              </span>
             </div>
+            <input type="text" class="form-control" placeholder="Nome" name="usuario_nome" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+            </div>
+            <input type="email" class="form-control" value="seu_email@rfcrm.com" placeholder="E-mail" name="usuario_email" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>
+            </div>
+            <input type="password" class="form-control" placeholder="Senha" aria-label="Username" name="usuario_senha" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-gavel" aria-hidden="true"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="SETOR" name="usuario_setor" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-calendar"  aria-hidden="true"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Data de Inicio" name="usuario_data_inicio" value="<?php date_default_timezone_set('America/Sao_Paulo');
+                                                                              echo date('d/m/Y'); ?>" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3" style="display:none;">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-gear" aria-hidden="true"></i></span>
+            </div>
+            <input type="text" value="" class="form-control" placeholder="NIVEL" name="usuario_nivel" aria-label="Username" aria-describedby="basic-addon1">
+            <small style="color:red"> *padrão, não alterar* </small>
+          </div>
 
-
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <a href="#">
-                  <i class="fa fa-envelope-o"></i> Mail Inbox
-                  <span class="badge badge-primary pull-right">10</span>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">
-                  <i class="fa fa-tasks"></i> Recent Activity
-                  <span class="badge badge-danger pull-right">15</span>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">
-                  <i class="fa fa-bell-o"></i> Notification
-                  <span class="badge badge-success pull-right">11</span>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">
-                  <i class="fa fa-comments-o"></i> Message
-                  <span class="badge badge-warning pull-right r-activity">03</span>
-                </a>
-              </li>
-            </ul>
-          </form>
-        </section>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-round btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="submit" value="save" class="btn btn-round btn-primary">Concluir Cadastro</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -346,25 +354,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 <!-- END STATISTIC-->
 
 <script>

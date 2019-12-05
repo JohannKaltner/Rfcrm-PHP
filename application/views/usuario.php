@@ -11,12 +11,18 @@ height: 100%;
                 <div class="card-body card-block">
                     <div class="col-md-10" style="margin: auto;width: 80%;background: #fff;border: 1px solid #dddddd; padding: 10px; border-radius:5px;">
                         <div>
+                            <?php print_r($linha);?>
                             <div class="card-body"style=" margin: 0 auto;text-align:center;width: 80%;" >
-                                <div class="mx-auto d-block">
-                                    <img class="rounded-circle mx-auto d-block" src="<?php echo base_url(); ?>public/images/perfil/<?php echo $linha['usuario_nome']; ?>.jpg" alt="Card image cap">
-                                    <h3 class="text-sm-center mt-2 mb-1"><?php echo $linha['usuario_nome']; ?></h3>
-                                    <div class="location text-sm-center">
-                                        <i class="fa fa-university" aria-hidden="true"></i> <?php echo $linha->usuario_setor; ?></div>
+                                <div class="mx-auto d-block">  
+                                <form method='post' action="<?php echo site_url('C_admin/exibir') ?>/<?php echo $linha['0']->usuario_id; ?>">
+                                    <div class="form-group">
+                                       <label for="cliente_id" class=" form-control-label">NUMERO DO ID</label>
+                                       <input type="text" id="cliente_id" value="<?php echo $linha['0']->usuario_nome; ?>" name="cliente_id" placeholder="Id" class="form-control"  >
+                                    </div>
+                                    <div class="form-group">
+                                       <label for="cliente_id" class=" form-control-label">Codigo do Cliente</label>
+                                       <input type="text" id="cliente_id" value="<?php echo $linha['0']->usuario_id; ?>" name="cod_cliente" placeholder="cod_cliente" class="form-control"  >
+                                    </div>
                                 </div>
 
                                 <div class="card-text text-sm-center">

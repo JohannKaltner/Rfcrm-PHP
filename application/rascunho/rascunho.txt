@@ -41,4 +41,127 @@
                                     </div>
                                     <?php }
                                        } ?>
-								 </div>
+								 </div>.
+
+
+
+
+
+
+
+                           <!-- <div class="card" href="<?php echo base_url(); ?>C_cliente/exibir/<?php echo $chamado->chamado_id; ?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #2C0CB8;" ;>
+                                                   <div class=" col-md-6"> -->
+                                                <!-- <div class="card-body">
+                                                      <h4>ID: <?php echo $chamado->chamado_id; ?>
+                                                         <button data-toggle="modal" data-target="#correcaoModal">
+                                                            <i style="color:red" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                         </button>
+                                                      </h4>
+                                                      <Br>
+                                                      <p> o(a) cliente <b> <?php echo $chamado->cliente_nome; ?>
+                                                            <Br>
+                                                         </b> de Codigo <b> <?php echo $chamado->cod_cliente; ?> </b> <br>entrou em contato por
+                                                         <b>Ligação</b>.<br>
+                                                         Dia <b> <?php echo $chamado->chamado_data; ?> </b> as
+                                                         <b><?php echo $chamado->chamado_hora; ?></b> com
+                                                         duração de
+                                                         <b><?php echo $chamado->chamado_duracao_hora; ?> Horas
+                                                            e <?php echo $chamado->chamado_duracao_minuto; ?>
+                                                            Minutos </b>
+                                                         <b>Atividade:</b> <i>
+                                                            <?php echo $chamado->chamado_atividade; ?>
+                                                            </b><span>
+                                                               <b>Assunto:</b>
+                                                               <i><?php echo $chamado->chamado_assunto; ?></i>
+                                                            </span> <br>
+                                                            <b>Quem Entrou em contato:</b>
+                                                            <i><?php echo $chamado->chamado_atendente_cliente; ?></i>
+                                                            <b>Pelo numero:</b>
+                                                            <i><?php echo $chamado->chamado_telefone; ?> </i>
+                                                            <Br>
+                                                            <b>Quem Atendeu:</b>
+                                                            <i><?php echo $chamado->chamado_atendente_rf; ?></i>
+                                                            <p>
+                                                   </div> -->
+                                                <!-- </div> 3
+
+
+
+
+
+
+
+                                                 <div class="row">
+                                             <div class="col-md-12">
+                                                <div class="card" href="<?php echo base_url(); ?>C_cliente/exibir/<?php echo $correcao->correcao_id; ?>" style="border: 1px solid grey; box-shadow: 1px 2px  1px 3px #E73439;">
+                                                   <div class="card-body">
+                                                      <div>
+                                                         <h4>Corrigindo o Chamado de ID: <?php echo $correcao->correcao_id_chamado; ?> </h4>
+                                                         <Br>
+                                                         <p> o(a) cliente <b> <?php echo $correcao->cliente_nome; ?>
+                                                               <Br>
+                                                            </b> de Codigo <b> <?php echo $correcao->cod_cliente; ?> </b> <br>entrou em contato por
+                                                            <b>Ligação</b>.<br>
+                                                            Dia <b> <?php echo $correcao->correcao_data; ?> </b> as
+                                                            <b><?php echo $correcao->correcao_hora; ?></b> com
+                                                            duração de
+                                                            <b><?php echo $correcao->correcao_duracao_hora; ?> Horas
+                                                               e <?php echo $correcao->correcao_duracao_minuto; ?>
+                                                               Minutos </b>
+                                                            <b>Atividade:</b> <i>
+                                                               <?php echo $correcao->correcao_atividade; ?>
+                                                               </b><span>
+                                                                  <b>Assunto:</b>
+                                                                  <i><?php echo $correcao->correcao_assunto; ?></i>
+                                                               </span> <br>
+                                                               <b>Quem Entrou em contato:</b>
+                                                               <i><?php echo $correcao->correcao_atendente_cliente; ?></i>
+                                                               <b>Pelo numero:</b>
+                                                               <i><?php echo $correcao->correcao_telefone; ?> </i>
+                                                               <Br>
+                                                               <b>Quem Atendeu:</b>
+                                                               <i><?php echo $correcao->correcao_atendente_rf; ?></i>
+                                                               <p>
+                                                      </div>
+                                                   </div>
+
+                                                </div>
+                                             </div>
+                                          </div> -->
+
+
+
+
+
+                                          <!-- <div class="col-md-4">
+                                                
+                                                   <div class="list-group" style="width: 18rem;">
+                                                      <div class="chamado-group" style="padding: 1rem;height: 4rem;">
+                                                         <a href="#" id="listgroup" class="list-group-item list-group-item-action flex-column align-items-start ">
+                                                            <div class="d-flex w-100 justify-content-between">
+                                                               <h5 onHover onMouseOver="this.style.color='#ffffff'" onMouseOut="this.style.color='#000000'" id="chamadogroup" class="mb-1">
+                                                                  <?php echo $chamado->chamado_atendente_cliente; ?>,<br>
+                                                                  <small class="mb-1">Em nome da(o)</small> <?php echo $chamado->cliente_nome; ?>,
+                                                                  <small class="mb-1"> Dia <b> <?php echo $chamado->chamado_data; ?>, </b> as
+                                                                     <b><?php echo $chamado->chamado_hora; ?></b></small>
+                                                                     
+                                                            </div>
+
+
+                                                            <p class="mb-1">Entrou em contato com
+                                                               <i><?php echo $chamado->chamado_atendente_rf; ?></i> para <?php echo $chamado->chamado_atividade; ?> em relação a
+                                                               <?php echo $chamado->chamado_assunto; ?>, o chamado realizado pelo numero <?php echo $chamado->chamado_telefone; ?>,
+                                                               teve duração de <small> <?php echo $chamado->chamado_duracao_hora; ?> Hora e <?php echo $chamado->chamado_duracao_minuto; ?> Minutos.
+
+                                                            </p><br>
+                                                            Observações:<br><?php echo $chamado->chamado_obs; ?><br>
+                                                            <hr>
+                                                            <button data-toggle="modal" data-target="#correcaoModal" onMouseOver="this.style.color='#ffffff'" onMouseOut="this.style.color='#000000'">
+                                                               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                               <p>Editar</p>
+                                                            </button>
+                                                         </a>
+
+                                                      </div>
+                                                   </div>
+                                                </div> -->

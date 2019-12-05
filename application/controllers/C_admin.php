@@ -83,7 +83,6 @@ class C_Admin extends CI_Controller
 		$data['correcoes']=  $this->M_cliente->listarCorrecaoCliente($cliente_id);
 		$data['permissao']=  $this->M_usuario->consultar_permissao($usuario_id);
 		$data['page_title'] = "Informações do Cliente";
-
 		$this->template->show('usuario', $data);
 	}
 
