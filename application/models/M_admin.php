@@ -104,28 +104,53 @@ class M_Admin extends CI_Model
 
     public function criarAlerta()
     {
+		date_default_timezone_set('America/Sao_Paulo');
+		
         $data = array(
             'alerta_id'       => $this->input->post('alerta_id'),
             'alerta_mensagem' => $this->input->post('alerta_mensagem'),
             'alerta_usuario'  => $this->input->post('alerta_usuario'),
             'alerta_data'     => $this->input->post('alerta_data'),
-            'alerta_titulo'     => $this->input->post('alerta_titulo')
+            'alerta_titulo'     => $this->input->post('alerta_titulo'),
+
+            //if = 1/ ativo  --- if = 2 /inativo
+            'alerta_status'     => $this->input->post('alerta_status'),
+
         );
+
+        $data2 = array(
+            'log_atividade' => 'Criou uma Alerta',
+            'log_tipo' => '1',
+            'log_data' => date('d-m-Y - H-d'),
+            'log_usuario_nome' => $this->session->userdata('usuario_nome'),
+        );
+        $this->db->insert('log', $data2);
         $this->db->insert('alerta', $data);
     }
 
     public function listarAlertas()
+
     {
+        $ativo = 1 ;
+        
         $this->db->select('*');
         $this->db->from('alerta');
+        $this->db->where('alerta_status', $ativo);
         $this->db->order_by('alerta_id', 'desc');
         $this->db->limit('3', '3');
     }
 
     public function apagarUsuario($usuario_id)
 	{
-		$this->db->where('usuario_id', $usuario_id);
-		$this->db->delete('usuario');
+        $this->db->where('usuario_id', $usuario_id);
+        $this->db->delete('usuario');
+        $data2 = array(
+            'log_atividade' => 'Apagou um Usuario',
+            'log_tipo' => '3',
+            'log_data' => date('d-m-Y - H-d'),
+            'log_usuario_nome' => $this->session->userdata('usuario_nome'),
+        );
+        $this->db->insert('log', $data2);
 	}
 }
 

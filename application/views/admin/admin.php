@@ -188,26 +188,28 @@
                       <?php  } elseif ($log['log_tipo'] == '2') { ?>
                         <li class="list-group-item list-group-item-warning">
                           [<?php echo $log['log_data']; ?>]
-                          <?php if ($log['log_tipo'] == '1') {
-                                  echo '(Atividade)';
-                                } elseif ($log['log_tipo'] == '2') {
-                                  echo '(Erro)';
-                                } else {
-                                  echo '(Perigo)';
-                                } ?>
+                          <?php
+                                  if ($log['log_tipo'] == '1') {
+                                    echo '(Criação)';
+                                  } elseif ($log['log_tipo'] == '2') {
+                                    echo '(Alteração)';
+                                  } else {
+                                    echo '(Exclusão)';
+                                  } ?>
                           <?php echo $log['log_usuario_nome']; ?> <?php echo $log['log_atividade']; ?> </i>
                         </li>
 
                       <?php } else { ?>
                         <li class="list-group-item list-group-item-danger">
                           [<?php echo $log['log_data']; ?>]
-                          <?php if ($log['log_tipo'] == '1') {
-                                  echo '(Atividade)';
-                                } elseif ($log['log_tipo'] == '2') {
-                                  echo '(Erro)';
-                                } else {
-                                  echo '(Perigo)';
-                                } ?>
+                          <?php
+                                  if ($log['log_tipo'] == '1') {
+                                    echo '(Criação)';
+                                  } elseif ($log['log_tipo'] == '2') {
+                                    echo '(Alteração)';
+                                  } else {
+                                    echo '(Exclusão)';
+                                  } ?>
                           <?php echo $log['log_usuario_nome']; ?> <?php echo $log['log_atividade']; ?> </i>
                         </li><?php }  ?>
 

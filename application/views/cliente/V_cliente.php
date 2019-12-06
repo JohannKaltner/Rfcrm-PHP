@@ -44,8 +44,8 @@
 
 								 <?php if ($this->session->userdata('usuario_nivel') == '1') { ?>
 
- 							<button href="<?php echo base_url('C_export/csv'); ?>" type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Recarregue a pagina após o download do arquivo.">
-								 <i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</button>
+ 							<a href="<?php echo base_url('C_export/csv'); ?>" type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Recarregue a pagina após o download do arquivo.">
+								 <i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</a>
 								 <?php } ?>
  						</div>
 
@@ -99,13 +99,13 @@
  										<td><?php echo $element['cliente_cep']; ?></td>
  										<td>
  											<div class="table-data-feature">
- 												<a href="<?php echo site_url('C_Cliente/exibir'); ?>/<?php echo $element['cliente_id']; ?>">
+ 												<a href="<?php echo site_url('C_cliente/exibir'); ?>/<?php echo $element['cliente_id']; ?>">
  													<button class="item" data-toggle="tooltip" data-placement="top" title="Acessar Cliente">
  														<i class="zmdi zmdi-view-list-alt"></i>
  													</button>
  												</a>
 
- 												<a href="<?php echo site_url('C_Cliente/delete'); ?>/<?php echo $element['cliente_id']; ?>">
+ 												<a href="<?php echo site_url('C_cliente/delete'); ?>/<?php echo $element['cliente_id']; ?>">
  													<button class="item" data-toggle="tooltip" data-placement="top" title="Deletar">
  														<i class="zmdi zmdi-delete"></i>
  													</button>
@@ -167,7 +167,7 @@
  			</div>
  			<div class="modal-body">
  				<div>
- 					<form method='post' action=<?php echo base_url("C_Cliente/criar"); ?>>
+ 					<form method='post' action=<?php echo base_url("C_cliente/criar"); ?>>
  						<script type="text/javascript">
  							function evento(obj) {
  								obj.value = obj.value.toUpperCase();
@@ -240,10 +240,7 @@
 
  								<select name="cliente_categoria" id="cliente_categoria" class="form-control">
  									<option value="Não Selecionado...">Selecione uma Categoria..</option>
- 									<option value="ASSINANTES SITE">ASSINANTES SITE</option>
- 									<option value="TELEMARKETING/ESCOLAS">TELEMARKETING/ESCOLAS</option>
- 									<option value="ASS.EMPRES./JURÍDICO">ASS.EMPRES./JURÍDICO</option>
- 									<option value="ASS. EDUC/JURÍDICO">ASS. EDUC/JURÍDICO</option>
+ 									<option value="ASSINANTES SITE">ASSINANTES SITE</option>registroModal
  									<option value="ASS.EDUC./JURÍDICO/CONTÁBIL">ASS.EDUC./JURÍDICO/CONTÁBIL</option>
  									<option value="ASS. EDUC./CONTÁBIL">ASS. EDUC./CONTÁBIL</option>
  									<option value="CONS.JURÍDICO/COBRANÇA">CONS.JURÍDICO/COBRANÇA</option>

@@ -79,10 +79,19 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
  													<div style="padding-left: 10px 10px 10px 10px">
  														<button type="button" class="item" data-toggle="tooltip" data-placement="top" title="Exportar em PDF">
  															<i class="fas fa-file-pdf"></i></button> </div>
- 												</a> -->
+ 												</a> --><br>
+                                     <?php if(!empty($linha['0']->cliente_ultima_alteracao)){ ?>
+                                    <small style=""> atualizado pela ultima vez em: <?php echo $linha['0']->cliente_ultima_alteracao; ?>
+                                    <?php } ?>
                                  <hr>
-                                 <?php print_r($linha);?>
-                                 <form method='post' action="<?php echo site_url('C_Cliente/exibir') ?>/<?php echo $linha['0']->cliente_id; ?>">
+
+                                 <!-- PARA DEBUGAR A VARIAVEL -->
+                                   <!-- <?php print_r($linha);?>   -->
+                                 <!-- PARA DEBUGAR A VARIAVEL  -->
+
+                                 <form method='post' action="<?php echo site_url('C_cliente/exibir') ?>/<?php echo $linha['0']->cliente_id; ?>">
+                                    
+                                  
                                     <div class="form-group">
                                        <label for="cliente_id" class=" form-control-label">NUMERO DO ID</label>
                                        <input type="text" id="cliente_id" value="<?php echo $linha['0']->cliente_id; ?>" name="cliente_id" placeholder="Id" class="form-control" disabled="">
@@ -188,7 +197,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                                                          <td>
                                                             <div>
                                                                <button style="padding:0px 10px 0 0" data-toggle="modal" data-target="#contatoEditModal" type="button"><i class="zmdi zmdi-edit"></i> </button>
-                                                               <a href="<?php echo base_url('C_Cliente/deletaContato') ?>/<?php echo $contato->contato_secundario_id; ?>"> <button><i class="zmdi zmdi-delete"></i> </button></a>
+                                                               <a href="<?php echo base_url('C_cliente/deletaContato') ?>/<?php echo $contato->contato_secundario_id; ?>"> <button><i class="zmdi zmdi-delete"></i> </button></a>
                                                             </div>
                                                          </td>
                                                       </tr>
@@ -359,7 +368,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                </div>
                <hr>
                <!-- <form method='post' action="<?php echo base_url('C_Chamado/criarChamado/' . $chamado->chamado_id); ?>" -->
-               <form method='post' action="<?php echo base_url('C_Chamado/criarChamado/'); ?>" class="form-horizontal">
+               <form method='post' action="<?php echo base_url('C_chamado/criarChamado/'); ?>" class="form-horizontal">
                   <div class="row form-group" style="display:none;">
                      <div class="col col-md-12">
                         <div class="input-group">
@@ -544,7 +553,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                <h3 class="text-center title-2">Editar Cliente</h3>
             </div>
             <hr>
-            <form method='post' action="<?php echo base_url('C_Cliente/update/'); ?>" class="form-horizontal">
+            <form method='post' action="<?php echo base_url('C_cliente/update/'); ?>" class="form-horizontal">
                <div class="form-group">
                   <label for="cpf/cnpj" class=" form-control-label">Codigo do Cliente</label>
                   <input type="text" id="cod_cliente" value="<?php echo $linha['0']->cod_cliente; ?>" name="cod_cliente" placeholder="Insira o Codigo do Cliente" class="form-control">
@@ -801,7 +810,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
             </button>
          </div>
          <div class="modal-body">
-            <form method='post' action="<?php echo base_url('C_Cliente/criarContato/'); ?>" class="horizontal-form">
+            <form method='post' action="<?php echo base_url('C_cliente/criarContato/'); ?>" class="horizontal-form">
                <div class="form-group">
                   <div class="input-group">
                      <div class="input-group-addon">
@@ -872,7 +881,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
          </div>
          <div class="modal-body">
             <?php if (isset($contatos) && !empty($contatos)) { ?>
-               <form method='post' action="<?php echo site_url('C_Cliente/editaContato'); ?>/<?php echo $contatos['0']->contato_secundario_id; ?>" class="horizontal-form">
+               <form method='post' action="<?php echo site_url('C_cliente/editaContato'); ?>/<?php echo $contatos['0']->contato_secundario_id; ?>" class="horizontal-form">
 
                   <div class="form-group" style="display:none;">
                      <div class="input-group">

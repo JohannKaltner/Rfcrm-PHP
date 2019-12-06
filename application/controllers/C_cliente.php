@@ -43,7 +43,7 @@ class C_Cliente extends CI_Controller
 		$config['total_rows'] = $this->M_cliente->getAllClienteCount();
 		$data['total_count'] = $config['total_rows'];
 		$config['suffix'] = '';
-		if ($config['total_rows'] > 0) {
+		if ($config['total_rows'] > 1) {
 			$page_number = $this->uri->segment(3);
 			if ($page_number > 0) {
 				$config['base_url'] = base_url() . 'C_cliente';
@@ -118,7 +118,7 @@ class C_Cliente extends CI_Controller
 	{
 		$this->M_cliente->criarContato($cliente_id);
 		// redirect("C_cliente/", $cliente_id);
-		redirect('C_Cliente/');
+		redirect('C_cliente/');
   		//redirect('C_Cliente/exibir/');
 		 
 		 

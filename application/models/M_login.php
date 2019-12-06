@@ -36,6 +36,9 @@ class M_Login extends CI_Model {
   
   public function criarUsuario()
   {
+
+		date_default_timezone_set('America/Sao_Paulo');
+		
     $data = array(
       'usuario_nome'   => $this->input->post('usuario_nome'),
       'usuario_email'  => $this->input->post('usuario_email'),
@@ -45,6 +48,14 @@ class M_Login extends CI_Model {
       'usuario_data_inicio'  => $this->input->post('usuario_data_inicio'),
 
     );
+
+    $data2 = array(
+      'log_atividade' => 'Registrou um Usuario',
+      'log_tipo' => '1',
+      'log_data' => date('d-m-Y - H-d'),
+      'log_usuario_nome' => $this->session->userdata('usuario_nome'),
+  );
+  $this->db->insert('log', $data2);
     $this->db->insert('usuario', $data);
   }
 
@@ -57,10 +68,18 @@ class M_Login extends CI_Model {
       'usuario_setor'  => $this->input->post('usuario_setor'),
       'usuario_nivel'  => $this->input->post('usuario_nivel'),
       'usuario_data_inicio'  => $this->input->post('usuario_data_inicio'),
-      
     );
+    $data2 = array(
+			'log_atividade' => 'Atualizou um Cliente',
+            'log_tipo' => '2',
+            'log_data' => date ('d-m-Y - H:d'),
+            'log_usuario_nome' => $this->session->userdata('usuario_nome'),
+    );
+    $this->db->insert('log', $data2);
+
     $this->db->where('usuario_id', $usuario_id);
-		$this->db->update('usuario', $data);  }
+    $this->db->update('usuario', $data);
+    }
 
   //   public function verificaAdmin(){
   //   $this->db->select('usuario_nivel');

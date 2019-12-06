@@ -56,12 +56,12 @@ class M_Log extends CI_Model
     }
 
 
-    function registrarAtividade()
-    {
+    // function registrarAtividade()
+    // {
        
 
-        $this->db->insert('cliente', $data);
-    }
+    //     $this->db->insert('cliente', $data);
+    // }
 
     function listarRegistros($query = '')
 	{
