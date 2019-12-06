@@ -100,7 +100,11 @@
 					<div class="header__tool">
 
 						<div class="header-button-item js-item-menu">
+						<?php if(!empty($alert)){ ?>
 							<div class="header-button-item has-noti js-item-menu">
+						<?php } else{?>
+							<div class="header-button-item  js-item-menu">
+						<?php } ?>
 								<i class="zmdi zmdi-notifications"></i>
 								<div class="notifi-dropdown notifi-dropdown--no-bor js-dropdown">
 									<?php

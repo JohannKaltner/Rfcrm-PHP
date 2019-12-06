@@ -193,6 +193,15 @@ class M_cliente extends CI_Model
 			'cliente_email'                => $this->input->post('cliente_email')
 		);
 
+		$data2 = array(
+            'log_atividade'              => $this->input->post('log_atividade'),
+            'log_tipo'              => $this->input->post('log_tipo'),
+            'log_data'                   => $this->input->post('log_data'),
+            'log_usuario_nome'             => $this->input->post('log_usuario_nome'), 
+        );       
+		$this->db->insert('log', $data2);
+
+
 		$this->db->insert('cliente', $data);
 	}
 
@@ -206,6 +215,13 @@ class M_cliente extends CI_Model
 			'contato_secundario_telefone'  => $this->input->post('contato_secundario_telefone'),
 			'contato_secundario_funcao'    => $this->input->post('contato_secundario_funcao')
 		);
+		$data2 = array(
+            'log_atividade'              => $this->input->post('log_atividade'),
+            'log_tipo'              => $this->input->post('log_tipo'),
+            'log_data'                   => $this->input->post('log_data'),
+            'log_usuario_nome'             => $this->input->post('log_usuario_nome'), 
+        );       
+		$this->db->insert('log', $data2);
 
 		$this->db->insert('contato_secundario', $data);
 	}
@@ -229,6 +245,13 @@ class M_cliente extends CI_Model
 			'correcao_email'              => $this->input->post('chamado_email')
 
 		);
+		$data2 = array(
+            'log_atividade'              => $this->input->post('log_atividade'),
+            'log_tipo'              => $this->input->post('log_tipo'),
+            'log_data'                   => $this->input->post('log_data'),
+            'log_usuario_nome'             => $this->input->post('log_usuario_nome'), 
+        );       
+		$this->db->insert('log', $data2);
 
 		$this->db->insert('correcao', $data);
 	}
@@ -258,8 +281,18 @@ class M_cliente extends CI_Model
 			'cliente_telefone'             => $this->input->post('cliente_telefone'),
 			'cliente_email'                => $this->input->post('cliente_email')
 		);
+
+		$data2 = array(
+            'log_atividade'              => $this->input->post('log_atividade'),
+            'log_tipo'              => $this->input->post('log_tipo'),
+            'log_data'                   => $this->input->post('log_data'),
+            'log_usuario_nome'             => $this->input->post('log_usuario_nome'), 
+        );       
+		$this->db->insert('log', $data2);
+
 		$this->db->where('cliente_id', $cliente_id);
 		$this->db->update('cliente', $data);
+		
 	}
 
 	function atualizarContatoCliente($contato_secundario_id = NULL, $cliente_id = NULL)
@@ -272,6 +305,15 @@ class M_cliente extends CI_Model
 			'contato_secundario_telefone'  => $this->input->post('contato_secundario_telefone'),
 			'contato_secundario_funcao'    => $this->input->post('contato_secundario_funcao')
 		);
+
+		$data2 = array(
+            'log_atividade'              => $this->input->post('log_atividade'),
+            'log_tipo'              => $this->input->post('log_tipo'),
+            'log_data'                   => $this->input->post('log_data'),
+            'log_usuario_nome'             => $this->input->post('log_usuario_nome'), 
+        );       
+		$this->db->insert('log', $data2);
+
 		$this->db->where('contato_secundario_id', $contato_secundario_id);
 		$this->db->update('contato_secundario', $data);
 	}
@@ -288,12 +330,28 @@ class M_cliente extends CI_Model
 
 	function apagarRegistro($cliente_id)
 	{
+		$data2 = array(
+            'log_atividade'              => $this->input->post('log_atividade'),
+            'log_tipo'              => $this->input->post('log_tipo'),
+            'log_data'                   => $this->input->post('log_data'),
+            'log_usuario_nome'             => $this->input->post('log_usuario_nome'), 
+        );       
+		$this->db->insert('log', $data2);
+
 		$this->db->where('cliente_id', $cliente_id);
 		$this->db->delete('cliente');
 	}
 
 	function apagarContatoCliente($contato_secundario_id = NULL)
 	{
+		$data2 = array(
+            'log_atividade'                 =>'Apagou um Contato',
+            'log_tipo'              		=> '3',
+            'log_data'                      => date('d-m-Y - H-d' ),
+            'log_usuario_nome'              => $this->session->userdata('usuario_nome')
+        );       
+		$this->db->insert('log', $data2);
+
 		$this->db->where('contato_secundario_id', $contato_secundario_id);
 		$this->db->delete('contato_secundario');
 	}

@@ -145,7 +145,92 @@
 
 
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      <h3>Registro de Atividades</h3>
+      <Br>
+      <div class="container-fluid">
+        <div>
+          <h3>Registro de Atividades</h3>
+        </div>
+        <div>
+          <div id="cliente_table">
+            <table class="table table-top-campaign">
+              <thead>
+                <tr>
+                  <th> </th>
+                  <th> </th>
+                  <th> </th>
+                  <th> </th>
+                  <th> </th>
+                  <th></th>
+
+                </tr>
+              </thead>
+              <tbody>
+                
+                <?php if (isset($logInfo) && !empty($logInfo)) { ?>
+                  <?php foreach ($logInfo as $key => $log) { ?>
+                    <tr>
+                    
+                      <?php if ($log['log_tipo'] == '1') { ?>
+                        <li class="list-group-item list-group-item-primary"><i>
+                            [<?php echo $log['log_data']; ?>]
+                            <?php
+                                  if ($log['log_tipo'] == '1') {
+                                    echo '(Criação)';
+                                  } elseif ($log['log_tipo'] == '2') {
+                                    echo '(Alteração)';
+                                  } else {
+                                    echo '(Exclusão)';
+                                  } ?>
+                            <?php echo $log['log_usuario_nome']; ?> <?php echo $log['log_atividade']; ?> </i>
+                        </li>
+
+
+                      <?php  } elseif ($log['log_tipo'] == '2') { ?>
+                        <li class="list-group-item list-group-item-warning">
+                          [<?php echo $log['log_data']; ?>]
+                          <?php if ($log['log_tipo'] == '1') {
+                                  echo '(Atividade)';
+                                } elseif ($log['log_tipo'] == '2') {
+                                  echo '(Erro)';
+                                } else {
+                                  echo '(Perigo)';
+                                } ?>
+                          <?php echo $log['log_usuario_nome']; ?> <?php echo $log['log_atividade']; ?> </i>
+                        </li>
+
+                      <?php } else { ?>
+                        <li class="list-group-item list-group-item-danger">
+                          [<?php echo $log['log_data']; ?>]
+                          <?php if ($log['log_tipo'] == '1') {
+                                  echo '(Atividade)';
+                                } elseif ($log['log_tipo'] == '2') {
+                                  echo '(Erro)';
+                                } else {
+                                  echo '(Perigo)';
+                                } ?>
+                          <?php echo $log['log_usuario_nome']; ?> <?php echo $log['log_atividade']; ?> </i>
+                        </li><?php }  ?>
+
+
+                <tr>
+              <?php }
+               ?>
+  <?php } else { ?>
+        <tr>
+          <td colspan="4">O Banco de LOGS está Vazio.</td>
+        </tr>
+      <?php } ?>
+
+              </tbody>
+            </table>
+              <div class="row">
+                <?php if (isset($logInfo) && is_array($logInfo)) echo $page_links; ?>
+                <div class="col-lg-12 text-right">
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- //
@@ -164,7 +249,7 @@
         <h3>Configurações do Sistema</h3>
         <ul class="list-unstyled" style="padding: 30px 10px 10px 10px">
           <li class="has-sub" style="padding: 5px 10px 10px px">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn  btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal">
               <i class="fas fa-bell"></i></i>&nbsp; Novo Alerta</button>
 
             <!-- //
@@ -219,29 +304,42 @@
                 </div>
               </div>
             </div>
+          </li>
             <!-- //
 // ──────────────────────────────────────────────────────────────────── MODAL ─────
 // -->
 
 
 
-          </li>
           <hr>
-          <li style="padding: 5px 10px 10px 0" class="has-sub">
-            <button type="button" class="btn btn-danger" href="<?php echo site_url('C_Admin/resetarClientes'); ?>" data-toggle="modal" data-target="#confirma-deletar">
-              <i class="fas fa-exclamation-triangle"></i>&nbsp;Resetar TODOS os Clientes</button>
+          <li>
+            <h4>Operações do Sistema </h4>
+            <br>
+          <li style="padding: 0 10px 10px 0" class="has-sub">
+            <a type="button" href="<?php echo base_url(); ?>C_Admin/backup_database">
+              <!-- < type="button" class="btn btn-warning btn-sm"   > -->
+              <i class="fa fa-database" aria-hidden="true"></i>&nbsp;Realizar Backup
+            </a>
           </li>
-          <li style="padding: 5px 10px 10px 0" class="has-sub">
-            <button type="button" class="btn btn-danger" href="<?php echo site_url('C_Admin/resetarChamados'); ?>" data-toggle="modal" data-target="#confirma-deletar">
-              <i class="fas fa-exclamation-triangle"></i>&nbsp;Resetar TODOS os Chamados</button>
+          <li style="padding: 0 10px 10px 0" class="has-sub">
+            <a type="button" href="<?php echo site_url('C_Admin/resetarClientes'); ?>" data-toggle="modal" data-target="#confirma-deletar">
+              <i class="fas fa-exclamation-triangle"></i>&nbsp;Reseta os Clientes</a>
+
           </li>
-          <li style="padding: 5px 10px 10px 0" class="has-sub">
-            <button type="button" class="btn btn-danger" href="<?php echo site_url('C_Admin/resetarCorrecoes'); ?>" data-toggle="modal" data-target="#confirma-deletar">
-              <i class="fas fa-exclamation-triangle"></i>&nbsp;Resetar TODAS as Correções</button>
+
+          <li style="padding: 0 10px 10px 0" class="has-sub">
+            <a type="button" href=" <?php echo site_url('C_Admin/resetarChamados'); ?>" data-toggle="modal" data-target="#confirma-deletar">
+              <i class="fas fa-exclamation-triangle"></i>&nbsp;Resetar Chamados</a>
           </li>
-          <li style="padding: 5px 10px 10px 0" class="has-sub">
-            <button type="button" class="btn btn-danger" href="<?php echo site_url('C_Admin/resetarContatos'); ?>" data-toggle="modal" data-target="#confirma-deletar">
-              <i class="fas fa-exclamation-triangle"></i>&nbsp;Resetar TODOS os Contatos</button>
+
+          <li style="padding: 0 10px 10px 0" class="has-sub">
+            <a type="button" href=" <?php echo site_url('C_Admin/resetarCorrecoes'); ?>" data-toggle="modal" data-target="#confirma-deletar">
+              <i class="fas fa-exclamation-triangle"></i>&nbsp;Resetar as Correções</a>
+          </li>
+
+          <li style="padding:0 10px 10px 0" class="has-sub">
+            <a type="button" href=" <?php echo site_url('C_Admin/resetarContatos'); ?>" data-toggle="modal" data-target="#confirma-deletar">
+              <i class="fas fa-exclamation-triangle"></i>&nbsp;Resetar os Contatos</a>
           </li>
           <ul>
 
@@ -297,7 +395,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" action="<?php echo site_url('C_login/criarUsuario') ?>">
+        <form method="post" action="<?php echo site_url('C_login/criarUsuarioAdmin') ?>">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-user-circle" aria-hidden="true"></i>
@@ -325,10 +423,10 @@
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-calendar"  aria-hidden="true"></i></span>
+              <span class="input-group-text"><i class="fas fa-calendar" aria-hidden="true"></i></span>
             </div>
             <input type="text" class="form-control" placeholder="Data de Inicio" name="usuario_data_inicio" value="<?php date_default_timezone_set('America/Sao_Paulo');
-                                                                              echo date('d/m/Y'); ?>" aria-label="Username" aria-describedby="basic-addon1">
+                                                                                                                    echo date('d/m/Y'); ?>" aria-label="Username" aria-describedby="basic-addon1">
           </div>
           <div class="input-group mb-3" style="display:none;">
             <div class="input-group-prepend">
@@ -357,7 +455,7 @@
 
 <!-- END STATISTIC-->
 
-<script>
+<!-- <script>
   //Quando clicar em visualizar:
   $('.visualizar').click(function() {
     //Os dados
@@ -375,4 +473,4 @@
     Aqui, você poder fazer qualquer coisa:*/
     $('#modal-content').html(JSON.stringify(data));
   })
-</script>
+</script> -->

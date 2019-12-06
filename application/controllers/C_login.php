@@ -69,6 +69,10 @@ class C_Login extends CI_Controller {
     $this->M_login->criarUsuario();
     redirect('C_login');
 }
+  public function criarUsuarioAdmin(){
+    $this->M_login->criarUsuario();
+    redirect('C_Admin');
+}
  
 
 //
