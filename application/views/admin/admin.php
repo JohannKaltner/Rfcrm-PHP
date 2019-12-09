@@ -147,11 +147,15 @@
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <Br>
       <div class="container-fluid">
-        <div>
+        <div><a href="<?php echo base_url('C_export/csv_log'); ?>" type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Recarregue a pagina após o download do arquivo.">
+                 <i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</a>
+                 <hr>
           <h3>Registro de Atividades</h3>
         </div>
         <div>
+          
           <div id="cliente_table">
+            
             <table class="table table-top-campaign">
               <thead>
                 <tr>

@@ -158,6 +158,11 @@ class M_Admin extends CI_Model
             'log_usuario_nome' => $this->session->userdata('usuario_nome'),
         );
         $this->db->insert('log', $data2);
-	}
+    }
+        // public function exibirChamados($usuario_id=NULL){
+        //     $this->db->where('chamado_id_usuario', $this->uri->segment(3));
+
+        // }
+
 }
 

@@ -55,7 +55,7 @@
 		<header class="header-desktop3 d-none d-lg-block">
 			<div class="section__content section__content--p35">
 				<div class="header3-wrap">
-					<div class="header__logo" style="margin-left:110px">
+					<div class="header__logo" style="margin-left:110px; box-shadow: 1px 2px 6px 0px #007bff;" >
 						<!-- <h1 style="color:#2C0CB8"> RF&A </h1>   -->
 						<!-- <a href="<?php echo base_url(); ?>home">
 							</a> -->
@@ -287,8 +287,11 @@
 					<div class="header-mobile-inner">
 						<a href="<?php echo base_url(); ?>home">
 							<!-- <h1 style="color:#2C0CB8"> RF&A </h1> -->
-							<img src="<?php echo base_url(); ?>public/images/icon/logo_completa.png" alt="" />
+							<!-- <img src="<?php echo base_url(); ?>public/images/icon/logo_completa.png" alt="" /> -->
+							<img style="width:70px; " src="<?php echo base_url(); ?>public/images/logo_casa-1-.png"
+							alt="" />
 						</a>
+
 
 						</a>
 						<button class="hamburger hamburger--slider" type="button">

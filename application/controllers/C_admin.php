@@ -33,15 +33,15 @@ class C_Admin extends CI_Controller
 	public function index($usuario_id = '', $cliente_id = '')
 	{
 		// $data['sidebar'] = $this->load->view('template/sidebar', NULL, TRUE);
-
-		//
-		// ─── PAGINATION ──────────────────────────────────────────────────
-		//
 		$data['result'] 	 = $this->M_cliente->listarRegistros();
 		$data['user'] 	     = $this->M_login->consultarUsuario($usuario_id);
 		$data['chamados']	 = $this->M_cliente->listarChamadosCliente($cliente_id);
 		$data['metaDescription'] = 'RFCRM ADMIN';
 		$data['metaKeywords'] = 'RFCRM ADMIN';
+
+		//
+		// ─── PAGINATION ──────────────────────────────────────────────────
+		//
 		// $data['breadcrumbs'] = array('Simple Pagination Using CodeIgniter and MySQL' => '#'); 
 		$config['total_rows'] = $this->M_admin->getAllUserCount();
 		$data['total_count'] = $config['total_rows'];
@@ -63,9 +63,9 @@ class C_Admin extends CI_Controller
 			$this->pagination->initialize($config);
 			$data['page_links'] = $this->pagination->create_links();
 			$data['usuarioInfo'] = $this->M_admin->listarRegistros();
-			$data['linha'] =  $this->M_admin->listarRegistro($usuario_id);
 			//
 			// ─────────────────────────────────────────────────────────── FIM PAGINATION ─────
+			$data['linha'] =  $this->M_admin->listarRegistro($usuario_id);
 			//
 			//$data['usuario'] =  $this->M_admin->exibirUsuario($usuario_id);
 
@@ -121,9 +121,10 @@ class C_Admin extends CI_Controller
 	{
 		$data['linha'] =  $this->M_admin->listarRegistro($usuario_id);
 		// $data['chamados'] =  $this->M_cliente->listarChamadosCliente($cliente_id);
-		// $data['contatos'] =  $this->M_cliente->listarContatosCliente($cliente_id);
-		// $data['correcoes'] =  $this->M_cliente->listarCorrecaoCliente($cliente_id);
-		// $data['permissao'] =  $this->M_usuario->consultar_permissao($usuario_id);
+		 $data['contatos'] =  $this->M_cliente->listarContatosCliente($cliente_id);
+		 $data['correcoes'] =  $this->M_cliente->listarCorrecaoCliente($cliente_id);
+		 $data['permissao'] =  $this->M_usuario->consultar_permissao($usuario_id);
+		$data['chamados']	 = $this->M_cliente->listarChamadosCliente($cliente_id);
 		$data['page_title'] = "Informações do Cliente";
 		$this->template->show('usuario', $data);
 	}
@@ -196,4 +197,12 @@ class C_Admin extends CI_Controller
 		// $this->load->helper('download');
 		// force_download($db_name, $backup);
 	}
+
+	// public function list_by_id($usuario_id = NULL){
+	// 	$data['linha']= $this->M_admin->exibirChamados($usuario_id);
+
+	// 	redirect('C_admin');
+
+	// }
+
 }
