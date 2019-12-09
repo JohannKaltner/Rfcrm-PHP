@@ -70,10 +70,17 @@ class M_Admin extends CI_Model
 
     function listarRegistro($usuario_id = NULL)
 	{
-        $this->db->select('*');
-        $this->db->from('usuario');
-        $this->db->where('usuario.usuario_id', $usuario_id);
+        $this->db->select(array('i.usuario_id', 'i.usuario_nome', 'i.usuario_setor', 'i.usuario_nivel', 'i.usuario_data_inicio'));        $this->db->from('usuario as u');
+         $this->db->where('i.usuario_id', $this->uri->segment(3));
+         $this->db->from('usuario as i');
+
+         // $this->db->from('usuario');
+        // $this->db->where("usuario_id", $usuario_id);
+        // $query = $this->db->get();
         $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return FALSE;
+        }
         return $query->result();
     }
     

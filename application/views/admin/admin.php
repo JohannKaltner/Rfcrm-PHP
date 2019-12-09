@@ -17,7 +17,7 @@
                 </li>
                 /
                 <li class="list-inline-item active">
-                  <a href="<?php echo base_url(); ?>C_Admin">Administração</a>
+                  <a href="<?php echo base_url(); ?>C_admin">Administração</a>
                 </li>
 
               </ul>
@@ -97,7 +97,7 @@
                           </button> </a>
 
 
-                        <a onclick="return confirm('Tem certeza que deseja deletar este registro?')" href="<?php echo site_url('C_Admin/deletaUsuario'); ?>/<?php echo $element['usuario_id']; ?>">
+                        <a onclick="return confirm('Tem certeza que deseja deletar este registro?')" href="<?php echo site_url('C_admin/deletaUsuario'); ?>/<?php echo $element['usuario_id']; ?>">
                           <button class="item" data-toggle="tooltip" data-placement="top" title="Deletar Usuario">
                             <i class="zmdi zmdi-delete"></i>
                           </button>
@@ -268,7 +268,7 @@
                   </div>
 
                   <div class="modal-body">
-                    <form method='post' action=<?php echo base_url("C_Admin/novaAlerta"); ?>>
+                    <form method='post' action=<?php echo base_url("C_admin/novaAlerta"); ?>>
                       <div class="row form-group">
                         <div class="col col-md-3">
                           <label for="disabled-input" class=" form-control-label">Usuario</label>
@@ -318,29 +318,29 @@
             <h4>Operações do Sistema </h4>
             <br>
           <li style="padding: 0 10px 10px 0" class="has-sub">
-            <a type="button" href="<?php echo base_url(); ?>C_Admin/backup_database">
+            <a type="button" href="<?php echo base_url(); ?>C_admin/backup_database">
               <!-- < type="button" class="btn btn-warning btn-sm"   > -->
               <i class="fa fa-database" aria-hidden="true"></i>&nbsp;Realizar Backup
             </a>
           </li>
           <li style="padding: 0 10px 10px 0" class="has-sub">
-            <a type="button" href="<?php echo site_url('C_Admin/resetarClientes'); ?>" data-toggle="modal" data-target="#confirma-deletar">
+            <a type="button" href="<?php echo site_url('C_admin/resetarClientes'); ?>" data-toggle="modal" data-target="#confirma-deletar">
               <i class="fas fa-exclamation-triangle"></i>&nbsp;Reseta os Clientes</a>
 
           </li>
 
           <li style="padding: 0 10px 10px 0" class="has-sub">
-            <a type="button" href=" <?php echo site_url('C_Admin/resetarChamados'); ?>" data-toggle="modal" data-target="#confirma-deletar">
+            <a type="button" href=" <?php echo site_url('C_admin/resetarChamados'); ?>" data-toggle="modal" data-target="#confirma-deletar">
               <i class="fas fa-exclamation-triangle"></i>&nbsp;Resetar Chamados</a>
           </li>
 
           <li style="padding: 0 10px 10px 0" class="has-sub">
-            <a type="button" href=" <?php echo site_url('C_Admin/resetarCorrecoes'); ?>" data-toggle="modal" data-target="#confirma-deletar">
+            <a type="button" href=" <?php echo site_url('C_admin/resetarCorrecoes'); ?>" data-toggle="modal" data-target="#confirma-deletar">
               <i class="fas fa-exclamation-triangle"></i>&nbsp;Resetar as Correções</a>
           </li>
 
           <li style="padding:0 10px 10px 0" class="has-sub">
-            <a type="button" href=" <?php echo site_url('C_Admin/resetarContatos'); ?>" data-toggle="modal" data-target="#confirma-deletar">
+            <a type="button" href=" <?php echo site_url('C_admin/resetarContatos'); ?>" data-toggle="modal" data-target="#confirma-deletar">
               <i class="fas fa-exclamation-triangle"></i>&nbsp;Resetar os Contatos</a>
           </li>
           <ul>

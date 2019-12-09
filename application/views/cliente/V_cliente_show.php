@@ -49,9 +49,9 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                               <!-- AREAS -->
                               <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="color:#2C0CB8;">ÁREA DO CLIENTE</a>
 
-                              <a class="nav-item nav-link" id="nav-contato-tab" data-toggle="tab" href="#nav-contato" role="tab" aria-controls="nav-contato" aria-selected="false" style="color:#2C0CB8;">CONTATOS</a>
-
                               <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" style="color:#2C0CB8;">CHAMADOS & CORREÇÕES</a>
+
+                              <a class="nav-item nav-link" id="nav-contato-tab" data-toggle="tab" href="#nav-contato" role="tab" aria-controls="nav-contato" aria-selected="false" style="color:#2C0CB8;">CONTATOS</a>
 
                               <!-- FIM AREAS  -->
 
@@ -304,20 +304,20 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                                                          <div id="card" class="card-body">
                                                             <p class="card-text">
                                                                <h5 onHover onMouseOver="this.style.color='#000000'" onMouseOut="this.style.color='#000000'" id="chamadogroup" class="mb-1">
-                                                                  <?php echo $chamado->chamado_atendente_cliente; ?>,<br>
+                                                                  <?php echo $correcao->correcao_atendente_cliente ; ?>,<br>
                                                                   <small class="mb-1">Em nome da(o)</small> <?php echo $chamado->cliente_nome; ?>,
-                                                                  <small class="mb-1"> Dia <b style="color:black"> <?php echo $chamado->chamado_data; ?>, </b> as
-                                                                     <b style="color:black"><?php echo $chamado->chamado_hora; ?></b></small><br></h5>
+                                                                  <small class="mb-1"> Dia <b style="color:black"> <?php echo $correcao->correcao_data; ?>, </b> as
+                                                                     <b style="color:black"><?php echo $correcao->correcao_hora; ?></b></small><br></h5>
                                                             </p>
                                                             <div id="no-display">
                                                                <p class="mb-1">Entrou em contato com
-                                                                  <b style="color:black"><?php echo $chamado->chamado_atendente_rf; ?></b> para <b style="color:black"><?php echo $chamado->chamado_atividade; ?></b>em relação a
-                                                                  <b style="color:black"> <?php echo $chamado->chamado_assunto; ?></b>, o chamado realizado pelo numero <b><?php echo $chamado->chamado_telefone; ?></b>,
-                                                                  teve duração de <small> <b style="color:black"><?php echo $chamado->chamado_duracao_hora; ?></b> Hora e <b style="color:black"><?php echo $chamado->chamado_duracao_minuto; ?></b> Minutos.</small>
+                                                                  <b style="color:black"><?php echo $correcao->correcao_atendente_rf; ?></b> para <b style="color:black"><?php echo $correcao->correcao_atividade; ?></b>em relação a
+                                                                  <b style="color:black"> <?php echo $correcao->correcao_assunto; ?></b>, o chamado realizado pelo numero <b><?php echo $correcao->correcao_telefone; ?></b>,
+                                                                  teve duração de <small> <b style="color:black"><?php echo $correcao->correcao_duracao_hora; ?></b> Hora e <b style="color:black"><?php echo $correcao->correcao_duracao_minuto; ?></b> Minutos.</small>
                                                                </p>
                                                                <hr>
                                                                <br>
-                                                               Observações:<br><b style="color:black"><?php echo $chamado->chamado_obs; ?></b><br>
+                                                               Observações:<br><b style="color:black"><?php echo $correcao->correcao_obs; ?></b><br>
                                                                <hr>
                                                                <button data-toggle="modal" data-target="#correcaoModal" onMouseOver="this.style.color='#007bff'" onMouseOut="this.style.color='#000000'">
                                                                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>

@@ -15,13 +15,17 @@ height: 100%;
                             <div class="card-body"style=" margin: 0 auto;text-align:center;width: 80%;" >
                                 <div class="mx-auto d-block">  
                                 <form method='post' action="<?php echo site_url('C_admin/exibir') ?>/<?php echo $linha['0']->usuario_id; ?>">
-                                    <div class="form-group">
-                                       <label for="cliente_id" class=" form-control-label">NUMERO DO ID</label>
-                                       <input type="text" id="cliente_id" value="<?php echo $linha['0']->usuario_nome; ?>" name="cliente_id" placeholder="Id" class="form-control"  >
+                                    <div class="col-md-4" style="margin: 0 auto; width: 50%; ">
+                                    <div class="form-group justify-content-center">
+                                       <label for="cliente_id" class=" form-control-label">NOME</label>
+                                       <input  disabled type="text" id="cliente_id" value="<?php echo $linha['0']->usuario_nome; ?>" name="cliente_id" placeholder="Id" class="form-control"  >
                                     </div>
+                                    </div>
+                                    <div class="col-md-4" style="margin: 0 auto; width: 50%; ">
                                     <div class="form-group">
                                        <label for="cliente_id" class=" form-control-label">Codigo do Cliente</label>
-                                       <input type="text" id="cliente_id" value="<?php echo $linha['0']->usuario_id; ?>" name="cod_cliente" placeholder="cod_cliente" class="form-control"  >
+                                       <input  disabled type="text" id="cliente_id" value="<?php echo $linha['0']->usuario_id; ?>" name="cod_cliente" placeholder="cod_cliente" class="form-control"  >
+                                    </div>
                                     </div>
                                 </div>
 
@@ -45,10 +49,11 @@ height: 100%;
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <a href="#" style="padding-left:5px;">
-                                        <i class="fa fa-envelope-o"></i>Chamados
+                                        <i class="fa fa-envelope"></i>Chamados
                                         <span class="badge badge-primary pull-right"><?php
-											$this->db->select('*');
-											$query = $this->db->get('cliente');
+                                            $this->db->select('*');
+                                            $this->db->where('chamado_id_usuario', $this->uri->segment(3));
+											$query = $this->db->get('chamado');
 											$num = $query->num_rows();
 											?>
 
@@ -56,15 +61,36 @@ height: 100%;
                                     </a>
                                     <a href="#"style="padding-left:5px;">
                                         <i class="fa fa-tasks"></i> Correções
-                                        <span class="badge badge-danger pull-right">15</span>
+                                        <span class="badge badge-danger pull-right"><?php
+                                            $this->db->select('*');
+                                            $this->db->where('correcao_usuario_id', $this->uri->segment(3));
+											$query = $this->db->get('correcao');
+											$num = $query->num_rows();
+											?>
+
+							<?php echo $num ?></span>
                                     </a>
                                     <a href="#" style="padding-left:5px;">
-                                        <i class="fa fa-bell-o"></i> Clientes
-                                        <span class="badge badge-success pull-right">11</span>
+                                        <i class="fa fa-bell"></i> Clientes
+                                        <span class="badge badge-success pull-right"><?php
+                                            $this->db->select('*');
+                                            $this->db->where('cliente_id_usuario', $this->uri->segment(3));
+											$query = $this->db->get('cliente');
+											$num = $query->num_rows();
+											?>
+
+							<?php echo $num ?></span>
                                     </a>
                                     <a href="#"style="padding-left:5px;">
-                                        <i class="fa fa-comments-o"></i> Contatos
-                                        <span class="badge badge-warning pull-right r-activity">03</span>
+                                        <i class="fa fa-comments"></i> Contatos
+                                        <span class="badge badge-warning pull-right r-activity"><?php
+                                            $this->db->select('*');
+                                            $this->db->where('contato_id_usuario', $this->uri->segment(3));
+											$query = $this->db->get('contato_secundario');
+											$num = $query->num_rows();
+											?>
+
+							<?php echo $num ?></span>
                                     </a>
                                 </li>
                                 <li class="list-group-item">

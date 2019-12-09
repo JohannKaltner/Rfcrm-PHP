@@ -49,9 +49,9 @@ class C_Admin extends CI_Controller
 		if ($config['total_rows'] > 0) {
 			$page_number = $this->uri->segment(3);
 			if ($page_number > 0) {
-				$config['base_url'] = base_url() . 'C_Admin';
+				$config['base_url'] = base_url() . 'C_admin';
 			} else {
-				$config['base_url'] = base_url() . 'C_Admin/index/';
+				$config['base_url'] = base_url() . 'C_admin/index/';
 			}
 			if (empty($page_number))
 				$page_number = 1;
@@ -120,10 +120,10 @@ class C_Admin extends CI_Controller
 	public function exibir($cliente_id = NULL, $usuario_id = NULL)
 	{
 		$data['linha'] =  $this->M_admin->listarRegistro($usuario_id);
-		$data['chamados'] =  $this->M_cliente->listarChamadosCliente($cliente_id);
-		$data['contatos'] =  $this->M_cliente->listarContatosCliente($cliente_id);
-		$data['correcoes'] =  $this->M_cliente->listarCorrecaoCliente($cliente_id);
-		$data['permissao'] =  $this->M_usuario->consultar_permissao($usuario_id);
+		// $data['chamados'] =  $this->M_cliente->listarChamadosCliente($cliente_id);
+		// $data['contatos'] =  $this->M_cliente->listarContatosCliente($cliente_id);
+		// $data['correcoes'] =  $this->M_cliente->listarCorrecaoCliente($cliente_id);
+		// $data['permissao'] =  $this->M_usuario->consultar_permissao($usuario_id);
 		$data['page_title'] = "Informações do Cliente";
 		$this->template->show('usuario', $data);
 	}
@@ -133,7 +133,7 @@ class C_Admin extends CI_Controller
 	{
 		$this->M_admin->apagarUsuario($usuario_id);
 		// echo  "<script>alert('Cliente deletado com Sucesso!!');</script>";
-		redirect("C_Admin");
+		redirect("C_admin");
 	}
 
 

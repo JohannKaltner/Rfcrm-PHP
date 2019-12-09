@@ -246,7 +246,7 @@ class M_cliente extends CI_Model
             'correcao_obs' => $this->input->post('correcao_obs'),
             'correcao_telefone' => $this->input->post('correcao_telefone'),
 			'correcao_email' => $this->input->post('chamado_email'),
-			'correção_hora_registro' => date('d/m/Y - H:d'),
+			// 'correção_hora_registro' => date('d/m/Y - H:d'),
 
 
         );
