@@ -19,8 +19,8 @@
 							<!-- <?php print_r($linha);?> -->
 							<!-- PARA DEBUG -->
 							<div class="card-body" style=" margin: 0 auto;text-align:center;width: 80%;">
-								<div class="mx-auto d-block"  >
-									<img class="rounded-circle mx-auto d-block"
+								<div class="mx-auto d-block">
+									<img class="rounded-circle mx-auto d-block" 
 										src="<?php echo base_url();?>public/images/perfil/<?php echo $linha['0']->usuario_nome; ?>.jpg"
 										alt="SEM FOTO DE PERFIL">
 
@@ -40,14 +40,15 @@
 													Cliente</label>
 												<input disabled type="text" id="cliente_id"
 													value="<?php echo $linha['0']->usuario_id; ?>" name="cod_cliente"
-                                                    placeholder="cod_cliente" class="form-control">
+													placeholder="cod_cliente" class="form-control">
 
-                                                    <hr>
-                                                    <div style="   display:inline;">
-                                                    <button href="" data-toggle="modal" data-target="#editModal">        
-                                                    <i class="fa fa-edit"></i><span>
-                                                                    <p>Editar </p></span>
-                                                    </div>
+												<hr>
+												<div style="   display:inline;">
+													<button type="button" data-toggle="modal" data-target="#editModal">	<i class="fa fa-edit"></i>
+														Editar
+													</button>
+												 
+												</div>
 											</div>
 										</div>
 								</div>
@@ -121,9 +122,103 @@
 
 							</ul>
 
-                        </div>
-                        
-                        <!-- <div>
+						</div>
+
+
+
+						<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">Edição de Usuario</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+									<form method='post' action="<?php echo base_url('C_usuario/editarUsuario/'); ?>" class="form-horizontal">
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="hf-email" class=" form-control-label">Email</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="email" id="usuario_email" value="<?php echo $linha['usuario_email']; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
+                                                    <span class="help-block"> </span>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="hf-email" class=" form-control-label">Nome</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="email" id="usuario_nome" value="<?php echo $linha['0']->usuario_nome; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
+                                                    <span class="help-block"> </span>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="hf-email" class=" form-control-label">Setor</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="email" id="usuario_setor" value="<?php echo $linha['0']->usuario_setor; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
+                                                    <span class="help-block"> </span>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="hf-email" class=" form-control-label">Nivel</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="email" id="usuario_nivel" value="<?php echo $linha['0']->usuario_nivel; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
+                                                    <span class="help-block"> </span>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="hf-email" class=" form-control-label">Email</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="email" id="usuario_email" value="<?php echo $linha['0']->usuario_email; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
+                                                    <span class="help-block"> </span>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="hf-email" class=" form-control-label">Twitter</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="email" id="usuario_email" value="<?php echo $linha['0']->usuario_email; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
+                                                    <span class="help-block"> </span>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="hf-email" class=" form-control-label">Instagram</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="email" id="usuario_email" value="<?php echo $linha['0']->usuario_email; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
+                                                    <span class="help-block"> </span>
+                                                </div>usuario_email
+                                                    <label for="hf-email" class=" form-control-label">Facebook</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="email" id="usuario_email" value="<?php echo $linha['0']->usuario_email; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
+                                                    <span class="help-block"> </span>
+                                                </div>
+                                            </div>
+                                           
+                                        </form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary">Save changes</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <div>
                             <h3> Chamados</h3>
                             <div class="row">
                                              <?php if (!empty($correcoes)) {
@@ -185,5 +280,5 @@
 				</div>
 			</div>
 		</div> -->
-	</div>
+					</div>
 </section>

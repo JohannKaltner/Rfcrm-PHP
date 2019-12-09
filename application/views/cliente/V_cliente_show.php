@@ -148,7 +148,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                                     </div>
                                     <div class="form-group">
                                        <label for="vat" class=" form-control-label">E-Mail </label>
-                                       <input type="text" id="cliente_email" name="cliente_email" value="<?php echo $linha['0']->cliente_email; ?>" placeholder="Insira o Endereço de E-Mail do Cliente" class="form-control" disabled="">
+                                       <input type="email" id="cliente_email" name="cliente_email" value="<?php echo $linha['0']->cliente_email; ?>" placeholder="Insira o Endereço de E-Mail do Cliente" class="form-control" disabled="">
                                     </div>
                                     <div class="form-group">
                                        <label for="postal-code" class=" form-control-label">Telefone</label>
@@ -285,8 +285,8 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
 
                                     <!-- INICIO TAB CORRECAO -->
                                     <div class="tab-pane fade" id="tab_correcao" role="tabpanel" aria-labelledby="tab_correcao">
-                                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#correcaoModal" style="font-size:18px;">Abrir Correção
-                                       </button>
+                                       <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#correcaoModal" style="font-size:18px;">Abrir Correção
+                                       </button> -->
                                        <hr>
                                        <div class="col-lg-12">
                                           <div class="row">
@@ -507,7 +507,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                            <div class="input-group-addon">
                               <i class="fa fa-envelope"></i>
                            </div>
-                           <input type="text" id="chamado_duracao" name="chamado_email" placeholder="Email Usado" class="form-control">
+                           <input type="email" id="chamado_duracao" name="chamado_email" placeholder="Email Usado" class="form-control">
                         </div>
                         <small> Opcional</small>
                      </div>
@@ -535,8 +535,8 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                      </div>
                   </div>
                   <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                     <button type="submit" value="save" class="btn btn-primary">Save changes</button>
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                     <button type="submit" value="save" class="btn btn-primary">Salvar</button>
                   </div>
                </form>
             </div>
@@ -565,11 +565,11 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                </div>
                <div class="form-group">
                   <label for="cpf/cnpj" class=" form-control-label">CPF</label>
-                  <input type="text" id="cliente_cpf" value="<?php echo $linha['0']->cliente_cpf; ?>" name="cliente_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control">
+                  <input type="text" id="cpf" maxlength="14" value="<?php echo $linha['0']->cliente_cpf; ?>" name="cliente_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="cpf/cnpj" class=" form-control-label">CNPJ</label>
-                  <input type="text" id="cliente_cnpj" value="<?php echo $linha['0']->cliente_cnpj; ?>" name="cliente_cnpj" placeholder="Insira o CNPJ do Cliente" class="form-control">
+                  <input type="text" id="cnpj" maxlength="18"  value="<?php echo $linha['0']->cliente_cnpj; ?>" name="cliente_cnpj" placeholder="Insira o CNPJ do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="endereco" class=" form-control-label">Endereço
@@ -608,15 +608,15 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                <div class="form-group">
                   <label for="vat" class=" form-control-label">E-Mail
                   </label>
-                  <input type="text" id="cliente_email" name="cliente_email" value="<?php echo $linha['0']->cliente_email; ?>" placeholder="Insira o Endereço de E-Mail do Cliente" class="form-control">
+                  <input type="email" id="cliente_email" name="cliente_email" value="<?php echo $linha['0']->cliente_email; ?>" placeholder="Insira o Endereço de E-Mail do Cliente" class="form-control">
                </div>
                <div class="form-group">
                   <label for="postal-code" class=" form-control-label">Telefone</label>
                   <input type="text" id="cliente_telefone" name="cliente_telefone" value="<?php $linha['0']->cliente_telefone; ?>" placeholder="Insira o Telefone do Cliente" class="form-control">
                </div>
                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="submit" value="save" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="submit" value="save" class="btn btn-primary">Salvar</button>
                </div>
             </form>
          </div>
@@ -691,16 +691,30 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                   </div>
                </div>
                <div class="row form-group">
-                  <div class="col col-md-12">
-                     <div class="input-group">
-                        <div class="input-group-addon">
-                           <i class="fa fa-arrow-circle-right"></i>
+                     <div class="col col-md-12">
+                        <div class="input-group">
+                           <div class="input-group-addon">
+                              <i class="fa fa-arrow-circle-right"></i>
+                           </div>
+                           <!-- <input type="text" id="chamado_atendente_cliente" name="chamado_atendente_cliente" placeholder="Quem entrou em contato?" class="form-control"> -->
+                           <!-- <script>
+                              function busca_contato(contato_secundario_id) {
+                                 <?php echo "Selecionado contato de ID:" ?>alert(contato_secundario_id);
+                              }
+                           </script> -->
+                           <!-- <select name="contato_list" id="contato_list" onchange='busca_contato($(this).val())'> -->
+                           <select name="correcao_atendente_cliente" id="contato_list">
+                              <option value="">Selecione um Contato</option>
+                              <?php echo $options_contatos; ?>
+                              <!-- <option value="1">Option #1</option>
+                                                        <option value="2">Option #2</option>
+                                                        <option value="3">Option #3</option> -->
+                           </select>
+
                         </div>
-                        <input type="text" id="chamado_atendente_cliente" name="correcao_atendente_cliente" placeholder="Quem entrou em contato?" class="form-control">
+                        <small> Quem falava em nome da empresa?</small>
                      </div>
-                     <small> Quem falava em nome da empresa?</small>
                   </div>
-               </div>
                <div class="row form-group">
                   <div class="col col-md-12">
                      <div class="input-group">
@@ -762,7 +776,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                         <div class="input-group-addon">
                            <i class="fa fa-envelope"></i>
                         </div>
-                        <input type="text" id="chamado_duracao" name="correcao_email" placeholder="Email Usado" class="form-control">
+                        <input type="email" id="chamado_duracao" name="correcao_email" placeholder="Email Usado" class="form-control">
                      </div>
                      <small> Opcional</small>
                   </div>
@@ -790,8 +804,8 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                   </div>
                </div>
                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="submit" value="save" class="btn btn-primary">Save changes</button>
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="submit" value="save" class="btn btn-primary">Salvar</button>
                </div>
             </form>
          </div>
@@ -860,8 +874,8 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                   </div>
                </div>
                <div class="form-actions modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  <button type="submit" value="save" class="btn btn-primary">Registrar</button>
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="submit" value="save" class="btn btn-primary">Salvar</button>
                </div>
             </form>
          </div>
@@ -929,8 +943,8 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
                   </div>
 
                   <div class="form-actions modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                     <button type="submit" value="save" class="btn btn-primary">Concluir</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="submit" value="save" class="btn btn-primary">Salvar</button>
                   </div>
 
                </form>
@@ -947,11 +961,28 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
    $(".chamado_telefone").mask("(00) 00000-0000");
    $("#cliente_telefone").mask("(00) 00000-0000");
    $("#cliente_cep").mask("00000-000");
-   $("#cliente_cnpj_cpf").mask("000.000.000-00");
+   $("#cliente_cpf").mask("000.000.000-00");
+   $("#cliente_cnpj").mask("000.000.000-00");
    $("#cliente_inscricao_estadual").mask("000.000.000.000");
    $("#contato_secundario_telefone").mask("(00) 00000-0000");
 </script>
+<script>
+  var options = {
+ 		onKeyPress: function(cnpj, ev, el, op) {
+ 			var masks = ['000.000.000-000'];
+ 			$('#cnpj').mask((cnpj.length > 18) ? masks[1] : masks[0], op);
+ 		}
+ 	}
+ 	$('#cnpj').length > 11 ? $('#cnpj').mask('00.000.000/0000-00', options) : $('#cnpj').mask("00.000.000/0000-00#", options);
 
+ 	var options = {
+ 		onKeyPress: function(cpf, ev, el, op) {
+ 			var masks = ['000.000.000-00'];
+ 			$('#cpf').mask((cpf.length > 14) ? masks[1] : masks[0], op);
+ 		}
+ 	}
+ 	$('#cpf').length > 11 ? $('#cpf').mask('000.000.000-00', options) : $('#cpf').mask("000.000.000-00#", options); 
+</script>
 <script>
 function aguarde() {
   alert("Esta função ainda está sendo Habilitada, por favor aguarde!");

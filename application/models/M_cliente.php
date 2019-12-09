@@ -336,16 +336,17 @@ class M_cliente extends CI_Model
     {
         date_default_timezone_set('America/Sao_Paulo');
 
-        $data2 = array(
+  
+
+        $this->db->where('cliente_id', $cliente_id);
+        $this->db->delete('cliente');
+          $data2 = array(
             'log_atividade' => "Excluiu o Cliente de ID: $cliente_id ", 
             'log_tipo' => '3',
             'log_data' => date('d-m-Y - H:d'),
             'log_usuario_nome' => $this->session->userdata('usuario_nome'),
         );
         $this->db->insert('log', $data2);
-
-        $this->db->where('cliente_id', $cliente_id);
-        $this->db->delete('cliente');
     }
 
     public function apagarContatoCliente($contato_secundario_id = null)

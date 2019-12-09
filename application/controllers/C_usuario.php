@@ -13,4 +13,9 @@ class C_Usuario extends CI_Controller {
 		$config['max_width'] = '1024';
 		$config['max_height'] = '768';
 	}
+
+	public function editarUsuario($usuario_id = NULL){
+		$this->M_usuario->atualizarUsuario($usuario_id);
+		redirect('c_admin/');
+	}
 }

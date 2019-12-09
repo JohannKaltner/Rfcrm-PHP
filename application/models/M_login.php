@@ -44,6 +44,22 @@ class M_Login extends CI_Model {
       'usuario_email'  => $this->input->post('usuario_email'),
       'usuario_senha'  => $this->input->post('usuario_senha'),
       'usuario_setor'  => $this->input->post('usuario_setor'),
+      'usuario_nivel'  =>'2',
+      'usuario_data_inicio'  => $this->input->post('usuario_data_inicio'),
+
+    );
+    $this->db->insert('usuario', $data);
+  }
+  public function criarUsuarioADM()
+  {
+
+		date_default_timezone_set('America/Sao_Paulo');
+		
+    $data = array(
+      'usuario_nome'   => $this->input->post('usuario_nome'),
+      'usuario_email'  => $this->input->post('usuario_email'),
+      'usuario_senha'  => $this->input->post('usuario_senha'),
+      'usuario_setor'  => $this->input->post('usuario_setor'),
       'usuario_nivel'  => $this->input->post('usuario_nivel'),
       'usuario_data_inicio'  => $this->input->post('usuario_data_inicio'),
 

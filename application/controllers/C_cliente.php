@@ -87,7 +87,7 @@ class C_Cliente extends CI_Controller
 		redirect("C_cliente");
 	}
 
-	public function delete($cliente_id = '')
+	public function delete($cliente_id = 'NULL')
 	{
 		$this->M_cliente->apagarRegistro($cliente_id);
 		// echo  "<script>alert('Cliente deletado com Sucesso!!');</script>";
@@ -109,7 +109,7 @@ class C_Cliente extends CI_Controller
 		}
 		$data['options_contatos'] = $option;
 		$data['page_title'] = "Informações do Cliente";
-		$cliente_id = $this->uri->segment('3');
+		$cliente_id = $this->uri->segment(3);
 		$this->session->flashdata($cliente_id);
 		$this->template->show('cliente/V_cliente_show', $data);
 	}

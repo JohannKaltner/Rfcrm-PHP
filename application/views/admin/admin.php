@@ -177,7 +177,7 @@
                       <?php if ($log['log_tipo'] == '1') { ?>
                         <li class="list-group-item list-group-item-primary"><i>
                             [<?php echo $log['log_data']; ?>]
-                            <?php
+                            Logs               <?php
                                   if ($log['log_tipo'] == '1') {
                                     echo '(Criação)';
                                   } elseif ($log['log_tipo'] == '2') {

@@ -68,6 +68,7 @@ class C_Login extends CI_Controller {
   public function criarUsuario(){
     $this->M_login->criarUsuario();
     redirect('C_login');
+    echo "<script type='javascript'>alert('Agora é só esperar sua contar ser Confirmada :D!'); </script>";
 }
   public function criarUsuarioAdmin(){
     $this->M_login->criarUsuario();

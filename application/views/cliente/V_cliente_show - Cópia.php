@@ -408,7 +408,7 @@
 					<h3 class="text-center title-2">Editar Cliente</h3>
 				</div>
 				<hr>
-				<form method='post' action="<?php echo base_url('C_Cliente/update/'); ?>" class="form-horizontal">
+				<form method='post' action="<?php echo base_url('C_cliente/update/'); ?>" class="form-horizontal">
 					<div class="form-group">
 						<label for="cpf/cnpj" class=" form-control-label">Codigo do Cliente</label>
 						<input type="text" id="cod_cliente" value="<?php echo $linha['cod_cliente']; ?>" name="cod_cliente" placeholder="Insira o Codigo do Cliente" class="form-control">
@@ -420,8 +420,12 @@
 						<input type="text" id="company" value="<?php echo $linha['cliente_nome'] ; ?>" name="cliente_nome" placeholder="Insira o nome do Cliente" class="form-control">
 					</div>
 					<div class="form-group">
-						<label for="cpf/cnpj" class=" form-control-label">CNPJ/CPF</label>
-						<input type="text" id="cliente_cnpj_cpf" value="<?php echo $linha->cliente_cnpj_cpf; ?>" name="cliente_cnpj_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control">
+						<label for="cpf/cnpj" class=" form-control-label">CNPJ</label>
+						<input type="text" id="#cliente_cpf" value="<?php echo $linha->cliente_cpf; ?>" name="cliente_cnpj_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="cpf/cnpj" class=" form-control-label">CPF</label>
+						<input type="text" id="#cliente_cnpj" value="<?php echo $linha->cliente_cnpj; ?>" name="cliente_cnpj_cpf" placeholder="Insira o CNPJ do Cliente" class="form-control">
 					</div>
 					<div class="form-group">
 						<label for="endereco" class=" form-control-label">Endereço
@@ -563,6 +567,8 @@
 	$("#cliente_telefone").mask("(00) 00000-0000");
 	$("#cliente_cep").mask("00000-000");
 	$("#cliente_cnpj_cpf").mask("000.000.000-00");
+	$("#cliente_cpf").mask("000.000.000-00");
+
 	$("#cliente_inscricao_estadual").mask("000.000.000.000");
 	$("#contato_secundario_telefone").mask("(00) 00000-0000");			
 </script>
