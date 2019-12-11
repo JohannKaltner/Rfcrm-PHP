@@ -28,9 +28,9 @@
  							<div class="table-data__tool-left">
 
  							</div>
- 							<form class="au-form-icon--sm" action=" " method="post">
- 								<input class="au-input--w300 au-input--style2" type="text" placeholder="procure por Nome ou Codigo...">
- 								<button class="au-btn--submit2" data-toggle="modal" data-target="#searchModal">
+ 							<form class="au-form-icon--sm" action="<?php echo site_url('C_cliente/busca');?>" method="post">
+ 								<input class="au-input--w300 au-input--style2" name="keyword" type="text" placeholder="procure por Nome ou Codigo...">
+ 								<button class="au-btn--submit2"  >
  									<i class="zmdi zmdi-search"></i>
  								</button>
  							</form>
@@ -177,15 +177,15 @@
  						<div class="form-group">
  							<label for="nome" class=" form-control-label">Codigo do Cliente <small>(APENAS CRM
  									ANTIGO)</small></label>
- 							<input type="text" id="company" name="cod_cliente" placeholder="Insira o Codigo do Cliente " class="form-control">
+ 							<input type="text" id="cod_cliente" name="cod_cliente" placeholder="Insira o Codigo do Cliente " class="form-control">
  						</div>
  						<div class="form-group" style="display:none">
- 							<label for="nome" class=" form-control-label">ID do Usuario</label>
- 							<input type="text" id="company" value="<?php echo $this->session->userdata('usuario_id'); ?>" name="cliente_id_usuario" placeholder="Insira o nome do Cliente" class="form-control" onblur="evento(this);">
+ 							<label for="nome" class=" form-control-label">ID do Usuario </label>
+ 							<input type="text" id="cliente_id_usuario" value="<?php echo $this->session->userdata('usuario_id'); ?>" name="cliente_id_usuario" placeholder="Insira o nome do Cliente" class="form-control" onblur="evento(this);">
  						</div>
  						<div class="form-group">
  							<label for="nome" class=" form-control-label">Nome do Cliente</label>
- 							<input type="text" id="company" name="cliente_nome" placeholder="Insira o nome do Cliente" class="form-control" onblur="evento(this);">
+ 							<input type="text" id="cliente_nome" name="cliente_nome" placeholder="Insira o nome do Cliente" class="form-control" onblur="evento(this);">
  						</div>
 
  						<div class="form-group">
