@@ -28,9 +28,9 @@
  							<div class="table-data__tool-left">
 
  							</div>
- 							<form class="au-form-icon--sm" action=" " method="post">
- 								<input class="au-input--w300 au-input--style2" type="text" placeholder="procure por Nome ou Codigo...">
- 								<button class="au-btn--submit2" data-toggle="modal" data-target="#searchModal">
+ 							<form class="au-form-icon--sm" action="<?php echo site_url('C_cliente/busca');?>" method="post">
+ 								<input class="au-input--w300 au-input--style2" name="keyword" type="text" placeholder="procure por Nome ou Codigo...">
+ 								<button class="au-btn--submit2"  >
  									<i class="zmdi zmdi-search"></i>
  								</button>
  							</form>

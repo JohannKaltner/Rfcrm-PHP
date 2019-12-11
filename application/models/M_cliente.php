@@ -138,15 +138,23 @@ class M_cliente extends CI_Model
         return $query->result();
     }
 
-    public function listarBusca($match = null)
+                // busca 
+
+    public function listarBusca($keyword = null)
     {
-        $match = $this->input->post('busca');
-        $this->db->select('*');
-        $this->db->from('cliente');
-        $this->db->like('cliente_nome', $match);
-        $this->db->or_like('cod_cliente', $match);
-        $this->db->or_like('cliente_email', $match);
-        $this->db->or_like('cliente_endereco', $match);
+        $keyword = $this->input->post('keyword');
+        $this->db->select(array('c.cliente_id', 'c.cod_cliente', 'c.cliente_nome', 'c.cliente_cnpj', 'c.cliente_cpf', 'c.cliente_telefone', 'c.cliente_cidade', 'c.cliente_endereco', 'c.cliente_bairro', 'c.cliente_cep'));
+        $this->db->from('cliente as c');
+        $this->db->limit($this->_pageNumber, $this->_offset);
+        $this->db->like('cliente_nome', $keyword);
+        $this->db->or_like('c.cod_cliente', $keyword);
+        $this->db->or_like('c.cliente_id', $keyword);
+        $this->db->or_like('c.cliente_email', $keyword);
+        $this->db->or_like('c.cliente_endereco', $keyword);
+        $this->db->or_like('c.cliente_hora_registro', $keyword);
+        $this->db->or_like('c.cliente_telefone', $keyword);
+        $this->db->or_like('c.cliente_cpf', $keyword);
+        $this->db->or_like('c.cliente_cnpj', $keyword);
         $query = $this->db->get();
         if ($query->num_rows() < 1) {
             return false;
