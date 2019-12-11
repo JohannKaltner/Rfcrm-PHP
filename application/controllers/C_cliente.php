@@ -78,7 +78,7 @@ class C_Cliente extends CI_Controller
         $this->template->show('cliente/V_cliente_edit', $data);
     }
 
-    public function update($cliente_id = '')
+    public function update($cliente_id = NULL)
     {
         $this->M_cliente->atualizarRegistro($cliente_id);
         redirect("C_cliente");

@@ -278,22 +278,22 @@ class M_cliente extends CI_Model
 		date_default_timezone_set('America/Sao_Paulo');
 
         $data = array(
-            'cod_cliente' => $this->input->post('cod_cliente'),
-            'cliente_id_usuario' => $this->input->post('cliente_id_usuario'),
-            'cliente_nome' => $this->input->post('cliente_nome'),
-            'cliente_endereco' => $this->input->post('cliente_endereco'),
-            'cliente_bairro' => $this->input->post('cliente_bairro'),
-            'cliente_cidade' => $this->input->post('cliente_cidade'),
-            'cliente_estado' => $this->input->post('cliente_estado'),
-            'cliente_pais' => $this->input->post('cliente_pais'),
-            'cliente_cep' => $this->input->post('cliente_cep'),
-            'cliente_cnpj' => $this->input->post('cliente_cnpj'),
-            'cliente_cpf' => $this->input->post('cliente_cpf'),
+            'cod_cliente'                => $this->input->post('cod_cliente'),
+            'cliente_nome'               => $this->input->post('cliente_nome'),
+            'cliente_id_usuario'         => $this->input->post('cliente_id_usuario'),
+            'cliente_endereco'           => $this->input->post('cliente_endereco'),
+            'cliente_bairro'             => $this->input->post('cliente_bairro'),
+            'cliente_cidade'             => $this->input->post('cliente_cidade'),
+            'cliente_estado'             => $this->input->post('cliente_estado'),
+            'cliente_pais'               => $this->input->post('cliente_pais'),
+            'cliente_cep'                => $this->input->post('cliente_cep'),
+            'cliente_cnpj'               => $this->input->post('cliente_cnpj'),
+            'cliente_cpf'                => $this->input->post('cliente_cpf'),
             'cliente_inscricao_estadual' => $this->input->post('cliente_inscricao_estadual'),
-            'cliente_categoria' => $this->input->post('cliente_categoria'),
-            'cliente_telefone' => $this->input->post('cliente_telefone'),
-			'cliente_email' => $this->input->post('cliente_email'),
-			'cliente_ultima_alteracao' => date('d-m-Y - H:d'),	
+            'cliente_categoria'          => $this->input->post('cliente_categoria'),
+            'cliente_telefone'           => $this->input->post('cliente_telefone'),
+			'cliente_email'              => $this->input->post('cliente_email'),
+			'cliente_ultima_alteracao'   => date('d-m-Y - H:d'),	
         );
         $data2 = array(
 			'log_atividade' => 'Atualizou um Cliente',
@@ -303,7 +303,7 @@ class M_cliente extends CI_Model
         );
         $this->db->insert('log', $data2);
 
-        $this->db->where('cliente_id', $cliente_id);
+        $this->db->where('cliente_id', $this->uri->segment(3));
         $this->db->update('cliente', $data);
 
     }
@@ -313,12 +313,12 @@ class M_cliente extends CI_Model
 		date_default_timezone_set('America/Sao_Paulo');
 
         $data = array(
-            'cliente_contato_id' => $this->input->post('cliente_contato_id'),
-            'contato_secundario_nome' => $this->input->post('contato_secundario_nome'),
-            'contato_secundario_email' => $this->input->post('contato_secundario_email'),
+            'cliente_contato_id'          => $this->input->post('cliente_contato_id'),
+            'contato_secundario_nome'     => $this->input->post('contato_secundario_nome'),
+            'contato_secundario_email'    => $this->input->post('contato_secundario_email'),
             'contato_secundario_telefone' => $this->input->post('contato_secundario_telefone'),
-			'contato_secundario_funcao' => $this->input->post('contato_secundario_funcao'),
-			'cliente_ultima_alteracao' => date('d/m/Y - H:d'),
+			'contato_secundario_funcao'   => $this->input->post('contato_secundario_funcao'),
+			'cliente_ultima_alteracao'    => date('d/m/Y - H:d'),
 
         );
 
