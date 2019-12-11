@@ -55,7 +55,7 @@
 		<header class="header-desktop3 d-none d-lg-block">
 			<div class="section__content section__content--p35">
 				<div class="header3-wrap">
-					<div class="header__logo" style="margin-left:110px; box-shadow: 1px 2px 6px 0px #007bff;" >
+					<div class="header__logo" style="margin-left:110px;" >
 						<!-- <h1 style="color:#2C0CB8"> RF&A </h1>   -->
 						<!-- <a href="<?php echo base_url(); ?>home">
 							</a> -->
