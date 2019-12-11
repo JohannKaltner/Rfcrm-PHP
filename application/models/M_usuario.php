@@ -71,9 +71,7 @@ date_default_timezone_set('America/Sao_Paulo');
         'usuario_instagram' => $this->input->post('usuario_instagram'),
         'usuario_hora_registro' => date('d/m/Y - H:d'),
         'cliente_ultima_alteracao' => date('d/m/Y - H:d'),
-
     );
-
     $data2 = array(
         'log_atividade' => "Atualizou o Usuario de ID: $usuario_id",
         'log_tipo' => '2',

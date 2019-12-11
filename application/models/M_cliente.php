@@ -285,10 +285,8 @@ class M_cliente extends CI_Model
             'cliente_categoria' => $this->input->post('cliente_categoria'),
             'cliente_telefone' => $this->input->post('cliente_telefone'),
 			'cliente_email' => $this->input->post('cliente_email'),
-			'cliente_ultima_alteracao' => date('d-m-Y - H:d'),
-			
+			'cliente_ultima_alteracao' => date('d-m-Y - H:d'),	
         );
-
         $data2 = array(
 			'log_atividade' => 'Atualizou um Cliente',
             'log_tipo' => '2',

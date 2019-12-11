@@ -44,7 +44,7 @@
 
 								 <?php if ($this->session->userdata('usuario_nivel') == '1') { ?>
 
- 							<a href="<?php echo base_url('C_export/csv'); ?>" type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Recarregue a pagina após o download do arquivo.">
+ 							<a href="<?php echo base_url('C_export/csv'); ?>"  target="_blank" type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Recarregue a pagina após o download do arquivo.">
 								 <i class="fa fa-file-excel-o"></i>&nbsp; Exportar como CSV</a>
 								 <?php } ?>
  						</div>

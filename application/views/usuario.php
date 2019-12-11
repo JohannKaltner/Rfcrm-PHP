@@ -20,7 +20,7 @@
 							<!-- PARA DEBUG -->
 							<div class="card-body" style=" margin: 0 auto;text-align:center;width: 80%;">
 								<div class="mx-auto d-block">
-									<img class="rounded-circle mx-auto d-block" 
+									<img class="rounded-circle mx-auto d-block"
 										src="<?php echo base_url();?>public/images/perfil/<?php echo $linha['0']->usuario_nome; ?>.jpg"
 										alt="SEM FOTO DE PERFIL">
 
@@ -29,9 +29,9 @@
 										<div class="col-md-4" style="margin: 0 auto; width: 50%; ">
 											<div class="form-group justify-content-center">
 												<label for="cliente_id" class=" form-control-label">NOME</label>
-												<input disabled type="text" id="cliente_id"
-													value="<?php echo $linha['0']->usuario_nome; ?>" name="cliente_id"
-													placeholder="Id" class="form-control">
+												<input disabled type="text" id="usuario_nome"
+													value="<?php echo $linha[0]->usuario_nome; ?>" name="usuario_nome"
+													class="form-control">
 											</div>
 										</div>
 										<div class="col-md-4" style="margin: 0 auto; width: 50%; ">
@@ -39,21 +39,22 @@
 												<label for="cliente_id" class=" form-control-label">Codigo do
 													Cliente</label>
 												<input disabled type="text" id="cliente_id"
-													value="<?php echo $linha['0']->usuario_id; ?>" name="cod_cliente"
+													value="<?php echo $linha[0]->usuario_id; ?>" name="cod_cliente"
 													placeholder="cod_cliente" class="form-control">
 
 												<hr>
-												<div style="   display:inline;">
-													<button type="button" data-toggle="modal" data-target="#editModal">	<i class="fa fa-edit"></i>
+												<!-- <div style="   display:inline;">
+													<button type="button" data-toggle="modal" data-target="#editModal">
+														<i class="fa fa-edit"></i>
 														Editar
 													</button>
-												 
-												</div>
+
+												</div> -->
 											</div>
 										</div>
 								</div>
 
-								<div class="card-text text-sm-center">
+								<!-- <div class="card-text text-sm-center">
 									<a href="#">
 										<i class="fab fa-facebook pr-2"></i>
 									</a>
@@ -66,10 +67,10 @@
 									<a href="#">
 										<i class="fab fa-instagram pr-2"></i>
 									</a>
-								</div>
+								</div> -->
 							</div>
 						</div>
-						<div style="margin: auto;width: 61%;background: #fff ">
+						<div style="margin: auto;width: 61%;background: #fff; padding-left:32px; ">
 							<ul class="list-group list-group-flush">
 								<li class="list-group-item">
 									<a href="#" style="padding-left:5px;">
@@ -137,88 +138,151 @@
 										</button>
 									</div>
 									<div class="modal-body">
-									<form method='post' action="<?php echo base_url('C_usuario/editarUsuario/'); ?>" class="form-horizontal">
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="hf-email" class=" form-control-label">Email</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="email" id="usuario_email" value="<?php echo $linha['usuario_email']; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
-                                                    <span class="help-block"> </span>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="hf-email" class=" form-control-label">Nome</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="email" id="usuario_nome" value="<?php echo $linha['0']->usuario_nome; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
-                                                    <span class="help-block"> </span>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="hf-email" class=" form-control-label">Setor</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="email" id="usuario_setor" value="<?php echo $linha['0']->usuario_setor; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
-                                                    <span class="help-block"> </span>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="hf-email" class=" form-control-label">Nivel</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="email" id="usuario_nivel" value="<?php echo $linha['0']->usuario_nivel; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
-                                                    <span class="help-block"> </span>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="hf-email" class=" form-control-label">Email</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="email" id="usuario_email" value="<?php echo $linha['0']->usuario_email; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
-                                                    <span class="help-block"> </span>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="hf-email" class=" form-control-label">Twitter</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="email" id="usuario_email" value="<?php echo $linha['0']->usuario_email; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
-                                                    <span class="help-block"> </span>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="hf-email" class=" form-control-label">Instagram</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="email" id="usuario_email" value="<?php echo $linha['0']->usuario_email; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
-                                                    <span class="help-block"> </span>
-                                                </div>usuario_email
-                                                    <label for="hf-email" class=" form-control-label">Facebook</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="email" id="usuario_email" value="<?php echo $linha['0']->usuario_email; ?>" name="hf-email" placeholder="Enter Email..." class="form-control">
-                                                    <span class="help-block"> </span>
-                                                </div>
-                                            </div>
-                                           
-                                        </form>
+										<form method='post' action="<?php echo base_url('C_usuario/editarUsuario/'); ?>"
+											class="form-horizontal">
+											<div class="row form-group">
+												<div class="col col-md-3">
+													<label for="usuario_email" class=" form-control-label">Email</label>
+												</div>
+												<div class="col-12 col-md-9">
+													<input type="email" id="usuario_email"
+														value="<?php echo $linha['0']->usuario_email; ?>"
+														name="usuario_email" placeholder="E-Mail do Usuario..."
+														class="form-control">
+													<span class="help-block"> </span>
+												</div>
+											</div>
+
+											<div class="row form-group">
+												<div class="col col-md-3">
+													<label for="usuario_nome" class=" form-control-label">Nome</label>
+												</div>
+												<div class="col-12 col-md-9">
+													<input type="text" id="usuario_nome"
+														value="<?php echo $linha[0]->usuario_nome; ?>"
+														name="usuario_nome" placeholder="Nome do Usuario"
+														class="form-control">
+													<span class="help-block"> </span>
+												</div>
+											</div>
+
+											<div class="row form-group">
+												<div class="col col-md-3">
+													<label for="usuario_setor" class=" form-control-label">Setor</label>
+												</div>
+												<div class="col-12 col-md-9">
+													<input type="text" id="usuario_setor"
+														value="<?php echo $linha[0]->usuario_setor; ?>"
+														name="usuario_setor" placeholder="Setor do Usuario..."
+														class="form-control">
+													<span class="help-block"> </span>
+												</div>
+											</div>
+
+											<div class="row form-group">
+												<div class="col col-md-3">
+													<label for="usuario_nivel" class=" form-control-label">Nivel</label>
+												</div>
+												<div class="col-12 col-md-9">
+													<input type="text" id="usuario_nivel"
+														value="<?php echo $linha[0]->usuario_nivel; ?>"
+														name="usuario_nivel" placeholder="Nivel de Usuario..."
+														class="form-control">
+													<span class="help-block"> </span>
+												</div>
+											</div>
+
+											<div class="row form-group">
+												<div class="col col-md-3">
+													<label for="usuario_email" class=" form-control-label">Email</label>
+												</div>
+												<div class="col-12 col-md-9">
+													<input type="email" id="usuario_email"
+														value="<?php echo $linha[0]->usuario_email; ?>"
+														name="usuario_email" placeholder="Email" class="form-control">
+													<span class="help-block"> </span>
+												</div>
+											</div>
+
+
+											<hr>
+											<!-- <div style="width: 100%;">
+												<h4 style="margin: 0 auto;width: 20%"> Social </h4>
+												<br>
+											</div>
+
+											<div class="row form-group">
+												<div class="col col-md-3">
+													<label for="usuario_twitter"
+														class=" form-control-label">Twitter</label>
+												</div>
+												<div class="col-12 col-md-9">
+													<input type="text" id="usuario_twitter"
+														value="<?php echo $linha[0]->usuario_twitter; ?>"
+														name="usuario_twitter"
+														placeholder="Insira a URL do seu Twitter..."
+														class="form-control">
+													<span class="help-block"> </span>
+												</div>
+											</div>
+
+											<div class="row form-group">
+												<div class="col col-md-3">
+													<label for="usuario_instagram"
+														class=" form-control-label">Instagram</label>
+												</div>
+												<div class="col-12 col-md-9">
+													<input type="text" id="usuario_instagram"
+														value="<?php echo $linha[0]->usuario_instagram; ?>"
+														name="usuario_instagram"
+														placeholder="Insira o Nome de seu usuario no Instagram..."
+														class="form-control">
+													<span class="help-block"> </span>
+												</div>
+											</div>
+
+											<div class="row form-group">
+												<div class="col col-md-3">
+													<label for="usuario_linkedin"
+														class=" form-control-label">LinkedIn</label>
+												</div>
+												<div class="col-12 col-md-9">
+													<input type="text" id="usuario_linkedin"
+														value="<?php echo $linha[0]->usuario_linkedin; ?>"
+														name="usuario_linkedin"
+														placeholder="Insira a URL do seu Facebook..."
+														class="form-control">
+													<span class="help-block"> </span>
+												</div>
+											</div>
+
+											<div class="row form-group">
+												<div class="col col-md-3">
+													<label for="hf-email" class=" form-control-label">Facebook</label>
+												</div>
+												<div class="col-12 col-md-9">
+													<input type="text" id="usuario_facebook"
+														value="<?php echo $linha[0]->usuario_facebook; ?>"
+														name="usuario_facebook"
+														placeholder="Insira a URL do seu Facebook..."
+														class="form-control">
+													<span class="help-block"> </span>
+												</div>
+											</div> -->
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-dismiss="modal">Fechar</button>
+												<button type="submit" value="save"
+													class="btn btn-primary">Salvar</button>
+											</div>
+										</form>
 									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary">Save changes</button>
-									</div>
+
 								</div>
 							</div>
 						</div>
-						<!-- <div>
+					</div>
+					<!-- <div>
                             <h3> Chamados</h3>
                             <div class="row">
                                              <?php if (!empty($correcoes)) {
@@ -276,9 +340,9 @@
                             <h3> Contatos</h3>
                             <hr>
                         </div>
-					</div>
+					</div>-->
 				</div>
 			</div>
-		</div> -->
-					</div>
+		</div>
+	</div>
 </section>

@@ -40,14 +40,25 @@ class M_Login extends CI_Model {
 		date_default_timezone_set('America/Sao_Paulo');
 		
     $data = array(
-      'usuario_nome'   => $this->input->post('usuario_nome'),
-      'usuario_email'  => $this->input->post('usuario_email'),
-      'usuario_senha'  => $this->input->post('usuario_senha'),
-      'usuario_setor'  => $this->input->post('usuario_setor'),
+      'usuario_nome' => $this->input->post('usuario_nome'),
+      'usuario_setor' => $this->input->post('usuario_setor'),
+      'usuario_email' => $this->input->post('usuario_email'),
+      'usuario_data_inicio'  => date('d/m/Y'),
       'usuario_nivel'  =>'2',
-      'usuario_data_inicio'  => $this->input->post('usuario_data_inicio'),
+      'usuario_facebook' => 'Nulo',
+      'usuario_linkedin' => 'Nulo',
+      'usuario_twitter' => 'Nulo',
+      'usuario_instagram' => 'Nulo',
+      'usuario_hora_registro' => date('H:d'),
 
     );
+    $data2 = array(
+      'log_atividade' => "Um Usuario fez cadastro, veja no painel de USUARIOS que contem nivel = '2' e ative-o",
+      'log_tipo' => '1',
+      'log_data' => date('d-m-Y - H-d'),
+      'log_usuario_nome' => $this->session->userdata('usuario_nome'),
+  );
+  $this->db->insert('log', $data2);
     $this->db->insert('usuario', $data);
   }
   public function criarUsuarioADM()
@@ -56,15 +67,19 @@ class M_Login extends CI_Model {
 		date_default_timezone_set('America/Sao_Paulo');
 		
     $data = array(
-      'usuario_nome'   => $this->input->post('usuario_nome'),
-      'usuario_email'  => $this->input->post('usuario_email'),
-      'usuario_senha'  => $this->input->post('usuario_senha'),
-      'usuario_setor'  => $this->input->post('usuario_setor'),
-      'usuario_nivel'  => $this->input->post('usuario_nivel'),
-      'usuario_data_inicio'  => $this->input->post('usuario_data_inicio'),
+      'usuario_nome' => $this->input->post('usuario_nome'),
+      'usuario_setor' => $this->input->post('usuario_setor'),
+      'usuario_email' => $this->input->post('usuario_email'),
+      'usuario_data_inicio' => date('d/m/Y - H:d'),
+      'usuario_nivel'  =>'2',
+      'usuario_facebook' => 'Nulo',
+      'usuario_linkedin' => 'Nulo',
+      'usuario_twitter' => 'Nulo',
+      'usuario_instagram' => 'Nulo',
+      'usuario_hora_registro' => date('d/m/Y - H:d'),
+
 
     );
-
     $data2 = array(
       'log_atividade' => 'Registrou um Usuario',
       'log_tipo' => '1',
@@ -75,27 +90,27 @@ class M_Login extends CI_Model {
     $this->db->insert('usuario', $data);
   }
 
-  public function editaUsuario($usuario_id)
-  {
-    $data = array(
-      'usuario_nome'   => $this->input->post('usuario_nome'),
-      'usuario_email'  => $this->input->post('usuario_email'),
-      'usuario_senha'  => $this->input->post('usuario_senha'),
-      'usuario_setor'  => $this->input->post('usuario_setor'),
-      'usuario_nivel'  => $this->input->post('usuario_nivel'),
-      'usuario_data_inicio'  => $this->input->post('usuario_data_inicio'),
-    );
-    $data2 = array(
-			'log_atividade' => 'Atualizou um Cliente',
-            'log_tipo' => '2',
-            'log_data' => date ('d-m-Y - H:d'),
-            'log_usuario_nome' => $this->session->userdata('usuario_nome'),
-    );
-    $this->db->insert('log', $data2);
+  // public function editaUsuario($usuario_id)
+  // {
+  //   $data = array(
+  //     'usuario_nome'   => $this->input->post('usuario_nome'),
+  //     'usuario_email'  => $this->input->post('usuario_email'),
+  //     'usuario_senha'  => $this->input->post('usuario_senha'),
+  //     'usuario_setor'  => $this->input->post('usuario_setor'),
+  //     'usuario_nivel'  => $this->input->post('usuario_nivel'),
+  //     'usuario_data_inicio'  => $this->input->post('usuario_data_inicio'),
+  //   );
+  //   $data2 = array(
+	// 		'log_atividade' => 'Atualizou um Cliente',
+  //           'log_tipo' => '2',
+  //           'log_data' => date ('d-m-Y - H:d'),
+  //           'log_usuario_nome' => $this->session->userdata('usuario_nome'),
+  //   );
+  //   $this->db->insert('log', $data2);
 
-    $this->db->where('usuario_id', $usuario_id);
-    $this->db->update('usuario', $data);
-    }
+  //   $this->db->where('usuario_id', $usuario_id);
+  //   $this->db->update('usuario', $data);
+  //   }
 
   //   public function verificaAdmin(){
   //   $this->db->select('usuario_nivel');

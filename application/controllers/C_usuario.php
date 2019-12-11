@@ -4,6 +4,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class C_Usuario extends CI_Controller {
 
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('M_cliente');
+		$this->load->model('M_usuario');
+		$this->load->model('M_login');
+
+		$this->load->helper('url_helper');
+		$this->load->library('session');
+		$this->load->library('pagination');
+	
+	}
+
 	public function index()
 	{
 		$this->load->library('upload');
@@ -16,6 +29,6 @@ class C_Usuario extends CI_Controller {
 
 	public function editarUsuario($usuario_id = NULL){
 		$this->M_usuario->atualizarUsuario($usuario_id);
-		redirect('c_admin/');
+		redirect('C_admin/');
 	}
 }
