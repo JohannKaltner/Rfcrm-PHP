@@ -279,7 +279,7 @@
  								<span class="time_date"> 11:01 AM | June 9</span>
  							</div>
  						</div>
-										 <?php }?>
+										 <?php }}?>
  					</div>
  					<div class="type_msg" style="align-items: center;display: flex;flex-direction: row;flex-wrap: wrap;justify-content: center;">
 						 <div class="col-md-6">
