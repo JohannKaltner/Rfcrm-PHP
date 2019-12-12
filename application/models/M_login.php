@@ -34,8 +34,7 @@ class M_Login extends CI_Model {
   }
 
   
-  public function criarUsuario()
-  {
+  public function criarUsuario() {
 
 		date_default_timezone_set('America/Sao_Paulo');
 		
@@ -56,7 +55,7 @@ class M_Login extends CI_Model {
       'log_atividade' => "Um Usuario fez cadastro, veja no painel de USUARIOS que contem nivel = '2' e ative-o",
       'log_tipo' => '1',
       'log_data' => date('d-m-Y - H-d'),
-      'log_usuario_nome' => $this->session->userdata('usuario_nome'),
+      // 'log_usuario_nome' => $this->session->userdata('usuario_nome'),
   );
   $this->db->insert('log', $data2);
     $this->db->insert('usuario', $data);
@@ -77,8 +76,6 @@ class M_Login extends CI_Model {
       'usuario_twitter' => 'Nulo',
       'usuario_instagram' => 'Nulo',
       'usuario_hora_registro' => date('d/m/Y - H:d'),
-
-
     );
     $data2 = array(
       'log_atividade' => 'Registrou um Usuario',

@@ -55,14 +55,20 @@
 		<header class="header-desktop3 d-none d-lg-block">
 			<div class="section__content section__content--p35">
 				<div class="header3-wrap">
-					<div class="header__logo" style="margin-left:110px;" >
+					<div class="header__logo" style="margin-left:110px;">
+
 						<!-- <h1 style="color:#2C0CB8"> RF&A </h1>   -->
 						<!-- <a href="<?php echo base_url(); ?>home">
 							</a> -->
 						<img style="width:70px; " src="<?php echo base_url(); ?>public/images/logo_casa-1-.png"
 							alt="" />
 					</div>
+
+
 					<div class="header__navbar">
+
+
+
 						<ul class="list-unstyled" style="padding-top:5px; ">
 							<li class="has-sub">
 								<a href="<?php echo base_url(); ?>home">
@@ -76,10 +82,8 @@
 									<i class="fas fa-users"></i>
 									<span class="bot-line"></span>Clientes<span class="badge badge-primary"
 										style="margin: 0 0 0 3px;"><?php
-																																		$this->db->select('*');
-																																		$query = $this->db->get('cliente');
-																																		$num = $query->num_rows();
-																																		?>
+										 $this->db->select('*');$query = $this->db->get('cliente');
+										 $num = $query->num_rows();?>
 
 										<?php echo $num ?></span></a>
 							</li>
@@ -91,20 +95,37 @@
 							</li> -->
 
 							<li>
-								<a href="<?php echo base_url(); ?>C_chat">
+							<a href="<?php echo base_url(); ?>C_usuario/chat">
+							
 									<i class="fas fa-comments"></i>
 									<span class="bot-line"></span>Chat</a>
 							</li>
-							<!-- <li>
-								<a href="<?php echo base_url(); ?>C_email">
-									<i class="fas fa-envelope "></i>
-									<span class="bot-line"></span>Email</a>
-							</li> -->
+							
 
 						</ul>
 						</ul>
 					</div>
 					<div class="header__tool">
+						
+					 
+
+
+
+
+								<!-- <div class="mess__item">
+									<div class="image img-cir img-40">
+										<img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
+									</div>
+									<div class="content">
+										<h6>Diane Myers</h6>
+										<p>You are now connected on message</p>
+										<span class="time">Yesterday</span>
+									</div>
+								</div>
+								<div class="mess__footer">
+									<a href="#">View all messages</a>
+								</div> -->
+ 					
 
 						<div class="header-button-item js-item-menu">
 							<?php if(!empty($alert)){ ?>
@@ -124,7 +145,7 @@
 									$alert = $query->result();
 									?>
 
-									
+
 										<!-- <p><?php print_r($alert); ?> </p> -->
 										<?php if (!empty($alert[0])) { ?>
 										<div class="notifi__item">
@@ -289,7 +310,7 @@
 							<!-- <h1 style="color:#2C0CB8"> RF&A </h1> -->
 							<!-- <img src="<?php echo base_url(); ?>public/images/icon/logo_completa.png" alt="" /> -->
 							<img style="width:70px; " src="<?php echo base_url(); ?>public/images/logo_casa-1-.png"
-							alt="" />
+								alt="" />
 						</a>
 
 
