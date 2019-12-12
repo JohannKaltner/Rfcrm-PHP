@@ -38,7 +38,7 @@ class M_chat extends CI_Model
     $this->db->where('mensagem_remetente_id', $this->session->userdata('usuario_id'));
     $this->db->where('mensagem_destinatario_id', $this->uri->segment(3));
     $query = $this->db->get();
-    if ($query->num_rows() < 0) {
+    if ($query->num_rows() < 1) {
         return false;
     }
     return $query->result();

@@ -2,7 +2,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
 
- <section class="p-t-20">
+ <section class="p-t-">
  	<div class="page-content--bgf7">
  		<div class="container">
  			<div class="row">
@@ -23,7 +23,7 @@
  					</div>
  					<br>
  					<div>
- 						<h3 class="title-5 m-b-35">CLIENTES</h3>
+ 						<h3 class="title-5">CLIENTES</h3>
  						<div class="table-data__tool">
  							<div class="table-data__tool-left">
 

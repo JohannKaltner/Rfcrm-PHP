@@ -47,7 +47,7 @@ class C_Login extends CI_Controller {
         if($usuario_nivel === '1'){
             // $admin == TRUE;
             redirect('C_admin');
-        }elseif($usuario_nivel === '0'){
+        }elseif($usuario_nivel === '2'){
             redirect('home');
         }else {
           redirect('/404.php');

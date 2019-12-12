@@ -81,7 +81,7 @@
   <div>
     <div class="dialog">
      
-    <a type="button" href="http://192.168.0.66/RFCRM" class="btn btn-primary">Voltar.</a>  
+    <a type="button" href="http://localhost/rfcrm" class="btn btn-primary">Voltar.</a>  
     </div>
   </div> 
 </body>
