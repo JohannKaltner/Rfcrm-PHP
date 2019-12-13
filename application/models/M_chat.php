@@ -20,11 +20,15 @@ class M_chat extends CI_Model
     // 
 }
 
-   public function novaMensagem(){
-      
+   public function novaMensagem($usuario_id){
+    date_default_timezone_set('America/Sao_Paulo');
+
+    //$usuario_id =NULL ;
+    $usuario_id = 
     $data =array(
         'mensagem_remetente_id' => $this->session->userdata('usuario_id'),
-        'mensagem_destinatario_id' => $this->uri->segment(3),
+         'mensagem_destinatario_id' => $this->input->post('mensagem_destinatario_id'),
+        //  'mensagem_destinatario_id' => $usuario_id,
         'mensagem_conteudo' => $this->input->post('mensagem_conteudo'),
         'mensagem_data_envio' => date('H:d | d-m-Y')
     );
@@ -33,8 +37,8 @@ class M_chat extends CI_Model
   }
 
   public function exibirMensagens(){
-    $this->db->select('*');
-    $this->db->from('chat');
+    $this->db->select('c.mensagem_remetente_id,c.mensagem_destinatario_id ,c.mensagem_conteudo,c.mensagem_data_envio');
+    $this->db->from('chat as c');
     $this->db->where('mensagem_remetente_id', $this->session->userdata('usuario_id'));
     $this->db->where('mensagem_destinatario_id', $this->uri->segment(3));
     $query = $this->db->get();

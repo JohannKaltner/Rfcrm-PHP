@@ -254,43 +254,53 @@
  					<div class="msg_history">
  						<div style="  text-align: center;">
  							<p> Conversa com <?php echo $usuarioInfo[0]->usuario_nome;?>	<?php print_r($mensagem);?></p>
-<hr>
+							<hr>
 						</div>
 						<br>
-						<?php if (isset($clienteInfo) && !empty($clienteInfo)) { ?>
+										 
+						 		        <?php if (isset($mensagem) && !empty($mensagem)) { ?>  
+	 										<?php foreach($mensagem as $msg){ ?>  
+												<?php if($msg->mensagem_remetente_id == $usuarioInfo[0]->usuario_id ){ ?>
+												
+													 <div class="incoming_msg" href="<?php echo base_url(); ?>C_chat/chat/<?php echo $msg->mensagem_id; ?>">
+													 <div class="incoming_msg">
+														<div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png"
+																alt="sunil"> </div>
+														<div class="received_msg">
+															<div class="received_withd_msg">
+																<p><?php echo $msg->mensagem_conteudo;?></p>
+																<span class="time_date"> <?php echo $msg->mensagem_data_envio;?></span>
+															</div>
+														</div>
+													</div>
+												
+													
+												<?php } ?>
+													 <?php if($msg->mensagem_remetente_id == $this->session->userdata('usuario_id')){ ?>
+ 														<div class="outgoing_msg">
+ 															<div class="sent_msg">
+															 <p><?php echo $msg->mensagem_conteudo;?></p>
+																 <span class="time_date"> <?php echo $msg->mensagem_data_envio;?></span>
+ 															</div>
+ 														</div>
+													 <?php } ?>
+												
+										<?php } } ?>
 
-	 									<?php foreach($mensagem as $msg){ ?>
-						 <div class="incoming_msg">
- 							<div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png"
- 									alt="sunil"> </div>
- 							<div class="received_msg">
- 								<div class="received_withd_msg">
- 									<p>Test which is a new approach to have all
- 										solutions</p>
- 									<span class="time_date"> 11:01 AM | June 9</span>
- 								</div>
- 							</div>
- 						</div>
-
- 						<div class="outgoing_msg">
- 							<div class="sent_msg">
- 								<p>Test which is a new approach to have all
- 									solutions</p>
- 								<span class="time_date"> 11:01 AM | June 9</span>
- 							</div>
- 						</div>
-										 <?php }}?>
- 					</div>
+					 </div>
+ 					<form method='post' action=<?php echo base_url("C_chat/novaMensagem"); ?>>
  					<div class="type_msg" style="align-items: center;display: flex;flex-direction: row;flex-wrap: wrap;justify-content: center;">
 						 <div class="col-md-6">
  						<div class="input_msg_write" style="border:1px solid lightgrey;border-radius:9px; margin:5px 5px 5px 0;">
  							<input type="text" id="mensagem_conteudo" name="mensagem_conteudo" class="write_msg" placeholder="Digite uma Mensagem" style=" padding-left:10px" />
+ 							<input style="display:none;" type="text" id="mensagem_destinatario_id" name="mensagem_destinatario_id" value=<?php echo $usuarioInfo[0]->usuario_id;?> class="write_msg" placeholder="Digite uma Mensagem" style=" padding-left:10px" />
 							<div style=" padding-left:10px"> 
 							 <button class="msg_send_btn" type="submit" value="save"><i  class="fas fa-paper-plane"aria-hidden="true"></i></button>
 							 </div> 
 						 </div>
 						 </div>
- 					</div>
+					 </div>
+					 </form>
  				</div>
  			</div>
  		</div>

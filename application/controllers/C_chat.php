@@ -29,7 +29,7 @@ class C_Chat extends CI_Controller
 
     public function index()
     {
-		$data['usuarioInfo'] = $this->M_admin->listarRegistros();
+	//	$data['usuarioInfo'] = $this->M_admin->listarRegistros();
 
         //$this->load->view('chat');
     }
@@ -38,14 +38,15 @@ class C_Chat extends CI_Controller
     {
 		$data['usuarioInfo'] = $this->M_admin->listarRegistro();
 		$data['mensagem']=$this->M_chat->exibirMensagens();
-		$data['page_title'] = "RFCRM - Chat";
+ 		$data['page_title'] = "RFCRM - Inbox";
  		$this->template->show('chat', $data);
         
 	 }
-	 
-	 public function novaMensagem(){
-		 $this->M_chat->novaMensagem();
-		 redirect('C_chat');
+
+	 public function novaMensagem($usuario_id = NULL ){
+		 echo $usuario_id;
+		 $this->M_chat->novaMensagem($usuario_id);
+		 redirect('C_chat/chat/'.$usuario_id);
 	 }
 
 }

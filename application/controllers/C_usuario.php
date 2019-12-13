@@ -58,6 +58,8 @@ class C_Usuario extends CI_Controller {
 			$this->pagination->initialize($config);
 			$data['page_links'] = $this->pagination->create_links();
 			$data['usuarioInfo'] = $this->M_usuario->listarRegistros();
+			$data['page_title'] = "RFCRM - Chat";
+
 		$this->template->show('usuario/usuarios', $data);
 		}
 	}
