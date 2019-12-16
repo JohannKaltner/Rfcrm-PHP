@@ -63,13 +63,7 @@
                                                     <a href="<?php echo site_url('C_chat/chat'); ?>/<?php echo $element['usuario_id']; ?>">
                                                         <button class="item visualizar">
 														<i class="fas fa-comments"></i></button> </a>
-                                                    <a onclick="return confirm('Tem certeza que deseja deletar este registro?')"
-                                                        href="<?php echo site_url('C_admin/deletaUsuario'); ?>/<?php echo $element['usuario_id']; ?>">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top"
-                                                            title="Deletar Usuario">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                    </a>
+                                                     
  			      		                        </div>          
  				       	                    </td>
  					                    </tr>

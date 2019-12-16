@@ -63,7 +63,10 @@
 
 
  			<!-- inicio table -->
- 			<div id="pagination_link" class="table-responsive table-responsive-data2">
+ 			<div id="pagination_link" class="table-responsive table-responsive-data2"  style="border:1px solid lightgrey;-webkit-box-shadow: 4px 4px 26px -4px rgba(0,0,0,0.63);
+	-moz-box-shadow: 4px 4px 26px -4px rgba(0,0,0,0.63);
+	box-shadow: 4px 4px 26px -4px rgba(0,0,0,0.63);
+">
 
  				<div id="cliente_table">
  					<table class="table table-data2">
@@ -141,12 +144,12 @@
  					</table>
  				</div>
  			</div>
-
  			<div class="row">
  				<div class="col-lg-12 text-right">
  					<?php if (isset($clienteInfo) && is_array($clienteInfo)) echo $page_links; ?>
  				</div>
  			</div>
+
  			<!-- FIM TABLE  -->
 
  		</div>

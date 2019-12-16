@@ -119,13 +119,14 @@ class C_Admin extends CI_Controller
 
 	public function exibir($cliente_id = NULL, $usuario_id = NULL)
 	{
-		$data['linha'] =  $this->M_admin->listarRegistro($usuario_id);
-		// $data['chamados'] =  $this->M_cliente->listarChamadosCliente($cliente_id);
-		 $data['contatos'] =  $this->M_cliente->listarContatosCliente($cliente_id);
-		 $data['correcoes'] =  $this->M_cliente->listarCorrecaoCliente($cliente_id);
-		 $data['permissao'] =  $this->M_usuario->consultar_permissao($usuario_id);
-		$data['chamados']	 = $this->M_cliente->listarChamadosCliente($cliente_id);
-		$data['page_title'] = "Informações do Cliente";
+		$data['linha'] =  $this->M_admin->listarRegistro($usuario_id, $usuario_id);
+		$data['clientes'] =  $this->M_cliente->listarRegistrosPorUsuario($usuario_id, $usuario_id);
+		$data['chamados'] =  $this->M_cliente->listarChamadosClientePorUsuario($cliente_id);
+		$data['contatos'] =  $this->M_cliente->listarContatosClientePorUsuario($cliente_id, $usuario_id);
+	    $data['correcoes'] =  $this->M_cliente->listarCorrecaoClientePorUsuario($cliente_id, $usuario_id);
+		$data['permissao'] =  $this->M_usuario->consultar_permissao($usuario_id);
+		$data['chamados']	 = $this->M_cliente->listarChamadosClientePorUsuario($cliente_id, $usuario_id);
+		$data['page_title'] = "Informações do Usuario";
 		$this->template->show('usuario/usuario', $data);
 	}
 
@@ -134,15 +135,14 @@ class C_Admin extends CI_Controller
 	{
 		$this->M_admin->apagarUsuario($usuario_id);
 		// echo  "<script>alert('Cliente deletado com Sucesso!!');</script>";
-		redirect("C_admin");
-	}
+		echo "<script> window.history.go(-1);</script>";	}
 
 
 	public function novaAlerta()
 	{
 		$this->M_admin->criarAlerta();
-		redirect('C_admin');
-	}
+		echo "<script> window.history.go(-1);</script>";
+		}
 
 	public function exibirAlertas()
 	{
@@ -152,25 +152,25 @@ class C_Admin extends CI_Controller
 	public function resetarContatos()
 	{
 		$this->M_admin->truncarContatos();
-		redirect('C_admin');
+		echo "<script> window.history.go(-1);</script>";
 	}
 
 	public function resetarClientes()
 	{
 		$this->M_admin->truncarCliente();
-		redirect('C_admin');
+		echo "<script> window.history.go(-1);</script>";
 	}
 
 	public function resetarCorrecoes()
 	{
 		$this->M_admin->truncarCorrecao();
-		redirect('C_admin');
+		echo "<script> window.history.go(-1);</script>";
 	}
 
 	public function resetarChamados()
 	{
 		$this->M_admin->truncarChamado();
-		redirect('C_admin');
+		echo "<script> window.history.go(-1);</script>";
 	}
 
 	public function backup_database()
@@ -201,7 +201,7 @@ class C_Admin extends CI_Controller
 	// public function list_by_id($usuario_id = NULL){
 	// 	$data['linha']= $this->M_admin->exibirChamados($usuario_id);
 
-	// 	redirect('C_admin');
+	// 	echo "<script> window.history.go(-1);</script>";
 
 	// }
 

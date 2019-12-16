@@ -1,6 +1,6 @@
  <style>
  	.container {
- 		max-width: 1170px;
+ 		max-width: 1300px;
  		margin: auto;
  	}
 
@@ -232,7 +232,17 @@
  								<li class="list-inline-item seprate">
  									<span>/</span>
  								</li>
- 								<li class="list-inline-item">Chat
+								 <li class="list-inline-item active">
+ 									<a href="<?php echo base_url(); ?>C_usuario/chat">Usuarios</a>
+ 								</li>
+ 								<!-- <li class="list-inline-item" >
+								 <a href="<?php echo site_url('C_chat/chat');?>">Usuarios</a>
+
+ 								</li> -->
+								 <li class="list-inline-item seprate">
+ 									<span>/</span>
+ 								</li>
+ 								<li class="list-inline-item" >Chat
 
  								</li>
  							</ul>
@@ -253,16 +263,17 @@
  				<div style="margin:10px 10px 10px 10px;">
  					<div class="msg_history">
  						<div style="  text-align: center;">
- 							<p> Conversa com <?php echo $usuarioInfo[0]->usuario_nome;?>	<?php print_r($mensagem);?></p>
+ 							<p> Conversa com <?php echo $usuarioInfo[0]->usuario_nome;?>	<?//php print_r($usuarioInfo);?></p>
 							<hr>
 						</div>
 						<br>
 										 
 						 		        <?php if (isset($mensagem) && !empty($mensagem)) { ?>  
-	 										<?php foreach($mensagem as $msg){ ?>  
-												<?php if($msg->mensagem_remetente_id == $usuarioInfo[0]->usuario_id ){ ?>
+											 <?php foreach($mensagem as $msg){ ?>  
 												
-													 <div class="incoming_msg" href="<?php echo base_url(); ?>C_chat/chat/<?php echo $msg->mensagem_id; ?>">
+												<?php if($msg->mensagem_destinatario_id == $usuarioInfo[0]->usuario_id ){ ?>
+												
+													 <!-- <div class="incoming_msg" href="<?php echo base_url(); ?>C_chat/chat/<?php echo $msg->mensagem_id; ?>"> -->
 													 <div class="incoming_msg">
 														<div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png"
 																alt="sunil"> </div>
@@ -276,16 +287,19 @@
 												
 													
 												<?php } ?>
-													 <?php if($msg->mensagem_remetente_id == $this->session->userdata('usuario_id')){ ?>
+												
+												
+												<?php if($msg->mensagem_remetente_id == $this->session->userdata('usuario_id')){ ?>
  														<div class="outgoing_msg">
  															<div class="sent_msg">
 															 <p><?php echo $msg->mensagem_conteudo;?></p>
 																 <span class="time_date"> <?php echo $msg->mensagem_data_envio;?></span>
  															</div>
  														</div>
-													 <?php } ?>
+													 <?php }?>
 												
-										<?php } } ?>
+										<?php } ?>
+									<?php }else{ echo "<p>O Chat está Vazio.</p>";}  ?>
 
 					 </div>
  					<form method='post' action=<?php echo base_url("C_chat/novaMensagem"); ?>>

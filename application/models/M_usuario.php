@@ -26,6 +26,14 @@ class M_usuario extends CI_Model
       return $this->db->count_all_results();
   }
 
+  public function getAllUserCountSearch($keyword)
+  {
+      $this->db->from('usuario');
+      $this->db->where('usuario_nome', $keyword);
+      $this->db->where('usuario_setor', $keyword);
+      return $this->db->count_all_results();
+  }
+
   public function setLimit($limit)
   {
       $this->_limit = $limit;
@@ -139,10 +147,11 @@ public function atualizarUsuario($usuario_id)
 public function listarBusca($keyword = null)
 {
     $keyword = $this->input->post('keyword');
-    $this->db->select(array('u.usuario_nome'));
+    $this->db->select('u.usuario_nome,u.usuario_setor,u.usuario_id');
     $this->db->from('usuario as u');
     $this->db->limit($this->_pageNumber, $this->_offset);
     $this->db->like('usuario_nome', $keyword);
+    $this->db->or_like('usuario_setor', $keyword);
     $query = $this->db->get();
     if ($query->num_rows() < 1) {
         return false;

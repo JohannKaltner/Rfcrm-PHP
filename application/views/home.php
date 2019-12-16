@@ -18,7 +18,7 @@
 								<li class="list-inline-item">Dashboard</li>
 							</ul>
 						</div>
-						<form class="au-form-icon--sm" action="" method="post">
+						<form class="au-form-icon--sm" action="<?php echo site_url('C_cliente/busca');?>" method="post">
 							<input class="au-input--w300 au-input--style2" type="text" placeholder="procure por Clientes &amp; Chamados...">
 							<button class="au-btn--submit2" type="submit">
 								<i class="zmdi zmdi-search"></i>

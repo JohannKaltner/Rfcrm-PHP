@@ -18,7 +18,7 @@ class C_Chamado extends CI_Controller {
 
         public function criarChamado(){
             $this->M_chamado->novoChamado();
-            redirect("C_cliente");
+            echo "<script> window.history.go(-1);</script>";
         }
     
 

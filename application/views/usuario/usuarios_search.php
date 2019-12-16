@@ -39,7 +39,8 @@
  						</div>
  					</div>
  				</div>
- 			</div>
+			 </div>
+			 <?php print_r($usuarioInfo);?>
   			<!-- inicio table -->
  			<div class="col-md-12" style="margin: 0 auto;width: 50%">
  				<div id="pagination_link" class="table-responsive table-responsive-data3" style="border: 1px solid lightgrey; border-radius:8px;">
@@ -55,23 +56,16 @@
  							</thead>
  							<tbody>
  		    					<?php if (isset($usuarioInfo) && !empty($usuarioInfo)) { ?>
- 		    					    	<?php foreach ($usuarioInfo as $key => $element) { ?>
+ 		    					    	<?php foreach ($usuarioInfo as $user) { ?>
  		    						    <tr>
-                                            <td style="color:black"><?php echo $element['usuario_nome']; ?></td>
-                                            <td style="color:black"><?php echo $element['usuario_setor']; ?></td>
-                                            <td> 
+                                            <td style="color:black"><?php echo $usuarioInfo[0]->usuario_nome; ?></td>
+                                            <td style="color:black"><?php echo $usuarioInfo[0]->usuario_setor; ?></td>
+											<td> 
                                                 <div class=" table-data-feature">
-                                                    <a href="<?php echo site_url('C_admin/exibir'); ?>/<?php echo $element['usuario_id']; ?>">
+                                                    <a href="<?php echo site_url('C_chat/chat'); ?>/<?php echo $usuarioInfo[0]->usuario_id; ?>">
                                                         <button class="item visualizar">
-                                                            <i class="zmdi zmdi-view-list-alt"></i>
-                                                        </button> </a>
-                                                    <a onclick="return confirm('Tem certeza que deseja deletar este registro?')"
-                                                        href="<?php echo site_url('C_admin/deletaUsuario'); ?>/<?php echo $element['usuario_id']; ?>">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top"
-                                                            title="Deletar Usuario">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                    </a>
+														<i class="fas fa-comments"></i></button> </a>
+                                                     
  			      		                        </div>          
  				       	                    </td>
  					                    </tr>

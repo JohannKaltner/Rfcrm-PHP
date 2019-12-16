@@ -69,7 +69,7 @@ class C_Cliente extends CI_Controller
     public function criar()
     {
         $this->M_cliente->criarDados();
-        redirect("C_cliente");
+        echo "<script> window.history.go(-1);</script>";
     }
 
     public function editar($cliente_id = '')
@@ -81,24 +81,27 @@ class C_Cliente extends CI_Controller
     public function update($cliente_id = NULL)
     {
         $this->M_cliente->atualizarRegistro($cliente_id);
-        redirect("C_cliente");
+        echo "<script> window.history.go(-1);</script>";
     }
 
     public function delete($cliente_id = 'NULL')
     {
         $this->M_cliente->apagarRegistro($cliente_id);
         // echo  "<script>alert('Cliente deletado com Sucesso!!');</script>";
-        redirect("C_cliente");
+        echo "<script> window.history.go(-1);</script>";
     }
 
     public function exibir($cliente_id = null, $usuario_id = null)
     {
+        //$data['chamados'] = $this->M_cliente->listarChamadosCliente($cliente_id);
+        //$data['correcoes'] = $this->M_cliente->listarCorrecaoCliente($cliente_id);
+        //$data['contatos'] = $this->M_cliente->listarContatosCliente($cliente_id);
         $data['linha'] = $this->M_cliente->listarRegistro($cliente_id);
-        $data['chamados'] = $this->M_cliente->listarChamadosCliente($cliente_id);
-        $data['contatos'] = $this->M_cliente->listarContatosCliente($cliente_id);
-        $data['correcoes'] = $this->M_cliente->listarCorrecaoCliente($cliente_id);
+        $data['chamados'] = $this->M_cliente->listarChamadosClientePorId($cliente_id);
+        $data['contatos'] = $this->M_cliente->listarContatosClientePorId($cliente_id);
+        $data['correcoes'] = $this->M_cliente->listarCorrecaoClientePorId($cliente_id);
         $data['permissao'] = $this->M_usuario->consultar_permissao($usuario_id);
-
+        
         $contato_list = $this->M_cliente->retorna_contatos($cliente_id);
         $option = null;
         foreach ($contato_list->result() as $contato_list) {
@@ -115,7 +118,7 @@ class C_Cliente extends CI_Controller
     {
         $this->M_cliente->criarContato($cliente_id);
         // redirect("C_cliente/", $cliente_id);
-        redirect('C_cliente/');
+        echo "<script> window.history.go(-1);</script>";
         //redirect('C_Cliente/exibir/');
 
     }
@@ -123,20 +126,20 @@ class C_Cliente extends CI_Controller
     public function criarCorrecao($cliente_id = null)
     {
         $this->M_cliente->criarCorrecao();
-        redirect('C_cliente/');
+        echo "<script> window.history.go(-1);</script>";
     }
 
     public function deletaContato($contato_secundario_id = null, $cliente_id = null)
     {
         $this->M_cliente->apagarContatoCliente($contato_secundario_id);
         // echo  "<script>alert('Cliente deletado com Sucesso!!');</script>";
-        redirect('C_cliente');
+        echo "<script> window.history.go(-1);</script>";
     }
 
     public function editaContato($contato_secundario_id = null, $cliente_id = null)
     {
         $this->M_cliente->atualizarContatoCliente($contato_secundario_id);
-        redirect('C_cliente/');
+        echo "<script> window.history.go(-1);</script>";
     }
 
     public function busca()

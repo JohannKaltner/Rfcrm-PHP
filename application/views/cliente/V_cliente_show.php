@@ -809,7 +809,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
 									<i class="fa fa-address-card "></i>
 								</div>
 								<input value="<?php echo $this->session->userdata('usuario_id'); ?>" type="text"
-									id="correcao_usuario_id " name="correcao_usuario_id " placeholder="Id do Cliente"
+									id="correcao_usuario_id " name="correcao_usuario_id " placeholder="Id do Usuario"
 									class="form-control">
 							</div>
 							<small>Qual o ID do usuario que corrigiu? </small>

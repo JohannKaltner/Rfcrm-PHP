@@ -109,6 +109,12 @@
 										<!-- <button data-toggle="modal" id="usuarioView" data-codigo="<?php echo $usuarios['usuario_id']; ?>" data-target="#usuariosViewModal" class="item" data-toggle="tooltip" data-placement="top" title="Acessar Usuario">
                           <i class="zmdi zmdi-view-list-alt"></i>
                         </button> </a> -->
+                                                     <a href="<?php echo site_url('C_chat/chat'); ?>/<?php echo $element['usuario_id']; ?>">
+                                                        <button class="item visualizar">
+														<i class="fas fa-comments"></i></button> </a>
+                                                     
+ 			      		                     
+
 
 										<a
 											href="<?php echo site_url('C_admin/exibir'); ?>/<?php echo $element['usuario_id']; ?>">

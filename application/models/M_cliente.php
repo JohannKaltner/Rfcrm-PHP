@@ -57,18 +57,6 @@ class M_cliente extends CI_Model
         return $query->result_array();
     }
 
-    // ID     Codigo     Nome     CNPJ/CPF     TELEFONE     CIDADE     ENDEREÇO     BAIRRO     CEP     FUNÇÕES
-
-    //  function listarRegistros()
-    //  {
-    //      $query = $this->db->query('SELECT * FROM cliente ORDER BY cliente_id ASC');
-
-    //      if ($query->num_rows() < 1) {
-    //          return FALSE;
-    //      }
-    //      return $query->result();
-    //  }
-
     public function listarRegistro($cliente_id = null)
     {
         $this->db->select('*');
@@ -96,16 +84,19 @@ class M_cliente extends CI_Model
         }
         return $query->result();
     }
+    
+   
 
-    public function get_nome($cliente_id)
+    public function listarCorrecaoCliente($cliente_id)
     {
-        $this->db->select('cliente_nome');
-        $this->db->from('cliente');
-        $this->db->where('cliente_id = ' . $cliente_id);
+        $this->db->select('*');
+        $this->db->from('correcao');
+        $this->db->join('cliente', 'cliente_id = correcao_id_cliente');
+        $this->db->where('correcao.correcao_id_cliente =' . $cliente_id);
+        $this->db->order_by('correcao_id', 'DESC');
         $query = $this->db->get();
-
         if ($query->num_rows() < 1) {
-            return 'Cliente';
+            return false;
         }
         return $query->result();
     }
@@ -123,13 +114,62 @@ class M_cliente extends CI_Model
         }
         return $query->result();
     }
+    
 
-    public function listarCorrecaoCliente($cliente_id)
+    public function listarChamadosClientePorId($cliente_id)
+    {
+        $this->db->select('*');
+        $this->db->from('chamado');
+        $this->db->join('cliente', 'cliente.cliente_id = chamado.chamado_id_cliente');
+        $this->db->where('chamado.chamado_id_cliente =' . $cliente_id);
+        $this->db->where('chamado.chamado_id_usuario =' . $this->session->userdata('usuario_id'));
+        $this->db->order_by('chamado_id', 'DESC');
+        $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return false;
+        }
+        return $query->result();
+    }
+
+
+
+        
+    public function listarContatosClientePorId($cliente_id)
+    {
+        $this->db->select('*');
+        $this->db->from('contato_secundario');
+        $this->db->join('cliente', 'cliente.cliente_id = contato_secundario.cliente_contato_id');
+        $this->db->where('contato_secundario.cliente_contato_id =' . $cliente_id);
+        $this->db->where('contato_secundario.contato_id_usuario =' . $this->session->userdata('usuario_id'));
+        $this->db->order_by('contato_secundario_id', 'DESC');
+        $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return false;
+        }
+        return $query->result();
+    }
+
+    public function listarRegistrosPorId($query = '')
+    {
+        $this->db->select(array('c.cliente_id', 'c.cod_cliente', 'c.cliente_nome', 'c.cliente_cnpj', 'c.cliente_cpf', 'c.cliente_telefone', 'c.cliente_cidade', 'c.cliente_endereco', 'c.cliente_bairro', 'c.cliente_cep'));
+        $this->db->from('cliente as c');
+        $this->db->where('cliente.cliente_id_usuario =' . $this->session->userdata('usuario_id'));
+        $this->db->limit($this->_pageNumber, $this->_offset);
+        $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return false;
+        }
+        return $query->result_array();
+    }
+
+   
+    
+    public function listarCorrecaoClientePorId($cliente_id)
     {
         $this->db->select('*');
         $this->db->from('correcao');
         $this->db->join('cliente', 'cliente_id = correcao_id_cliente');
-        $this->db->where('correcao_id_cliente =' . $cliente_id);
+        $this->db->where('correcao.correcao_usuario_id =' . $this->session->userdata('usuario_id'));
         $this->db->order_by('correcao_id', 'DESC');
         $query = $this->db->get();
         if ($query->num_rows() < 1) {
@@ -138,23 +178,15 @@ class M_cliente extends CI_Model
         return $query->result();
     }
 
-                // busca 
 
-    public function listarBusca($keyword = null)
+
+    public function listarChamadosClientePorUsuario($cliente_id, $usuario_id = NULL)
     {
-        $keyword = $this->input->post('keyword');
-        $this->db->select(array('c.cliente_id', 'c.cod_cliente', 'c.cliente_nome', 'c.cliente_cnpj', 'c.cliente_cpf', 'c.cliente_telefone', 'c.cliente_cidade', 'c.cliente_endereco', 'c.cliente_bairro', 'c.cliente_cep'));
-        $this->db->from('cliente as c');
-        $this->db->limit($this->_pageNumber, $this->_offset);
-        $this->db->like('cliente_nome', $keyword);
-        $this->db->or_like('c.cod_cliente', $keyword);
-        $this->db->or_like('c.cliente_id', $keyword);
-        $this->db->or_like('c.cliente_email', $keyword);
-        $this->db->or_like('c.cliente_endereco', $keyword);
-        $this->db->or_like('c.cliente_hora_registro', $keyword);
-        $this->db->or_like('c.cliente_telefone', $keyword);
-        $this->db->or_like('c.cliente_cpf', $keyword);
-        $this->db->or_like('c.cliente_cnpj', $keyword);
+        $this->db->select('*');
+        $this->db->from('chamado');
+        $this->db->join('cliente', 'cliente.cliente_id = chamado.chamado_id_cliente');
+        $this->db->where('chamado.chamado_id_usuario =' . $this->uri->segment(3));
+        $this->db->order_by('chamado_id', 'DESC');
         $query = $this->db->get();
         if ($query->num_rows() < 1) {
             return false;
@@ -162,15 +194,53 @@ class M_cliente extends CI_Model
         return $query->result();
     }
 
-    public function retorna_contatos($cliente_id = null)
-    {
+
+
+        
+    public function listarContatosClientePorUsuario($cliente_id, $usuario_id = NULL){
         $this->db->select('*');
         $this->db->from('contato_secundario');
-        $this->db->where('cliente_contato_id', $cliente_id);
-        $this->db->order_by("contato_secundario_nome", "asc");
-        $consulta = $this->db->get();
-        return $consulta;
+       // $this->db->join('cliente', 'cliente.cliente_id = contato_secundario.cliente_contato_id');
+        $this->db->where('contato_secundario.contato_id_usuario =' . $this->uri->segment(3));
+        $this->db->order_by('contato_secundario_id', 'DESC');
+        $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return false;
+        }
+        return $query->result();
     }
+
+    public function listarRegistrosPorUsuario($query = '', $usuario_id = NULL) {
+        $this->db->select(array('c.cliente_id', 'c.cod_cliente', 'c.cliente_nome', 'c.cliente_cnpj', 'c.cliente_cpf', 'c.cliente_telefone', 'c.cliente_cidade', 'c.cliente_endereco', 'c.cliente_bairro', 'c.cliente_cep'));
+        $this->db->from('cliente as c');
+        $this->db->where('c.cliente_id_usuario =' . $this->uri->segment(3));
+        $this->db->limit($this->_pageNumber, $this->_offset);
+        $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return false;
+        }
+        return $query->result();
+    }
+
+   
+    
+    public function listarCorrecaoClientePorUsuario($cliente_id, $usuario_id = NULL)
+    {
+        $this->db->select('*');
+        $this->db->from('correcao');
+        // $this->db->join('cliente', 'cliente_id = correcao_id_cliente');
+        $this->db->where('correcao.correcao_usuario_id =' . $this->uri->segment(3));
+        $this->db->order_by('correcao_id', 'DESC');
+        $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return false;
+        }
+        return $query->result();
+    }
+    
+
+   
+   
 
     //
     // ─── CRIACAO ────────────────────────────────────────────────────────────────────
@@ -182,7 +252,7 @@ class M_cliente extends CI_Model
 
         $data = array(
             'cod_cliente' => $this->input->post('cod_cliente'),
-            'cliente_id_usuario' => $this->input->post('cliente_id_usuario'),
+            'cliente_id_usuario' => $this->session->userdata('usuario_id'),
             'cliente_nome' => $this->input->post('cliente_nome'),
             'cliente_endereco' => $this->input->post('cliente_endereco'),
             'cliente_bairro' => $this->input->post('cliente_bairro'),
@@ -216,7 +286,7 @@ class M_cliente extends CI_Model
 		
         $data = array(
             'cliente_contato_id' => $this->input->post('cliente_contato_id'),
-            'contato_id_usuario' => $this->input->post('contato_id_usuario'),
+            'contato_id_usuario'=> $this->session->userdata('usuario_id'),
             'contato_secundario_nome' => $this->input->post('contato_secundario_nome'),
             'contato_secundario_email' => $this->input->post('contato_secundario_email'),
             'contato_secundario_telefone' => $this->input->post('contato_secundario_telefone'),
@@ -242,7 +312,7 @@ class M_cliente extends CI_Model
         $data = array(
             'correcao_id_chamado' => $this->input->post('correcao_id_chamado'),
             'correcao_id_cliente' => $this->input->post('correcao_id_cliente'),
-            'correcao_usuario_id ' => $this->input->post('correcao_usuario_id '),
+            'correcao_usuario_id ' => $this->session->userdata('usuario_id'),
             'correcao_atividade' => $this->input->post('correcao_atividade'),
             'correcao_duracao_minuto' => $this->input->post('correcao_duracao_minuto'),
             'correcao_duracao_hora' => $this->input->post('correcao_duracao_hora'),
@@ -253,8 +323,10 @@ class M_cliente extends CI_Model
             'correcao_atendente_cliente' => $this->input->post('correcao_atendente_cliente'),
             'correcao_obs' => $this->input->post('correcao_obs'),
             'correcao_telefone' => $this->input->post('correcao_telefone'),
-			'correcao_email' => $this->input->post('chamado_email'),
-			// 'correção_hora_registro' => date('d/m/Y - H:d'),
+            'correcao_email' => $this->input->post('chamado_email'),
+            'correcao_usuario_id' => $this->session->userdata('usuario_id')
+            //'correcao_usuario_id' => $this->input->post('correcao_usuario_id'),
+			//'correção_hora_registro' => date('d/m/Y - H:d'),
 
 
         );
@@ -280,7 +352,6 @@ class M_cliente extends CI_Model
         $data = array(
             'cod_cliente'                => $this->input->post('cod_cliente'),
             'cliente_nome'               => $this->input->post('cliente_nome'),
-            'cliente_id_usuario'         => $this->input->post('cliente_id_usuario'),
             'cliente_endereco'           => $this->input->post('cliente_endereco'),
             'cliente_bairro'             => $this->input->post('cliente_bairro'),
             'cliente_cidade'             => $this->input->post('cliente_cidade'),
@@ -374,6 +445,30 @@ class M_cliente extends CI_Model
     // ─── FUNCOES PARA TRATAMENTO DE CONTEUDO ────────────────────────────────────────
     //
 
+    public function retorna_contatos($cliente_id = null)
+    {
+        $this->db->select('*');
+        $this->db->from('contato_secundario');
+        $this->db->where('cliente_contato_id', $cliente_id);
+        $this->db->order_by("contato_secundario_nome", "asc");
+        $consulta = $this->db->get();
+        return $consulta;
+    }
+
+    public function get_nome($cliente_id)
+    {
+        $this->db->select('cliente_nome');
+        $this->db->from('cliente');
+        $this->db->where('cliente_id = ' . $cliente_id);
+        $query = $this->db->get();
+        
+        if ($query->num_rows() < 1) {
+            return 'Cliente';
+        }
+        return $query->result();
+    }
+
+
     public function count_all($search = '')
     {
         $query = $this->db->get("cliente");
@@ -385,6 +480,29 @@ class M_cliente extends CI_Model
             $this->db->or_like('cliente_cpnj', $search);
         }
     }
+
+    public function listarBusca($keyword = null)
+    {
+        $keyword = $this->input->post('keyword');
+        $this->db->select(array('c.cliente_id', 'c.cod_cliente', 'c.cliente_nome', 'c.cliente_cnpj', 'c.cliente_cpf', 'c.cliente_telefone', 'c.cliente_cidade', 'c.cliente_endereco', 'c.cliente_bairro', 'c.cliente_cep'));
+        $this->db->from('cliente as c');
+        $this->db->limit($this->_pageNumber, $this->_offset);
+        $this->db->like('cliente_nome', $keyword);
+       // $this->db->or_like('c.cod_cliente', $keyword);
+        $this->db->or_like('c.cliente_id', $keyword);
+       // $this->db->or_like('c.cliente_email', $keyword);
+       // $this->db->or_like('c.cliente_endereco', $keyword);
+       // $this->db->or_like('c.cliente_hora_registro', $keyword);
+       // $this->db->or_like('c.cliente_telefone', $keyword);
+       // $this->db->or_like('c.cliente_cpf', $keyword);
+       // $this->db->or_like('c.cliente_cnpj', $keyword);
+        $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return false;
+        }
+        return $query->result();
+    }
+
 
     public function fetch_details($limit, $start)
     {

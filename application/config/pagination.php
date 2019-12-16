@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-$config['per_page'] = 5;
-$config['num_links'] = 2;
+$config['per_page'] = 7;
+$config['num_links'] = 1;
  
 $config['use_page_numbers'] = TRUE;
 $config['page_query_string'] = FALSE;

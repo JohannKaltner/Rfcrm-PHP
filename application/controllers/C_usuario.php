@@ -87,14 +87,14 @@ class C_Usuario extends CI_Controller {
             }
 
             $offset = ($page_number - 1) * $this->pagination->per_page;
-            $this->M_cliente->setPageNumber($this->pagination->per_page);
-            $this->M_cliente->setOffset($offset);
+            $this->M_usuario->setPageNumber($this->pagination->per_page);
+            $this->M_usuario->setOffset($offset);
             $this->pagination->cur_page = $offset;
             $config['attributes'] = array('class' => 'page-link');
             $this->pagination->initialize($config);
 			$data['page_links'] = $this->pagination->create_links();
 			
-            $data['usuarioInfo'] = $this->M_cliente->listarBusca();
+            $data['usuarioInfo'] = $this->M_usuario->listarBusca();
             //
             // ─────────────────────────────────────────────────────────── FIM PAGINATION ─────
             //
