@@ -5,12 +5,12 @@
                 <li class="nav-item">
                     <button href="" data-target="#profile" data-toggle="tab" class="nav-link active">Perfil</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <button href="" data-target="#messages" data-toggle="tab" class="nav-link">Chamados Registrados</a>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <!-- <li class="nav-item">
                     <button href="" data-target="#edit" data-toggle="tab" class="nav-link">Editar</a>
-                </li>
+                </li> -->
             </ul>
             <div class="tab-content py-4">
                 <div class="tab-pane active" id="profile">
@@ -50,40 +50,32 @@
                                 <span class="badge badge-primary"><i class="fa fa-user"></i><?php
                                                                                             $this->db->select("cliente.cliente_id_usuario");
                                                                                             $this->db->from('cliente');
-                                                                                            $this->db->join('usuario', 'cliente.cliente_id_usuario = usuario.usuario_id');
-                                                                                            $this->db->where("cliente.cliente_id_usuario = usuario.usuario_id");
-                                                                                            $this->db->order_by('usuario_nome desc');
-                                                                                            $query = $this->db->get();
+                                                                                             
+                                                                                            $this->db->where(" cliente_id_usuario =" . $this->session->userdata('usuario_id'));
+                                                                                             $query = $this->db->get();
                                                                                             $num = $query->num_rows();
                                                                                             ?>
                                     <?php echo $num ?> Clientes Inseridos</span>
-                                <span class="badge badge-primary"><i class="fa fa-user"></i><?php
-                                                                                            $this->db->select("chamado.chamado_id_usuario");
+                                <span class="badge badge-primary"><i class="fa fa-envelope"></i><?php
+                                                                                            $this->db->select("*");
                                                                                             $this->db->from('chamado');
-                                                                                            $this->db->join('usuario', 'chamado.chamado_id_usuario = usuario.usuario_id');
-                                                                                            $this->db->where("chamado.chamado_id_usuario = usuario_id");
-                                                                                            $this->db->order_by('usuario_nome desc');
-                                                                                            $query = $this->db->get();
+                                                                                            $this->db->where("chamado_id_usuario = " . $this->session->userdata('usuario_id'));
+                                                                                             $query = $this->db->get();
                                                                                             $num = $query->num_rows();
                                                                                             ?>
                                     <?php echo $num ?> Chamado Aberto</span>
-                                <span class="badge badge-danger"><i class="fa fa-eye"></i> <?php
-                                                                                            $this->db->select("correcao.correcao_usuario_id");
+                                <span class="badge badge-danger"><i class="fa fa-edit"></i> <?php
+                                                                                            $this->db->select("*");
                                                                                             $this->db->from('correcao');
-                                                                                            $this->db->join('usuario', 'correcao.correcao_usuario_id = usuario.usuario_id');
-                                                                                            $this->db->where("correcao.correcao_usuario_id = usuario.usuario_id");
-                                                                                            $this->db->order_by('usuario_nome desc');
-                                                                                            $query = $this->db->get();
+                                                                                            $this->db->where('correcao_usuario_id = ' . $this->session->userdata('usuario_id'));                                                                     $query = $this->db->get();
                                                                                             $num = $query->num_rows();
                                                                                             ?>
                                     <?php echo $num ?> Correções Registradas</span>
-                                <span class="badge badge-success"><i class="fa fa-cog"></i><?php
-                                                                                            $this->db->select("contato_secundario.contato_id_usuario");
+                                <span class="badge badge-success"><i class="fa fa-users"></i><?php
+                                                                                            $this->db->select("*");
                                                                                             $this->db->from('contato_secundario');
-                                                                                            $this->db->where("contato_secundario.contato_id_usuario  = usuario.usuario_id");
-                                                                                            $this->db->join('usuario', 'contato_secundario.contato_id_usuario = usuario.usuario_id');
-                                                                                            $this->db->order_by('usuario_nome desc');
-                                                                                            $query = $this->db->get();
+                                                                                            $this->db->where("contato_secundario.contato_id_usuario  = " . $this->session->userdata('usuario_id'));
+                                                                                             $query = $this->db->get();
                                                                                             $num = $query->num_rows();
                                                                                             ?>
                                     <?php echo $num ?> Contatos Cadastrados</span>
