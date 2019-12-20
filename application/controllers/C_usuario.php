@@ -31,8 +31,8 @@ class C_Usuario extends CI_Controller {
 
 	public function editarUsuario($usuario_id = NULL)
     {
-        $this->m_usuario->atualizarUsuario($usuario_id);
-        redirect("C_admin");
+        $this->M_usuario->atualizarUsuario($usuario_id);
+        echo "<script> window.history.go(-1);</script>";
     }
 
 	public function chat(){

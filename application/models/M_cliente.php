@@ -167,9 +167,9 @@ class M_cliente extends CI_Model
     public function listarCorrecaoClientePorId($cliente_id)
     {
         $this->db->select('*');
-        $this->db->from('correcao');
+        $this->db->from('correcao_chamado');
         $this->db->join('cliente', 'cliente_id = correcao_id_cliente');
-        $this->db->where('correcao.correcao_usuario_id =' . $this->session->userdata('usuario_id'));
+        $this->db->where('correcao_chamado.correcao_usuario_id =' . $this->session->userdata('usuario_id'));
         $this->db->order_by('correcao_id', 'DESC');
         $query = $this->db->get();
         if ($query->num_rows() < 1) {
@@ -227,9 +227,9 @@ class M_cliente extends CI_Model
     public function listarCorrecaoClientePorUsuario($cliente_id, $usuario_id = NULL)
     {
         $this->db->select('*');
-        $this->db->from('correcao');
+        $this->db->from('correcao_chamado');
         // $this->db->join('cliente', 'cliente_id = correcao_id_cliente');
-        $this->db->where('correcao.correcao_usuario_id =' . $this->uri->segment(3));
+        $this->db->where('correcao_chamado.correcao_usuario_id =' . $this->uri->segment(3));
         $this->db->order_by('correcao_id', 'DESC');
         $query = $this->db->get();
         if ($query->num_rows() < 1) {
@@ -338,7 +338,7 @@ class M_cliente extends CI_Model
         );
         $this->db->insert('log', $data2);
 
-        $this->db->insert('correcao', $data);
+        $this->db->insert('correcao_chamado', $data);
     }
 
     //

@@ -90,7 +90,7 @@
 						<span class="desc">Chamados Realizados</span>
 						<h2 class="number"><?php
 											$this->db->select('*');
-											$query = $this->db->get('correcao');
+											$query = $this->db->get('correcao_chamado');
 											$num = $query->num_rows();
 											?>
 

@@ -189,7 +189,7 @@
 															<span class="badge badge-danger pull-right"><?php
 	$this->db->select('*');
 	$this->db->where('correcao_usuario_id', $this->uri->segment(3));
-	$query = $this->db->get('correcao');
+	$query = $this->db->get('correcao_chamado');
 	$num = $query->num_rows();
 	?>
 

@@ -139,7 +139,7 @@ public function atualizarUsuario($usuario_id)
     );
     $this->db->insert('log', $data2);
 
-    $this->db->where('usuario_id', $usuario_id);
+    $this->db->where('usuario_id', $this->uri->segment(3));
     $this->db->update('usuario', $data);
 }
 

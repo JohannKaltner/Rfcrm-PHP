@@ -121,7 +121,8 @@ class M_Admin extends CI_Model
             'alerta_titulo'     => $this->input->post('alerta_titulo'),
 
             //if = 1/ ativo  --- if = 2 /inativo
-            'alerta_status'     => $this->input->post('alerta_status'),
+            // 'alerta_status'     => $this->input->post('alerta_status'),
+            'alerta_status'     => '1'
 
         );
 
