@@ -72,7 +72,7 @@
 						<ul class="list-unstyled" style="padding-top:5px; ">
 							<li class="has-sub">
 								<a href="<?php echo base_url(); ?>home">
-									<i class="fas fa-home"></i>Dashboard
+									<i class="fas fa-home"></i>Painel
 									<span class="bot-line"></span>
 								</a>
 
@@ -94,17 +94,16 @@
 									<span class="bot-line"></span>E-Mail</a>
 							</li> -->
 
-							<li>
+							<!-- <li>
 							<a href="<?php echo base_url(); ?>C_usuario/chat">
 							
 									<i class="fas fa-comments"></i>
 									<span class="bot-line"></span>Chat</a>
-							</li>
+							</li> -->
 							
 
 						</ul>
-						</ul>
-					</div>
+ 					</div>
 					<div class="header__tool">
 						
 					 
@@ -327,7 +326,7 @@
 				<div class="container-fluid">
 					<ul class="navbar-mobile__list list-unstyled">
 						<li class="has-sub">
-							<a href="<?php echo base_url(); ?>home"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+							<a href="<?php echo base_url(); ?>home"><i class="fas fa-tachometer-alt"></i>Painel</a>
 
 						</li>
 						<!-- <li class="has-sub">
@@ -341,13 +340,13 @@
 							</ul> -->
 						<li class="has-sub">
 							<a href="<?php echo base_url(); ?>C_cliente"><i class="fas fa-user"></i>
-								Clientes </a>
+								Cliente </a>
 						</li>
-
+<!-- 
 						<li>
 							<a href="<?php echo base_url(); ?>C_Chat"><i class="fas fa-comment"></i>
 								Chat</a>
-						</li>
+						</li> -->
 
 					</ul>
 				</div>

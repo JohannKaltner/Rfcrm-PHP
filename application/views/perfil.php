@@ -66,7 +66,7 @@
                                     <?php echo $num ?> Chamado Aberto</span>
                                 <span class="badge badge-danger"><i class="fa fa-edit"></i> <?php
                                                                                             $this->db->select("*");
-                                                                                            $this->db->from('correcao');
+                                                                                            $this->db->from('correcao_chamado');
                                                                                             $this->db->where('correcao_usuario_id = ' . $this->session->userdata('usuario_id'));                                                                     $query = $this->db->get();
                                                                                             $num = $query->num_rows();
                                                                                             ?>

@@ -397,7 +397,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
 																				class="mb-1">
 																				<?php echo $correcao->correcao_atendente_cliente ; ?>,<br>
 																				<small class="mb-1">Em nome da(o)</small>
-																				<?php echo $chamado->cliente_nome; ?>,
+																				<?php echo $correcao->correcao_nome_cliente; ?>,
 																				<small class="mb-1"> Dia <b style="color:black">
 																						<?php echo $correcao->correcao_data; ?>, </b> as
 																					<b
