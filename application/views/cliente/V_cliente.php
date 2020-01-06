@@ -247,7 +247,6 @@
  									<option value="ASS.EDUC./CONTÁBIL">ASS.EDUC./CONTÁBIL</option>
 									 <option value="ASS.EDUC./JURÍDICO">ASS.EDUC./JURÍDICO</option>
 									 <option value="ASS.EDUC./JURÍDICO/CONTÁBIL">ASS.EDUC./JURÍDICO/CONTÁBIL</option>
- 									<option value="ASS. EDUC./CONTÁBIL">ASS. EDUC./CONTÁBIL</option>
  									<option value="CONS.JURÍDICO/COBRANÇA">CONS.JURÍDICO/COBRANÇA</option>
  									<option value="FORNECEDORES/ESCOLAS">FORNECEDORES/ESCOLAS</option>
  									<option value="CLIENTES INATIVOS">CLIENTES INATIVOS</option>
