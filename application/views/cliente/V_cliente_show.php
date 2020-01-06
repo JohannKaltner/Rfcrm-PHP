@@ -198,11 +198,11 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
 													<div class="form-group">
 														<label for="postal-code" class=" form-control-label">Telefone</label>
 														<input type="text" id="cliente_telefone" name="cliente_telefone"
-															value="<?php $linha['0']->cliente_telefone; ?>"
+															value="<?php echo $linha['0']->cliente_telefone; ?>"
 															placeholder="Insira o Telefone do Cliente" class="form-control"
 															disabled="">
 													</div>
-
+														<!-- <?php print_r($linha);?> -->
 												</form>
 										</div>
 									</div>

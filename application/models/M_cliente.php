@@ -389,7 +389,7 @@ class M_cliente extends CI_Model
             'contato_secundario_email'    => $this->input->post('contato_secundario_email'),
             'contato_secundario_telefone' => $this->input->post('contato_secundario_telefone'),
 			'contato_secundario_funcao'   => $this->input->post('contato_secundario_funcao'),
-			'cliente_ultima_alteracao'    => date('d/m/Y - H:d'),
+			// 'cliente_ultima_alteracao'    => date('d/m/Y - H:d'),
 
         );
 
