@@ -66,9 +66,6 @@
 
 
 					<div class="header__navbar">
-
-
-
 						<ul class="list-unstyled" style="padding-top:5px; ">
 							<li class="has-sub">
 								<a href="<?php echo base_url(); ?>home">
@@ -80,19 +77,30 @@
 							<li>
 								<a href="<?php echo base_url(); ?>C_cliente">
 									<i class="fas fa-users"></i>
-									<span class="bot-line"></span>Clientes<span class="badge badge-primary"
+									 <span class="bot-line"></span>Clientes
+									 <!--<span class="badge badge-primary"
 										style="margin: 0 0 0 3px;"><?php
-										 $this->db->select('*');$query = $this->db->get('cliente');
-										 $num = $query->num_rows();?>
+										 //$this->db->select('*');$query = $this->db->get('cliente');
+										 //$num = $query->num_rows();?>
 
-										<?php echo $num ?></span></a>
+										<?php// echo $num ?></span> --></a> 
 							</li>
-							<!-- 
-							<li>
-								<a href="<?php echo base_url(); ?>C_email">
-									<i class="fas fa-envelope"></i>
-									<span class="bot-line"></span>E-Mail</a>
-							</li> -->
+							  
+							<li class="has-sub">
+                                <a href="<?php echo base_url(); ?>plataforma.php">
+                                    <i class="fas fa-envelope"></i>Social
+                                    <span class="bot-line"></span>
+                                </a>
+                                <ul class="header3-sub-list list-unstyled">
+                                    <li>
+                                        <a href="http://192.168.0.66/rfcrmChat">Chat</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://192.168.0.66/rfcrmMail">Email</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>  
 
 							<!-- <li>
 							<a href="<?php echo base_url(); ?>C_usuario/chat">

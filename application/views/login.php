@@ -61,11 +61,11 @@
                         <br>
                         <div class="mt-4">
                             <button type="button" class="btn btn-primary btn-round btn-block" data-toggle="modal" data-target=".bd-example-modal-lg"> <i class="fa fa-sign-in"></i> Cadastre-se Agora</button>
-                            <button type="button" class="btn btn-primary btn-round btn-block" data-toggle="modal" data-target="#exampleModalCenter"> <i class="fa fa-unlock"></i> Esqueceu a Senha?</button>
+                            <!-- <button type="button" class="btn btn-primary btn-round btn-block" data-toggle="modal" data-target="#exampleModalCenter"> <i class="fa fa-unlock"></i> Esqueceu a Senha?</button> -->
 
 
 
-                            <span class="helper-text m-b-10"><i class="fa fa-lock"></i> <a href="page-forgot-password.html">Esqueceu a senha?</a></span>
+                            <!-- <span class="helper-text m-b-10"><i class="fa fa-lock"></i> <a href="page-forgot-password.html">Esqueceu a senha?</a></span> -->
                             <!-- <span style="color:#0069D9">Caso não tenha uma conta, entre em contato com o desenvolvedor!</span> -->
                         </div>
                     </form>
