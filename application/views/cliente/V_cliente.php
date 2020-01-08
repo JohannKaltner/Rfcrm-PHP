@@ -92,8 +92,12 @@
 
  										<td><?php echo $element['cliente_id']; ?></td>
  										<td><?php echo $element['cod_cliente']; ?></td>
- 										<td><?php echo $element['cliente_nome']; ?></td>
- 										<!-- <td><?php echo $element['cliente_cpf']; ?></td>
+										 <td>
+ 										<a style="color: inherit;" href="<?php echo site_url('C_cliente/exibir'); ?>/<?php echo $element['cliente_id']; ?>">
+										 <?php echo $element['cliente_nome']; ?>
+ 										</a>
+										 </td>
+										 <!-- <td><?php echo $element['cliente_cpf']; ?></td>
  										<td><?php echo $element['cliente_cnpj']; ?></td> -->
  										<td><?php echo $element['cliente_telefone']; ?></td>
  										<td><?php echo $element['cliente_cidade']; ?></td>
