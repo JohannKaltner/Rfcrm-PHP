@@ -75,8 +75,6 @@
  								<th>Nº de Identificação</th>
  								<th>Codigo</th>
  								<th>Nome</th>
- 								<!-- <th>CPF</th> -->
- 								<!-- <th>CNPJ</th> -->
  								<th>TELEFONE</th>
  								<th>CIDADE</th>
  								<th>ENDEREÇO</th>
@@ -94,11 +92,10 @@
  										<td><?php echo $element['cod_cliente']; ?></td>
 										 <td>
  										<a style="color: inherit;" href="<?php echo site_url('C_cliente/exibir'); ?>/<?php echo $element['cliente_id']; ?>">
-										 <?php echo $element['cliente_nome']; ?>
+										  <?php echo $element['cliente_nome']; ?> 
  										</a>
-										 </td>
-										 <!-- <td><?php echo $element['cliente_cpf']; ?></td>
- 										<td><?php echo $element['cliente_cnpj']; ?></td> -->
+										  </td>
+										 
  										<td><?php echo $element['cliente_telefone']; ?></td>
  										<td><?php echo $element['cliente_cidade']; ?></td>
  										<td><?php echo $element['cliente_endereco']; ?></td>

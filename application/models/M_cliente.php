@@ -49,6 +49,7 @@ class M_cliente extends CI_Model
     {
         $this->db->select(array('c.cliente_id', 'c.cod_cliente', 'c.cliente_nome', 'c.cliente_cnpj', 'c.cliente_cpf', 'c.cliente_telefone', 'c.cliente_cidade', 'c.cliente_endereco', 'c.cliente_bairro', 'c.cliente_cep'));
         $this->db->from('cliente as c');
+        $this->db->order_by('cliente_id', 'DESC');
         $this->db->limit($this->_pageNumber, $this->_offset);
         $query = $this->db->get();
         if ($query->num_rows() < 1) {
@@ -487,9 +488,9 @@ class M_cliente extends CI_Model
         $this->db->select(array('c.cliente_id', 'c.cod_cliente', 'c.cliente_nome', 'c.cliente_cnpj', 'c.cliente_cpf', 'c.cliente_telefone', 'c.cliente_cidade', 'c.cliente_endereco', 'c.cliente_bairro', 'c.cliente_cep'));
         $this->db->from('cliente as c');
         $this->db->limit($this->_pageNumber, $this->_offset);
-        $this->db->like('cliente_nome', $keyword);
+        $this->db->like('c.cliente_nome', $keyword);
        // $this->db->or_like('c.cod_cliente', $keyword);
-        $this->db->or_like('c.cliente_id', $keyword);
+        $this->db->or_like('c.cod_cliente', $keyword);
        // $this->db->or_like('c.cliente_email', $keyword);
        // $this->db->or_like('c.cliente_endereco', $keyword);
        // $this->db->or_like('c.cliente_hora_registro', $keyword);

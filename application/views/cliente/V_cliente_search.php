@@ -80,8 +80,6 @@
  								<th>Nº de Identificação</th>
  								<th>Codigo</th>
  								<th>Nome</th>
- 								<!-- <th>CPF</th> -->
- 								<!-- <th>CNPJ</th> -->
  								<th>TELEFONE</th>
  								<th>CIDADE</th>
  								<th>ENDEREÇO</th>
@@ -93,19 +91,23 @@
  						<tbody>
  							<?php if (isset($result) && !empty($result)) { ?>
  							<?php foreach ($result as $row) { ?>
- 							<tr>
+ 							
+							 <tr>
  								<!-- <?php print_r($result); ?> -->
  								<td><?php echo $row->cliente_id; ?></td>
  								<td><?php echo $row->cod_cliente; ?></td>
- 								<td><?php echo $row->cliente_nome; ?></td>
- 								<td><?php echo $row->cliente_cpf; ?></td>
- 								<td><?php echo $row->cliente_cnpj; ?></td> 
- 								<td><?php echo $row->cliente_telefone; ?></td>
+								<td>
+ 									<a style="color: inherit;" href="<?php echo site_url('C_cliente/exibir'); ?>/<?php echo $row->cliente_id; ?>">
+										<?php echo $row->cliente_nome; ?> 
+ 									</a>
+								</td>
+							 	<td><?php echo $row->cliente_telefone; ?></td>
  								<td><?php echo $row->cliente_cidade; ?></td>
  								<td><?php echo $row->cliente_endereco; ?></td>
  								<td><?php echo $row->cliente_bairro; ?></td>
  								<td><?php echo $row->cliente_cep; ?></td>
  								<td>
+								 
  									<div class="table-data-feature">
  										<a
  											href="<?php echo site_url('C_cliente/exibir'); ?>/<?php echo $row->cliente_id; ?>">
