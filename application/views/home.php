@@ -19,11 +19,11 @@
 							</ul>
 						</div>
 						<form class="au-form-icon--sm" action="<?php echo site_url('C_cliente/busca');?>" method="post">
-							<input class="au-input--w300 au-input--style2" type="text" placeholder="procure por Clientes &amp; Chamados...">
-							<button class="au-btn--submit2" type="submit">
-								<i class="zmdi zmdi-search"></i>
-							</button>
-						</form>
+ 								<input class="au-input--w300 au-input--style2" name="keyword" type="text" placeholder="procure por Nome ou Codigo...">
+ 								<button class="au-btn--submit2"  >
+ 									<i class="zmdi zmdi-search"></i>
+ 								</button>
+ 							</form>
 					</div>
 				</div>
 			</div>

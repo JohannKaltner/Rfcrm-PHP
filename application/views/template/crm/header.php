@@ -49,6 +49,12 @@
 </head>
 
 <body class="animsition">
+
+<?php 
+if($this->session->userdata('logged_in') == false){
+	redirect('C_login');
+}
+?>
 	<?php date_default_timezone_set('America/Sao_Paulo'); ?>
 	<div class="page-wrapper">
 		<!-- HEADER DESKTOP-->

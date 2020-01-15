@@ -8,6 +8,13 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <!-- <div class='page-container'> -->
 <div class="page-content--bgf7">
+
+<?php 
+if($this->session->userdata('logged_in') == false && $this->session->userdata('usuario_nivel') == 1){
+	redirect('C_login');
+} 
+?>
+
 	<!-- BREADCRUMB-->
 	<section class="au-breadcrumb2">
 		<div class="container">

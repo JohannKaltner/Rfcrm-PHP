@@ -311,7 +311,7 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
 																			<small>
 																				<span class="badge badge-primary float-right mt-1">Chamado
 																					de ID:<?php echo $chamado->chamado_id; ?></span>
-																			</small>teste
+																			</small>
 																		</strong>
 																	</div>
 																	<div id="card" class="card-body">
@@ -408,8 +408,8 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
 																			<p class="mb-1">Entrou em contato com
 																				<b
 																					style="color:black"><?php echo $correcao->correcao_atendente_rf; ?></b>
-																				para <b
-																					style="color:black"><?php echo $correcao->correcao_atividade; ?></b>em
+																				para&nbsp;  <b
+																					style="color:black"><?php echo $correcao->correcao_atividade; ?></b>&nbsp;em
 																				relação a
 																				<b style="color:black">
 																					<?php echo $correcao->correcao_assunto; ?></b>, o chamado
@@ -513,11 +513,12 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
 									<!--    <input type="text" id="chamado_atividade" name="chamado_atividade" placeholder="Atividade" class="form-control"> -->
 
 									<select name="chamado_atividade" id="chamado_atividade">
-										<option value="Nulo.">Selecione uma Atividade</option>
-
+										<option value="Não Selecionado.">Selecione uma Atividade</option>
 										<option value="Tirar duvida(s)">Tirar duvida(s)</option>
+										<option value="(por) Ligação">Ligação</option>
+										<option value="Recebimento de Documentos">Recebimento de Documentos</option>
+										<option value="Envio de Documentos">Envio de Documentos</option>
 										<option value="Pedir informação(ões)">Pedir informação(ões)</option>
-
 									</select>
 								</div>
 								<small>Atividade exercida no Chamado (Duvidas, Informações) </small>
@@ -827,6 +828,28 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
 							<small>Atividade exercida no Chamado (Duvidas, Informações) </small>
 						</div>
 					</div>
+
+					<div class="row form-group">
+							<div class="col col-md-12">
+								<div class="input-group">
+									<div class="input-group-addon">
+										<i class="fa fa-list-alt"></i>
+									</div>
+									<!--    <input type="text" id="chamado_atividade" name="chamado_atividade" placeholder="Atividade" class="form-control"> -->
+
+									<select name="correcao_atividade" id="correcao_atividade">
+										<option value="Não Selecionado.">Selecione uma Atividade</option>
+										<option value="Tirar duvida(s)">Tirar duvida(s)</option>
+										<option value="(por) Ligação">Ligação</option>
+										<option value="Recebimento de Documentos">Recebimento de Documentos</option>
+										<option value="Envio de Documentos">Envio de Documentos</option>
+										<option value="Pedir informação(ões)">Pedir informação(ões)</option>
+									</select>
+								</div>
+								<small>Atividade exercida no Chamado (Duvidas, Informações) </small>
+							</div>
+						</div>		  	
+
 					<div class="row form-group">
 						<div class="col col-md-12">
 							<div class="input-group">
