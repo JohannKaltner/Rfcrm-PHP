@@ -44,6 +44,14 @@ class M_chamado extends CI_Model {
     $this->db->insert('log', $data2);
       
       $this->db->insert('chamado', $data);
+
+      
+      $dataSession = array(
+        'usuario_status' => 'Online',
+          );
+  
+      $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+      $this->db->update('usuario', $dataSession);
     }
     
     function listarChamados($cliente_id){

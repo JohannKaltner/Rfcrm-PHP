@@ -134,7 +134,15 @@ class M_Admin extends CI_Model
         );
         $this->db->insert('log', $data2);
         $this->db->insert('alerta', $data);
+    
+        $dataSession = array(
+            'usuario_status' => 'Online',
+              );
+      
+          $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+          $this->db->update('usuario', $dataSession);
     }
+
 
     public function listarAlertas()
 
@@ -159,6 +167,14 @@ class M_Admin extends CI_Model
             'log_usuario_nome' => $this->session->userdata('usuario_nome'),
         );
         $this->db->insert('log', $data2);
+
+        
+        $dataSession = array(
+            'usuario_status' => 'Online',
+              );
+      
+          $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+          $this->db->update('usuario', $dataSession);
     }
         // public function exibirChamados($usuario_id=NULL){
         //     $this->db->where('chamado_id_usuario', $this->uri->segment(3));

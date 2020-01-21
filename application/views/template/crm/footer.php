@@ -8,7 +8,7 @@
 
 <!-- END: Powered by Supercounters.com -->
 </p>
- 					<p>Copyright © 2019 Ricardo Furtado & Associados. All rights reserved. <br> <small>Template:
+ 					<p>Copyright © <?php echo date('Y');?> Ricardo Furtado & Associados. All rights reserved. <br> <small>Template:
  							<a href="https://github.com/JohannKaltner">
  								Johann Kaltner</small>
  						<i class="fas fa-chevron-circle-down"></i>.

@@ -30,6 +30,7 @@ class C_Login extends CI_Controller {
         $usuario_email       = $data['usuario_email'];
         $usuario_nivel       = $data['usuario_nivel'];
         $usuario_setor       = $data['usuario_setor'];
+        $usuario_img         = $data['usuario_img'];
         $usuario_data_inicio = $data['usuario_data_inicio'];
 
 
@@ -39,18 +40,42 @@ class C_Login extends CI_Controller {
             'usuario_email'       => $usuario_email,
             'usuario_nivel'       => $usuario_nivel,
             'usuario_setor'       => $usuario_setor,
-            'usuario_img'       => $usuario_img,
+            'usuario_img'         => $usuario_img,
             'usuario_data_inicio' => $usuario_data_inicio,
             'logged_in'           => TRUE
         );
+
+       
+          
 
         $this->session->set_userdata($sesdata);
         // access login for admin
         if($usuario_nivel === '1'){
             // $admin == TRUE;
-            redirect('C_admin');
+            redirect('home');
+            $dataSession = array(
+              'usuario_status' => 'Online',
+                );
+        
+            $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+            $this->db->update('usuario', $dataSession);
         }elseif($usuario_nivel === '2'){
             redirect('home');
+            $dataSession = array(
+              'usuario_status' => 'Online',
+                );
+        
+            $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+            $this->db->update('usuario', $dataSession);
+    
+        }elseif($usuario_nivel === '3'){
+            redirect('home');
+            $dataSession = array(
+              'usuario_status' => 'Online',
+                );
+        
+            $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+            $this->db->update('usuario', $dataSession);
         }else {
           redirect('/404.php');
         }
@@ -58,11 +83,25 @@ class C_Login extends CI_Controller {
     }else{
         echo $this->session->set_flashdata('msg','Credenciais Incorretas, Tente Novamente.');
          redirect('C_login');
-    }
+    } 
+
+    $dataSession = array(
+			'usuario_status' => '1',
+        );
+
+    $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+    $this->db->update('usuario', $dataSession);
+      
 
   }
  
   function logout(){
+    $dataSession = array(
+      'usuario_status' => 'Offline',
+        );
+
+    $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+    $this->db->update('usuario', $dataSession);
       $this->session->sess_destroy();
       redirect('C_login');
   }

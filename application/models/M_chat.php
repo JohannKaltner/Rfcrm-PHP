@@ -34,6 +34,14 @@ class M_chat extends CI_Model
     );
     $this->db->insert('chat', $data);
 
+    
+    $dataSession = array(
+      'usuario_status' => 'Online',
+        );
+
+    $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+    $this->db->update('usuario', $dataSession);
+
   }
 
 //   public function exibirMensagensEnviadas(){

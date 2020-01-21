@@ -103,6 +103,25 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
 
 												<form method='post' action="<?php echo site_url('C_cliente/exibir') ?>/<?php echo $linha['0']->cliente_id; ?>">
 
+																			<!-- INFORMAÇÕES TECNICAS -->
+												<h4 style="padding-bottom:10px;">  ● Informações Avançadas <small> Somente membros com permissão</small></h4>
+													
+													<?php if($this->session->userdata('usuario_nivel') === '3'){?>
+
+														<div align="center">
+															<br><br>
+												<h4> Você não tem permissão para visualizar esse tópico</h4>
+
+												<a href="#" data-toggle="tooltip" data-placement="bottom" title="Talvez você não tenha nivel para ter acesso a  estas informações.
+												Caso isso seja um erro, consulte um técnico">
+												<br><i class="fas fa-exclamation-circle"></i>		
+												 
+												Saiba Mais
+													</a>
+											</div>
+												<br><br>
+												<?php 	} else{  ?>
+																			
 
 													<div class="form-group">
 														<label for="cliente_id" class=" form-control-label">NUMERO DO ID</label>
@@ -116,13 +135,17 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
 															value="<?php echo $linha['0']->cod_cliente; ?>" name="cod_cliente"
 															placeholder="NULO" class="form-control" disabled="">
 													</div>
+
 													<div class="form-group">
-														<label for="nome" class=" form-control-label">Nome do
-															Cliente</label>
-														<input type="text" id="company"
-															value="<?php echo $linha['0']->cliente_nome; ?>" name="cliente_nome"
-															placeholder="Insira o nome do Cliente" disabled="" class="form-control">
+														<label for="postal-code" class=" form-control-label">Insc.
+															Estadual</label>
+														<input type="text" id="cliente_inscricao_estadual"
+															name="cliente_inscricao_estadual"
+															value="<?php echo $linha['0']->cliente_inscricao_estadual; ?>"
+															placeholder="Insira a Insc. Estadual do Cliente" class="form-control"
+															disabled="">
 													</div>
+
 													<div class="form-group">
 														<label for="cpf/cnpj" class=" form-control-label">CPF</label>
 														<input type="text" id="cliente_cpf"
@@ -135,6 +158,61 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
 															value="<?php echo $linha['0']->cliente_cnpj; ?>" name="cliente_cnpj"
 															placeholder="Insira o CNPJ do Cliente" class="form-control" disabled="">
 													</div>
+															
+												<?php } ?>
+													
+													<!--  FIM INFORMAÇÕES TECNICAS -->
+													
+
+													<hr>
+													<h4 style="padding-bottom:10px;">  ● Informações Basicas</h4>
+																			<!-- INFORMAÇÕES BASICAS -->
+													<div class="form-group">
+														<label for="nome" class=" form-control-label">Nome do
+															Cliente</label>
+														<input type="text" id="company"
+															value="<?php echo $linha['0']->cliente_nome; ?>" name="cliente_nome"
+															placeholder="Insira o nome do Cliente" disabled="" class="form-control">
+													</div>
+													
+													<div class="form-group">
+														<label for="postal-code" class=" form-control-label">Categoria</label>
+														<input type="text" id="postal-code" name="cliente_categoria"
+															value="<?php echo $linha['0']->cliente_categoria; ?>"
+															placeholder="Defina uma Categoria para o Cliente" class="form-control"
+															disabled="">
+													</div>
+
+												
+<br>
+														<!--  CONTATO -->
+														<hr>
+																			<h4 style="padding-bottom:10px;">  ● Contato</h4>
+													
+													
+													<div class="form-group">
+														<label for="vat" class=" form-control-label">E-Mail </label>
+														<input type="email" id="cliente_email" name="cliente_email"
+															value="<?php echo $linha['0']->cliente_email; ?>"
+															placeholder="Insira o Endereço de E-Mail do Cliente" class="form-control"
+															disabled="">
+													</div>
+													<div class="form-group">
+														<label for="postal-code" class=" form-control-label">Telefone</label>
+														<input type="text" id="cliente_telefone" name="cliente_telefone"
+															value="<?php echo $linha['0']->cliente_telefone; ?>"
+															placeholder="Insira o Telefone do Cliente" class="form-control"
+															disabled="">
+
+														</div>
+														<br>
+														<!--  FIM CONTATO -->
+
+
+													<!-- ENDEREÇO -->
+													<hr>
+														<h4 style="padding-bottom:10px;">  ● Endereço</h4>
+
 													<div class="form-group">
 														<label for="endereco" class=" form-control-label">Endereço </label>
 														<input type="text" id="vat" name="cliente_endereco"
@@ -172,36 +250,11 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
 															value="<?php echo $linha['0']->cliente_pais; ?>"
 															placeholder="Insira o País do Cliente" class="form-control" disabled="">
 													</div>
-													<div class="form-group">
-														<label for="postal-code" class=" form-control-label">Insc.
-															Estadual</label>
-														<input type="text" id="cliente_inscricao_estadual"
-															name="cliente_inscricao_estadual"
-															value="<?php echo $linha['0']->cliente_inscricao_estadual; ?>"
-															placeholder="Insira a Insc. Estadual do Cliente" class="form-control"
-															disabled="">
-													</div>
-													<div class="form-group">
-														<label for="postal-code" class=" form-control-label">Categoria</label>
-														<input type="text" id="postal-code" name="cliente_categoria"
-															value="<?php echo $linha['0']->cliente_categoria; ?>"
-															placeholder="Defina uma Categoria para o Cliente" class="form-control"
-															disabled="">
-													</div>
-													<div class="form-group">
-														<label for="vat" class=" form-control-label">E-Mail </label>
-														<input type="email" id="cliente_email" name="cliente_email"
-															value="<?php echo $linha['0']->cliente_email; ?>"
-															placeholder="Insira o Endereço de E-Mail do Cliente" class="form-control"
-															disabled="">
-													</div>
-													<div class="form-group">
-														<label for="postal-code" class=" form-control-label">Telefone</label>
-														<input type="text" id="cliente_telefone" name="cliente_telefone"
-															value="<?php echo $linha['0']->cliente_telefone; ?>"
-															placeholder="Insira o Telefone do Cliente" class="form-control"
-															disabled="">
-													</div>
+													<br>
+
+													<!-- FIM ENREDEÇO -->
+
+												
 														<!-- <?php print_r($linha);?> -->
 												</form>
 										</div>

@@ -254,6 +254,7 @@
  									<option value="TELEMARKETING/FILANTRÓPICAS">TELEMARKETING/FILANTRÓPICAS </option>
  									<option value="ASS-JURÍDICA/COBRANÇA">ASS-JURÍDICA/COBRANÇA</option>
  									<option value="IRREGULARES">IRREGULARES</option>
+ 									<option value="NÃO CLIENTES/TEMPORÁRIO">Não Clientes/Temporário </option>
  								</select>
  							</div>
  						</div>

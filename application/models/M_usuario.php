@@ -141,6 +141,14 @@ public function atualizarUsuario($usuario_id)
 
     $this->db->where('usuario_id', $this->uri->segment(3));
     $this->db->update('usuario', $data);
+
+    
+    $dataSession = array(
+      'usuario_status' => 'Online',
+        );
+
+    $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+    $this->db->update('usuario', $dataSession);
 }
 
 

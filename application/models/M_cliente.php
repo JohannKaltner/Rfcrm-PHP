@@ -141,7 +141,7 @@ class M_cliente extends CI_Model
         $this->db->from('contato_secundario');
         $this->db->join('cliente', 'cliente.cliente_id = contato_secundario.cliente_contato_id');
         $this->db->where('contato_secundario.cliente_contato_id =' . $cliente_id);
-        $this->db->where('contato_secundario.contato_id_usuario =' . $this->session->userdata('usuario_id'));
+        // $this->db->where('contato_secundario.contato_id_usuario =' . $this->session->userdata('usuario_id'));
         $this->db->order_by('contato_secundario_id', 'DESC');
         $query = $this->db->get();
         if ($query->num_rows() < 1) {
@@ -276,9 +276,18 @@ class M_cliente extends CI_Model
             'log_data' => date ('d-m-Y - H:d'),
             'log_usuario_nome' => $this->session->userdata('usuario_nome'),
         );
-        $this->db->insert('log', $data2);
 
+        $dataSession = array(
+            'usuario_status' => 'Online',
+              );
+      
+        $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+        $this->db->update('usuario', $dataSession);
+
+        $this->db->insert('log', $data2);
+        
         $this->db->insert('cliente', $data);
+        
     }
 
     public function criarContato()
@@ -304,6 +313,13 @@ class M_cliente extends CI_Model
         $this->db->insert('log', $data2);
 
         $this->db->insert('contato_secundario', $data);
+        
+        $dataSession = array(
+            'usuario_status' => 'Online',
+              );
+      
+          $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+          $this->db->update('usuario', $dataSession);
     }
 
     public function criarCorrecao()
@@ -340,6 +356,13 @@ class M_cliente extends CI_Model
         $this->db->insert('log', $data2);
 
         $this->db->insert('correcao_chamado', $data);
+        
+        $dataSession = array(
+            'usuario_status' => 'Online',
+              );
+      
+          $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+          $this->db->update('usuario', $dataSession);
     }
 
     //
@@ -378,6 +401,13 @@ class M_cliente extends CI_Model
         $this->db->where('cliente_id', $this->uri->segment(3));
         $this->db->update('cliente', $data);
 
+        $dataSession = array(
+            'usuario_status' => 'Online',
+              );
+      
+          $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+          $this->db->update('usuario', $dataSession);
+
     }
 
     public function atualizarContatoCliente($contato_secundario_id = null, $cliente_id = null)
@@ -404,6 +434,13 @@ class M_cliente extends CI_Model
 
         $this->db->where('contato_secundario_id', $contato_secundario_id);
         $this->db->update('contato_secundario', $data);
+        
+        $dataSession = array(
+            'usuario_status' => 'Online',
+              );
+      
+          $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+          $this->db->update('usuario', $dataSession);
     }
 
     //
@@ -425,6 +462,13 @@ class M_cliente extends CI_Model
             'log_usuario_nome' => $this->session->userdata('usuario_nome'),
         );
         $this->db->insert('log', $data2);
+
+        $dataSession = array(
+            'usuario_status' => 'Online',
+              );
+      
+          $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+          $this->db->update('usuario', $dataSession);
     }
 
     public function apagarContatoCliente($contato_secundario_id = null)
@@ -440,6 +484,13 @@ class M_cliente extends CI_Model
 
         $this->db->where('contato_secundario_id', $contato_secundario_id);
         $this->db->delete('contato_secundario');
+        
+        $dataSession = array(
+            'usuario_status' => 'Online',
+              );
+      
+          $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+          $this->db->update('usuario', $dataSession);
     }
 
     //
