@@ -32,6 +32,7 @@ class C_Login extends CI_Controller {
         $usuario_setor       = $data['usuario_setor'];
         $usuario_img         = $data['usuario_img'];
         $usuario_data_inicio = $data['usuario_data_inicio'];
+        $usuario_status      = $data['usuario_status'];
 
 
         $sesdata = array(
@@ -41,6 +42,7 @@ class C_Login extends CI_Controller {
             'usuario_nivel'       => $usuario_nivel,
             'usuario_setor'       => $usuario_setor,
             'usuario_img'         => $usuario_img,
+            'usuario_status'         => $usuario_status,
             'usuario_data_inicio' => $usuario_data_inicio,
             'logged_in'           => TRUE
         );
