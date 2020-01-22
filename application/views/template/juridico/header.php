@@ -500,7 +500,31 @@ if($this->session->userdata('logged_in') == false){
 					</div>
 				</div>
 			</div>
+			<section class="au-breadcrumb2">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="au-breadcrumb-content">
+						<div class="au-breadcrumb-left">
+							<span class="au-breadcrumb-span">Você está aqui:</span>
+							<ul class="list-unstyled list-inline au-breadcrumb__list">
+								<li class="list-inline-item active">
+									<a href="<?php echo base_url(); ?>home">Home</a>
+								</li>
+								/
+								<li class="list-inline-item active">
+									<a href="<?php echo base_url(); ?>C_juridico">Juridico</a>
+								</li>
 
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+        
+	</section>
 			<script>
 			var el = document.documentElement
 , rfs = // for newer Webkit and Firefox

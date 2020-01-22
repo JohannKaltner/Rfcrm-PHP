@@ -35,8 +35,22 @@ class Template {
 
 		}
 		
+		function juridico($view, $data=array()){
+ 
+			$CI = & get_instance();
+			// Load header
+			$CI->load->view('template/juridico/sidebar',$data);
+			$CI->load->view('template/juridico/header',$data);
+			// Load content
+			$CI->load->view($view,$data);
+			// Load footer
+			$CI->load->view('template/juridico/footer',$data);
+			// Scripts
+			$CI->load->view('template/juridico/scripts',$data);
 
-		function admin($view, $data=array()){
+		}
+		
+			function admin($view, $data=array()){
  
 			$CI = & get_instance();
 			// Load header

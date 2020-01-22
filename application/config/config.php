@@ -24,8 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 // $config['base_url'] = 'http://localhost/rfcrm/';
-// $config['base_url'] = 'http://192.168.0.66/rfcrm/';
- $config['base_url'] = 'http://crmserver/rfcrm/';
+// $config['base_url'] = 'http://192.168.0.163/rfcrm/';
+ $config['base_url'] = 'http://rfcrm/';
 //$config['base_url'] = "http://".$_SERVER['HTTP_HOST']."/rfcrm";
 
 /*
