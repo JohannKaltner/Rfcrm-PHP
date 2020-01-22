@@ -29,10 +29,11 @@ class C_Usuario extends CI_Controller {
 	}
 
 
-	public function editarUsuario($usuario_id = NULL)
+	public function editarUsuario($usuario_id = $this->uri->segment(3))
     {
         $this->M_usuario->atualizarUsuario($usuario_id);
-        echo "<script> window.history.go(-1);</script>";
+		echo "<script> window.history.go(-1);</script>";
+		
     }
 
 	public function chat(){

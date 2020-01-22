@@ -128,7 +128,7 @@ public function atualizarUsuario($usuario_id)
         // 'usuario_twitter' => $this->input->post('usuario_twitter'),
         // 'usuario_instagram' => $this->input->post('usuario_instagram'),
         // 'usuario_hora_registro' => date('d/m/Y - H:d'),
-        'cliente_ultima_alteracao' => date('d/m/Y - H:d'),
+        //'usuario_ultima_alteracao' => date('d/m/Y - H:d'),
     );
 
     $data2 = array(
@@ -139,7 +139,7 @@ public function atualizarUsuario($usuario_id)
     );
     $this->db->insert('log', $data2);
 
-    $this->db->where('usuario_id', $this->uri->segment(3));
+    $this->db->where('usuario_id', $usuario_id);
     $this->db->update('usuario', $data);
 
     

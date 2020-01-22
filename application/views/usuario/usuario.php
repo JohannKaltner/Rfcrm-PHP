@@ -126,7 +126,7 @@
 												<div class="col-md-6" style="margin: 0 auto; width: 50%;float:left;   ">
 													<div class="form-group justify-content-center">
 														<label for="usuario_email" class=" form-control-label">Email do
-															Cliente</label>
+															Usuario</label>
 														<input style="text-align: center" disabled type="text"
 															id="usuario_email"
 															value="<?php echo $linha[0]->usuario_email; ?>"
@@ -253,7 +253,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Edição de Usuario</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Editando Usuario - <?php echo $linha[0]->usuario_nome?></h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -261,8 +261,7 @@
 			<div class="modal-body">
 				<!-- <form method='post' action="<?php echo base_url('C_usuario/editarUsuario/'); ?>"
 											class="form-horizontal"> -->
-				<form method='post'
-					action="<?php echo site_url('C_usuario/editarUsuario'); ?>/<?php echo $linha[0]->usuario_id; ?>"
+				<form method='post' action="<?php echo base_url('C_usuario/editarUsuario'); ?>/<?php echo $linha[0]->usuario_id; ?>"
 					class="form-horizontal">
 					<div class="row form-group">
 						<div class="col col-md-3">
@@ -431,11 +430,11 @@
 							href="<?php echo base_url(); ?>C_admin/exibir/<?php echo $chamado->chamado_id; ?>"
 							id="listgroup" style="position: relative!important;">
 							<div class="card-header">
-								<strong class="card-title">Chamado
+								<strong class="card-title">
 									<small>
 										<span class="badge badge-primary float-right mt-1">Chamado
 											de ID:<?php echo $chamado->chamado_id; ?></span>
-									</small>teste
+									</small>
 								</strong>
 							</div>
 							<div id="card" class="card-body">

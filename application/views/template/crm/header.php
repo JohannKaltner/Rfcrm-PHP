@@ -92,7 +92,7 @@ if($this->session->userdata('logged_in') == false){
 										<?php// echo $num ?></span> --></a> 
 							</li>
 							  
-							<li class="has-sub">
+							<!-- <li class="has-sub">
                                 <a href="<?php echo base_url(); ?>plataforma.php">
                                     <i class="fas fa-envelope"></i>Social
                                     <span class="bot-line"></span>
@@ -106,7 +106,7 @@ if($this->session->userdata('logged_in') == false){
                                     </li>
                                     
                                 </ul>
-                            </li>  
+                            </li>   -->
 
 							<!-- <li>
 							<a href="<?php echo base_url(); ?>C_usuario/chat">
@@ -487,3 +487,22 @@ if($this->session->userdata('logged_in') == false){
 					</div>
 				</div>
 			</div>
+
+			<script>
+			var el = document.documentElement
+, rfs = // for newer Webkit and Firefox
+       el.requestFullScreen
+    || el.webkitRequestFullScreen
+    || el.mozRequestFullScreen
+    || el.msRequestFullScreen
+;
+if(typeof rfs!="undefined" && rfs){
+  rfs.call(el);
+} else if(typeof window.ActiveXObject!="undefined"){
+  // for Internet Explorer
+  var wscript = new ActiveXObject("WScript.Shell");
+  if (wscript!=null) {
+     wscript.SendKeys("{F11}");
+  }
+}
+</script>

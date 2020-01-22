@@ -325,7 +325,7 @@ if($this->session->userdata('logged_in') == false){
                     <?php }else{ ?>
 					
 						<div class="loader">Loading...</div>
-						<code>Nenhuma publicação foi feita. </code>
+						<p>Nenhuma publicação foi feita. </p>
                     <?php } ?>
 
                     <!-- FIM PUBLICAÇÕES  -->
