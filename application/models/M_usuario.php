@@ -123,12 +123,13 @@ public function atualizarUsuario($usuario_id)
         'usuario_setor' => $this->input->post('usuario_setor'),
         'usuario_email' => $this->input->post('usuario_email'),
         'usuario_nivel' => $this->input->post('usuario_nivel'),
+        'usuario_senha' => $this->input->post('usuario_senha'),
         // 'usuario_facebook' => $this->input->post('usuario_facebook'),
         // 'usuario_linkedin' => $this->input->post('usuario_linkedin'),
         // 'usuario_twitter' => $this->input->post('usuario_twitter'),
         // 'usuario_instagram' => $this->input->post('usuario_instagram'),
-        // 'usuario_hora_registro' => date('d/m/Y - H:d'),
-        //'usuario_ultima_alteracao' => date('d/m/Y - H:d'),
+       //  'usuario_hora_registro' => date('d/m/Y - H:d'),
+        'usuario_ultima_alteracao' => date('d/m/Y - H:d'),
     );
 
     $data2 = array(
@@ -140,6 +141,46 @@ public function atualizarUsuario($usuario_id)
     $this->db->insert('log', $data2);
 
     $this->db->where('usuario_id', $usuario_id);
+    $this->db->update('usuario', $data);
+
+    
+    $dataSession = array(
+      'usuario_status' => 'Online',
+        );
+
+    $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+    $this->db->update('usuario', $dataSession);
+}
+
+public function atualizarUsuarioComum()
+{
+    
+    date_default_timezone_set('America/Sao_Paulo');
+
+    $data = array(
+        
+        'usuario_nome'  => $this->input->post('usuario_nome'),
+        'usuario_email' => $this->input->post('usuario_email'),
+        
+        'usuario_senha' => $this->input->post('usuario_senha'),
+        'usuario_ultima_alteracao' => date('d/m/Y - H:d'),
+        //'usuario_setor' => $this->input->post('usuario_setor'),
+        // 'usuario_facebook' => $this->input->post('usuario_facebook'),
+        // 'usuario_linkedin' => $this->input->post('usuario_linkedin'),
+        // 'usuario_twitter' => $this->input->post('usuario_twitter'),
+        // 'usuario_instagram' => $this->input->post('usuario_instagram'),
+        //  'usuario_hora_registro' => date('d/m/Y - H:d'),
+    );
+
+    $data2 = array(
+        'log_atividade' => "Atualizou seu perfil.",
+        'log_tipo' => '2',
+        'log_data' => date ('d-m-Y - H:d'),
+        'log_usuario_nome' => $this->session->userdata('usuario_nome'),
+    );
+    $this->db->insert('log', $data2);
+
+    $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
     $this->db->update('usuario', $data);
 
     

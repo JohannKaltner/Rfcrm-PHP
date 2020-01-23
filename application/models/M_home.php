@@ -40,6 +40,7 @@ class M_home extends CI_Model {
         $this->db->from('post');
         $this->db->where('post_status', '1');
         $this->db->order_by('post_id', 'DESC');
+        $this->db->limit('10');
         $query = $this->db->get();
         if ($query->num_rows() < 1) {
             return false;

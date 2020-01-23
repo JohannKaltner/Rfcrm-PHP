@@ -187,7 +187,7 @@ if($this->session->userdata('logged_in') == false){
                             <div style="  padding-bottom: 15px;">
                                 <div id="circle" style="border:1px solid lightblack">
                                     <img
-                                        src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.jpg">
+                                    src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png">
                                 </div>
                             </div>
                             <div class="media-body" style="padding-top: 25px; padding-right:50px;">
@@ -246,8 +246,7 @@ if($this->session->userdata('logged_in') == false){
                         <div class="media">
                             <div style="  padding-bottom: 15px;">
                                 <div id="circle" style="border:1px solid lightblack">
-                                    <img
-                                        src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.jpg">
+                                    <img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $post->post_usuario_id ?>.png">
                                 </div>
                             </div>
                             <div class="media-body" style="padding-top: 25px; padding-right:50px;">
@@ -309,8 +308,17 @@ if($this->session->userdata('logged_in') == false){
                                             <?php } ?>
                                         </div>
 									</div>
-                                    <textarea disabled="" name="textarea-input" id="textarea-input" rows="4"
+
+
+
+                                    <textarea style=" overflow-y: scroll;" disabled="" name="textarea-input" id="textarea-input" rows="10"
                                         placeholder="<?php echo $post->post_conteudo?>" class="form-control"></textarea>
+
+                                            
+                                         <?//php echo $post->post_conteudo?>
+
+
+
                                 </div>
                                 <div align="left" style="padding-left:15px;">
                                     <p>

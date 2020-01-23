@@ -91,17 +91,17 @@ if($this->session->userdata('logged_in') == false){
 
 										<?php// echo $num ?></span> --></a> 
 							</li>
-							<li>
+							<!-- <li>
 								<a href="<?php echo base_url(); ?>C_juridico">
 								<i class="fas fa-balance-scale"></i>
 									<span class="bot-line"></span>Juridico
-									 <!--<span class="badge badge-primary"
+									 <span class="badge badge-primary"
 										style="margin: 0 0 0 3px;"><?php
 										 //$this->db->select('*');$query = $this->db->get('cliente');
 										 //$num = $query->num_rows();?>
 
-										<?php// echo $num ?></span> --></a> 
-							</li>
+										<?php// echo $num ?></span> </a> 
+							</li> -->
 							  
 					
 							  
@@ -269,7 +269,7 @@ if($this->session->userdata('logged_in') == false){
 									<div class="image">
 										<div>
 											<a>
-												<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome'); ?>.jpg"
+												<img  src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
 													alt="John Doe" />
 										</div></a>
 									</div>
@@ -282,7 +282,7 @@ if($this->session->userdata('logged_in') == false){
 											<div class="image">
 												<a>
 													<!-- imagem de perfil, alterar agora-->
-													<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome'); ?>.jpg"
+													<img  src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
 														alt="John Doe" />
 												</a>
 
@@ -335,7 +335,7 @@ if($this->session->userdata('logged_in') == false){
 						<a href="<?php echo base_url(); ?>home">
 							<!-- <h1 style="color:#2C0CB8"> RF&A </h1> -->
 							<!-- <img src="<?php echo base_url(); ?>public/images/icon/logo_completa.png" alt="" /> -->
-							<img style="width:70px; " src="<?php echo base_url(); ?>public/images/logo_casa-1-.png"
+							<img style="width:70px; " src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
 								alt="" />
 						</a>
 
@@ -461,7 +461,7 @@ if($this->session->userdata('logged_in') == false){
 					<div class="account-wrap">
 						<div class="account-item account-item--style2 clearfix js-item-menu">
 							<div class="image">
-								<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome'); ?>.jpg"
+								<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_img'); ?>.png"
 									alt="John Doe" />
 							</div>
 							<div class="content">
@@ -471,7 +471,7 @@ if($this->session->userdata('logged_in') == false){
 								<div class="info clearfix">
 									<div class="image">
 										<a href="#">
-											<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome'); ?>.jpg"
+											<img  src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
 												alt="John Doe" />
 										</a>
 									</div>

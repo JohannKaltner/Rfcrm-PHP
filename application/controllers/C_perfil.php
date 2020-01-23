@@ -25,9 +25,33 @@ class C_Perfil extends CI_Controller {
 
 	}
 
-	public function editaUsuario($usuario_id = NULL)
+	public function editaUsuario()
 	{
-		$this->M_login->atualizarRegistro($usuario_id);
+		$this->M_usuario->atualizarUsuarioComum();
         echo "<script> window.history.go(-1);</script>";
+	}
+
+	public function salvar(){
+		$usuario          = $this->session->userdata('usuario_id');
+		$foto    = $_FILES['foto'];
+		$configuracao = array(
+			'upload_path'   => './public/images/perfil',
+			'allowed_types' => 'png|jpg|jpeg',
+			'file_name'     => $usuario.'.png',
+			'max_size'      => '20000'
+		);      
+		$this->load->library('upload');
+		$this->upload->initialize($configuracao);
+
+		 $data = array(
+		 'usuario_img' => $this->input->post('foto'),
+		 );
+		 $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
+		 $this->db->update('usuario', $data);
+
+		 if ($this->upload->do_upload('foto'))
+		 echo "<script> window.history.go(-1);</script>";
+		 else
+			echo $this->upload->display_errors();
 	}
 }

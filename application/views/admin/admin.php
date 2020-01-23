@@ -81,6 +81,8 @@ if($this->session->userdata('logged_in') == false && $this->session->userdata('u
 						<table class="table table-top-campaign">
 							<thead>
 								<tr>
+								<th>Foto</th>
+
 									<th>Nº de Identificação <i class="fa fa-info-circle" data-toggle="tooltip"
 											data-placement="top"
 											title="Nº de Indentificação do Usuario no Banco de dados"
@@ -103,6 +105,7 @@ if($this->session->userdata('logged_in') == false && $this->session->userdata('u
 								<?php foreach ($usuarioInfo as $key => $element) { ?>
 								<tr>
 
+									<td><img style="width:90px;" src="<?php echo base_url();?>public/images/perfil/<?php echo $element['usuario_img']; ?>.png"></td>
 									<td><?php echo $element['usuario_id']; ?></td>
 									<td><?php echo $element['usuario_nome']; ?></td>
 									<td><?php echo $element['usuario_setor']; ?></td>

@@ -57,7 +57,7 @@ class M_Admin extends CI_Model
 
     function listarRegistros($query = '')
     {
-        $this->db->select(array('u.usuario_id', 'u.usuario_nome', 'u.usuario_setor', 'u.usuario_nivel', 'u.usuario_data_inicio'));
+        $this->db->select(array('u.usuario_id', 'u.usuario_nome', 'u.usuario_setor','u.usuario_img', 'u.usuario_nivel', 'u.usuario_data_inicio'));
         $this->db->from('usuario as u');
         $this->db->order_by('usuario_nome', 'asc');
         $this->db->limit($this->_pageNumber, $this->_offset);
@@ -70,7 +70,8 @@ class M_Admin extends CI_Model
 
     function listarRegistro($usuario_id = NULL)
 	{
-        $this->db->select(array('i.usuario_id','i.usuario_facebook','i.usuario_instagram','i.usuario_twitter','i.usuario_linkedin','i.usuario_email', 'i.usuario_nome', 'i.usuario_setor', 'i.usuario_nivel', 'i.usuario_data_inicio'));        $this->db->from('usuario as u');
+        $this->db->select(array('i.usuario_id','i.usuario_img','i.usuario_facebook','i.usuario_instagram','i.usuario_twitter','i.usuario_linkedin','i.usuario_email', 'i.usuario_nome', 'i.usuario_setor', 'i.usuario_nivel', 'i.usuario_data_inicio'));        
+        $this->db->from('usuario as u');
          $this->db->where('i.usuario_id', $this->uri->segment(3));
          $this->db->from('usuario as i');
 

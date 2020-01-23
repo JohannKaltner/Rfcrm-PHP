@@ -8,9 +8,9 @@
                 <!-- <li class="nav-item">
                     <button href="" data-target="#messages" data-toggle="tab" class="nav-link">Chamados Registrados</a>
                 </li> -->
-                <!-- <li class="nav-item">
+                 <li class="nav-item">
                     <button href="" data-target="#edit" data-toggle="tab" class="nav-link">Editar</a>
-                </li> -->
+                </li> 
             </ul>
             <div class="tab-content py-4">
                 <div class="tab-pane active" id="profile">
@@ -28,6 +28,22 @@
                             <p>
                                 <?php echo $this->session->userdata('usuario_setor'); ?>
                             </p>
+                         
+
+                         
+                            <h6>Privilegio</h6>
+                            <p>
+                            <?php if($this->session->userdata('usuario_nivel') == 1){ ?>
+                                Diretor
+                            <?php }elseif($this->session->userdata('usuario_nivel') == 2){ ?>
+                                  Gestor  
+                            <?php }else{  ?>
+                                    Usuario Comum
+                            <?php } ?>
+                            </p>
+                         
+                         
+                         
                             <!-- <h6>Hobbies</h6>
                             <p>
                                 Indie music, skiing and hiking. I love the great outdoors.
@@ -149,33 +165,34 @@
                         </tbody>
                     </table>
                 </div>
+
                 <div class="tab-pane" id="edit">
                     <!-- <form method='post' action="<?php echo site_url('C_login/editaUsuario')?>/<?php echo $result['usuario_id']; ?>" > -->
-                    <form >
+                    <form method='post' action="<?php echo site_url('C_perfil/editaUsuario')?>/<?php echo $this->session->userdata('usuario_id');?>"> 
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Nome</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="<?php echo $this->session->userdata('usuario_nome'); ?>">
+                                <input class="form-control" name="usuario_nome" type="text" value="<?php echo $this->session->userdata('usuario_nome'); ?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">E-mail</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="email" value="<?php echo $this->session->userdata('usuario_email'); ?>">
+                                <input class="form-control" name="usuario_email" type="email" value="<?php echo $this->session->userdata('usuario_email'); ?>">
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Setor</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="<?php echo $this->session->userdata('usuario_setor'); ?>">
+                                <input class="form-control" type="text" name="usuario_setor" value="<?php echo $this->session->userdata('usuario_setor'); ?>">
                             </div>
-                        </div>
-                        <div class="form-group row">
+                        </div> -->
+                        <!-- <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Data de Inicio</label>
                             <div class="col-lg-9">
                                 <input class="form-control" type="text" value="">
                             </div>
-                        </div>
+                        </div> -->
                         
                         <!-- <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
@@ -195,21 +212,21 @@
                       <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Senha</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="senha" value="<?php echo $this->session->userdata('usuario_senha'); ?>">
+                                <input class="form-control" name="usuario_senha" type="password" value="<?php echo $this->session->userdata('usuario_senha'); ?>">
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Confirmação de Senha</label>
                             <div class="col-lg-9">  
-                                <input class="form-control" type="password" >
+                                <input class="form-control" name="usuario_senha" type="password" >
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
                                 <input type="reset" class="btn btn-danger" value="Limpar">
                                 <!-- <button href="" type="button" class="btn btn-danger" data-target="#profile" data-toggle="tab" > Cancelar </button> -->
-                                <button type="button" class="btn btn-primary" value="Save Changes"> Salvar Informações </button>
+                                <button type="submit" class="btn btn-primary" value="save"> Salvar Informações </button>
                             </div>
                         </div>
                     </form>
@@ -217,13 +234,15 @@
             </div>
         </div>
         <div class="col-lg-4 order-lg-1 text-center">
-            <img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_nome'); ?>.jpg" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+            <img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+            
             <!-- <img class="editable img-responsive" alt=" Avatar" id="avatar2" > -->
-
+                                <form method="POST" enctype="multipart/form-data" action="<?php echo site_url('C_perfil/salvar')?>"> 
             <h6 class="mt-2">Faça upload de uma foto</h6>
+            <hr>
             <label class="custom-file">
-                <input type="file" id="file" class="custom-file-input">
-                <span class="custom-file-control">Inserir Foto</span>
+                <input type="file" name="foto"  id="file" >Inserir Foto</input><br>
+                <button class="btn btn-primary" type="submit"  >Concluir</button>
             </label>
         </div>
     </div>
