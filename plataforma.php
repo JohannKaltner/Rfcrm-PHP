@@ -50,12 +50,12 @@
                         <ul class="list-unstyled">
                        
                             <li>
-                                <a href="http://192.168.0.66/rfcrm/home">
+                                <a href="http://rfcrm/home">
                                     <i class="fas fa-home"></i>
                                     <span class="bot-line"></span>Painel</a>
                             </li>
                             <li>
-                                <a  href="http://192.168.0.66/rfcrm/C_cliente">
+                                <a  href="http://rfcrm/C_cliente">
                                     <i class="fas fa-users"></i>
                                     <span class="bot-line"></span>Clientes</a>
                             </li>
@@ -68,11 +68,11 @@
                                 </a>
                                 <ul class="header3-sub-list list-unstyled">
                                     <li>
-                                        <a href="http://192.168.0.66/rfcrmChat">Chat</a>
+                                        <a href="http://rfcrm/Chat">Chat</a>
                                     </li>
-                                    <li>
-                                        <a href="http://192.168.0.66/rfcrmMail">Email</a>
-                                    </li>
+                                    <!-- <li>
+                                        <a href="http:/rfcrm/Mail">Email</a>
+                                    </li> -->
                                     
                                 </ul>
                             </li>
@@ -189,7 +189,7 @@
                         <div class="col-md-6 col-lg-3">
                             <div class="statistic__item statistic__item--orange" style=" border: 1px solid lightgrey; border-radius:5px;">
                                 <h2  style="color:black" class="number" align="center">CHAT</h2>
-                                <a   href="http://192.168.0.66/rfcrmChat" >  
+                                <a   href="http://rfcrm/C_chat" >  
 
                                 <!-- <span class="desc">items sold</span> -->
                                 <div class="icon">
@@ -200,7 +200,7 @@
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <div class="statistic__item statistic__item--blue" style=" border: 1px solid lightgrey; border-radius:5px;">
-                                <a   href="http://192.168.0.66/rfcrmMail" >  
+                                <a   href="http:/rfcrm/C_email" >  
                                 <h2  style="color:black" class="number" align="center">EMAIL</h2>
                                 <!-- <span class="desc">this week</span> -->
                                 <div class="icon">

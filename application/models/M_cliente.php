@@ -131,6 +131,38 @@ class M_cliente extends CI_Model
         }
         return $query->result();
     }
+  
+    public function listarChamadosClienteEmail($cliente_id)
+    {
+         $this->db->select('*');
+        $this->db->from('chamado');
+        $this->db->join('cliente', 'cliente.cliente_id = chamado.chamado_id_cliente');
+        $this->db->where('chamado.chamado_id_cliente =' . $cliente_id);
+        $this->db->where('chamado.chamado_meio', 'E-mail');
+        $this->db->where('chamado.chamado_id_usuario =' . $this->session->userdata('usuario_id'));
+        $this->db->order_by('chamado_id', 'DESC');
+        $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return false;
+        }
+        return $query->result();
+    }
+  
+    public function listarChamadosClienteLigacao($cliente_id)
+    {
+         $this->db->select('*');
+        $this->db->from('chamado');
+        $this->db->join('cliente', 'cliente.cliente_id = chamado.chamado_id_cliente');
+        $this->db->where('chamado.chamado_id_cliente =' . $cliente_id);
+        $this->db->where('chamado.chamado_id_usuario =' . $this->session->userdata('usuario_id'));
+        $this->db->where('chamado.chamado_meio', 'ligacao');
+        $this->db->order_by('chamado_id', 'DESC');
+        $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return false;
+        }
+        return $query->result();
+    }
 
 
 
@@ -210,6 +242,19 @@ class M_cliente extends CI_Model
         }
         return $query->result();
     }
+   
+    public function listarContatosClienteEmail($cliente_id = NULL ){
+        $this->db->select('*');
+        $this->db->from('contato_secundario');
+       // $this->db->join('cliente', 'cliente.cliente_id = contato_secundario.cliente_contato_id');
+        $this->db->where('contato_secundario.cliente_contato_id =', $cliente_id);
+        $this->db->order_by('contato_secundario_id', 'DESC');
+        $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return false;
+        }
+        return $query->result();
+    }
 
     public function listarRegistrosPorUsuario($query = '', $usuario_id = NULL) {
         $this->db->select(array('c.cliente_id', 'c.cod_cliente', 'c.cliente_nome', 'c.cliente_cnpj', 'c.cliente_cpf', 'c.cliente_telefone', 'c.cliente_cidade', 'c.cliente_endereco', 'c.cliente_bairro', 'c.cliente_cep'));
@@ -249,7 +294,7 @@ class M_cliente extends CI_Model
 
     public function criarDados()
     {
-		date_default_timezone_set('America/Sao_Paulo');
+		date_default_timezone_set('America/Fortaleza');
 
         $data = array(
             'cod_cliente' => $this->input->post('cod_cliente'),
@@ -292,7 +337,7 @@ class M_cliente extends CI_Model
 
     public function criarContato()
     {
-		date_default_timezone_set('America/Sao_Paulo');
+		date_default_timezone_set('America/Fortaleza');
 		
         $data = array(
             'cliente_contato_id' => $this->input->post('cliente_contato_id'),
@@ -324,7 +369,7 @@ class M_cliente extends CI_Model
 
     public function criarCorrecao()
     {
-		date_default_timezone_set('America/Sao_Paulo');
+		date_default_timezone_set('America/Fortaleza');
 
         $data = array(
             'correcao_id_chamado' => $this->input->post('correcao_id_chamado'),
@@ -371,7 +416,7 @@ class M_cliente extends CI_Model
 
     public function atualizarRegistro($cliente_id)
     {
-		date_default_timezone_set('America/Sao_Paulo');
+		date_default_timezone_set('America/Fortaleza');
 
         $data = array(
             'cod_cliente'                => $this->input->post('cod_cliente'),
@@ -412,7 +457,7 @@ class M_cliente extends CI_Model
 
     public function atualizarContatoCliente($contato_secundario_id = null, $cliente_id = null)
     {
-		date_default_timezone_set('America/Sao_Paulo');
+		date_default_timezone_set('America/Fortaleza');
 
         $data = array(
             'cliente_contato_id'          => $this->input->post('cliente_contato_id'),
@@ -449,7 +494,7 @@ class M_cliente extends CI_Model
 
     public function apagarRegistro($cliente_id = NULL)
     {
-        date_default_timezone_set('America/Sao_Paulo');
+        date_default_timezone_set('America/Fortaleza');
 
   
 
@@ -473,7 +518,7 @@ class M_cliente extends CI_Model
 
     public function apagarContatoCliente($contato_secundario_id = null)
     {
-		date_default_timezone_set('America/Sao_Paulo');
+		date_default_timezone_set('America/Fortaleza');
         $data2 = array(
             'log_atividade' => "Apagou o Contato de id: $contato_secundario_id ",
             'log_tipo' => '3',
@@ -499,6 +544,7 @@ class M_cliente extends CI_Model
 
     public function retorna_contatos($cliente_id = null)
     {
+
         $this->db->select('*');
         $this->db->from('contato_secundario');
         $this->db->where('cliente_contato_id', $cliente_id);

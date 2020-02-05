@@ -45,12 +45,19 @@
 
 	<!-- Main CSS-->
 	<link href="<?php echo base_url(); ?>public/css/theme.css" rel="stylesheet" media="all">
-
+	<?php setlocale(LC_TIME, 'portuguese'); ?>
 </head>
 
 <body class="animsition">
 
-<?php 
+
+	<script>
+		document.body.style.zoom = "90%"
+
+	</script>
+
+
+	<?php 
 if($this->session->userdata('logged_in') == false){
 	redirect('C_login');
 }
@@ -83,13 +90,13 @@ if($this->session->userdata('logged_in') == false){
 							<li>
 								<a href="<?php echo base_url(); ?>C_cliente">
 									<i class="fas fa-users"></i>
-									 <span class="bot-line"></span>Clientes
-									 <!--<span class="badge badge-primary"
+									<span class="bot-line"></span>Clientes
+									<!--<span class="badge badge-primary"
 										style="margin: 0 0 0 3px;"><?php
 										 //$this->db->select('*');$query = $this->db->get('cliente');
 										 //$num = $query->num_rows();?>
 
-										<?php// echo $num ?></span> --></a> 
+										<?php// echo $num ?></span> --></a>
 							</li>
 							<!-- <li>
 								<a href="<?php echo base_url(); ?>C_juridico">
@@ -102,43 +109,42 @@ if($this->session->userdata('logged_in') == false){
 
 										<?php// echo $num ?></span> </a> 
 							</li> -->
-							  
-					
-							  
-							<!-- <li class="has-sub">
-                                <a href="<?php echo base_url(); ?>plataforma.php">
-                                    <i class="fas fa-envelope"></i>Social
-                                    <span class="bot-line"></span>
-                                </a>
-                                <ul class="header3-sub-list list-unstyled">
-                                    <li>
-                                        <a href="http://192.168.0.66/rfcrmChat">Chat</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://192.168.0.66/rfcrmMail">Email</a>
-                                    </li>
-                                    
-                                </ul>
-                            </li>   -->
 
-							<!-- <li>
-							<a href="<?php echo base_url(); ?>C_usuario/chat">
+									<li>
+										<a href="http://rfcrm/C_chat"><i class="fas fa-comments"></i>Chat</a>
+									</li>
 							
-									<i class="fas fa-comments"></i>
-									<span class="bot-line"></span>Chat</a>
+
+									<!-- <li>
+										<a href="http://rfcrm/C_email"><i class="fas fa-envelope"></i>Email</a>
+									</li> -->
+							<!-- <li class="has-sub">
+								<a href="<?php echo base_url(); ?>plataforma.php">
+									<i class="fas fa-envelope"></i>Social
+									<span class="bot-line"></span>
+								</a>
+								<ul class="header3-sub-list list-unstyled">
+								<li>
+										<a href="http://rfcrm/C_chat">Chat</a>
+									</li>
+									<li>
+										<a href="http://rfcrm/C_email">Email</a>
+									</li>
+								</ul>
 							</li> -->
-							
+							 
+
 
 						</ul>
- 					</div>
+					</div>
 					<div class="header__tool">
-						
-					 
 
 
 
 
-								<!-- <div class="mess__item">
+
+
+						<!-- <div class="mess__item">
 									<div class="image img-cir img-40">
 										<img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
 									</div>
@@ -151,7 +157,7 @@ if($this->session->userdata('logged_in') == false){
 								<div class="mess__footer">
 									<a href="#">View all messages</a>
 								</div> -->
- 					
+
 
 						<div class="header-button-item js-item-menu">
 							<?php if(!empty($alert)){ ?>
@@ -269,8 +275,8 @@ if($this->session->userdata('logged_in') == false){
 									<div class="image">
 										<div>
 											<a>
-												<img  src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
-													alt="John Doe" />
+												<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
+													alt="" />
 										</div></a>
 									</div>
 									<div class="content">
@@ -282,8 +288,8 @@ if($this->session->userdata('logged_in') == false){
 											<div class="image">
 												<a>
 													<!-- imagem de perfil, alterar agora-->
-													<img  src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
-														alt="John Doe" />
+													<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
+														alt="" />
 												</a>
 
 												<!-- checkpoint -->
@@ -335,7 +341,8 @@ if($this->session->userdata('logged_in') == false){
 						<a href="<?php echo base_url(); ?>home">
 							<!-- <h1 style="color:#2C0CB8"> RF&A </h1> -->
 							<!-- <img src="<?php echo base_url(); ?>public/images/icon/logo_completa.png" alt="" /> -->
-							<img style="width:70px; " src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
+							<img style="width:70px; "
+								src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
 								alt="" />
 						</a>
 
@@ -369,12 +376,12 @@ if($this->session->userdata('logged_in') == false){
 							<a href="<?php echo base_url(); ?>C_cliente"><i class="fas fa-user"></i>
 								Cliente </a>
 						</li>
-<!-- 
 						<li>
-							<a href="<?php echo base_url(); ?>C_Chat"><i class="fas fa-comment"></i>
-								Chat</a>
-						</li> -->
-
+										<a href="http://rfcrm/C_chat">Chat</a>
+									</li>
+									<li>
+										<a href="http://rfcrm/C_email">Email</a>
+									</li>
 					</ul>
 				</div>
 			</nav>
@@ -399,8 +406,8 @@ if($this->session->userdata('logged_in') == false){
 								<div>
 									<p>Bem vindo ao novo CRM da RF&A!!</p>
 									<span class="date"><?php
-														date_default_timezone_set('America/Sao_Paulo');
-														echo date('H:i:s / d-m-Y '); ?></span>
+		date_default_timezone_set('America/Fortaleza');
+		echo date('H:i:s / d-m-Y '); ?></span>
 								</div>
 							</div>
 
@@ -461,8 +468,8 @@ if($this->session->userdata('logged_in') == false){
 					<div class="account-wrap">
 						<div class="account-item account-item--style2 clearfix js-item-menu">
 							<div class="image">
-								<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_img'); ?>.png"
-									alt="John Doe" />
+								<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
+									alt=" " />
 							</div>
 							<div class="content">
 								<a class="js-acc-btn" href="#">Johann Kaltner</a>
@@ -471,8 +478,8 @@ if($this->session->userdata('logged_in') == false){
 								<div class="info clearfix">
 									<div class="image">
 										<a href="#">
-											<img  src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
-												alt="John Doe" />
+											<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
+												alt=" " />
 										</a>
 									</div>
 									<div class="content">
@@ -502,20 +509,20 @@ if($this->session->userdata('logged_in') == false){
 			</div>
 
 			<script>
-			var el = document.documentElement
-, rfs = // for newer Webkit and Firefox
-       el.requestFullScreen
-    || el.webkitRequestFullScreen
-    || el.mozRequestFullScreen
-    || el.msRequestFullScreen
-;
-if(typeof rfs!="undefined" && rfs){
-  rfs.call(el);
-} else if(typeof window.ActiveXObject!="undefined"){
-  // for Internet Explorer
-  var wscript = new ActiveXObject("WScript.Shell");
-  if (wscript!=null) {
-     wscript.SendKeys("{F11}");
-  }
-}
-</script>
+				var el = document.documentElement,
+					rfs = // for newer Webkit and Firefox
+					el.requestFullScreen ||
+					el.webkitRequestFullScreen ||
+					el.mozRequestFullScreen ||
+					el.msRequestFullScreen;
+				if (typeof rfs != "undefined" && rfs) {
+					rfs.call(el);
+				} else if (typeof window.ActiveXObject != "undefined") {
+					// for Internet Explorer
+					var wscript = new ActiveXObject("WScript.Shell");
+					if (wscript != null) {
+						wscript.SendKeys("{F11}");
+					}
+				}
+
+			</script>

@@ -28,6 +28,10 @@ class C_Login extends CI_Controller {
         $usuario_id          = $data['usuario_id'];
         $usuario_nome        = $data['usuario_nome'];
         $usuario_email       = $data['usuario_email'];
+        $usuario_gmail       = $data['usuario_gmail'];
+        $usuario_outlook     = $data['usuario_outlook'];
+        $usuario_whatsapp    = $data['usuario_whatsapp'];
+        $usuario_senha       = $data['usuario_senha'];
         $usuario_nivel       = $data['usuario_nivel'];
         $usuario_setor       = $data['usuario_setor'];
         $usuario_img         = $data['usuario_img'];
@@ -39,10 +43,14 @@ class C_Login extends CI_Controller {
             'usuario_id'          => $usuario_id,
             'usuario_nome'        => $usuario_nome,
             'usuario_email'       => $usuario_email,
+            'usuario_gmail'       => $usuario_gmail,
+            'usuario_outlook'     => $usuario_outlook,
+            'usuario_whatsapp'    => $usuario_whatsapp,
+            'usuario_senha'       => $usuario_senha,
             'usuario_nivel'       => $usuario_nivel,
             'usuario_setor'       => $usuario_setor,
             'usuario_img'         => $usuario_img,
-            'usuario_status'         => $usuario_status,
+            'usuario_status'      => $usuario_status,
             'usuario_data_inicio' => $usuario_data_inicio,
             'logged_in'           => TRUE
         );

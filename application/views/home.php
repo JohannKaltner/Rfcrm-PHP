@@ -7,6 +7,19 @@ if($this->session->userdata('logged_in') == false){
     <!-- BREADCRUMB-->
     <section class="au-breadcrumb2">
         <div class="container">
+ 
+
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Novidades!</h4>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <p>  Agora é possivel mandar mensagens para o WhatsApp de um contato direto do proprio CRM!! aproveite!</p>
+  <hr>
+  <p class="mb-0">Para realizar o envio da mensagem, basta entrar em um Cliente e acessar a aba de contatos, lá se encontra o botão!</p>
+  <small class="mb-0">é necessario estar com o numero da RICARDO FURTADO conectado ao WhatsApp Web para prosseguir, qualquer mensagem enviada por numero pessoal está completamente proibida</small>
+  
+</div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="au-breadcrumb-content">
@@ -22,12 +35,13 @@ if($this->session->userdata('logged_in') == false){
                                 <li class="list-inline-item">Dashboard</li>
                             </ul>
                         </div>
-                        <form class="au-form-icon--sm" action="<?php echo site_url('C_cliente/busca');?>" method="post">
-                            <input class="au-input--w300 au-input--style2" type="text"
-                                placeholder="procure por Clientes &amp; Chamados...">
-                            <button class="au-btn--submit2" type="submit">
-                                <i class="zmdi zmdi-search"></i>
-                            </button>
+                        <form class="au-form-icon--sm" action="<?php echo site_url('C_cliente/busca');?>"
+ 								method="post">
+                                 <input class="au-input--w300 au-input--style2" name="keyword" type="text"
+ 									placeholder="procure por Nome ou Codigo...">
+ 								<button class="au-btn--submit2">
+ 									<i class="zmdi zmdi-search"></i>
+ 								</button>
                         </form>
                     </div>
                 </div>
@@ -42,7 +56,7 @@ if($this->session->userdata('logged_in') == false){
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="title-4">Bem-vindo,
-
+             
                         <!-- ADICIONAR O GET_NOME / GET_SETOR-->
                         <span><?php echo $this->session->userdata('usuario_nome'); ?>!</span>
                         <!-- <small> do Setor :<?php echo $this->session->userdata('usuario_setor'); ?></small> -->

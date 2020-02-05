@@ -399,8 +399,8 @@ if($this->session->userdata('logged_in') == false){
 								<div>
 									<p>Bem vindo ao novo CRM da RF&A!!</p>
 									<span class="date"><?php
-														date_default_timezone_set('America/Sao_Paulo');
-														echo date('H:i:s / d-m-Y '); ?></span>
+		date_default_timezone_set('America/Fortaleza');
+		echo date('H:i:s / d-m-Y '); ?></span>
 								</div>
 							</div>
 

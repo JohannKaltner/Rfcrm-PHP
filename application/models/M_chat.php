@@ -21,16 +21,16 @@ class M_chat extends CI_Model
 }
 
    public function novaMensagem($usuario_id){
-    date_default_timezone_set('America/Sao_Paulo');
+    date_default_timezone_set('America/Fortaleza');
 
     //$usuario_id =NULL ;
-    $usuario_id = 
+    
     $data =array(
-        'mensagem_remetente_id' => $this->session->userdata('usuario_id'),
-         'mensagem_destinatario_id' => $this->input->post('mensagem_destinatario_id'),
-        //  'mensagem_destinatario_id' => $usuario_id,
-        'mensagem_conteudo' => $this->input->post('mensagem_conteudo'),
-        'mensagem_data_envio' => date('H:d | d-m-Y')
+        'mensagem_id_de' => $this->session->userdata('usuario_id'),
+        'mensagem_id_para ' => $this->input->post('mensagem_id_para'),
+        'mensagem' => $this->input->post('mensagem'),
+        'mensagem_data' => date('d - M'),
+        'mensagem_hora' => date('H:i')
     );
     $this->db->insert('chat', $data);
 
@@ -68,22 +68,25 @@ class M_chat extends CI_Model
 //     return $query->result();
 // }
 
-public function exibirMensagens(){
+  public function exibirMensagens(){
+    $mensagem_id_para = $this->uri->segment(3);
+    $mensagem_id_de = $this->session->userdata('usuario_id');
+    $where = "r.mensagem_id_de ='$mensagem_id_de' AND r.mensagem_id_para ='$mensagem_id_para' OR r.mensagem_id_de ='$mensagem_id_para' AND r.mensagem_id_para ='$mensagem_id_de'";
+   $this->db->select('r.mensagem_id_de,r.mensagem_id_para ,r.mensagem,r.mensagem_data,r.mensagem_hora');
+   $this->db->from('chat as r');
+   $this->db->where($where);
   
-  $this->db->select('r.mensagem_remetente_id,r.mensagem_destinatario_id ,r.mensagem_conteudo,r.mensagem_data_envio');
-  $this->db->from('chat as r');
-  $this->db->where('r.mensagem_remetente_id', $this->session->userdata('usuario_id'));
-  //$this->db->where('r.mensagem_destinatario_id', $this->uri->segment(3));
-  $this->db->order_by('r.mensagem_data_envio', 'ASC');
-  // ->where('mensagem_destinatario_id', $this->uri->segment(3))
-  // ->where('mensagem_remetente_id', $this->session->userdata('usuario_id'));
+   $this->db->order_by('r.mensagem_data', 'ASC');
+   // ->where('mensagem_destinatario_id', $this->uri->segment(3))
+   // ->where('mensagem_remetente_id', $this->session->userdata('usuario_id'));
   
-  $query = $this->db->get();
-  if ($query->num_rows() < 1) {
-      return false;
-  }
-  return $query->result();
-}
+
+   $query = $this->db->get();
+   if ($query->num_rows() < 1) {
+       return false;
+   }
+   return $query->result();
+ }
 
 
 /* End of file M_usuario_model.php */

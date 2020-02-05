@@ -5,9 +5,9 @@
                 <li class="nav-item">
                     <button href="" data-target="#profile" data-toggle="tab" class="nav-link active">Perfil</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <button href="" data-target="#messages" data-toggle="tab" class="nav-link">Chamados Registrados</a>
-                </li> -->
+                 <li class="nav-item">
+                    <button href="" data-target="#messages" data-toggle="tab" class="nav-link">Contato</a>
+                </li> 
                  <li class="nav-item">
                     <button href="" data-target="#edit" data-toggle="tab" class="nav-link">Editar</a>
                 </li> 
@@ -167,8 +167,7 @@
                 </div>
 
                 <div class="tab-pane" id="edit">
-                    <!-- <form method='post' action="<?php echo site_url('C_login/editaUsuario')?>/<?php echo $result['usuario_id']; ?>" > -->
-                    <form method='post' action="<?php echo site_url('C_perfil/editaUsuario')?>/<?php echo $this->session->userdata('usuario_id');?>"> 
+                     <form method='post' action="<?php echo site_url('C_perfil/editaUsuario')?>/<?php echo $this->session->userdata('usuario_id');?>"> 
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Nome</label>
                             <div class="col-lg-9">
@@ -181,46 +180,31 @@
                                 <input class="form-control" name="usuario_email" type="email" value="<?php echo $this->session->userdata('usuario_email'); ?>">
                             </div>
                         </div>
-                        <!-- <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Setor</label>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Gmail</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" name="usuario_setor" value="<?php echo $this->session->userdata('usuario_setor'); ?>">
+                                <input class="form-control" name="usuario_gmail" type="email" value="<?php echo $this->session->userdata('usuario_gmail'); ?>">
                             </div>
-                        </div> -->
-                        <!-- <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Data de Inicio</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Outlook</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="">
+                                <input class="form-control" name="usuario_outlook" type="email" value="<?php echo $this->session->userdata('usuario_outlook'); ?>">
                             </div>
-                        </div> -->
-                        
-                        <!-- <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">WhatsApp</label>
                             <div class="col-lg-9">
-                                <select id="user_time_zone" class="form-control" size="0">
-                                    <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                                    <option value="Alaska">(GMT-09:00) Alaska</option>
-                                    <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                                    <option value="Arizona">(GMT-07:00) Arizona</option>
-                                    <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                                    <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                                    <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                                    <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                                </select>
+                                <input class="form-control" name="usuario_whatsapp" type="text" value="<?php echo $this->session->userdata('usuario_whatsapp'); ?>">
                             </div>
-                        </div> -->
+                        </div>
                       <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Senha</label>
                             <div class="col-lg-9">
                                 <input class="form-control" name="usuario_senha" type="password" value="<?php echo $this->session->userdata('usuario_senha'); ?>">
                             </div>
                         </div>
-                        <!-- <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Confirmação de Senha</label>
-                            <div class="col-lg-9">  
-                                <input class="form-control" name="usuario_senha" type="password" >
-                            </div>
-                        </div> -->
+                      
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
@@ -234,7 +218,7 @@
             </div>
         </div>
         <div class="col-lg-4 order-lg-1 text-center">
-            <img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+            <img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png" class="mx-auto img-fluid img-circle d-block img-responsive" alt="avatar">
             
             <!-- <img class="editable img-responsive" alt=" Avatar" id="avatar2" > -->
                                 <form method="POST" enctype="multipart/form-data" action="<?php echo site_url('C_perfil/salvar')?>"> 

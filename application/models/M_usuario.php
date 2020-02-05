@@ -115,7 +115,8 @@ class M_usuario extends CI_Model
 public function atualizarUsuario($usuario_id)
 {
     
-    date_default_timezone_set('America/Sao_Paulo');
+        date_default_timezone_set('America/Fortaleza');
+ 
 
     $data = array(
         
@@ -155,18 +156,19 @@ public function atualizarUsuario($usuario_id)
 public function atualizarUsuarioComum()
 {
     
-    date_default_timezone_set('America/Sao_Paulo');
+            date_default_timezone_set('America/Fortaleza');
+ 
 
     $data = array(
         
         'usuario_nome'  => $this->input->post('usuario_nome'),
         'usuario_email' => $this->input->post('usuario_email'),
-        
+  
         'usuario_senha' => $this->input->post('usuario_senha'),
         'usuario_ultima_alteracao' => date('d/m/Y - H:d'),
-        //'usuario_setor' => $this->input->post('usuario_setor'),
-        // 'usuario_facebook' => $this->input->post('usuario_facebook'),
-        // 'usuario_linkedin' => $this->input->post('usuario_linkedin'),
+        'usuario_whatsapp' => $this->input->post('usuario_whatsapp'),
+        'usuario_gmail' => $this->input->post('usuario_gmail'),
+        'usuario_outlook' => $this->input->post('usuario_outlook'),
         // 'usuario_twitter' => $this->input->post('usuario_twitter'),
         // 'usuario_instagram' => $this->input->post('usuario_instagram'),
         //  'usuario_hora_registro' => date('d/m/Y - H:d'),

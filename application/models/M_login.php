@@ -36,19 +36,20 @@ class M_Login extends CI_Model {
   
   public function criarUsuario() {
 
-		date_default_timezone_set('America/Sao_Paulo');
+		date_default_timezone_set('America/Fortaleza');
 		
     $data = array(
       'usuario_nome' => $this->input->post('usuario_nome'),
       'usuario_setor' => $this->input->post('usuario_setor'),
       'usuario_email' => $this->input->post('usuario_email'),
       'usuario_data_inicio'  => date('d/m/Y'),
+      'usuario_senha'  => $this->input->post('usuario_senha'),
       'usuario_nivel'  =>'3',
       'usuario_img' => '0',
-      'usuario_facebook' => 'Nulo',
-      'usuario_linkedin' => 'Nulo',
-      'usuario_twitter' => 'Nulo',
-      'usuario_instagram' => 'Nulo',
+      // 'usuario_facebook' => 'Nulo',
+      // 'usuario_linkedin' => 'Nulo',
+      // 'usuario_twitter' => 'Nulo',
+      // 'usuario_instagram' => 'Nulo',
       'usuario_hora_registro' => date('H:d'),
 
     );
@@ -64,7 +65,7 @@ class M_Login extends CI_Model {
   public function criarUsuarioADM()
   {
 
-		date_default_timezone_set('America/Sao_Paulo');
+		date_default_timezone_set('America/Fortaleza');
 		
     $data = array(
       'usuario_nome' => $this->input->post('usuario_nome'),

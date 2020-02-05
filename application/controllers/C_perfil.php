@@ -28,7 +28,8 @@ class C_Perfil extends CI_Controller {
 	public function editaUsuario()
 	{
 		$this->M_usuario->atualizarUsuarioComum();
-        echo "<script> window.history.go(-1);</script>";
+		echo "<script> window.history.go(-1);</script>";
+		
 	}
 
 	public function salvar(){

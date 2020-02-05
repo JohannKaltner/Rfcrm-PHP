@@ -85,6 +85,7 @@
  								<th>ENDEREÇO</th>
  								<th>BAIRRO</th>
  								<th>CEP</th>
+								 <th>CHAMADOS REALIZADOS</th>
  								<th>FUNÇÕES</th>
  							</tr>
  						</thead>
@@ -106,6 +107,11 @@
  								<td><?php echo $row->cliente_endereco; ?></td>
  								<td><?php echo $row->cliente_bairro; ?></td>
  								<td><?php echo $row->cliente_cep; ?></td>
+								 <td><?php $this->db->select('*');
+										$this->db->where('chamado_id_cliente', $row->cliente_id);
+											$query = $this->db->get('chamado');
+											$num = $query->num_rows();
+											?> <?php echo $num; ?> </td> 
  								<td>
 								 
  									<div class="table-data-feature">

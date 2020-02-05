@@ -80,6 +80,7 @@
  								<th>ENDEREÇO</th>
  								<th>BAIRRO</th>
  								<th>CEP</th>
+ 								<th>CHAMADOS REALIZADOS</th>
  								<th>FUNÇÕES</th>
  							</tr>
  						</thead>
@@ -100,7 +101,12 @@
  										<td><?php echo $element['cliente_cidade']; ?></td>
  										<td><?php echo $element['cliente_endereco']; ?></td>
  										<td><?php echo $element['cliente_bairro']; ?></td>
- 										<td><?php echo $element['cliente_cep']; ?></td>
+										 <td><?php echo $element['cliente_cep']; ?></td>
+										<td><?php $this->db->select('*');
+										$this->db->where('chamado_id_cliente', $element['cliente_id']);
+											$query = $this->db->get('chamado');
+											$num = $query->num_rows();
+											?> <?php echo $num; ?> </td> 
  										<td>
  											<div class="table-data-feature">
  												<a href="<?php echo site_url('C_cliente/exibir'); ?>/<?php echo $element['cliente_id']; ?>">
@@ -249,7 +255,7 @@
 									 <option value="ASS.EDUC./JURÍDICO">ASS.EDUC./JURÍDICO</option>
 									 <option value="ASS.EDUC./JURÍDICO/CONTÁBIL">ASS.EDUC./JURÍDICO/CONTÁBIL</option>
  									<option value="CONS.JURÍDICO/COBRANÇA">CONS.JURÍDICO/COBRANÇA</option>
- 									<option value="FORNECEDORES/ESCOLAS">FORNECEDORES/ESCOLAS</option>
+ 									<option value="TELEMARKETING/ESCOLAS">TELEMARKETING/ESCOLAS</option>
  									<option value="CLIENTES INATIVOS">CLIENTES INATIVOS</option>
  									<option value="TELEMARKETING/FILANTRÓPICAS">TELEMARKETING/FILANTRÓPICAS </option>
  									<option value="ASS-JURÍDICA/COBRANÇA">ASS-JURÍDICA/COBRANÇA</option>

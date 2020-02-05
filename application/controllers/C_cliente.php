@@ -22,6 +22,8 @@ class C_Cliente extends CI_Controller
         $data['result'] = $this->M_cliente->listarRegistros();
         $data['user'] = $this->M_login->consultarUsuario($usuario_id);
         $data['chamados'] = $this->M_cliente->listarChamadosCliente($cliente_id);
+        $data['metaDescription'] = 'RFCRM';
+        $data['metaKeywords'] = 'RFCRM';
 
         //
         // ─── BUSCA ──────────────────────────────────────────────────────────────────────
@@ -31,17 +33,16 @@ class C_Cliente extends CI_Controller
         //
         // ─── PAGINATION ──────────────────────────────────────────────────
         //
-        $data['metaDescription'] = 'RFCRM';
-        $data['metaKeywords'] = 'RFCRM';
-        $data['title'] = "RFCRM";
-        // $data['breadcrumbs'] = array('Simple Pagination Using CodeIgniter and MySQL' => '#');
+        
         $config['total_rows'] = $this->M_cliente->getAllClienteCount();
         $data['total_count'] = $config['total_rows'];
         $config['suffix'] = '';
+        $page_number = $this->uri->segment(3);
+        
         if ($config['total_rows'] > 1) {
-            $page_number = $this->uri->segment(3);
+            
             if ($page_number > 0) {
-                $config['base_url'] = base_url() . 'C_cliente';
+                $config['base_url'] = base_url() . 'C_cliente/index/';
             } else {
                 $config['base_url'] = base_url() . 'C_cliente/index/';
             }
@@ -49,12 +50,19 @@ class C_Cliente extends CI_Controller
                 $page_number = 1;
             }
 
-            $offset = ($page_number - 1) * $this->pagination->per_page;
+            //$offset = ($page_number - 1) * $this->pagination->per_page;
+            $offset =$page_number;
+            
             $this->M_cliente->setPageNumber($this->pagination->per_page);
+
             $this->M_cliente->setOffset($offset);
+
             $this->pagination->cur_page = $offset;
+
             $config['attributes'] = array('class' => 'page-link');
+
             $this->pagination->initialize($config);
+            
             $data['page_links'] = $this->pagination->create_links();
             $data['clienteInfo'] = $this->M_cliente->listarRegistros();
             //
@@ -97,7 +105,10 @@ class C_Cliente extends CI_Controller
         //$data['correcoes'] = $this->M_cliente->listarCorrecaoCliente($cliente_id);
         //$data['contatos'] = $this->M_cliente->listarContatosCliente($cliente_id);
         $data['linha'] = $this->M_cliente->listarRegistro($cliente_id);
-        $data['chamados'] = $this->M_cliente->listarChamadosClientePorId($cliente_id);
+        $data['chamados'] = $this->M_cliente->listarChamadosClientePorId($cliente_id); 
+        $data['chamadosLigacao'] = $this->M_cliente->listarChamadosClienteLigacao($cliente_id);
+        $data['chamadosEmail'] = $this->M_cliente->listarChamadosClienteEmail($cliente_id);
+        
         $data['contatos'] = $this->M_cliente->listarContatosClientePorId($cliente_id);
         $data['correcoes'] = $this->M_cliente->listarCorrecaoClientePorId($cliente_id);
         $data['permissao'] = $this->M_usuario->consultar_permissao($usuario_id);
@@ -107,6 +118,7 @@ class C_Cliente extends CI_Controller
         foreach ($contato_list->result() as $contato_list) {
             $option .= "<option value='$contato_list->contato_secundario_nome'>$contato_list->contato_secundario_nome</option>";
         }
+       
         $data['options_contatos'] = $option;
         $data['page_title'] = "Informações do Cliente";
         $cliente_id = $this->uri->segment(3);

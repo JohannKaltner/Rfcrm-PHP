@@ -41,7 +41,7 @@
                     </div>
                     <form class="form-auth-small" action="<?php echo site_url('C_login/auth'); ?>" method="post">
                         <div class="mb-3">
-                            <h3> Bem-vindo ao CRM da RF&A!<h3>
+                            <h3> Bem-vindo ao CRM do Grupo Ricardo Furtado!<h3>
                                     <p class="lead" style="color:black">Acesse sua conta...</p>
                         </div>
                         <div class="form-group">
@@ -105,20 +105,30 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                             </div>
-                            <input type="email" class="form-control" value="seu_email@rfcrm.com" placeholder="E-mail" name="usuario_email" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="email" class="form-control" value="exemplo@exemplo.com" placeholder="E-mail" name="usuario_email" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
+                       
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <label class="input-group-text" for="inputGroupSelect02"><i class="fa fa-gavel" aria-hidden="true"></i></label>
+                            </div>
+                                <select class="custom-select" name="usuario_setor" id="inputGroupSelect02">
+                                    <option selected>Selecione o seu setor....</option>
+                                    <option value="Comercial">Comercial</option>
+                                    <option value="Jurídico">Jurídico</option>
+                                    <option value="Financeiro">Financeiro</option>
+                                    <option value="Cobrança">Cobrança</option>
+                                    <option value="Contabilidade/DP.Pessoal">Contabilidade/DP.Pessoal</option>
+                                </select>
+                        </div> 
+
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>
                             </div>
                             <input type="password" class="form-control" placeholder="Senha" aria-label="Username" name="usuario_senha" aria-describedby="basic-addon1">           
                         </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-gavel" aria-hidden="true"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="SETOR" name="usuario_setor" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
+                         
                         <div class="input-group mb-3" style="display:none;">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-gear" aria-hidden="true"></i></span>
@@ -126,7 +136,9 @@
                             <input type="text" value="" class="form-control" placeholder="NIVEL" name="usuario_nivel" aria-label="Username" aria-describedby="basic-addon1">
                             <small style="color:red"> *padrão, não alterar* </small>
                         </div>
-                    
+
+
+                        
                 </div>
                 <div class="modal-footer">
                                             <button type="button"  class="btn btn-round btn-default" data-dismiss="modal">Cancelar</button>
