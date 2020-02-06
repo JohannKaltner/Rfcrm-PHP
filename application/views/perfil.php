@@ -6,7 +6,7 @@
                     <button href="" data-target="#profile" data-toggle="tab" class="nav-link active">Perfil</a>
                 </li>
                  <li class="nav-item">
-                    <button href="" data-target="#messages" data-toggle="tab" class="nav-link">Contato</a>
+                    <button href="" data-target="#messages" data-toggle="tab" class="nav-link">Ultimos Chamados Realizados</a>
                 </li> 
                  <li class="nav-item">
                     <button href="" data-target="#edit" data-toggle="tab" class="nav-link">Editar</a>
@@ -135,36 +135,42 @@
                     <!-- <div class="alert alert-info alert-dismissable">
                         <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Use this to show important messages to the user.
                     </div> -->
-                    <table class="table table-hover table-striped">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
+                            <?php if(isset($chamadoPerfil) && !empty($chamadoPerfil)){ ?>
+                    <!-- <table class="table table-hover table-striped"> -->
+                        <!-- <tbody> -->
+                            <?php foreach($chamadoPerfil as $Pchamado){ ?>
+                            <!-- <tr>
+                                <td style="border:1px solid lightgrey; border-radius: 15px 50px 30px 5px;">
+                                    <span class="float-right font-weight-bold"><?php echo $Pchamado->chamado_data;?></span><b>Assunto</b>:&nbsp;<?php echo $Pchamado->chamado_assunto;?> <hr>
+                                    <span class="float-right font-weight-bold">Cliente de ID:<?php echo $Pchamado->chamado_id_cliente;?></span><b>Descrição</b>:&nbsp;<?php echo $Pchamado->chamado_obs;?>
+                                    <br>
+                                </span>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            </tr> -->
+                            <div class="col-md-12">
+                                <div class="card border border-secondary">
+                                    <div class="card-header">
+                                        <strong class="card-title"><?php echo $Pchamado->chamado_assunto;?></strong> <span class="badge badge-primary">CHAMADO DE ID:<?php echo $Pchamado->chamado_id;?></span>
+                                    </div>
+                                    <div class="card-body">
+                                      <small><?php echo $Pchamado->chamado_data;?>   --   <?php echo $Pchamado->chamado_hora;?></small>  
+                                        <p class="card-text">
+                                            <hr>
+                                            <?php echo $Pchamado->chamado_obs;?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <?php } ?>
+                        <!-- </tbody> -->
+                    <!-- </table> -->
+                            <?php }?>
                 </div>
+                        
+                                
+                                
+                                
 
                 <div class="tab-pane" id="edit">
                      <form method='post' action="<?php echo site_url('C_perfil/editaUsuario')?>/<?php echo $this->session->userdata('usuario_id');?>"> 

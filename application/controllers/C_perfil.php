@@ -8,17 +8,17 @@ class C_Perfil extends CI_Controller {
 		parent::__construct();
 		$this->load->model('M_cliente');
 		$this->load->model('M_usuario');
-
 		$this->load->helper('url_helper');
 		$this->load->library('session');
 		$this->load->library('pagination');
-		
+
 	}
 	
 	public function index($usuario_id = NULL)
 	{
 		
 		$data['page_title'] = "RFCRM - Perfil";
+		$data['chamadoPerfil'] = $this->M_usuario->chamadoPerfil($this->session->userdata('usuario_id'));
 		$data['result'] = $this->M_usuario->consultar_permissao($usuario_id);
 		//$data['chamado'] = $this->M_usuario->userChamados($usuario_id); 
 		$this->template->show('perfil',$data);	

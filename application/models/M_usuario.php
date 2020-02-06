@@ -211,6 +211,20 @@ public function listarBusca($keyword = null)
 }
 
 
+  public function chamadoPerfil(){
+    $this->db->select('*');
+    $this->db->from('chamado');
+    $this->db->where('chamado_id_usuario', $this->session->userdata('usuario_id'));
+    $this->db->limit('3');
+    $query = $this->db->get();
+    if ($query->num_rows() < 1) {
+        return false;
+    }
+    return $query->result();
+
+  }
+
+
 
 }
 
