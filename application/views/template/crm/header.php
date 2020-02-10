@@ -3,102 +3,101 @@
 
 <head>
 
-	<!--
+    <!--
 	// ─── FAVICONS ───────────────────────────────────────────────────────────────────
 -->
 
 
-	<!-- /favicons-->
+    <!-- /favicons-->
 
-	<!-- Required meta tags-->
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="au theme template">
-	<meta name="author" content="Hau Nguyen">
-	<meta name="keywords" content="au theme template">
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
 
-	<!-- Title Page-->
-	<title> <?php echo $page_title ?></title>
-	<link rel="icon" href="<?= base_url() ?>/public/images/favicons/apple-touch-icon-60x60.png" type="image/gif">
-	<!-- Fontfaces CSS-->
-	<link href="<?php echo base_url(); ?>public/css/font-face.css" rel="stylesheet" media="all">
-	<link href="<?php echo base_url(); ?>public/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet"
-		media="all">
-	<link href="<?php echo base_url(); ?>public/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet"
-		media="all">
-	<link href="<?php echo base_url(); ?>public/vendor/mdi-font/css/material-design-iconic-font.min.css"
-		rel="stylesheet" media="all">
+    <!-- Title Page-->
+    <title> <?php echo $page_title ?></title>
+    <link rel="icon" href="<?= base_url() ?>/public/images/favicons/apple-touch-icon-60x60.png" type="image/gif">
+    <!-- Fontfaces CSS-->
+    <link href="<?php echo base_url(); ?>public/css/font-face.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url(); ?>public/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet"
+        media="all">
+    <link href="<?php echo base_url(); ?>public/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet"
+        media="all">
+    <link href="<?php echo base_url(); ?>public/vendor/mdi-font/css/material-design-iconic-font.min.css"
+        rel="stylesheet" media="all">
 
-	<!-- Bootstrap CSS-->
-	<link href="<?php echo base_url(); ?>public/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <!-- Bootstrap CSS-->
+    <link href="<?php echo base_url(); ?>public/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
-	<!-- Vendor CSS-->
-	<link href="<?php echo base_url(); ?>public/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-	<link href="<?php echo base_url(); ?>public/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css"
-		rel="stylesheet" media="all">
-	<link href="<?php echo base_url(); ?>public/vendor/wow/animate.css" rel="stylesheet" media="all">
-	<link href="<?php echo base_url(); ?>public/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-	<link href="<?php echo base_url(); ?>public/vendor/slick/slick.css" rel="stylesheet" media="all">
-	<link href="<?php echo base_url(); ?>public/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-	<link href="<?php echo base_url(); ?>public/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet"
-		media="all">
+    <!-- Vendor CSS-->
+    <link href="<?php echo base_url(); ?>public/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url(); ?>public/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css"
+        rel="stylesheet" media="all">
+    <link href="<?php echo base_url(); ?>public/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url(); ?>public/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url(); ?>public/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url(); ?>public/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url(); ?>public/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet"
+        media="all">
 
-	<!-- Main CSS-->
-	<link href="<?php echo base_url(); ?>public/css/theme.css" rel="stylesheet" media="all">
-	<?php setlocale(LC_TIME, 'portuguese'); ?>
+    <!-- Main CSS-->
+    <link href="<?php echo base_url(); ?>public/css/theme.css" rel="stylesheet" media="all">
+    <?php setlocale(LC_TIME, 'portuguese'); ?>
 </head>
 
 <body class="animsition">
 
 
-	<script>
-		document.body.style.zoom = "90%"
+    <script>
+    document.body.style.zoom = "90%"
+    </script>
 
-	</script>
 
-
-	<?php 
+    <?php 
 if($this->session->userdata('logged_in') == false){
 	redirect('C_login');
 }
 ?>
-	<?php date_default_timezone_set('America/Sao_Paulo'); ?>
-	<div class="page-wrapper">
-		<!-- HEADER DESKTOP-->
-		<header class="header-desktop3 d-none d-lg-block">
-			<div class="section__content section__content--p35">
-				<div class="header3-wrap">
-					<div class="header__logo" style="margin-left:110px;">
+    <?php date_default_timezone_set('America/Sao_Paulo'); ?>
+    <div class="page-wrapper">
+        <!-- HEADER DESKTOP-->
+        <header class="header-desktop3 d-none d-lg-block">
+            <div class="section__content section__content--p35">
+                <div class="header3-wrap">
+                    <div class="header__logo" style="margin-left:110px;">
 
-						<!-- <h1 style="color:#2C0CB8"> RF&A </h1>   -->
-						<!-- <a href="<?php echo base_url(); ?>home">
+                        <!-- <h1 style="color:#2C0CB8"> RF&A </h1>   -->
+                        <!-- <a href="<?php echo base_url(); ?>home">
 							</a> -->
-						<img style="width:70px; " src="<?php echo base_url(); ?>public/images/logo_casa-1-.png"
-							alt="" />
-					</div>
+                        <img style="width:70px; " src="<?php echo base_url(); ?>public/images/logo_casa-1-.png"
+                            alt="" />
+                    </div>
 
 
-					<div class="header__navbar">
-						<ul class="list-unstyled" style="padding-top:5px; ">
-							<li class="has-sub">
-								<a href="<?php echo base_url(); ?>home">
-									<i class="fas fa-home"></i>Painel
-									<span class="bot-line"></span>
-								</a>
+                    <div class="header__navbar">
+                        <ul class="list-unstyled" style="padding-top:5px; ">
+                            <li class="has-sub">
+                                <a href="<?php echo base_url(); ?>home">
+                                    <i class="fas fa-home"></i>Painel
+                                    <span class="bot-line"></span>
+                                </a>
 
-							</li>
-							<li>
-								<a href="<?php echo base_url(); ?>C_cliente">
-									<i class="fas fa-users"></i>
-									<span class="bot-line"></span>Clientes
-									<!--<span class="badge badge-primary"
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>C_cliente">
+                                    <i class="fas fa-users"></i>
+                                    <span class="bot-line"></span>Clientes
+                                    <!--<span class="badge badge-primary"
 										style="margin: 0 0 0 3px;"><?php
 										 //$this->db->select('*');$query = $this->db->get('cliente');
 										 //$num = $query->num_rows();?>
 
 										<?php// echo $num ?></span> --></a>
-							</li>
-							<!-- <li>
+                            </li>
+                            <!-- <li>
 								<a href="<?php echo base_url(); ?>C_juridico">
 								<i class="fas fa-balance-scale"></i>
 									<span class="bot-line"></span>Juridico
@@ -110,15 +109,15 @@ if($this->session->userdata('logged_in') == false){
 										<?php// echo $num ?></span> </a> 
 							</li> -->
 
-									<li>
-										<a href="http://rfcrm/C_chat"><i class="fas fa-comments"></i>Chat</a>
-									</li>
-							
+                            <li>
+                                <a href="http://rfcrm/C_chat"><i class="fas fa-comments"></i>Chat</a>
+                            </li>
 
-									<!-- <li>
+
+                            <!-- <li>
 										<a href="http://rfcrm/C_email"><i class="fas fa-envelope"></i>Email</a>
 									</li> -->
-							<!-- <li class="has-sub">
+                            <!-- <li class="has-sub">
 								<a href="<?php echo base_url(); ?>plataforma.php">
 									<i class="fas fa-envelope"></i>Social
 									<span class="bot-line"></span>
@@ -132,19 +131,19 @@ if($this->session->userdata('logged_in') == false){
 									</li>
 								</ul>
 							</li> -->
-							 
-
-
-						</ul>
-					</div>
-					<div class="header__tool">
 
 
 
+                        </ul>
+                    </div>
+                    <div class="header__tool">
 
 
 
-						<!-- <div class="mess__item">
+
+
+
+                        <!-- <div class="mess__item">
 									<div class="image img-cir img-40">
 										<img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
 									</div>
@@ -159,15 +158,15 @@ if($this->session->userdata('logged_in') == false){
 								</div> -->
 
 
-						<div class="header-button-item js-item-menu">
-							<?php if(!empty($alert)){ ?>
-							<div class="header-button-item has-noti js-item-menu">
-								<?php } else{?>
-								<div class="header-button-item  js-item-menu">
-									<?php } ?>
-									<i class="zmdi zmdi-notifications"></i>
-									<div class="notifi-dropdown notifi-dropdown--no-bor js-dropdown">
-										<?php $ativo = '1';
+                        <div class="header-button-item js-item-menu">
+                            <?php if(!empty($alert)){ ?>
+                            <div class="header-button-item has-noti js-item-menu">
+                                <?php } else{?>
+                                <div class="header-button-item  js-item-menu">
+                                    <?php } ?>
+                                    <i class="zmdi zmdi-notifications"></i>
+                                    <div class="notifi-dropdown notifi-dropdown--no-bor js-dropdown">
+                                        <?php $ativo = '1';
 									$this->db->select('alerta_mensagem, alerta_usuario, alerta_titulo, alerta_data');;
 									$this->db->from('alerta');
 									$this->db->where('alerta_status',$ativo);
@@ -178,64 +177,71 @@ if($this->session->userdata('logged_in') == false){
 									?>
 
 
-										<!-- <p><?php print_r($alert); ?> </p> -->
-										<?php if (!empty($alert[0])) { ?>
-										<div class="notifi__item">
-											<div class="bg-c1 img-cir img-40">
-												<i class="zmdi zmdi-email-open"></i>
-											</div>
-											<div class="content">
-												<p> <b><?php echo $alert[0]->alerta_titulo; ?> </b></p>
-												<p><?php echo $alert[0]->alerta_mensagem; ?></p>
-												<span class="date"><?php $alert[0]->alerta_data; ?></span>
-												<hr>
-											</div>
-										</div>
+                                        <!-- <p><?php print_r($alert); ?> </p> -->
+                                        <?php if (!empty($alert[0])) { ?>
+                                        <div class="notifi__item">
+                                            <div class="bg-c1 img-cir img-40">
+                                                <i class="zmdi zmdi-email-open"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p> <b><?php echo $alert[0]->alerta_titulo; ?> </b></p>
+                                                <p><?php echo $alert[0]->alerta_mensagem; ?></p>
+                                                <span class="date"><?php $alert[0]->alerta_data; ?></span>
+                                                <hr>
+                                            </div>
+                                        </div>
 
-										<?php if (!empty($alert[1])) { ?>
-										<div class="notifi__item">
-											<div class="bg-c1 img-cir img-40">
-												<i class="zmdi zmdi-email-open"></i>
-											</div>
-											<div class="content">
-												<p> <b><?php echo $alert[1]->alerta_titulo; ?> </b></p>
-												<p><?php echo $alert[1]->alerta_mensagem; ?></p>
-												<span class="date"><?php $alert[1]->alerta_data; ?></span>
-												<hr>
-											</div>
-										</div>
-										<?php } ?>
+                                        <?php if (!empty($alert[1])) { ?>
+                                        <div class="notifi__item">
+                                            <div class="bg-c1 img-cir img-40">
+                                                <i class="zmdi zmdi-email-open"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p> <b><?php echo $alert[1]->alerta_titulo; ?> </b></p>
+                                                <p><?php echo $alert[1]->alerta_mensagem; ?></p>
+                                                <span class="date"><?php $alert[1]->alerta_data; ?></span>
+                                                <hr>
+                                            </div>
+                                        </div>
+                                        <?php } ?>
 
-										<?php if (!empty($alert[2])) { ?>
-										<div class="notifi__item">
-											<div class="bg-c1 img-cir img-40">
-												<i class="zmdi zmdi-email-open"></i>
-											</div>
-											<div class="content">
-												<p> <b><?php echo $alert[2]->alerta_titulo; ?> </b></p>
-												<p><?php echo $alert[2]->alerta_mensagem; ?></p>
-												<span class="date"><?php $alert[2]->alerta_data; ?></span> -->
-											</div>
-										</div>
-										<?php }
+                                        <?php if (!empty($alert[2])) { ?>
+                                        <div class="notifi__item">
+                                            <div class="bg-c1 img-cir img-40">
+                                                <i class="zmdi zmdi-email-open"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p> <b><?php echo $alert[2]->alerta_titulo; ?> </b></p>
+                                                <p><?php echo $alert[2]->alerta_mensagem; ?></p>
+                                                <span class="date"><?php $alert[2]->alerta_data; ?></span> -->
+                                            </div>
+                                        </div>
+                                        <?php }
 										} ?>
 
-									</div>
+                                    </div>
 
-								</div>
-							</div>
+                                </div>
+                            </div>
 
-							<?php if ($this->session->userdata('usuario_nivel') == '1') { ?>
-							<div class="header-button-item js-item-menu">
-								<i class="zmdi zmdi-settings"></i>
-								<div class="setting-dropdown js-dropdown">
-									<div class="account-dropdown__body">
+                            <div class="header-button-item js-item-menu">
+                                <i class="zmdi zmdi-settings"></i>
+                                <div class="setting-dropdown js-dropdown">
+                                    <div class="account-dropdown__body">
+                                        <?php if ($this->session->userdata('usuario_nivel') == '1') { ?>
+                                        <div class="account-dropdown__item">
+                                            <a href="<?php echo base_url(); ?>C_admin">
+                                                <i class="zmdi zmdi-settings"></i>Administração</a>
+                                        </div>
+                                        <?php } ?>
 										<div class="account-dropdown__item">
-											<a href="<?php echo base_url(); ?>C_admin">
-												<i class="zmdi zmdi-settings"></i>Administração</a>
-										</div>
+											<a href="<?php echo base_url(); ?>C_historico">
+											<i class="zmdi zmdi-phone-paused"></i>Historico de Ligações</a>
+											</div>
+									
 									</div>
-									<!-- <div class="setting-dropdown js-dropdown">
+									
+                                    <!-- <div class="setting-dropdown js-dropdown">
 									<div class="account-dropdown__body">
 										<div class="account-dropdown__item">
 											<a href="#">
@@ -246,7 +252,7 @@ if($this->session->userdata('logged_in') == false){
 												<i class="zmdi zmdi-settings"></i>Configurações</a>
 										</div>
 									</div> -->
-									<!--
+                                    <!--
 									<div class="account-dropdown__body">
 										<div class="account-dropdown__item">
 											<a href="#">
@@ -266,104 +272,103 @@ if($this->session->userdata('logged_in') == false){
 										</div>
 								</div> 
 								</div> -->
-								</div>
-							</div>
-							<?php } ?>
+                                </div>
+                            </div>
 
-							<div class="account-wrap">
-								<div class="account-item account-item--style2 clearfix js-item-menu">
-									<div class="image">
-										<div>
-											<a>
-												<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
-													alt="" />
-										</div></a>
-									</div>
-									<div class="content">
-										<a class="js-acc-btn" href="<?php echo site_url('C_login') ?>">
-											<?php echo $this->session->userdata('usuario_nome'); ?> </a>
-									</div>
-									<div class="account-dropdown js-dropdown">
-										<div class="info clearfix">
-											<div class="image">
-												<a>
-													<!-- imagem de perfil, alterar agora-->
-													<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
-														alt="" />
-												</a>
+                            <div class="account-wrap">
+                                <div class="account-item account-item--style2 clearfix js-item-menu">
+                                    <div class="image">
+                                        <div>
+                                            <a>
+                                                <img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
+                                                    alt="" />
+                                        </div></a>
+                                    </div>
+                                    <div class="content">
+                                        <a class="js-acc-btn" href="<?php echo site_url('C_login') ?>">
+                                            <?php echo $this->session->userdata('usuario_nome'); ?> </a>
+                                    </div>
+                                    <div class="account-dropdown js-dropdown">
+                                        <div class="info clearfix">
+                                            <div class="image">
+                                                <a>
+                                                    <!-- imagem de perfil, alterar agora-->
+                                                    <img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
+                                                        alt="" />
+                                                </a>
 
-												<!-- checkpoint -->
-											</div>
-											<div class="content">
-												<h5 class="name">
-													<a href=""><?php echo $this->session->userdata('usuario_nome'); ?>
-													</a>
-												</h5>
-												<span
-													class="email"><?php echo $this->session->userdata('usuario_email'); ?>
-												</span>
-											</div>
-										</div>
-										<div class="account-dropdown__body">
-											<!-- <div class="account-dropdown__item">
+                                                <!-- checkpoint -->
+                                            </div>
+                                            <div class="content">
+                                                <h5 class="name">
+                                                    <a href=""><?php echo $this->session->userdata('usuario_nome'); ?>
+                                                    </a>
+                                                </h5>
+                                                <span
+                                                    class="email"><?php echo $this->session->userdata('usuario_email'); ?>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="account-dropdown__body">
+                                            <!-- <div class="account-dropdown__item">
 											<a href="#">
 												<i class="zmdi zmdi-account"></i>Administração</a>
 										</div> -->
-											<!-- <div class="account-dropdown__item">
+                                            <!-- <div class="account-dropdown__item">
 											<a href="#">
 												<i class="zmdi zmdi-settings"></i>Configurações de Conta</a>
 										</div> -->
-											<div class="account-dropdown__item">
-												<a href="<?php echo base_url(); ?>C_perfil/">
-													<i class="zmdi zmdi-account"></i>Conta</a>
-											</div>
+                                            <div class="account-dropdown__item">
+                                                <a href="<?php echo base_url(); ?>C_perfil/">
+                                                    <i class="zmdi zmdi-account"></i>Conta</a>
+                                            </div>
 
-											<div class="account-dropdown__footer">
-												<a href="<?php echo site_url('C_login/logout'); ?>">
-													<i class="zmdi zmdi-power"></i>Sair</a>
-											</div>
-										</div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="<?php echo site_url('C_login/logout'); ?>">
+                                                    <i class="zmdi zmdi-power"></i>Sair</a>
+                                            </div>
+                                        </div>
 
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-		</header>
-		<!-- END HEADER DESKTOP-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </header>
+        <!-- END HEADER DESKTOP-->
 
-		<!-- HEADER MOBILE-->
-		<header class="header-mobile header-mobile-2 d-block d-lg-none">
-			<div class="header-mobile__bar">
-				<div class="container-fluid">
-					<div class="header-mobile-inner">
-						<a href="<?php echo base_url(); ?>home">
-							<!-- <h1 style="color:#2C0CB8"> RF&A </h1> -->
-							<!-- <img src="<?php echo base_url(); ?>public/images/icon/logo_completa.png" alt="" /> -->
-							<img style="width:70px; "
-								src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
-								alt="" />
-						</a>
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile header-mobile-2 d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a href="<?php echo base_url(); ?>home">
+                            <!-- <h1 style="color:#2C0CB8"> RF&A </h1> -->
+                            <!-- <img src="<?php echo base_url(); ?>public/images/icon/logo_completa.png" alt="" /> -->
+                            <img style="width:70px; "
+                                src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
+                                alt="" />
+                        </a>
 
 
-						</a>
-						<button class="hamburger hamburger--slider" type="button">
-							<span class="hamburger-box" ">
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box" ">
 								<span class=" hamburger-inner"></span>
-							</span>
-						</button>
-					</div>
-				</div>
-			</div>
-			<nav class="navbar-mobile" style="padding-top:20px;">
-				<div class="container-fluid">
-					<ul class="navbar-mobile__list list-unstyled">
-						<li class="has-sub">
-							<a href="<?php echo base_url(); ?>home"><i class="fas fa-tachometer-alt"></i>Painel</a>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile" style="padding-top:20px;">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a href="<?php echo base_url(); ?>home"><i class="fas fa-tachometer-alt"></i>Painel</a>
 
-						</li>
-						<!-- <li class="has-sub">
+                        </li>
+                        <!-- <li class="has-sub">
 							<a class="js-arrow" style="color:black;" href="#">
 								<i class="fas fa-tachometer-alt"></i>Dashboard</a>
 							<ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
@@ -372,62 +377,62 @@ if($this->session->userdata('logged_in') == false){
 								</li>
 
 							</ul> -->
-						<li class="has-sub">
-							<a href="<?php echo base_url(); ?>C_cliente"><i class="fas fa-user"></i>
-								Cliente </a>
-						</li>
-						<li>
-										<a href="http://rfcrm/C_chat">Chat</a>
-									</li>
-									<li>
-										<a href="http://rfcrm/C_email">Email</a>
-									</li>
-					</ul>
-				</div>
-			</nav>
-		</header>
-		<div class="sub-header-mobile-2 d-block d-lg-none">
-			<div class="header__tool">
-				<div class="header-button-item has-noti js-item-menu">
-					<i class="zmdi zmdi-notifications"></i>
-					<div class="notifi-dropdown notifi-dropdown--no-bor js-dropdown">
-						<?php
+                        <li class="has-sub">
+                            <a href="<?php echo base_url(); ?>C_cliente"><i class="fas fa-user"></i>
+                                Cliente </a>
+                        </li>
+                        <li>
+                            <a href="http://rfcrm/C_chat">Chat</a>
+                        </li>
+                        <li>
+                            <a href="http://rfcrm/C_email">Email</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="sub-header-mobile-2 d-block d-lg-none">
+            <div class="header__tool">
+                <div class="header-button-item has-noti js-item-menu">
+                    <i class="zmdi zmdi-notifications"></i>
+                    <div class="notifi-dropdown notifi-dropdown--no-bor js-dropdown">
+                        <?php
 						//  if (!empty($alerta)) {
 						//     foreach ($alerta as $alert) { 
 						?>
-						<div class="notifi__item"
-							href="<?php echo base_url(); ?>C_admin/exibirAlerta/<?php echo $alerta->alerta_id; ?>">
-							<div class="bg-c1 img-cir img-40">
-								<i class="zmdi zmdi-email-open"></i>
-							</div>
-							<div class="content">
+                        <div class="notifi__item"
+                            href="<?php echo base_url(); ?>C_admin/exibirAlerta/<?php echo $alerta->alerta_id; ?>">
+                            <div class="bg-c1 img-cir img-40">
+                                <i class="zmdi zmdi-email-open"></i>
+                            </div>
+                            <div class="content">
 
 
-								<div>
-									<p>Bem vindo ao novo CRM da RF&A!!</p>
-									<span class="date"><?php
+                                <div>
+                                    <p>Bem vindo ao novo CRM da RF&A!!</p>
+                                    <span class="date"><?php
 		date_default_timezone_set('America/Fortaleza');
 		echo date('H:i:s / d-m-Y '); ?></span>
-								</div>
-							</div>
+                                </div>
+                            </div>
 
-						</div>
-						<!-- <? //php }
+                        </div>
+                        <!-- <? //php }
 								// } 
 								?> -->
-					</div>
-					<?php if ($this->session->userdata('usuario_nivel') === '1') { ?>
-					<div class="header-button-item js-item-menu">
-						<i class="zmdi zmdi-settings"></i>
-						<div class="setting-dropdown js-dropdown">
+                    </div>
+                    <?php if ($this->session->userdata('usuario_nivel') === '1') { ?>
+                    <div class="header-button-item js-item-menu">
+                        <i class="zmdi zmdi-settings"></i>
+                        <div class="setting-dropdown js-dropdown">
 
-							<div class="account-dropdown__body">
-								<div class="account-dropdown__item">
-									<a href="<?php echo base_url(); ?>C_admin">
-										<i class="zmdi zmdi-account"></i>Administração</a>
-								</div>
+                            <div class="account-dropdown__body">
+                                <div class="account-dropdown__item">
+                                    <a href="<?php echo base_url(); ?>C_admin">
+                                        <i class="zmdi zmdi-account"></i>Administração</a>
+                                </div>
 
-								<!-- <div class="account-dropdown__item">
+                                <!-- <div class="account-dropdown__item">
 								<a href="#">
 									<i class="zmdi zmdi-settings"></i>Configurações</a>
 							</div>
@@ -461,68 +466,67 @@ if($this->session->userdata('logged_in') == false){
 
 						</div>
 					</div> -->
-							</div>
-						</div>
-					</div>
-					<?php } ?>
-					<div class="account-wrap">
-						<div class="account-item account-item--style2 clearfix js-item-menu">
-							<div class="image">
-								<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
-									alt=" " />
-							</div>
-							<div class="content">
-								<a class="js-acc-btn" href="#">Johann Kaltner</a>
-							</div>
-							<div class="account-dropdown js-dropdown">
-								<div class="info clearfix">
-									<div class="image">
-										<a href="#">
-											<img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
-												alt=" " />
-										</a>
-									</div>
-									<div class="content">
-										<h5 class="name">
-											<a href="#"><?php echo $this->session->userdata('usuario_nome'); ?></a>
-										</h5>
-										<span class="email"><?php echo $this->session->userdata('usuario_email'); ?>
-										</span>
-									</div>
-								</div>
-								<div class="account-dropdown__body">
-									<div class="account-dropdown__item">
-										<a href="<?php echo base_url(); ?>C_perfil">
-											<i class="zmdi zmdi-account"></i>Conta</a>
-									</div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <div class="account-wrap">
+                        <div class="account-item account-item--style2 clearfix js-item-menu">
+                            <div class="image">
+                                <img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
+                                    alt=" " />
+                            </div>
+                            <div class="content">
+                                <a class="js-acc-btn" href="#">Johann Kaltner</a>
+                            </div>
+                            <div class="account-dropdown js-dropdown">
+                                <div class="info clearfix">
+                                    <div class="image">
+                                        <a href="#">
+                                            <img src="<?php echo base_url(); ?>public/images/perfil/<?php echo $this->session->userdata('usuario_id'); ?>.png"
+                                                alt=" " />
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h5 class="name">
+                                            <a href="#"><?php echo $this->session->userdata('usuario_nome'); ?></a>
+                                        </h5>
+                                        <span class="email"><?php echo $this->session->userdata('usuario_email'); ?>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="account-dropdown__body">
+                                    <div class="account-dropdown__item">
+                                        <a href="<?php echo base_url(); ?>C_perfil">
+                                            <i class="zmdi zmdi-account"></i>Conta</a>
+                                    </div>
 
 
-								</div>
-								<div class="account-dropdown__footer">
-									<a href="<?php echo site_url('C_login/logout'); ?>">
-										<i class="zmdi zmdi-power"></i>Sair</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+                                </div>
+                                <div class="account-dropdown__footer">
+                                    <a href="<?php echo site_url('C_login/logout'); ?>">
+                                        <i class="zmdi zmdi-power"></i>Sair</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-			<script>
-				var el = document.documentElement,
-					rfs = // for newer Webkit and Firefox
-					el.requestFullScreen ||
-					el.webkitRequestFullScreen ||
-					el.mozRequestFullScreen ||
-					el.msRequestFullScreen;
-				if (typeof rfs != "undefined" && rfs) {
-					rfs.call(el);
-				} else if (typeof window.ActiveXObject != "undefined") {
-					// for Internet Explorer
-					var wscript = new ActiveXObject("WScript.Shell");
-					if (wscript != null) {
-						wscript.SendKeys("{F11}");
-					}
-				}
-
-			</script>
+            <script>
+            var el = document.documentElement,
+                rfs = // for newer Webkit and Firefox
+                el.requestFullScreen ||
+                el.webkitRequestFullScreen ||
+                el.mozRequestFullScreen ||
+                el.msRequestFullScreen;
+            if (typeof rfs != "undefined" && rfs) {
+                rfs.call(el);
+            } else if (typeof window.ActiveXObject != "undefined") {
+                // for Internet Explorer
+                var wscript = new ActiveXObject("WScript.Shell");
+                if (wscript != null) {
+                    wscript.SendKeys("{F11}");
+                }
+            }
+            </script>

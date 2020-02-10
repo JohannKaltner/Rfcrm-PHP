@@ -8,7 +8,7 @@ if($this->session->userdata('logged_in') == false){
     <section class="au-breadcrumb2">
         <div class="container">
  
-
+<!-- 
 <div class="alert alert-success" role="alert">
   <h4 class="alert-heading">Novidades!</h4>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -18,8 +18,7 @@ if($this->session->userdata('logged_in') == false){
   <hr>
   <p class="mb-0">Para realizar o envio da mensagem, basta entrar em um Cliente e acessar a aba de contatos, lá se encontra o botão!</p>
   <small class="mb-0">é necessario estar com o numero da RICARDO FURTADO conectado ao WhatsApp Web para prosseguir, qualquer mensagem enviada por numero pessoal está completamente proibida</small>
-  
-</div>
+</div> -->
             <div class="row">
                 <div class="col-md-12">
                     <div class="au-breadcrumb-content">

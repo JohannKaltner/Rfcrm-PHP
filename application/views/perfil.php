@@ -153,11 +153,13 @@
                                         <strong class="card-title"><?php echo $Pchamado->chamado_assunto;?></strong> <span class="badge badge-primary">CHAMADO DE ID:<?php echo $Pchamado->chamado_id;?></span>
                                     </div>
                                     <div class="card-body">
-                                      <small><?php echo $Pchamado->chamado_data;?>   --   <?php echo $Pchamado->chamado_hora;?></small>  
+                                      <small><?php echo $Pchamado->chamado_data;?>--<?php echo $Pchamado->chamado_hora;?></small>  
+                                      <hr>
                                         <p class="card-text">
-                                            <hr>
+                                            <?php echo $Pchamado->chamado_atividade;?><br>
                                             <?php echo $Pchamado->chamado_obs;?>
                                         </p>
+
                                     </div>
                                 </div>
                             </div>

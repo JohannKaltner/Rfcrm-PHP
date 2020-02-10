@@ -77,10 +77,6 @@ class M_chat extends CI_Model
    $this->db->where($where);
   
    $this->db->order_by('r.mensagem_data', 'ASC');
-   // ->where('mensagem_destinatario_id', $this->uri->segment(3))
-   // ->where('mensagem_remetente_id', $this->session->userdata('usuario_id'));
-  
-
    $query = $this->db->get();
    if ($query->num_rows() < 1) {
        return false;
