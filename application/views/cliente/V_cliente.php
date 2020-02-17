@@ -7,7 +7,7 @@
  		<div class="container">
  			<div class="row">
  				<div class="col-md-12">
- 					<div class="au-breadcrumb-left">
+ 					<div class="au-breadcrumb-left"><br><br> 
  						<span class="au-breadcrumb-span">Você está aqui:</span>
  						<ul class="list-unstyled list-inline au-breadcrumb__list">
  							<li class="list-inline-item active">
@@ -21,14 +21,22 @@
  							</li>
  						</ul>
  					</div>
+					 <hr>
  					<br>
  					<div>
- 						<h3 class="title-5">CLIENTES</h3>
+ 						<h3 class="title-5"> </h3>
  						<div class="table-data__tool">
  							<div class="table-data__tool-left">
-
+							 <form class="au-form-icon--sm" action="<?php echo site_url('C_cliente/buscaContatos');?>" method="post">
+							 	<label>Contatos:</label>
+ 								<input class="au-input--w300 au-input--style2" name="keyword" type="text" placeholder="procure por Nome ou Telefone...">
+ 								<button class="au-btn--submit2"  >
+ 									<i class="zmdi zmdi-search"></i>
+ 								</button>
+ 							</form>
  							</div>
  							<form class="au-form-icon--sm" action="<?php echo site_url('C_cliente/busca');?>" method="post">
+							 	<label>Clientes:</label>
  								<input class="au-input--w300 au-input--style2" name="keyword" type="text" placeholder="procure por Nome ou Codigo...">
  								<button class="au-btn--submit2"  >
  									<i class="zmdi zmdi-search"></i>

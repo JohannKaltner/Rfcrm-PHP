@@ -44,7 +44,7 @@ class C_Admin extends CI_Controller
 		//
 		// $data['breadcrumbs'] = array('Simple Pagination Using CodeIgniter and MySQL' => '#'); 
 		$config['total_rows'] = $this->M_admin->getAllUserCount();
-		$data['total_count'] = $config['total_rows'];
+		$config['total_rows'] = $this->db->get('usuario')->num_rows();
 		$config['suffix'] = '';
 		if ($config['total_rows'] > 0) {
 			$page_number = $this->uri->segment(3);
@@ -183,26 +183,7 @@ class C_Admin extends CI_Controller
 	 $save='/db_backup/rfcrm/'.$dbname;
 	 write_file($save,$backup);
 	 force_download($dbname,$backup);
-		// $NAME = $this->db->database;
-		// $this->load->dbutil();
-		// $prefs = array(
-		// 	'format' => 'zip',
-		// 	'filename' => 'rfcrm_backup.sql'
-		// );
-		// $backup = &$this->dbutil->backup($prefs);
-		// $db_name = $NAME . '.zip';
-		// $save = base_url().'db_backup/' . $db_name;
-		// $this->load->helper('file');
-		// write_file($save, $backup);
-		// $this->load->helper('download');
-		// force_download($db_name, $backup);
+ 
 	}
-
-	// public function list_by_id($usuario_id = NULL){
-	// 	$data['linha']= $this->M_admin->exibirChamados($usuario_id);
-
-	// 	echo "<script> window.history.go(-1);</script>";
-
-	// }
-
+ 
 }

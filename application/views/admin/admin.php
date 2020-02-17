@@ -112,7 +112,7 @@ if($this->session->userdata('logged_in') == false && $this->session->userdata('u
 									<td><?php echo $element['usuario_nivel']; ?></td>
 									<td><?php echo $element['usuario_data_inicio']; ?></td>
 
-									<td ">
+									<td >
               <div class=" table-data-feature">
 
 										<!-- <a href="<?php echo site_url('C_admin/exibir'); ?>/<?php echo $usuarios['usuario_id']; ?>">  -->

@@ -12,8 +12,14 @@
 				<input type="file" name="csv_file" id="csv_file" required accept=".csv" />
 			</div>
 			<br />
-			<button type="submit" name="import_csv" class="btn btn-info" id="import_csv_btn">Import CSV</button>
+			<button type="submit" name="import_csv" value="<?php echo base_url();?>uploads/master2.csv" class="btn btn-info" id="import_csv_btn">Import CSV</button>        
 		</form>
+
+        <form>
+        <div class="form-group">
+			<a href="<?php echo base_url();?>C_historico/truncarDb" type="submit" name="truncaHistorico"  class="btn btn-danger" id="truncarHistorico_btn">Limpar Historico</a>
+        </div>
+        </form>
         
         
         <!-- <button type="submit" name="import_csv" class="btn btn-info" id="import_csv_btn">

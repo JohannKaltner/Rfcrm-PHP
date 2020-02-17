@@ -179,7 +179,7 @@
         <div class="inbox_people" >
           <div class="headind_srch" >
             <div class="recent_heading">
-              <h4>Usuarios</h4>
+              <h4 style="color:#017cff;">Usuarios</h4>
             </div>
             <!-- <div class="srch_bar">
               <div class="stylish-input-group">
@@ -191,6 +191,15 @@
           </div>
           <div class="inbox_chat" style="height:680px;">
             <!-- <div class="chat_list active_chat"> -->
+
+            <!-- <h2>Comercial</h2>
+            <hr>
+            <h2>Contabilidade/DP.Pessoal</h2>
+            <hr>
+            <h2>Financeiro</h2>
+            <hr>
+            <h2>Juridico</h2>
+            <hr> -->
             <?php if(isset($usuarioInfo) && !empty($usuarioInfo)){ ?>
               <?php foreach($usuarioInfo as $usuario){ ?>
            
@@ -205,7 +214,7 @@
                 <?php }  ?> 
                   </div>
                 <div class="chat_ib">
-                  <h5> <?php echo $usuario['usuario_nome']; ?></a> <span class="chat_date">Dec 25</span></h5>
+                  <h5> <?php echo $usuario['usuario_nome']; ?></a> <span class="chat_date"><?php echo $usuario['usuario_setor']?></span></h5>
                   
                   <?php if($usuario['usuario_status'] != "Online"){ ?>
                   <p style="color:red;"> <i class="fas fa-circle"></i> <?php echo $usuario['usuario_status'];?></p>

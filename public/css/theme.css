@@ -1635,11 +1635,11 @@ section {
 }
 
 .navbar-sidebar .navbar__list li a:hover {
-    color: #4272d7;
+    color: #00b5e9;
 }
 
 .navbar-sidebar .navbar__list li.active > a {
-    color: #4272d7;
+    color: #00b5e9;
 }
 
 .has-sub {
@@ -1752,7 +1752,7 @@ section {
 }
 
 .header-mobile .navbar-mobile .navbar-mobile__list li a:hover {
-    color: #4272d7;
+    color: #00b5e9;
 }
 
 .header-mobile .navbar-mobile .navbar-mobile__list li a > i {
@@ -2240,7 +2240,7 @@ section {
 }
 
 .navbar-sidebar2 .navbar__list li:hover > a {
-    color: #4272d7;
+    color: #00b5e9;
 }
 
 .navbar-sidebar2 .navbar__list li a {
@@ -2256,7 +2256,7 @@ section {
 }
 
 .navbar-sidebar2 .navbar__list li.active > a {
-    color: #4272d7;
+    color: #00b5e9;
 }
 
 .navbar-sidebar2 .navbar__sub-list {
@@ -2795,7 +2795,7 @@ section {
 }
 
 .header__navbar .header3-sub-list li a:hover {
-    color: #4272d7;
+    color: #00b5e9;
     background: #f7f7f7;
 }
 
@@ -2848,7 +2848,7 @@ section {
     position: absolute;
     width: 100%;
     height: 3px;
-    background: #2c0cb8;
+    background: #00b5e9;
     left: 0;
     bottom: 0;
     opacity: 0;
@@ -3037,7 +3037,7 @@ section {
 }
 
 .navbar-sidebar3 .navbar__list li.active > a {
-    background: #4272d7;
+    background: #00b5e9;
     color: #fff;
 }
 
@@ -3300,7 +3300,7 @@ section {
     background-image: -webkit-linear-gradient(90deg, #396afc 0%, #2948ff 100%);
     background-image: -ms-linear-gradient(90deg, #396afc 0%, #2948ff 100%);
 }
-
+s
 .au-card-top-countries {
     padding: 40px;
     padding-top: 25px;

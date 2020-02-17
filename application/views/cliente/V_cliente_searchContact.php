@@ -84,15 +84,12 @@
  						<thead>
  							<tr>
  								<th>Nº de Identificação</th>
- 								<th>Codigo</th>
- 								<th>Nome</th>
+ 								<th>NOME DO CONTATO</th>
+ 								<th>EMAIL</th>
  								<th>TELEFONE</th>
- 								<th>CIDADE</th>
- 								<th>ENDEREÇO</th>
- 								<th>BAIRRO</th>
- 								<th>CEP</th>
-								 <th>CHAMADOS REALIZADOS</th>
- 								<th>FUNÇÕES</th>
+ 								<th>FUNCAO</th>
+ 								<th>HORA DE REGISTRO</th>
+ 								<th>OPERAÇÕES</th>
  							</tr>
  						</thead>
  						<tbody>
@@ -101,28 +98,23 @@
  							
 							 <tr>
  								<!-- <?php print_r($result); ?> -->
- 								<td><?php echo $row->cliente_id; ?></td>
- 								<td><?php echo $row->cod_cliente; ?></td>
+ 								<td><?php echo $row->contato_secundario_id; ?></td>
+ 								<td><?php echo $row->contato_secundario_nome; ?></td>
 								<td>
- 									<a style="color: inherit;" href="<?php echo site_url('C_cliente/exibir'); ?>/<?php echo $row->cliente_id; ?>">
-										<?php echo $row->cliente_nome; ?> 
+ 									<a style="color: inherit;" href="<?php echo site_url('C_cliente/exibir'); ?>/<?php echo $row->cliente_contato_id; ?>">
+										<?//php echo $row->cliente_nome; ?> 
  									</a>
 								</td>
-							 	<td><?php echo $row->cliente_telefone; ?></td>
- 								<td><?php echo $row->cliente_cidade; ?></td>
- 								<td><?php echo $row->cliente_endereco; ?></td>
- 								<td><?php echo $row->cliente_bairro; ?></td>
- 								<td><?php echo $row->cliente_cep; ?></td>
-								 <td><?php $this->db->select('*');
-										$this->db->where('chamado_id_cliente', $row->cliente_id);
-											$query = $this->db->get('chamado');
-											$num = $query->num_rows();
-											?> <?php echo $num; ?> </td> 
- 								<td>
+ 								<td><?php echo $row->contato_secundario_email; ?></td>
+							 	<td><?php echo $row->contato_secundario_telefone; ?></td>
+ 								<td><?php echo $row->contato_secundario_funcao; ?></td>
+ 								<td><?php echo $row->contato_hora_registro; ?></td>
+ 								<td> 
+								 
 								 
  									<div class="table-data-feature">
  										<a
- 											href="<?php echo site_url('C_cliente/exibir'); ?>/<?php echo $row->cliente_id; ?>">
+ 											href="<?php echo site_url('C_cliente/exibir'); ?>/<?php echo $row->cliente_contato_id; ?>">
  											<button class="item" data-toggle="tooltip" data-placement="top"
  												title="Acessar Cliente">
  												<i class="zmdi zmdi-view-list-alt"></i>
@@ -130,35 +122,19 @@
  										</a>
 
  										<a
- 											href="<?php echo site_url('C_cliente/delete'); ?>/<?php echo $row->cliente_id; ?>">
+ 											href="<?php echo site_url('C_cliente/deletaContato'); ?>/<?php echo $row->contato_secundario_id; ?>">
  											<button class="item" data-toggle="tooltip" data-placement="top"
  												title="Deletar">
  												<i class="zmdi zmdi-delete"></i>
  											</button>
  										</a>
-
- 										<!-- <button class="item" data-toggle="modal" data-target="#viewModal">
- 														<i class="fas fa-search"  data-toggle="tooltip" data-placement="top" title="Visualizar"></i>
- 													</button> -->
-
-
-
- 										<?php if ($this->session->userdata('usuario_nivel') == '1') { ?>
- 										<a>
- 											<div style="padding-left: 10px 10px 10px 10px">
- 												<button type="button" class="item" data-toggle="tooltip"
- 													data-placement="top" title="Exportar em PDF">
- 													<i class="fas fa-file-pdf"></i></button> </div>
- 										</a>
-
- 										<?php } ?>
  									</div>
  								</td>
  							</tr>
  							<?php } ?>
  							<?php } else { ?>
  							<tr>
- 								<td colspan="4">O Banco de Clientes está Vazio.</td>
+ 								<td colspan="4">O Banco de Contatos está Vazio.</td>
  							</tr>
  							<?php } ?>
  							<!-- insira aqui o BACKUP DA TABLE   -->

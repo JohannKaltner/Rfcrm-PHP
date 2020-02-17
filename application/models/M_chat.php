@@ -42,7 +42,32 @@ class M_chat extends CI_Model
     $this->db->where('usuario_id', $this->session->userdata('usuario_id'));
     $this->db->update('usuario', $dataSession);
 
+     $dataNotification = array(
+
+       'notification_id_user'        => $this->session->userdata('usuario_id'),
+       'notification_user_to'     => $this->input->post('mensagem_id_para'),
+       "notification_description" => "opa, Você recebeu uma Mensagem.. Clique para visualizar",
+       "notification_data"        => date("d-m-Y / H:i"),
+       "notification_status"      => 'Enviada'
+     );
+     $this->db->insert('notification', $dataNotification);
+
   }
+
+  public function listarNotificações(){
+    $this->db->select('*');
+    $this->db->from('notification');
+    $this->db->where('notification_status', 'Enviada');
+    $this->db->where('notification_user_to', $this->session->userdata('usuario_id'));
+    $this->db->order_by('notification_id', 'DESC');
+   $query = $this->db->get();
+   if ($query->num_rows() < 1) {
+       return false;
+   }
+   return $query->result();
+ 
+  }
+   
 
 //   public function exibirMensagensEnviadas(){
 //     $this->db->select('e.mensagem_remetente_id,e.mensagem_destinatario_id ,e.mensagem_conteudo,e.mensagem_data_envio');

@@ -195,4 +195,46 @@ class C_Cliente extends CI_Controller
             $this->template->show('cliente/V_cliente_search', $data);
         }
     }
+
+    public function buscaContatos()
+    {
+
+        $data['metaDescription'] = 'RFCRM';
+        $data['metaKeywords'] = 'RFCRM';
+        $data['title'] = "RFCRM";
+        // $data['breadcrumbs'] = array('Simple Pagination Using CodeIgniter and MySQL' => '#');
+        $config['total_rows'] = $this->M_cliente->getAllContatosCount();
+        $data['total_count'] = $config['total_rows'];
+        $config['suffix'] = '';
+        if ($config['total_rows'] > 1) {
+            $page_number = $this->uri->segment(3);
+            if ($page_number > 0) {
+                $config['base_url'] = base_url() . 'C_cliente';
+            } else {
+                $config['base_url'] = base_url() . 'C_cliente/buscaContatos/';
+            }
+            if (empty($page_number)) {
+                $page_number = 1;
+            }
+
+            $offset = ($page_number - 1) * $this->pagination->per_page;
+            $this->M_cliente->setPageNumber($this->pagination->per_page);
+            $this->M_cliente->setOffset($offset);
+            $this->pagination->cur_page = $offset;
+            $config['attributes'] = array('class' => 'page-link');
+            $this->pagination->initialize($config);
+			$data['page_links'] = $this->pagination->create_links();
+			
+            $data['result'] = $this->M_cliente->listarBuscaContatos();
+            //
+            // ─────────────────────────────────────────────────────────── FIM PAGINATION ─────
+            //
+
+            $data['page_title'] = "Resultados de Pesquisa";
+            // $this->template->show('cliente/V_cliente', $data);
+
+            // $data['result'] = $this->M_cliente->listarBusca();
+            $this->template->show('cliente/V_cliente_searchContact', $data);
+        }
+    }
 }

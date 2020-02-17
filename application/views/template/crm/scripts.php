@@ -46,9 +46,9 @@
     <script src="<?php echo base_url(); ?>public/vendor/fullcalendar-3.10.0/fullcalendar.js"></script>
 
     <!-- Main JS-->
-    <script src="js/main.js"></script>
+    <script src="<?php echo base_url(); ?>public/js/main.js"></script>
 
 
 
     <!-- Main JS-->
-    <script src="js/main.js"></script>
+    <script src="<?php echo base_url(); ?>public/js/main.js"></script>

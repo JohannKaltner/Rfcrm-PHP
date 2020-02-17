@@ -21,7 +21,6 @@ class C_Chamado extends CI_Controller {
             echo "<script> window.history.go(-1);</script>";
         }
     
-
         public function exibicao(){
             $data['result'] = $this->M_chamado->listarChamados();
             $this->template->show('C_cliente/exibir/', $data);	

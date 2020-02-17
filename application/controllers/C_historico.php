@@ -111,4 +111,11 @@ class C_Historico extends CI_Controller {
 		}
 		$this->M_historico->insert($data);
 	}
+
+	function truncarDb()
+	{
+		$this->M_historico->truncarHistorico();
+		echo "<script> window.history.go(-1);</script>";
+
+	}
 }

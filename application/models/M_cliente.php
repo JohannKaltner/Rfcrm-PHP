@@ -19,6 +19,11 @@ class M_cliente extends CI_Model
     //
     // ─── FOR PAGINATION ─────────────────────────────────────────────────────────────────
     //
+    public function getAllContatosCount()
+    {
+        $this->db->from('contato_secundario');
+        return $this->db->count_all_results();
+    }
 
     public function getAllClienteCount()
     {
@@ -553,6 +558,32 @@ class M_cliente extends CI_Model
         return $consulta;
     }
 
+    public function busca_contatos_by_cliente() {
+	 
+        // $cliente_id = $this->input->post("chamado_id_cliente");
+         //$cliente_id = '2';
+         
+        $this->db->where("cliente_contato_id", $this->input->post("chamado_id_cliente"));
+         
+        $this->db->order_by("contato_secundario_nome", "asc");
+         
+        $consulta = $this->db->get("contato_secundario");
+         
+        return $consulta;
+        }
+
+    public function retorna_clientes()
+    {
+
+        $this->db->select('*');
+        $this->db->from('cliente');
+        // $this->db->where('cliente_contato_id', $cliente_id);
+        $this->db->order_by("cod_cliente", "asc");
+        //$this->db->order_by("cliente_nome", "ASC");
+        $consulta = $this->db->get();
+        return $consulta;
+    }
+
     public function get_nome($cliente_id)
     {
         $this->db->select('cliente_nome');
@@ -588,6 +619,28 @@ class M_cliente extends CI_Model
         $this->db->like('c.cliente_nome', $keyword);
        // $this->db->or_like('c.cod_cliente', $keyword);
         $this->db->or_like('c.cod_cliente', $keyword);
+       // $this->db->or_like('c.cliente_email', $keyword);
+       // $this->db->or_like('c.cliente_endereco', $keyword);
+       // $this->db->or_like('c.cliente_hora_registro', $keyword);
+       // $this->db->or_like('c.cliente_telefone', $keyword);
+       // $this->db->or_like('c.cliente_cpf', $keyword);
+       // $this->db->or_like('c.cliente_cnpj', $keyword);
+        $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return false;
+        }
+        return $query->result();
+    }
+
+    public function listarBuscaContatos($keyword = null)
+    {
+        $keyword = $this->input->post('keyword');
+        $this->db->select(array('ctt.contato_secundario_id', 'ctt.contato_secundario_nome','ctt.cliente_contato_id', 'ctt.contato_secundario_email', 'ctt.contato_secundario_telefone', 'ctt.contato_secundario_funcao', 'ctt.contato_hora_registro'));
+        $this->db->from('contato_secundario as ctt');
+        $this->db->limit($this->_pageNumber, $this->_offset);
+        $this->db->like('ctt.contato_secundario_nome', $keyword);
+        $this->db->or_like('ctt.contato_secundario_telefone', $keyword);
+       // $this->db->or_like('c.cod_cliente', $keyword);
        // $this->db->or_like('c.cliente_email', $keyword);
        // $this->db->or_like('c.cliente_endereco', $keyword);
        // $this->db->or_like('c.cliente_hora_registro', $keyword);

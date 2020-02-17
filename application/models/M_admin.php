@@ -68,11 +68,25 @@ class M_Admin extends CI_Model
         }
         return $query->result_array();
     }
+    function listarRegistrosChat($query = '')
+    {
+        $this->db->select(array('u.usuario_id', 'u.usuario_nome', 'u.usuario_setor','u.usuario_img', 'u.usuario_nivel', 'u.usuario_data_inicio', 'u.usuario_img', 'u.usuario_status'));
+        $this->db->from('usuario as u');
+        $this->db->where('usuario_id NOT IN(SELECT usuario_id FROM usuario WHERE usuario_id='.$this->session->userdata('usuario_id').')');
+        $this->db->order_by('usuario_setor', 'asc');
+        $this->db->order_by('usuario_nome', 'asc');
+        $this->db->order_by('usuario_status', 'desc');
+        $this->db->limit($this->_pageNumber, $this->_offset);
+        $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return FALSE;
+        }
+        return $query->result_array();
+    }
 
     function listarRegistro($usuario_id = NULL)
 	{
-        $this->db->select(array('i.usuario_id','i.usuario_img','i.usuario_email', 'i.usuario_nome', 'i.usuario_setor', 'i.usuario_nivel', 'i.usuario_data_inicio'));        
-        $this->db->from('usuario as u');
+        $this->db->select(array('i.usuario_id','i.usuario_img','i.usuario_email', 'i.usuario_nome', 'i.usuario_setor', 'i.usuario_nivel', 'i.usuario_data_inicio', 'i.usuario_status'));        
          $this->db->where('i.usuario_id', $this->uri->segment(3));
          $this->db->from('usuario as i');
 
